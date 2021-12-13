@@ -6,5 +6,9 @@ export default {
   allow: { missing: true },
 
   calls: [
+    {
+      pattern: 'get:info',
+      out: { ok: true, details: { sdk: '@octokit/rest' } },
+    }
   ]
 }

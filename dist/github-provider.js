@@ -1,18 +1,31 @@
 "use strict";
 /* Copyright © 2021 Seneca Project Contributors, MIT License. */
 Object.defineProperty(exports, "__esModule", { value: true });
+// TODO: namespace provider zone; needs seneca-entity feature
 const rest_1 = require("@octokit/rest");
 /* Repo ids are of the form 'owner/name'. The internal github id field is
  * moved to github_id.
  *
  *
  */
-function GithubProvider(options) {
+function GithubProvider(_options) {
     const seneca = this;
     const ZONE_BASE = 'provider/github/';
     let octokit;
-    seneca.message('role:entity,cmd:load,zone:provider,base:github,name:repo', load_repo);
-    seneca.message('role:entity,cmd:save,zone:provider,base:github,name:repo', save_repo);
+    // NOTE: sys- zone prefix is reserved.
+    seneca
+        .message('sys:provider,provider:github,get:info', get_info)
+        .message('role:entity,cmd:load,zone:provider,base:github,name:repo', load_repo)
+        .message('role:entity,cmd:save,zone:provider,base:github,name:repo', save_repo);
+    async function get_info(_msg) {
+        return {
+            ok: true,
+            name: 'github',
+            details: {
+                sdk: '@octokit/rest'
+            }
+        };
+    }
     async function load_repo(msg) {
         let ent = null;
         let q = msg.q;
@@ -56,9 +69,19 @@ function GithubProvider(options) {
         };
         octokit = new rest_1.Octokit(config);
     });
+    return {
+        exports: {
+            native: () => ({
+                octokit
+            })
+        }
+    };
 }
 // Default options.
-const defaults = {};
+const defaults = {
+    // TODO: Enable debug logging
+    debug: false
+};
 Object.assign(GithubProvider, { defaults });
 exports.default = GithubProvider;
 if ('undefined' !== typeof (module)) {

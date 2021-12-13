@@ -1,6 +1,8 @@
 /* Copyright © 2021 Seneca Project Contributors, MIT License. */
 
 
+// TODO: namespace provider zone; needs seneca-entity feature
+
 import { Octokit } from '@octokit/rest'
 
 
@@ -14,7 +16,7 @@ type GithubProviderOptions = {}
  */
 
 
-function GithubProvider(this: any, options: any) {
+function GithubProvider(this: any, _options: any) {
   const seneca: any = this
 
   const ZONE_BASE = 'provider/github/'
@@ -22,13 +24,27 @@ function GithubProvider(this: any, options: any) {
   let octokit: Octokit
 
 
-  seneca.message('role:entity,cmd:load,zone:provider,base:github,name:repo',
-    load_repo)
+  // NOTE: sys- zone prefix is reserved.
 
-  seneca.message('role:entity,cmd:save,zone:provider,base:github,name:repo',
-    save_repo)
+  seneca
+    .message('sys:provider,provider:github,get:info', get_info)
+    .message('role:entity,cmd:load,zone:provider,base:github,name:repo',
+      load_repo)
+
+    .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
+      save_repo)
 
 
+
+  async function get_info(this: any, _msg: any) {
+    return {
+      ok: true,
+      name: 'github',
+      details: {
+        sdk: '@octokit/rest'
+      }
+    }
+  }
 
   async function load_repo(this: any, msg: any) {
     let ent: any = null
@@ -91,11 +107,21 @@ function GithubProvider(this: any, options: any) {
   })
 
 
+  return {
+    exports: {
+      native: () => ({
+        octokit
+      })
+    }
+  }
 }
 
 
 // Default options.
 const defaults: GithubProviderOptions = {
+
+  // TODO: Enable debug logging
+  debug: false
 }
 
 
