@@ -16,6 +16,18 @@ if (Fs.existsSync(__dirname + '/local-config.js')) {
 
 describe('github-provider', () => {
 
+  let provider_options = {
+    provider: {
+      github: {
+        keys: {
+          api: {
+            value: CONFIG.key
+          }
+        }
+      }
+    }
+  }
+
   test('happy', async () => {
     const seneca = Seneca({ legacy: false })
       .test()
@@ -138,5 +150,24 @@ describe('github-provider', () => {
     }
   })
 
+  test('load-issue', async () => {
+    const seneca = Seneca({ legacy: false })
+      .test()
+      .use('promisify')
+      .use('entity')
+      .use('provider', provider_options)
+      .use(GithubProvider)
+      
+    const args = {
+      id: 'senecajs/seneca-eventbrite-provider',
+      issue_number: 1
+    }
+
+    let entity = await seneca.entity('provider/github/issue').load$(args)
+
+    expect(entity.entity$).toBe('provider/github/issue')
+    expect(entity.repo_id).toBeDefined()
+    expect(entity.repo_id).toBe(args.id)
+  })
 })
 
