@@ -15,6 +15,9 @@ const docs = {
     desc: 'Update GitHub repository data from an entity.',
   },
 
+  load_issue: {
+    desc: 'Load GitHub Issue data into an entity.',
+  },
 }
 
 export default docs

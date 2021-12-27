@@ -91,6 +91,7 @@ seneca.use('GithubProvider', { name: value, ... })
 
 ## Action Patterns
 
+* [role:entity,base:github,cmd:load,name:issue,zone:provider](#-roleentitybasegithubcmdloadnameissuezoneprovider-)
 * [role:entity,base:github,cmd:load,name:repo,zone:provider](#-roleentitybasegithubcmdloadnamerepozoneprovider-)
 * [role:entity,base:github,cmd:save,name:repo,zone:provider](#-roleentitybasegithubcmdsavenamerepozoneprovider-)
 * [sys:provider,get:info,provider:github](#-sysprovidergetinfoprovidergithub-)
@@ -103,6 +104,13 @@ seneca.use('GithubProvider', { name: value, ... })
 
 ## Action Descriptions
 
+### &laquo; `role:entity,base:github,cmd:load,name:issue,zone:provider` &raquo;
+
+Load GitHub Issue data into an entity.
+
+
+
+----------
 ### &laquo; `role:entity,base:github,cmd:load,name:repo,zone:provider` &raquo;
 
 Load GitHub repository data into an entity.
