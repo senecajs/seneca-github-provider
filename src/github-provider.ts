@@ -117,6 +117,9 @@ function GithubProvider(this: any, _options: any) {
     }
 
     octokit = new Octokit(config)
+
+    initalArgs.octokit = octokit
+    Object.freeze(initalArgs)
   })
 
 
