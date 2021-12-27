@@ -50,7 +50,7 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
-
+    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', issuesCmds.load_issue)
 
   async function get_info(this: any, _msg: any) {
     return {
