@@ -23,6 +23,19 @@ function GithubProvider(this: any, _options: any) {
 
   let octokit: Octokit
 
+  const initalArgs: any = {
+    ZONE_BASE,
+    octokit: undefined
+  }
+
+  /**
+   * Passes initial arguments to the closure of each command group
+   * @param CommandsCb callback
+   * @returns {Object} object containing all commands of a entity 
+   */
+  function initCmds(CommandsCb: any) {
+    return CommandsCb(initalArgs)
+  }
 
   // NOTE: sys- zone prefix is reserved.
 
