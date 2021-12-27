@@ -4,6 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
+import issues from './entities/issues'
 
 
 type GithubProviderOptions = {}
@@ -36,6 +37,8 @@ function GithubProvider(this: any, _options: any) {
   function initCmds(CommandsCb: any) {
     return CommandsCb(initalArgs)
   }
+
+  const issuesCmds = initCmds(issues)
 
   // NOTE: sys- zone prefix is reserved.
 
