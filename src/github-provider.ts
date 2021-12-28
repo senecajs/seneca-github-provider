@@ -24,21 +24,21 @@ function GithubProvider(this: any, _options: any) {
 
   let octokit: Octokit
 
-  const initalArgs: any = {
+  const commom_args: any = {
     ZONE_BASE,
     octokit: undefined
   }
 
   /**
    * Passes initial arguments to the closure of each command group
-   * @param CommandsCb callback
+   * @param commandsCb callback
    * @returns {Object} object containing all commands of a entity 
    */
-  function initCmds(CommandsCb: any) {
-    return CommandsCb(initalArgs)
+  function init_commands(commandsCb: any) {
+    return commandsCb(commom_args)
   }
 
-  const issuesCmds = initCmds(issues)
+  const issues_cmds = init_commands(issues)
 
   // NOTE: sys- zone prefix is reserved.
 
@@ -50,7 +50,7 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
-    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', issuesCmds.load_issue)
+    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', issues_cmds.load_issue)
 
   async function get_info(this: any, _msg: any) {
     return {
@@ -121,8 +121,8 @@ function GithubProvider(this: any, _options: any) {
 
     octokit = new Octokit(config)
 
-    initalArgs.octokit = octokit
-    Object.freeze(initalArgs)
+    commom_args.octokit = octokit
+    Object.freeze(commom_args)
   })
 
 
