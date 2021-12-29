@@ -159,7 +159,7 @@ describe('github-provider', () => {
       .use(GithubProvider)
       
     const args = {
-      id: 'senecajs/seneca-eventbrite-provider',
+      repo_id: 'senecajs/seneca-eventbrite-provider',
       issue_number: 1
     }
 
@@ -167,7 +167,7 @@ describe('github-provider', () => {
 
     expect(entity.entity$).toBe('provider/github/issue')
     expect(entity.repo_id).toBeDefined()
-    expect(entity.repo_id).toBe(args.id)
+    expect(entity.repo_id).toBe(args.repo_id)
   })
 })
 

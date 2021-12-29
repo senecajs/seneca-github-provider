@@ -1,6 +1,6 @@
 function issues(args: any) {
   async function load_issue(this: any, msg: any) {
-    const repo_id = msg.q.id
+    const repo_id = msg.q.repo_id
     const issue_number = msg.q.issue_number
 
     const [ownername, reponame]: [string, string] = repo_id.split("/")
