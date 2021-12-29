@@ -4,7 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
-import issues from './entities/issues'
+import init_commands from './init-commands'
 
 
 type GithubProviderOptions = {}
@@ -24,21 +24,12 @@ function GithubProvider(this: any, _options: any) {
 
   let octokit: Octokit
 
-  const commom_args: any = {
+  const initial_args: any = {
     ZONE_BASE,
     octokit: undefined
   }
 
-  /**
-   * Passes initial arguments to the closure of each command group
-   * @param commandsCb callback
-   * @returns {Object} object containing all commands of a entity 
-   */
-  function init_commands(commandsCb: any) {
-    return commandsCb(commom_args)
-  }
-
-  const issues_cmds = init_commands(issues)
+  const commands = init_commands(initial_args)
 
   // NOTE: sys- zone prefix is reserved.
 
@@ -50,7 +41,7 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
-    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', issues_cmds.load_issue)
+    .message('role:entity,cmd:load,zone:provider,base:github,name:issue', commands.issue.load_issue)
 
   async function get_info(this: any, _msg: any) {
     return {
@@ -119,10 +110,8 @@ function GithubProvider(this: any, _options: any) {
       auth: out.value
     }
 
-    octokit = new Octokit(config)
-
-    commom_args.octokit = octokit
-    Object.freeze(commom_args)
+    octokit = initial_args.octokit = new Octokit(config)
+    Object.freeze(initial_args)
   })
 
 

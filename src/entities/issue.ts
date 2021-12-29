@@ -1,4 +1,6 @@
-function issues(args: any) {
+import { InitialCommandsArgs } from "../types"
+
+function issue(args: InitialCommandsArgs) {
   async function load_issue(this: any, msg: any) {
     const repo_id = msg.q.repo_id
     const issue_number = msg.q.issue_number
@@ -29,4 +31,4 @@ function issues(args: any) {
   }
 }
 
-export default issues
+export default issue
