@@ -149,25 +149,5 @@ describe('github-provider', () => {
       expect(repo.description.endsWith('M')).toBeTruthy()
     }
   })
-
-  test('load-issue', async () => {
-    const seneca = Seneca({ legacy: false })
-      .test()
-      .use('promisify')
-      .use('entity')
-      .use('provider', provider_options)
-      .use(GithubProvider)
-      
-    const args = {
-      repo_id: 'senecajs/seneca-eventbrite-provider',
-      issue_number: 1
-    }
-
-    let entity = await seneca.entity('provider/github/issue').load$(args)
-
-    expect(entity.entity$).toBe('provider/github/issue')
-    expect(entity.repo_id).toBeDefined()
-    expect(entity.repo_id).toBe(args.repo_id)
-  })
 })
 
