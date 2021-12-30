@@ -1,5 +1,5 @@
-import issue from './entities/issue'
 import { InitialCommandsArgs } from './types'
+import issue from './entities/issue'
 
 /**
  * Passes initial arguments to the closure of each group of commands
