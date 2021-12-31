@@ -107,5 +107,5 @@ typings/
 package-lock.json
 yarn.lock
 
-test/local-config.js
+test/local-config-template.js
 
