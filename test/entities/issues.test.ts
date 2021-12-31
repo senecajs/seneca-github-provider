@@ -11,10 +11,6 @@ describe('github-issues', () => {
   // NOTE: provide a valid ownername/reponame
   let repo_id = ''
 
-  if (!repo_id || repo_id.length === 0) {
-    throw new Error('invalid repo_id')
-  }
-
   test("load-issue", async () => {
     const seneca = Seneca({ legacy: false })
       .test()
