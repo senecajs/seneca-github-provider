@@ -6,7 +6,39 @@ function cmd_handlers(reqFn: Action, args: any = {}, include?: string[]) {
     const id = msg.q.id
     let res: any
 
-    
+    if(repo_id) {
+      const [owner, repo] = repo_id.split('/')
+      const body = {
+        owner,
+        repo,
+        ...args,
+      }
+      res = await reqFn(body)
+    }
+
+    if(id) {
+      const ent_id = msg.ent.entity$.split('/')[2] + '_id'
+      const body = {
+        ...args,
+      }
+      body[ent_id] = id
+      res = await reqFn(body)
+    }   
+
+    res = res.data
+
+    if (include) {
+      include.forEach((item) => {
+        if (item.indexOf(' as ') !== -1) {
+          const [attr, new_attr_name] = item
+            .split(' as ')
+            .map((item) => item.trim())
+          res[new_attr_name] = msg.q[attr]
+        } else {
+          res[item] = msg.q[item]
+        }
+      })
+    }
 
     return this.make$(msg.ent.entity$).data$(res)
   }
