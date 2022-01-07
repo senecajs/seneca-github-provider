@@ -6,6 +6,8 @@
 import { Octokit } from '@octokit/rest'
 import { Action, EntityCommand } from './types'
 import EntitiesData from './entitites.json'
+import { build_pattern } from './helper'
+import identify_handler from './identify-handler'
 
 
 type GithubProviderOptions = {}
@@ -40,7 +42,26 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
+  function add_actions() {
+    entities.forEach((ent) => {
+      const ent_name = ent.entity
 
+      ent.commands.forEach(command_details => {
+        const common = { zone: "provider", base: "github", role: "entity" }
+        const cmd_name = command_details.cmd
+  
+        const pattern = build_pattern({
+          name: ent_name,
+          cmd: cmd_name,
+          ...common,
+        })
+
+        const cmd_handler = identify_handler(command_details, actions)
+
+        seneca.message(pattern, cmd_handler)
+      })
+    })
+  }
 
   async function get_info(this: any, _msg: any) {
     return {
