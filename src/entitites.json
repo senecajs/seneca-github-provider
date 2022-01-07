@@ -1,0 +1,21 @@
+[
+  {
+    "entity": "repo",
+    "commands": [
+      {
+        "cmd": "load",
+        "callback": "getRepo",
+        "include": ["id as repo_id"]
+      }
+    ]
+  },
+  {
+    "entity": "gist",
+    "commands": [
+      {
+        "cmd": "load",
+        "callback": "getGist"
+      }
+    ]
+  }
+]
