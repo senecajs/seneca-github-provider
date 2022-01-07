@@ -4,6 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
+import { Action, EntityCommand } from './types'
 
 
 type GithubProviderOptions = {}
@@ -22,6 +23,9 @@ function GithubProvider(this: any, _options: any) {
   const ZONE_BASE = 'provider/github/'
 
   let octokit: Octokit
+
+  // octokit actions
+  let actions: Record<string, Action>
 
 
   // NOTE: sys- zone prefix is reserved.
