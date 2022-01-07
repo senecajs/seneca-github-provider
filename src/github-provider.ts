@@ -5,6 +5,7 @@
 
 import { Octokit } from '@octokit/rest'
 import { Action, EntityCommand } from './types'
+import EntitiesData from './entitites.json'
 
 
 type GithubProviderOptions = {}
@@ -27,6 +28,7 @@ function GithubProvider(this: any, _options: any) {
   // octokit actions
   let actions: Record<string, Action>
 
+  const entities: EntityCommand[] = EntitiesData
 
   // NOTE: sys- zone prefix is reserved.
 
