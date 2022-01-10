@@ -53,7 +53,16 @@ function GithubProvider(this: any, _options: any) {
           ...common,
         }
 
-        const cmd_handler = identify_handler(command_details, actions)
+        const rest_endpoint = command_details.rest_endpoint
+        const action_name = command_details.action
+
+        const github_action: CallableFunction = actions[rest_endpoint][action_name]
+
+        if(!github_action) {
+          throw new Error(`Invalid ${action_name} in ${rest_endpoint} endpoint`)
+        }
+
+        const cmd_handler = identify_handler(command_details, github_action)
 
         seneca.message(pattern, cmd_handler)
       })
