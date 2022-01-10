@@ -6,7 +6,6 @@
 import { Octokit } from '@octokit/rest'
 import { EntityMap } from './types'
 import { entities_map as ent_map } from './entities'
-import { build_pattern } from './helper'
 import identify_handler from './identify-handler'
 
 
