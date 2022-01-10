@@ -49,8 +49,8 @@ function GithubProvider(this: any, _options: any) {
       ent.commands.forEach(command_details => {
         const common = { zone: "provider", base: "github", role: "entity" }
         const cmd_name = command_details.cmd
-  
-        const pattern = build_pattern({
+
+        const pattern = {
           name: ent_name,
           cmd: cmd_name,
           ...common,
