@@ -4,7 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
-import { Action, EntityMap } from './types'
+import { EntityMap } from './types'
 import { entities_map as ent_map } from './entities'
 import { build_pattern } from './helper'
 import identify_handler from './identify-handler'
@@ -27,9 +27,6 @@ function GithubProvider(this: any, _options: any) {
 
   let octokit: Octokit
 
-  // octokit actions
-  let actions: Record<string, Action>
-
   const entities_map: EntityMap = ent_map
 
   // NOTE: sys- zone prefix is reserved.
@@ -42,7 +39,7 @@ function GithubProvider(this: any, _options: any) {
     .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
       save_repo)
 
-  function add_actions() {
+  function add_actions(actions: Record<string, any>) {
     Object.keys(ent_map).forEach(ent_name => {
       const commands = ent_map[ent_name].commands
 
@@ -137,7 +134,7 @@ function GithubProvider(this: any, _options: any) {
       getGist: octokit.rest.gists.get
     }
 
-    add_actions()
+    add_actions(actions)
   })
 
 
