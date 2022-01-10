@@ -30,7 +30,7 @@ function GithubProvider(this: any, _options: any) {
   // octokit actions
   let actions: Record<string, Action>
 
-  const entities: EntityCommand[] = EntitiesData
+  const entities_map: EntityMap = ent_map
 
   // NOTE: sys- zone prefix is reserved.
 
@@ -43,10 +43,10 @@ function GithubProvider(this: any, _options: any) {
       save_repo)
 
   function add_actions() {
-    entities.forEach((ent) => {
-      const ent_name = ent.entity
+    Object.keys(ent_map).forEach(ent_name => {
+      const commands = ent_map[ent_name].commands
 
-      ent.commands.forEach(command_details => {
+      commands.forEach(command_details => {
         const common = { zone: "provider", base: "github", role: "entity" }
         const cmd_name = command_details.cmd
 
