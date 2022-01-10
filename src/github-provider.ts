@@ -54,7 +54,7 @@ function GithubProvider(this: any, _options: any) {
           name: ent_name,
           cmd: cmd_name,
           ...common,
-        })
+        }
 
         const cmd_handler = identify_handler(command_details, actions)
 
