@@ -16,15 +16,10 @@ type CommandDetails = {
   include?: string[]
 }
 
-type EntityCommand = {
-  entity: string
-  commands: CommandDetails[]
-}
 
 export type {
     Command,
     CommandFn,
     CommandDetails,
     Action,
-    EntityCommand
 }
