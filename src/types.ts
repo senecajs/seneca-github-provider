@@ -11,7 +11,7 @@ type Action = (arg: any) => Promise<any>
 
 type CommandDetails = {
   cmd: string
-  callback: string
+  action: string
   body_args?: string[]
   include?: string[]
 }
