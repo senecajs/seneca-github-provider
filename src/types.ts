@@ -16,10 +16,17 @@ type CommandDetails = {
   include?: string[]
 }
 
+type EntityMap = {
+  [name: string] : {
+    active: Boolean
+    commands: CommandDetails[]
+  }
+}
 
 export type {
     Command,
     CommandFn,
     CommandDetails,
     Action,
+    EntityMap,
 }
