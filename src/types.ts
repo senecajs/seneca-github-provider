@@ -12,6 +12,7 @@ type Action = (arg: any) => Promise<any>
 type CommandDetails = {
   cmd: string
   action: string
+  rest_endpoint: GithubRestEndpoints
   body_args?: string[]
   include?: string[]
 }
@@ -22,6 +23,8 @@ type EntityMap = {
     commands: CommandDetails[]
   }
 }
+
+type GithubRestEndpoints = "repos" | "branches" | "checks" | "codesOfConduct" | "codeScanning" | "commit" | "gists" | "issues" | "licenses" | "orgs" | "projects" | "pulls" | "releases" | "secretScanning" | "teams" | "users"
 
 export type {
     Command,
