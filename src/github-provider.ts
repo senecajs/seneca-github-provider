@@ -138,10 +138,7 @@ function GithubProvider(this: any, _options: any) {
 
     octokit = new Octokit(config)
 
-    actions = {
-      getRepo: octokit.rest.repos.get,
-      getGist: octokit.rest.gists.get
-    }
+    const actions = octokit.rest
 
     add_actions(actions)
   })
