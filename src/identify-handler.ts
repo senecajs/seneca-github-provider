@@ -11,4 +11,6 @@ function identify_handler(command_details: CommandDetails, github_action: Callab
   return handler
 }
 
-export default identify_handler
+export {
+  identify_handler
+}
