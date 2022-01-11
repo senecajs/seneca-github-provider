@@ -31,11 +31,6 @@ function GithubProvider(this: any, _options: any) {
 
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
-    .message('role:entity,cmd:load,zone:provider,base:github,name:repo',
-      load_repo)
-
-    .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
-      save_repo)
 
   function add_actions(actions: Record<string, any>) {
     Object.keys(ent_map).forEach(ent_name => {
