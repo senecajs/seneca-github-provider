@@ -3,6 +3,7 @@
 import * as Fs from 'fs'
 
 import GithubProvider from '../src/github-provider'
+import { entities_map } from "../src/entities"
 
 const Seneca = require('seneca')
 const SenecaMsgTest = require('seneca-msg-test')
@@ -12,6 +13,18 @@ const CONFIG: any = {}
 
 if (Fs.existsSync(__dirname + '/local-config.js')) {
   Object.assign(CONFIG, require(__dirname + '/local-config.js'))
+}
+
+let provider_options = {
+  provider: {
+    github: {
+      keys: {
+        api: {
+          value: CONFIG.key,
+        },
+      },
+    },
+  },
 }
 
 describe('github-provider', () => {
@@ -137,6 +150,47 @@ describe('github-provider', () => {
       expect(repo.description.endsWith('M')).toBeTruthy()
     }
   })
+})
 
+describe("github-entities", () => {
+  Object.keys(entities_map).forEach(ent_name => {
+    let entity = entities_map[ent_name]
+    const full = "provider/github/" + ent_name
+
+    test(`load-${ent_name}` , async () => {
+      const seneca = Seneca({ legacy: false })
+        .test()
+        .use("promisify")
+        .use("entity")
+        .use("provider", provider_options)
+        .use(GithubProvider)
+
+      const cmd_details = entity.commands.find(command => command.cmd === 'load')
+      const test_args  = cmd_details.test.args
+      
+      let res_data = await seneca.entity(full).load$(test_args)
+
+      expect(res_data.entity$).toBe(full)
+      
+      const expectations = cmd_details.test.expectations
+
+      if(expectations) {
+        Object.keys(expectations).forEach(field_to_assert => {
+          Object.keys(expectations[field_to_assert]).forEach(assertion => {
+            switch (assertion) {
+              case 'sameAs':                
+                expect(res_data[field_to_assert]).toBe(expectations[field_to_assert]['sameAs'])
+                break
+
+              default:
+                break
+            }
+          })
+        })
+      } else {
+        expect(res_data.id).toBeDefined()
+      }
+    })
+  })
 })
 
