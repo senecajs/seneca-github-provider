@@ -1,7 +1,7 @@
 type Command = "load" | "save"
 
 type CommandFn = (
-  reqFn: Action,
+  reqFn: CallableFunction,
   msg: any,
   args: any,
   include?: string[]
