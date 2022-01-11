@@ -1,6 +1,4 @@
-import { Action } from './types'
-
-function cmd_handlers(reqFn: Action, args: any = {}, include?: string[]) {
+function cmd_handlers(reqFn: CallableFunction, args: any = {}, include?: string[]) {
   async function load (this: any, msg: any) {
     const repo_id = msg.q.repo_id
     const id = msg.q.id
