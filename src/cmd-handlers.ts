@@ -1,28 +1,20 @@
 function cmd_handlers(reqFn: CallableFunction, args: any = {}, include?: string[]) {
   async function load (this: any, msg: any) {
-    const repo_id = msg.q.repo_id
-    const id = msg.q.id
-    let res: any
+    const q = {...msg.q}
+    let body = {}
 
-    if(repo_id) {
-      const [owner, repo] = repo_id.split('/')
-      const body = {
+    if(q.repo_id) {
+      const [owner, repo] = q.repo_id.split('/')
+      body = {
         owner,
         repo,
-        ...args,
       }
-      res = await reqFn(body)
     }
 
-    if(id) {
-      const ent_id = msg.ent.entity$.split('/')[2] + '_id'
-      const body = {
-        ...args,
-      }
-      body[ent_id] = id
-      res = await reqFn(body)
-    }   
+    delete q.repo_id
+    body = {...body, ...q, ...args}
 
+    let res = await reqFn(body)
     res = res.data
 
     if (include) {
