@@ -32,6 +32,7 @@ function GithubProvider(this: any, _options: any) {
   function add_actions(actions: Record<string, any>) {
     Object.keys(ent_map).forEach(ent_name => {
       const commands = ent_map[ent_name].commands
+      const endpoint = ent_map[ent_name].rest_endpoint
 
       commands.forEach(command_details => {
         const common = { zone: "provider", base: "github", role: "entity" }
@@ -43,13 +44,12 @@ function GithubProvider(this: any, _options: any) {
           ...common,
         }
 
-        const rest_endpoint = command_details.rest_endpoint
         const action_name = command_details.action
 
-        const github_action: CallableFunction = actions[rest_endpoint][action_name]
+        const github_action: CallableFunction = actions[endpoint][action_name]
 
         if(!github_action) {
-          throw new Error(`Invalid ${action_name} method in ${rest_endpoint} endpoint`)
+          throw new Error(`Invalid ${action_name} method in ${endpoint} endpoint`)
         }
 
         const cmd_handler = identify_handler(command_details, github_action)

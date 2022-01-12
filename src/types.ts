@@ -20,19 +20,29 @@ type Assertions = {
 type TestToBe = "defined" | "falsy"
 
 type CommandDetails = {
-  cmd: string
+  cmd: Command
   action: string
-  rest_endpoint: GithubRestEndpoints
   body_args?: string[]
-  test?: CommandTest
   include?: string[]
 }
 
 type EntityMap = {
   [name: string] : {
     fields: string[]
+    rest_endpoint: GithubRestEndpoints
     commands: CommandDetails[]
+    tests?: EntityCommandTest
   }
+}
+
+type EntityCommandTest = {
+  "load": CommandTest
+} | {
+  "save": SaveCommandTest
+}
+
+interface SaveCommandTest extends CommandTest {
+  changes: Record<string, any>
 }
 
 type GithubRestEndpoints =

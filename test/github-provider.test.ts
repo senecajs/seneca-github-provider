@@ -165,32 +165,36 @@ describe("github-entities", () => {
         .use("provider", provider_options)
         .use(GithubProvider)
 
-      const cmd_details = entity.commands.find(command => command.cmd === 'load')
-      const test_args  = cmd_details.test.args
-      
-      let res_data = await seneca.entity(full).load$(test_args)
+      const tests = entity.tests
+
+      let res_data = await seneca.entity(full).load$(tests['load'].args)
 
       expect(res_data.entity$).toBe(full)
       
-      const expectations = cmd_details.test.expectations
+      const expectations = tests['load'].expectations
 
       if(expectations) {
-        Object.keys(expectations).forEach(field_to_assert => {
-          Object.keys(expectations[field_to_assert]).forEach(assertion => {
-            switch (assertion) {
-              case 'sameAs':                
-                expect(res_data[field_to_assert]).toBe(expectations[field_to_assert]['sameAs'])
-                break
-
-              default:
-                break
-            }
-          })
-        })
+        assert(expectations, res_data)
       } else {
         expect(res_data.id).toBeDefined()
       }
     })
+
+    function assert(expectations: any, against: any) {
+      Object.keys(expectations).forEach(field_to_assert => {
+        Object.keys(expectations[field_to_assert]).forEach(assertion => {
+          switch (assertion) {
+            case 'sameAs':                
+              expect(against[field_to_assert]).toBe(expectations[field_to_assert]['sameAs'])
+              break
+
+            default:
+              break
+          }
+        })
+      })
+    }
+
   })
 })
 
