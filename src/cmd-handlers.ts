@@ -45,14 +45,6 @@ function cmd_handlers(reqFn: CallableFunction, args: any = {}, include?: string[
     return this.make$(msg.ent.entity$).data$(res)
   }
 
-  function fulfill_body(
-    body_args: Record<string, any> = {},
-    from: Record<string, any>
-  ) {
-    let body: any = {}
-    body_args.forEach((arg: string) => (body[arg] = from[arg]))
-    return body
-  }
 
   return {
     load,
