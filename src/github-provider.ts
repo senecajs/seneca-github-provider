@@ -20,8 +20,6 @@ type GithubProviderOptions = {}
 function GithubProvider(this: any, _options: any) {
   const seneca: any = this
 
-  const ZONE_BASE = 'provider/github/'
-
   let octokit: Octokit
 
   // NOTE: sys- zone prefix is reserved.
