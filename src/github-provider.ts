@@ -4,7 +4,6 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
-import { EntityMap } from './types'
 import { entities_map as ent_map } from './entities'
 import { identify_handler } from './identify-handler'
 
@@ -24,8 +23,6 @@ function GithubProvider(this: any, _options: any) {
   const ZONE_BASE = 'provider/github/'
 
   let octokit: Octokit
-
-  const entities_map: EntityMap = ent_map
 
   // NOTE: sys- zone prefix is reserved.
 
