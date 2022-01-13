@@ -92,8 +92,8 @@ describe('github-provider', () => {
   })
 })
 
-describe("github-entities", () => {
-  Object.keys(entities_map).forEach(ent_name => {
+describe("github-entities-load", () => {
+  Object.keys(entities_load).forEach(ent_name => {
     let entity = entities_map[ent_name]
     const full = "provider/github/" + ent_name
 
