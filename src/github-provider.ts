@@ -4,6 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
+import cmd_handlers from './cmd-handlers'
 import { entities_map as ent_map } from './entities'
 import { identify_handler } from './identify-handler'
 
@@ -50,9 +51,9 @@ function GithubProvider(this: any, _options: any) {
           throw new Error(`Invalid ${action_name} method in ${endpoint} endpoint`)
         }
 
-        const cmd_handler = identify_handler(command_details, github_action)
+        const handler = cmd_handlers(github_action, command_details.body_args , command_details.include)
 
-        seneca.message(pattern, cmd_handler)
+        seneca.message(pattern, handler)
       })
     })
   }
