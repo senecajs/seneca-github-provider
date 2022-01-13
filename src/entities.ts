@@ -1,4 +1,5 @@
-import { EntityMap } from "./types"
+import { EntityMap } from './types'
+import crypto from 'crypto'
 
 const args = {
   gist_id: '96f365d8195e519eaba80ba88013badf',
@@ -11,8 +12,11 @@ const args = {
   org: 'DemoOrganization20',
   release_id: 56800302,
   username: 'guhmerces',
-  pull_number: 1,
+  pull_number: 4,
+  alert_number: 1
 }
+
+const rand = crypto.randomBytes(10).toString('hex')
 
 const entities_map: EntityMap = {
   repo: {
@@ -22,8 +26,14 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
-        include: ['repo_id as id', 'repo_id'],
+        include: ['repo_id as id', 'repo_id']
       },
+      {
+        cmd: 'save',
+        action: 'update',
+        body_args: ['description'],
+        include: ['repo_id as id', 'repo_id']
+      }
     ],
     tests: {
       load: {
@@ -33,9 +43,19 @@ const entities_map: EntityMap = {
         expectations: {
           id: {
             sameAs: args.repo_id
-          },
+          }
         }
       },
+      save: {
+        changes: {
+          description: rand
+        },
+        expectations: {
+          description: {
+            sameAs: rand
+          }
+        }
+      }
     }
   },
   branch: {
@@ -45,7 +65,7 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'getBranch',
-        include: ['repo_id'],
+        include: ['repo_id']
       }
     ],
     tests: {
@@ -62,7 +82,7 @@ const entities_map: EntityMap = {
             sameAs: args.branch_id
           }
         }
-      },
+      }
     }
   },
   code_of_conduct: {
@@ -72,8 +92,8 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'getConductCode',
-        include: [],
-      }
+        include: []
+      },
     ],
     tests: {
       load: {
@@ -85,7 +105,7 @@ const entities_map: EntityMap = {
             sameAs: args.code_of_conduct_key
           }
         }
-      },
+      }
     }
   },
   commit: {
@@ -95,7 +115,7 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'getCommit',
-        include: ['repo_id'],
+        include: ['repo_id']
       }
     ],
     tests: {
@@ -122,13 +142,29 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
-        include: [],
+        include: ['gist_id']
+      },
+      {
+        cmd: 'save',
+        action: 'update',
+        include: ['gist_id'],
+        body_args: ['gist_id', 'description', 'files']
       }
     ],
     tests: {
       load: {
         args: {
           gist_id: args.gist_id
+        }
+      },
+      save: {
+        changes: {
+          description: rand
+        },
+        expectations: {
+          description: {
+            sameAs: rand
+          }
         }
       }
     }
@@ -140,7 +176,21 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
-        include: ['repo_id'],
+        include: ['repo_id', 'issue_number']
+      },
+      {
+        cmd: 'save',
+        action: 'update',
+        include: ['repo_id', 'issue_number'],
+        body_args: [
+          'issue_number',
+          'title',
+          'body',
+          'state',
+          'milestone',
+          'labels',
+          'assigness',
+        ]
       }
     ],
     tests: {
@@ -148,6 +198,21 @@ const entities_map: EntityMap = {
         args: {
           repo_id: args.repo_id,
           issue_number: args.issue_number
+        },
+        expectations: {
+          repo_id: {
+            sameAs: args.repo_id
+          }
+        }
+      },
+      save: {
+        changes: {
+          title: rand
+        },
+        expectations: {
+          title: {
+            sameAs: rand
+          }
         }
       }
     }
@@ -159,8 +224,8 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
-        include: [],
-      },
+        include: []
+      }
     ],
     tests: {
       load: {
@@ -182,7 +247,7 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
-        include: [],
+        include: ['org']
       }
     ],
     tests: {
@@ -205,15 +270,41 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'get',
+        include: ['repo_id', 'pull_number']
+      },
+      {
+        cmd: 'save',
+        action: 'update',
         include: ['repo_id'],
+        body_args: [
+          'pull_number',
+          'title',
+          'body',
+          'state',
+          'base',
+          'maintainer_can_modify',
+        ],
       }
     ],
     tests: {
       load: {
         args: {
           repo_id: args.repo_id,
-          pull_number: args.pull_number
+          pull_number: args.pull_number,
+        }
+      },
+      save: {
+        changes: {
+          body: rand
         },
+        expectations: {
+          body: {
+            sameAs: rand
+          }
+        },
+        args: {
+          base: 'master'
+        }
       }
     }
   },
@@ -224,7 +315,22 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'getRelease',
-        include: ['repo_id'],
+        include: ['repo_id', 'release_id']
+      },
+      {
+        cmd: 'save',
+        action: 'update',
+        include: ['repo_id', 'release_id'],
+        body_args: [
+          'release_id',
+          'tag_name',
+          'target_commitish',
+          'name',
+          'body',
+          'draft',
+          'prerelease',
+          'discussion_category_name',
+        ],
       }
     ],
     tests: {
@@ -232,6 +338,16 @@ const entities_map: EntityMap = {
         args: {
           repo_id: args.repo_id,
           release_id: args.release_id
+        }
+      },
+      save: {
+        changes: {
+          name: rand
+        },
+        expectations: {
+          name: {
+            sameAs: rand
+          }
         }
       }
     }
@@ -243,8 +359,8 @@ const entities_map: EntityMap = {
       {
         cmd: 'load',
         action: 'getByUsername',
-        include: [],
-      }
+        include: []
+      },
     ],
     tests: {
       load: {
@@ -256,6 +372,4 @@ const entities_map: EntityMap = {
   }
 }
 
-export {
-  entities_map
-}
+export { entities_map }
