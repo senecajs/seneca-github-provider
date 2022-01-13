@@ -47,7 +47,6 @@ interface SaveCommandTest extends CommandTest {
 
 type GithubRestEndpoints =
   | "repos"
-  | "repos.branches"
   | "checks"
   | "codesOfConduct"
   | "codeScanning"
