@@ -47,7 +47,7 @@ function GithubProvider(this: any, _options: any) {
         const github_action: CallableFunction = actions[endpoint][action_name]
 
         if(!github_action) {
-          throw new Error(`Invalid ${action_name} method in ${endpoint} endpoint`)
+          throw new Error(`Invalid action ${action_name} in ${endpoint} endpoint`)
         }
 
         const handler = cmd_handlers(github_action, command_details.body_args , command_details.include)
