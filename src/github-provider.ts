@@ -6,7 +6,6 @@
 import { Octokit } from '@octokit/rest'
 import cmd_handlers from './cmd-handlers'
 import { entities_map as ent_map } from './entities'
-import { identify_handler } from './identify-handler'
 
 type GithubProviderOptions = {}
 
