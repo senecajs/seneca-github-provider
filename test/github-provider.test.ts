@@ -119,22 +119,21 @@ describe("github-entities-load", () => {
         expect(res_data.id).toBeDefined()
       }
     })
-
-    function assert(expectations: any, against: any) {
-      Object.keys(expectations).forEach(field_to_assert => {
-        Object.keys(expectations[field_to_assert]).forEach(assertion => {
-          switch (assertion) {
-            case 'sameAs':                
-              expect(against[field_to_assert]).toBe(expectations[field_to_assert]['sameAs'])
-              break
-
-            default:
-              break
-          }
-        })
-      })
-    }
-
   })
 })
+
+function assert(expectations: any, against: any) {
+  Object.keys(expectations).forEach(field_to_assert => {
+    Object.keys(expectations[field_to_assert]).forEach(assertion => {
+      switch (assertion) {
+        case 'sameAs':                
+          expect(against[field_to_assert]).toBe(expectations[field_to_assert]['sameAs'])
+          break
+
+        default:
+          break
+      }
+    })
+  })
+}
 
