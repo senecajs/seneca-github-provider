@@ -8,7 +8,7 @@ type CommandFn = (
 ) => (msg: any) => Promise<any>
 
 type CommandTest = {
-  args: Record<string, any>
+  args?: Record<string, any>
   expectations?: Record<string, Assertions>
 }
 
