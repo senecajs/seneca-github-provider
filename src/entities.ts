@@ -58,6 +58,47 @@ const entities_map: EntityMap = {
       }
     }
   },
+  code_scanning: {
+    fields: [],
+    rest_endpoint: 'codeScanning',
+    commands: [
+      {
+        cmd: 'load',
+        action: 'getAlert',
+        include: ['repo_id', 'alert_number']
+      },
+      {
+        cmd: 'save',
+        action: 'updateAlert',
+        include: ['repo_id', 'alert_number'],
+        body_args: ['alert_number', 'state', 'dismissed_reason']
+      }
+    ],
+    tests: {
+      load: {
+        args: {
+          repo_id: args.repo_id,
+          alert_number: args.alert_number
+        },
+        expectations: {
+          number: {
+            sameAs: args.alert_number
+          }
+        }
+      },
+      save: {
+        changes: {
+          state: 'dismissed',
+          dismissed_reason: 'used in tests'
+        },
+        expectations: {
+          dismissed_reason: {
+            sameAs: 'used in tests'
+          }
+        }
+      }
+    }
+  },
   branch: {
     rest_endpoint: 'repos',
     fields: [],
