@@ -90,38 +90,6 @@ describe('github-provider', () => {
     let native = seneca.export('GithubProvider/native')
     expect(native().octokit).toBeDefined()
   })
-
-  test('entity-save', async () => {
-    if (CONFIG.key) {
-      const provider_options = {
-        provider: {
-          github: {
-            keys: {
-              api: {
-                value: CONFIG.key
-              }
-            }
-          }
-        }
-      }
-
-      const seneca = Seneca({ legacy: false })
-        .test()
-        .use('promisify')
-        .use('entity')
-        .use('provider', provider_options)
-        .use(GithubProvider)
-
-      let repo = await seneca.entity('provider/github/repo')
-        .load$('senecajs/github-api-test')
-      expect(repo).toBeDefined()
-
-      repo.description = repo.description + 'M'
-
-      repo = await repo.save$()
-      expect(repo.description.endsWith('M')).toBeTruthy()
-    }
-  })
 })
 
 describe("github-entities", () => {
