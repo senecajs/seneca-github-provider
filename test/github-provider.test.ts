@@ -11,9 +11,24 @@ const GithubProviderMessages = require('./github-provider.messages').default
 
 const CONFIG: any = {}
 
+const entities_load = {}
+const entities_save = {}
+
 if (Fs.existsSync(__dirname + '/local-config.js')) {
   Object.assign(CONFIG, require(__dirname + '/local-config.js'))
 }
+
+Object.keys(entities_map).forEach(ent_name => {
+  const entity = entities_map[ent_name]
+  entity.commands.forEach(cmd => {
+    if(cmd.cmd === 'load') {
+      entities_load[ent_name] = entity
+    }
+    if(cmd.cmd === 'save') {
+      entities_save[ent_name] = entity
+    }
+  })
+})
 
 let provider_options = {
   provider: {
