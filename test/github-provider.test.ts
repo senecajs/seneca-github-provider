@@ -4,7 +4,7 @@ import * as Fs from 'fs'
 
 import GithubProvider from '../src/github-provider'
 import { entities_map } from "../src/entities"
-import { setupWorker, rest } from "msw"
+import { set_mock_worker } from './set-mock-worker'
 import mocks from './mocks'
 
 const Seneca = require('seneca')
@@ -16,6 +16,12 @@ const CONFIG: any = {}
 if (Fs.existsSync(__dirname + '/local-config.js')) {
   Object.assign(CONFIG, require(__dirname + '/local-config.js'))
 }
+
+// Configure mock service worker
+const worker = set_mock_worker(mocks)
+
+beforeAll(() => worker.listen())
+afterAll(() => worker.close())
 
 // Separate entities details by their command type
 const entities_load = {}
