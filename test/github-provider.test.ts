@@ -13,12 +13,13 @@ const GithubProviderMessages = require('./github-provider.messages').default
 
 const CONFIG: any = {}
 
-const entities_load = {}
-const entities_save = {}
-
 if (Fs.existsSync(__dirname + '/local-config.js')) {
   Object.assign(CONFIG, require(__dirname + '/local-config.js'))
 }
+
+// Separate entities details by their command type
+const entities_load = {}
+const entities_save = {}
 
 Object.keys(entities_map).forEach(ent_name => {
   const entity = entities_map[ent_name]
@@ -32,6 +33,7 @@ Object.keys(entities_map).forEach(ent_name => {
   })
 })
 
+// Set common structure between tests
 let provider_options = {
   provider: {
     github: {
