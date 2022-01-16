@@ -1,5 +1,6 @@
 import { EntityMap } from './types'
 import crypto from 'crypto'
+import mocks from './mocks'
 
 const args = {
   gist_id: '96f365d8195e519eaba80ba88013badf',
