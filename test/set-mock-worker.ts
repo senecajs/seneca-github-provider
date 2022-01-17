@@ -7,19 +7,19 @@ import { setupServer } from "msw/node"
  * @returns
  */
 function set_mock_worker(ents_mocks: any) {
-  const rest_handler_arr = []
+  const rest_handlers_arr = []
 
   Object.keys(ents_mocks).forEach((ent_name) => {
-    const http_methods_data_mocks = ents_mocks[ent_name]
+    const mock_data_http_methods_details = ents_mocks[ent_name]
 
-    Object.keys(http_methods_data_mocks).forEach((method) => {
-      const mock = http_methods_data_mocks[method]
+    Object.keys(mock_data_http_methods_details).forEach((http_method) => {
+      const mock_data = mock_data_http_methods_details[http_method]
 
-      rest_handler_arr.push(rest_handler(rest[method], mock))
+      rest_handlers_arr.push(rest_handler(rest[http_method], mock_data))
     })
   })
 
-  const worker = setupServer(...rest_handler_arr)
+  const worker = setupServer(...rest_handlers_arr)
 
   return worker
 }
