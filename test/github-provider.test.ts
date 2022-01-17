@@ -5,7 +5,7 @@ import * as Fs from 'fs'
 import GithubProvider from '../src/github-provider'
 import { entities_map } from "../src/entities"
 import { set_mock_worker } from './set-mock-worker'
-import mocks from './mocks'
+import mocks from '../src/mocks'
 
 const Seneca = require('seneca')
 const SenecaMsgTest = require('seneca-msg-test')
