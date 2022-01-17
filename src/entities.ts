@@ -1,20 +1,22 @@
 import { EntityMap } from './types'
 import crypto from 'crypto'
-import mocks from './mocks'
 
-const args = {
-  gist_id: '96f365d8195e519eaba80ba88013badf',
-  repo_id: 'guhmerces/hiringTest',
+let test_args = {
+  gist_id: 'some-gist-id',
+  repo_id: 'senecajs/seneca',
   code_of_conduct_key: 'contributor_covenant',
   branch_id: 'master',
-  commit_sha: '371e16e62fd72613d6d16902616f5fbe2b7a27a3',
+  commit_sha: 'commit-sha',
   issue_number: 1,
   license: 'mit',
-  org: 'DemoOrganization20',
-  release_id: 56800302,
-  username: 'guhmerces',
+  org: 'Organization123',
+  release_id: 123456,
+  username: 'senecajs',
   pull_number: 4,
-  alert_number: 1
+  alert_number: 1,
+  secret_scanning_alert_number: 11,
+  check_run_id: 1,
+  project_id: 10
 }
 
 const rand = crypto.randomBytes(10).toString('hex')
@@ -39,11 +41,11 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id
+          repo_id: test_args.repo_id
         },
         expectations: {
-          id: {
-            sameAs: args.repo_id
+          repo_id: {
+            sameAs: test_args.repo_id
           }
         }
       },
@@ -52,8 +54,8 @@ const entities_map: EntityMap = {
           description: rand
         },
         expectations: {
-          description: {
-            sameAs: rand
+          repo_id: {
+            sameAs: test_args.repo_id
           }
         }
       }
@@ -78,12 +80,12 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          alert_number: args.alert_number
+          repo_id: test_args.repo_id,
+          alert_number: test_args.alert_number
         },
         expectations: {
           number: {
-            sameAs: args.alert_number
+            sameAs: test_args.alert_number
           }
         }
       },
@@ -113,15 +115,15 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          branch: args.branch_id
+          repo_id: test_args.repo_id,
+          branch: test_args.branch_id
         },
         expectations: {
           repo_id: {
-            sameAs: args.repo_id
+            sameAs: test_args.repo_id
           },
           name: {
-            sameAs: args.branch_id
+            sameAs: test_args.branch_id
           }
         }
       }
@@ -140,11 +142,11 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          key: args.code_of_conduct_key
+          key: test_args.code_of_conduct_key
         },
         expectations: {
           key: {
-            sameAs: args.code_of_conduct_key
+            sameAs: test_args.code_of_conduct_key
           }
         }
       }
@@ -163,15 +165,15 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          commit_sha: args.commit_sha
+          repo_id: test_args.repo_id,
+          commit_sha: test_args.commit_sha
         },
         expectations: {
           repo_id: {
-            sameAs: args.repo_id
+            sameAs: test_args.repo_id
           },
           sha: {
-            sameAs: args.commit_sha
+            sameAs: test_args.commit_sha
           }
         }
       }
@@ -196,7 +198,7 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          gist_id: args.gist_id
+          gist_id: test_args.gist_id
         }
       },
       save: {
@@ -204,8 +206,8 @@ const entities_map: EntityMap = {
           description: rand
         },
         expectations: {
-          description: {
-            sameAs: rand
+          gist_id: {
+            sameAs: test_args.gist_id
           }
         }
       }
@@ -238,12 +240,15 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          issue_number: args.issue_number
+          repo_id: test_args.repo_id,
+          issue_number: test_args.issue_number
         },
         expectations: {
           repo_id: {
-            sameAs: args.repo_id
+            sameAs: test_args.repo_id
+          },
+          number: {
+            sameAs: test_args.issue_number
           }
         }
       },
@@ -252,8 +257,8 @@ const entities_map: EntityMap = {
           title: rand
         },
         expectations: {
-          title: {
-            sameAs: rand
+          repo_id: {
+            sameAs: test_args.repo_id
           }
         }
       }
@@ -272,11 +277,11 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          license: args.license
+          license: test_args.license
         },
         expectations: {
           key: {
-            sameAs: args.license
+            sameAs: test_args.license
           }
         }
       }
@@ -295,11 +300,11 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          org: args.org
+          org: test_args.org
         },
         expectations: {
           login: {
-            sameAs: args.org
+            sameAs: test_args.org
           }
         }
       }
@@ -331,8 +336,8 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          pull_number: args.pull_number,
+          repo_id: test_args.repo_id,
+          pull_number: test_args.pull_number,
         }
       },
       save: {
@@ -340,8 +345,8 @@ const entities_map: EntityMap = {
           body: rand
         },
         expectations: {
-          body: {
-            sameAs: rand
+          repo_id: {
+            sameAs: test_args.repo_id
           }
         },
         args: {
@@ -378,8 +383,8 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          repo_id: args.repo_id,
-          release_id: args.release_id
+          repo_id: test_args.repo_id,
+          release_id: test_args.release_id
         }
       },
       save: {
@@ -387,8 +392,8 @@ const entities_map: EntityMap = {
           name: rand
         },
         expectations: {
-          name: {
-            sameAs: rand
+          repo_id: {
+            sameAs: test_args.repo_id
           }
         }
       }
@@ -407,7 +412,161 @@ const entities_map: EntityMap = {
     tests: {
       load: {
         args: {
-          username: args.username
+          username: test_args.username
+        }
+      }
+    }
+  },
+  check: {
+    fields: [],
+    rest_endpoint: 'checks',
+    commands: [
+      {
+        cmd: 'load',
+        action: 'get',
+        include: ['repo_id', 'check_run_id']
+      },
+      {
+        cmd: 'save',
+        action: 'update',
+        include: ['repo_id', 'check_run_id'],
+        body_args: [
+          'check_run_id',
+          'name',
+          'head_sha',
+          'details_url',
+          'external_id',
+          'status',
+          'started_at',
+          'conclusion',
+          'completed_a',
+          'output',
+        ],
+      }
+    ],
+    tests: {
+      load: {
+        args: {
+          repo_id: test_args.repo_id,
+          check_run_id: test_args.check_run_id
+        },
+        expectations: {
+          id: {
+            sameAs: test_args.check_run_id
+          }
+        }
+      },
+      save: {
+        changes: {
+          name: rand
+        },
+        expectations: {
+          repo_id: {
+            sameAs: test_args.repo_id
+          },
+          check_run_id: {
+            sameAs: test_args.check_run_id
+          },
+          id: {
+            sameAs: test_args.check_run_id
+          }
+        }
+      }
+    }
+  },
+  project: {
+    fields: [],
+    rest_endpoint: 'projects',
+    commands: [
+      {
+        cmd: 'load',
+        action: 'get',
+        include: ['project_id'],
+      },
+      {
+        cmd: 'save',
+        action: 'update',
+        include: ['project_id'],
+        body_args: [
+          'project_id',
+          'name',
+          'body',
+          'state',
+          'organization_permission',
+          'private',
+        ],
+      }
+    ],
+    tests: {
+      load: {
+        args: {
+          project_id: test_args.project_id
+        },
+        expectations: {
+          id: {
+            sameAs: test_args.project_id
+          }
+        }
+      },
+      save: {
+        changes: {
+          name: rand
+        },
+        expectations: {
+          id: {
+            sameAs: test_args.project_id
+          }
+        }
+      }
+    }
+  },
+  secret_scanning: {
+    fields: [],
+    rest_endpoint: 'secretScanning',
+    commands: [
+      {
+        cmd: 'load',
+        action: 'getAlert',
+        include: ['alert_number', 'repo_id'],
+      },
+      {
+        cmd: 'save',
+        action: 'updateAlert',
+        include: ['alert_number', 'repo_id'],
+        body_args: [
+          'alert_number',
+          'state',
+          'resolution'
+        ],
+      }
+    ],
+    tests: {
+      load: {
+        args: {
+          repo_id: test_args.repo_id,
+          alert_number: test_args.secret_scanning_alert_number
+        },
+        expectations: {
+          number: {
+            sameAs: test_args.secret_scanning_alert_number
+          }
+        }
+      },
+      save: {
+        changes: {
+          state: 'resolved',
+          resolution: 'used in tests'
+        },
+        expectations: {
+          number: {
+            sameAs: test_args.secret_scanning_alert_number
+          },
+          state: {
+            sameAs: 'resolved'
+          },
+          resolution: {
+            sameAs: 'used in tests'
+          }
         }
       }
     }
