@@ -1,5 +1,6 @@
 import { EntityMap } from './types'
 import crypto from 'crypto'
+import fields from './fields'
 
 let test_args = {
   gist_id: 'some-gist-id',
@@ -23,7 +24,7 @@ const rand = crypto.randomBytes(10).toString('hex')
 
 const entities_map: EntityMap = {
   repo: {
-    fields: [],
+    fields: fields.repo,
     rest_endpoint: 'repos',
     commands: [
       {
@@ -62,7 +63,7 @@ const entities_map: EntityMap = {
     }
   },
   code_scanning: {
-    fields: [],
+    fields: fields.code_scanning,
     rest_endpoint: 'codeScanning',
     commands: [
       {
@@ -103,8 +104,8 @@ const entities_map: EntityMap = {
     }
   },
   branch: {
+    fields: fields.branch,
     rest_endpoint: 'repos',
-    fields: [],
     commands: [
       {
         cmd: 'load',
@@ -130,7 +131,7 @@ const entities_map: EntityMap = {
     }
   },
   code_of_conduct: {
-    fields: [],
+    fields: fields.code_of_conduct,
     rest_endpoint: 'codesOfConduct',
     commands: [
       {
@@ -153,7 +154,7 @@ const entities_map: EntityMap = {
     }
   },
   commit: {
-    fields: [],
+    fields: fields.commit,
     rest_endpoint: 'git',
     commands: [
       {
@@ -180,7 +181,7 @@ const entities_map: EntityMap = {
     }
   },
   gist: {
-    fields: [],
+    fields: fields.gist,
     rest_endpoint: 'gists',
     commands: [
       {
@@ -214,7 +215,7 @@ const entities_map: EntityMap = {
     }
   },
   issue: {
-    fields: [],
+    fields: fields.issue,
     rest_endpoint: 'issues',
     commands: [
       {
@@ -265,7 +266,7 @@ const entities_map: EntityMap = {
     }
   },
   license: {
-    fields: [],
+    fields: fields.license,
     rest_endpoint: 'licenses',
     commands: [
       {
@@ -288,7 +289,7 @@ const entities_map: EntityMap = {
     }
   },
   org: {
-    fields: [],
+    fields: fields.org,
     rest_endpoint: 'orgs',
     commands: [
       {
@@ -311,7 +312,7 @@ const entities_map: EntityMap = {
     }
   },
   pull: {
-    fields: [],
+    fields: fields.pull,
     rest_endpoint: 'pulls',
     commands: [
       {
@@ -356,7 +357,7 @@ const entities_map: EntityMap = {
     }
   },
   release: {
-    fields: [],
+    fields: fields.release,
     rest_endpoint: 'repos',
     commands: [
       {
@@ -400,7 +401,7 @@ const entities_map: EntityMap = {
     }
   },
   user: {
-    fields: [],
+    fields: fields.user,
     rest_endpoint: 'users',
     commands: [
       {
