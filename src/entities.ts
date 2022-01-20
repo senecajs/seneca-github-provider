@@ -22,7 +22,7 @@ let test_args = {
 
 const rand = crypto.randomBytes(10).toString('hex')
 
-const entities_map: EntityMap = {
+const ents: EntityMap = {
   repo: {
     fields: fields.repo,
     rest_endpoint: 'repos',
@@ -574,4 +574,4 @@ const entities_map: EntityMap = {
   }
 }
 
-export { entities_map }
+export { ents }

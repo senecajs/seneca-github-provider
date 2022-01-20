@@ -3,7 +3,7 @@
 import * as Fs from 'fs'
 
 import GithubProvider from '../src/github-provider'
-import { entities_map } from "../src/entities"
+import { ents } from "../src/entities"
 import { set_mock_worker } from './set-mock-worker'
 import mocks from '../src/mocks'
 
@@ -27,8 +27,8 @@ afterAll(() => worker.close())
 const entities_load = {}
 const entities_save = {}
 
-Object.keys(entities_map).forEach(ent_name => {
-  const entity = entities_map[ent_name]
+Object.keys(ents).forEach(ent_name => {
+  const entity = ents[ent_name]
   entity.commands.forEach(cmd => {
     if(cmd.cmd === 'load') {
       entities_load[ent_name] = entity
@@ -103,7 +103,7 @@ describe('github-provider', () => {
           github: {
             keys: {
               api: {
-                value: CONFIG.key
+                value: CONFIG.key,
               }
             }
           }
@@ -119,7 +119,7 @@ describe('github-provider', () => {
 
 describe("github-entities-load", () => {
   Object.keys(entities_load).forEach(ent_name => {
-    let entity = entities_map[ent_name]
+    let entity = ents[ent_name]
     const full = "provider/github/" + ent_name
 
     test(`load-${ent_name}` , async () => {
@@ -149,7 +149,7 @@ describe("github-entities-load", () => {
 
 describe("github-entities-save", () => {
   Object.keys(entities_save).forEach(ent_name => {
-    let entity_details = entities_map[ent_name]
+    let entity_details = ents[ent_name]
     const full = "provider/github/" + ent_name
 
     test(`save-${ent_name}` , async () => {

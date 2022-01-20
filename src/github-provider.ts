@@ -5,7 +5,7 @@
 
 import { Octokit } from '@octokit/rest'
 import cmd_handlers from './cmd-handlers'
-import { entities_map as ent_map } from './entities'
+import { ents } from './entities'
 
 type GithubProviderOptions = {}
 
@@ -28,9 +28,9 @@ function GithubProvider(this: any, _options: any) {
     .message('sys:provider,provider:github,get:info', get_info)
 
   function add_actions(actions: Record<string, any>) {
-    Object.keys(ent_map).forEach(ent_name => {
-      const commands = ent_map[ent_name].commands
-      const endpoint = ent_map[ent_name].rest_endpoint
+    Object.keys(ents).forEach(ent_name => {
+      const commands = ents[ent_name].commands
+      const endpoint = ents[ent_name].rest_endpoint
 
       commands.forEach(command_details => {
         const common = { zone: "provider", base: "github", role: "entity" }
