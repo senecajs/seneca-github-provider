@@ -8,7 +8,7 @@ type ActionDetails = {
 
 type EntityMap = {
   [name: string] : {
-    fields: string[]
+    fields: { [entity: string]: Record<string, Record<string, any>> }
     sdk: SdkParams
     actions: EntityAction
   }
