@@ -68,5 +68,10 @@ export default {
       id: {},
       head_sha: {},
       node_id: {},
+    },
+    org: {
+      login: {},
+      id: {},
+      node_id: {},
     }
   }
