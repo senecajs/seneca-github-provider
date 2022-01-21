@@ -1,24 +1,5 @@
 type Action = "load" | "save"
 
-type CommandFn = (
-  reqFn: CallableFunction,
-  msg: any,
-  args: any,
-  include?: string[]
-) => (msg: any) => Promise<any>
-
-type CommandTest = {
-  args?: Record<string, any>
-  expectations?: Record<string, Assertions>
-}
-
-type Assertions = {
-  sameAs?: any,
-  toBe?: TestToBe[]
-}
-
-type TestToBe = "defined" | "falsy"
-
 type ActionDetails = {
   action: string
   body_args?: string[]
@@ -30,7 +11,6 @@ type EntityMap = {
     fields: string[]
     sdk: SdkParams
     actions: EntityAction
-    tests?: EntityCommandTest
   }
 }
 
@@ -38,16 +18,6 @@ type EntityAction = {
   "load": ActionDetails
 } | {
   "save": ActionDetails
-}
-
-type EntityCommandTest = {
-  "load": CommandTest
-} | {
-  "save": SaveCommandTest
-}
-
-interface SaveCommandTest extends CommandTest {
-  changes: Record<string, any>
 }
 
 type SdkParams = {
@@ -73,4 +43,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, CommandFn, ActionDetails, EntityMap }
+export type { Action, ActionDetails, EntityMap }
