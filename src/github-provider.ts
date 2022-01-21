@@ -4,7 +4,7 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
-import cmd_handlers from './cmd-handlers'
+import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
 
 type GithubProviderOptions = {}
@@ -27,33 +27,33 @@ function GithubProvider(this: any, _options: any) {
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
 
-  function add_actions(actions: Record<string, any>) {
-    Object.keys(ents).forEach(ent_name => {
-      const { commands, rest_endpoint } = ents[ent_name]
+  function add_actions(github_actions: Record<string, any>) {
+    for(const [ent_name, data] of Object.entries(ents)) {
+      const { actions } = data
+      const { subpath } = data.sdk.rest
 
-      commands.forEach(command_details => {
+      for(const [action, action_data] of Object.entries(actions)) {
         const common = { zone: "provider", base: "github", role: "entity" }
-        const cmd_name = command_details.cmd
 
         const pattern = {
           name: ent_name,
-          cmd: cmd_name,
+          cmd: action,
           ...common,
         }
 
-        const action_name = command_details.action
-
-        const github_action: CallableFunction = actions[rest_endpoint][action_name]
+        const github_action: CallableFunction = github_actions[subpath][action_data.action]
 
         if(!github_action) {
-          throw new Error(`Invalid action ${action_name} in ${rest_endpoint} endpoint`)
+          throw new Error(`Invalid action ${action} in ${subpath} endpoint`)
         }
 
-        const handler = cmd_handlers(github_action, command_details.body_args , command_details.include)
+        const handlers: Record<string, CallableFunction> = make_actions(github_action, action_data.body_args , action_data.include)
 
-        seneca.message(pattern, handler)
-      })
-    })
+        const action_handler = handlers[action]
+
+        seneca.message(pattern, action_handler)
+      }
+    }
   }
 
   async function get_info(this: any, _msg: any) {
