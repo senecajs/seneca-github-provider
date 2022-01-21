@@ -1,4 +1,4 @@
-type Command = "load" | "save"
+type Action = "load" | "save"
 
 type CommandFn = (
   reqFn: CallableFunction,
@@ -19,8 +19,7 @@ type Assertions = {
 
 type TestToBe = "defined" | "falsy"
 
-type CommandDetails = {
-  cmd: Command
+type ActionDetails = {
   action: string
   body_args?: string[]
   include?: string[]
@@ -29,10 +28,16 @@ type CommandDetails = {
 type EntityMap = {
   [name: string] : {
     fields: string[]
-    rest_endpoint: GithubRestEndpoints
-    commands: CommandDetails[]
+    sdk: SdkParams
+    actions: EntityAction
     tests?: EntityCommandTest
   }
+}
+
+type EntityAction = {
+  "load": ActionDetails
+} | {
+  "save": ActionDetails
 }
 
 type EntityCommandTest = {
@@ -43,6 +48,12 @@ type EntityCommandTest = {
 
 interface SaveCommandTest extends CommandTest {
   changes: Record<string, any>
+}
+
+type SdkParams = {
+  rest: {
+    subpath: GithubRestEndpoints
+  }
 }
 
 type GithubRestEndpoints =
@@ -62,4 +73,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Command, CommandFn, CommandDetails, EntityMap }
+export type { Action, CommandFn, ActionDetails, EntityMap }
