@@ -225,7 +225,7 @@ const ents: EntityMap = {
     },
   },
   check: {
-    fields: [],
+    fields: fields.check,
     sdk: {
       rest: {
         subpath: 'checks',
@@ -255,7 +255,7 @@ const ents: EntityMap = {
     },
   },
   project: {
-    fields: [],
+    fields: fields.project,
     sdk: {
       rest: {
         subpath: 'projects',
@@ -281,7 +281,7 @@ const ents: EntityMap = {
     },
   },
   secret_scanning: {
-    fields: [],
+    fields: fields.secret_scanning,
     sdk: {
       rest: {
         subpath: 'secretScanning',
