@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { TestEntityMap } from "./types";
 
 let test_args = {
   gist_id: "some-gist-id",
@@ -20,7 +21,7 @@ let test_args = {
 
 const rand = crypto.randomBytes(10).toString("hex");
 
-const ents_tests = {
+const ents_tests: TestEntityMap = {
   repo: {
     load: {
       args: {
