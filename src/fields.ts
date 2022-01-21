@@ -54,4 +54,19 @@ export default {
       node_id: {},
       avatar_url: {},
     },
+    secret_scanning: {
+      number: {},
+      repo_id: {},
+      secret: {},
+    },
+    project: {
+      id: {},
+      node_id: {},
+      name: {},
+    },
+    check: {
+      id: {},
+      head_sha: {},
+      node_id: {},
+    }
   }
