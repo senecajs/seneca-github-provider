@@ -3,7 +3,7 @@
 import * as Fs from 'fs'
 
 import GithubProvider from '../src/github-provider'
-import { ents } from "../src/entities"
+import { ents_tests } from "./ents-tests"
 import { set_mock_worker } from './set-mock-worker'
 import mocks from '../src/mocks'
 
@@ -24,17 +24,18 @@ beforeAll(() => worker.listen())
 afterAll(() => worker.close())
 
 // Separate entities details by their command type
-const entities_load = {}
-const entities_save = {}
+const loads = {}
+const saves = {}
 
-Object.keys(ents).forEach(ent_name => {
-  const entity = ents[ent_name]
-  entity.commands.forEach(cmd => {
-    if(cmd.cmd === 'load') {
-      entities_load[ent_name] = entity
+Object.keys(ents_tests).forEach(ent_name => {
+  const actions = ents_tests[ent_name]
+  
+  Object.keys(actions).forEach(action_name => {
+    if(action_name === 'load') {
+      loads[ent_name] = actions
     }
-    if(cmd.cmd === 'save') {
-      entities_save[ent_name] = entity
+    if(action_name === 'save') {
+      saves[ent_name] = actions
     }
   })
 })
@@ -118,9 +119,8 @@ describe('github-provider', () => {
 })
 
 describe("github-entities-load", () => {
-  Object.keys(entities_load).forEach(ent_name => {
-    let entity = ents[ent_name]
-    const full = "provider/github/" + ent_name
+  Object.keys(loads).forEach(ent_name => {
+    let test_data = loads[ent_name]
 
     test(`load-${ent_name}` , async () => {
       const seneca = Seneca({ legacy: false })
@@ -130,13 +130,13 @@ describe("github-entities-load", () => {
         .use("provider", provider_options)
         .use(GithubProvider)
 
-      const tests = entity.tests
+      const load_test_data = test_data.load
 
-      let res_data = await seneca.entity(full).load$(tests['load'].args)
+      let res_data = await seneca.entity("provider/github/" + ent_name).load$(load_test_data.args)
 
-      expect(res_data.entity$).toBe(full)
+      expect(res_data.entity$).toBe("provider/github/" + ent_name)
       
-      const expectations = tests['load'].expectations
+      const expectations = load_test_data.expectations
 
       if(expectations) {
         assert(expectations, res_data)
@@ -148,9 +148,8 @@ describe("github-entities-load", () => {
 })
 
 describe("github-entities-save", () => {
-  Object.keys(entities_save).forEach(ent_name => {
-    let entity_details = ents[ent_name]
-    const full = "provider/github/" + ent_name
+  Object.keys(saves).forEach(ent_name => {
+    let test_data = saves[ent_name]
 
     test(`save-${ent_name}` , async () => {
       const seneca = Seneca({ legacy: false })
@@ -160,22 +159,22 @@ describe("github-entities-save", () => {
         .use("provider", provider_options)
         .use(GithubProvider)
 
-      const load_test = entity_details.tests['load']
-      const save_test = entity_details.tests['save']
+      const load_test_data = loads[ent_name].load
+      const save_test_data = test_data.save
 
-      let entity = await seneca.entity(full).load$(load_test.args)
+      let entity = await seneca.entity("provider/github/" + ent_name).load$(load_test_data.args)
 
-      expect(entity.entity$).toBe(full)
+      expect(entity.entity$).toBe("provider/github/" + ent_name)
 
       // Apply changes and save
-      const changes = save_test.changes
-      Object.keys(save_test.changes).forEach(change => {
-        entity[change] = changes[change] 
+      const changes = save_test_data.changes
+      Object.keys(changes).forEach(change => {
+        entity[change] = changes[change]
       })
-      entity = await entity.save$(save_test.args)
+      entity = await entity.save$(save_test_data.args)
 
       // Assertions
-      const expectations = save_test.expectations
+      const expectations = save_test_data.expectations
       expectations
         ? assert(expectations, entity)
         : expect(entity.id).toBeDefined() // check for a ID when no expectations were set
@@ -197,4 +196,3 @@ function assert(expectations: any, against: any) {
     })
   })
 }
-
