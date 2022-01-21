@@ -1,29 +1,29 @@
 type EntityActionTest =
   | {
-      load: ActionTest;
+      load: ActionTest
     }
   | {
-      save: SaveActionTest;
-    };
+      save: SaveActionTest
+    }
 
 interface SaveActionTest extends ActionTest {
-  changes: Record<string, any>;
+  changes: Record<string, any>
 }
 
 type TestEntityMap = {
-  [name: string]: EntityActionTest;
-};
+  [name: string]: EntityActionTest
+}
 
 type ActionTest = {
-  args?: Record<string, any>;
-  expectations?: Record<string, Assertions>;
-};
+  args?: Record<string, any>
+  expectations?: Record<string, Assertions>
+}
 
 type Assertions = {
-  sameAs?: any;
-  toBe?: TestToBe[];
-};
+  sameAs?: any
+  toBe?: TestToBe[]
+}
 
-type TestToBe = "defined" | "falsy";
+type TestToBe = "defined" | "falsy"
 
-export type { TestEntityMap };
+export type { TestEntityMap }
