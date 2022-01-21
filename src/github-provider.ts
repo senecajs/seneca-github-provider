@@ -4,7 +4,8 @@
 // TODO: namespace provider zone; needs seneca-entity feature
 
 import { Octokit } from '@octokit/rest'
-
+import { make_actions } from './cmd-handlers'
+import { ents } from './entities'
 
 type GithubProviderOptions = {}
 
@@ -19,22 +20,41 @@ type GithubProviderOptions = {}
 function GithubProvider(this: any, _options: any) {
   const seneca: any = this
 
-  const ZONE_BASE = 'provider/github/'
-
   let octokit: Octokit
-
 
   // NOTE: sys- zone prefix is reserved.
 
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
-    .message('role:entity,cmd:load,zone:provider,base:github,name:repo',
-      load_repo)
 
-    .message('role:entity,cmd:save,zone:provider,base:github,name:repo',
-      save_repo)
+  function add_actions(github_actions: Record<string, any>) {
+    for(const [ent_name, data] of Object.entries(ents)) {
+      const { actions } = data
+      const { subpath } = data.sdk.rest
 
+      for(const [action, action_data] of Object.entries(actions)) {
+        const common = { zone: "provider", base: "github", role: "entity" }
 
+        const pattern = {
+          name: ent_name,
+          cmd: action,
+          ...common,
+        }
+
+        const github_action: CallableFunction = github_actions[subpath][action_data.action]
+
+        if(!github_action) {
+          throw new Error(`Invalid action ${action} in ${subpath} endpoint`)
+        }
+
+        const handlers: Record<string, CallableFunction> = make_actions(github_action, action_data.body_args , action_data.include)
+
+        const action_handler = handlers[action]
+
+        seneca.message(pattern, action_handler)
+      }
+    }
+  }
 
   async function get_info(this: any, _msg: any) {
     return {
@@ -45,53 +65,6 @@ function GithubProvider(this: any, _options: any) {
       }
     }
   }
-
-  async function load_repo(this: any, msg: any) {
-    let ent: any = null
-
-    let q: any = msg.q
-    let [ownername, reponame]: [string, string] = q.id.split('/')
-
-    let res = await octokit.rest.repos.get({
-      owner: ownername,
-      repo: reponame,
-    })
-
-    if (res && 200 === res.status) {
-      let data: any = res.data
-      data.github_id = data.id
-      data.id = q.id
-      ent = this.make$(ZONE_BASE + 'repo').data$(data)
-    }
-
-    return ent
-  }
-
-
-  async function save_repo(this: any, msg: any) {
-    let ent: any = msg.ent
-
-    let [ownername, reponame]: [string, string] = ent.id.split('/')
-
-    let data = {
-      owner: ownername,
-      repo: reponame,
-      description: ent.description
-    }
-
-    let res = await octokit.rest.repos.update(data)
-
-    if (res && 200 === res.status) {
-      let data: any = res.data
-      data.github_id = data.id
-      data.id = ownername + '/' + reponame
-      ent = this.make$(ZONE_BASE + 'repo').data$(data)
-    }
-
-    return ent
-  }
-
-
 
   seneca.prepare(async function(this: any) {
     let out = await this.post('sys:provider,get:key,provider:github,key:api')
@@ -104,6 +77,10 @@ function GithubProvider(this: any, _options: any) {
     }
 
     octokit = new Octokit(config)
+
+    const actions = octokit.rest
+
+    add_actions(actions)
   })
 
 
