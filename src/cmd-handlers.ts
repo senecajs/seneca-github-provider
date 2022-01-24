@@ -13,6 +13,19 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     
     let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
+    if (modify && modify.include) {      
+      const includes_arr: any = []
+
+      modify.include.forEach((include_data) => {
+        let from  = include_data.from === IncludeFromEnum.HttpResponseData ? res.data : old_args
+        includes_arr.push(
+          include(entity, include_data, from)
+        )
+      })
+
+      entity = modify_object(entity, includes_arr)
+    }
+
     if (modify && modify.rename) {
       modify.rename.forEach((rename_data) => {
         entity[rename_data.rename] = entity[rename_data.field]
