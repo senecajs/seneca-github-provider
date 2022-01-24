@@ -1,4 +1,4 @@
-import { EntityMap } from './types'
+import { EntityMap, IncludeFromEnum } from './types'
 import fields from './fields'
 
 const ents: EntityMap = {
@@ -17,6 +17,12 @@ const ents: EntityMap = {
             {
               field: 'id',
               rename: 'github_id'
+            },
+          ],
+          include: [
+            {
+              field: 'repo_id',
+              from: IncludeFromEnum.args,
             }
           ]
         },
