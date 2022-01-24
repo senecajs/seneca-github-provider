@@ -69,6 +69,13 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     }
   }
 
+  function modify_object(object: Record<string, any>, mod: Array< { [field: string]: any } > ) {
+    return mod.reduce((object, mod) => {
+      object[mod.field] = mod.value
+      return object
+    }, object)
+  }
+
   function octokit_req_body(source: Source) {
     let body = {}
 
