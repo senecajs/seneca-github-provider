@@ -1,65 +1,37 @@
-function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], include?: string[]) {
+import { Arguments, Entity, Source } from "./types"
+
+function make_actions(reqFn: CallableFunction, body_args: Array<string> = []) {
   async function load(this:any, msg: any) {
-    const source = {...msg.q}
+    const args: Arguments = {...msg.q}
     let body: Record<string,any> = {}
 
-    const old_source = {...source}
+    const old_args = {...args}
 
-    if(source.repo_id) {
-      body = owner_repo(source.repo_id)
-      delete source.repo_id
-    }
+    body = octokit_req_body(args)
 
-    let res = await reqFn({...body, ...source})
-    res = res.data
+    const res = await reqFn(body)
+    
+    let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if (include) {
-      include.forEach((item) => {
-        if (item.indexOf(' as ') !== -1) {
-          const [attr, new_attr_name] = item
-            .split(' as ')
-            .map((item) => item.trim())
-          res[new_attr_name] = old_source[attr]
-        } else {
-          res[item] = old_source[item]
-        }
-      })
-    }
-
-    return this.make$(msg.ent.entity$).data$(res)
+    return entity
   }
 
   async function save(this:any, msg: any) {
-    const source = {...msg.ent}
+    const entity = {...msg.ent}
     const args = {...msg.q}
     let body: Record<string,any> = {}
 
-    const old_source = {...source}
+    body = octokit_req_body(entity)
 
-    if(source.repo_id) {
-      body = owner_repo(source.repo_id)
-      delete source.repo_id
-    }
+    body_args.forEach(attr => {
+      body[attr] = entity[attr] 
+    })
 
-    body = fill_obj(source, body, body_args)
+    const res = await reqFn(body)
 
-    let res = await reqFn({...body, ...args})
-    res = res.data
+    let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if (include) {
-      include.forEach((item) => {
-        if (item.indexOf(' as ') !== -1) {
-          const [attr, new_attr_name] = item
-            .split(' as ')
-            .map((item) => item.trim())
-          res[new_attr_name] = old_source[attr]
-        } else {
-          res[item] = old_source[item]
-        }
-      })
-    }
-
-    return this.make$(msg.ent.entity$).data$(res)
+    return new_entity
   }
 
   function owner_repo(repo_id: string): Record<string, string> {
@@ -70,12 +42,16 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], in
     }
   }
 
-  function fill_obj(from: Record<string, any>, to: Record<string, any>, attributes: Array<string>) {
-    attributes.forEach(attr => {
-      to[attr] = from[attr] 
-    })
+  function octokit_req_body(source: Source) {
+    let body = {}
 
-    return to
+    if(source.repo_id) {
+      body = owner_repo(source.repo_id)
+    }
+
+    delete source.repo_id
+
+    return {...body, ...source}
   }
 
   return {
