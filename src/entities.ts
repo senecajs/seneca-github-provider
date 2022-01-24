@@ -12,12 +12,18 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['repo_id as id', 'repo_id']
+        modify: {
+          rename: [
+            {
+              field: 'id',
+              rename: 'github_id'
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         body_args: ['description'],
-        include: ['repo_id as id', 'repo_id']
       }
     },
   },
@@ -31,11 +37,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getAlert',
-        include: ['repo_id', 'alert_number']
+        include: ['repo_id', 'alert_number'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'updateAlert',
         include: ['repo_id', 'alert_number'],
+        modify: {
+          rename: [
+            {
+              field: 'repo_id',
+              from: DataSourceEnum.args,
+            }
+          ]
+        },
         body_args: ['alert_number', 'state', 'dismissed_reason']
       }
     },
@@ -50,7 +72,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getBranch',
-        include: ['repo_id']
+        include: ['repo_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       }
     },
   },
@@ -64,7 +94,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getConductCode',
-        include: []
+        include: [],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
     },
   },
@@ -78,7 +116,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getCommit',
-        include: ['repo_id']
+        include: ['repo_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       }
     },
   },
@@ -92,11 +138,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['gist_id']
+        include: ['gist_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['gist_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: ['gist_id', 'description', 'files']
       }
     },
@@ -111,11 +173,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['repo_id', 'issue_number']
+        include: ['repo_id', 'issue_number'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['repo_id', 'issue_number'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'issue_number',
           'title',
@@ -138,7 +216,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: []
+        include: [],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       }
     },
   },
@@ -152,7 +238,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['org']
+        include: ['org'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       }
     },
   },
@@ -166,11 +260,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['repo_id', 'pull_number']
+        include: ['repo_id', 'pull_number'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['repo_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'pull_number',
           'title',
@@ -192,11 +302,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getRelease',
-        include: ['repo_id', 'release_id']
+        include: ['repo_id', 'release_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['repo_id', 'release_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'release_id',
           'tag_name',
@@ -220,7 +346,15 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'getByUsername',
-        include: []
+        include: [],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
     },
   },
@@ -234,11 +368,27 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        include: ['repo_id', 'check_run_id']
+        include: ['repo_id', 'check_run_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['repo_id', 'check_run_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'check_run_id',
           'name',
@@ -265,10 +415,26 @@ const ents: EntityMap = {
       load : {
         action: 'get',
         include: ['project_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'update',
         include: ['project_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'project_id',
           'name',
@@ -291,10 +457,26 @@ const ents: EntityMap = {
       load : {
         action: 'getAlert',
         include: ['alert_number', 'repo_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
       },
       save: {
         action: 'updateAlert',
         include: ['alert_number', 'repo_id'],
+        modify: {
+          rename: [
+            {
+              field: '',
+              rename: '',
+            }
+          ]
+        },
         body_args: [
           'alert_number',
           'state',
@@ -303,6 +485,6 @@ const ents: EntityMap = {
       }
     },
   }
-}
+*/}
 
 export { ents }
