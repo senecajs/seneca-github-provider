@@ -4,14 +4,14 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 123456,
       },
     },
     get: {
       method: "GET",
       url: "/repos/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 123456,
       },
     },
   },
