@@ -47,7 +47,7 @@ function GithubProvider(this: any, _options: any) {
           throw new Error(`Invalid action ${action} in ${subpath} endpoint`)
         }
 
-        const handlers: Record<string, CallableFunction> = make_actions(github_action, action_data.body_args , action_data.include)
+        const handlers: Record<string, CallableFunction> = make_actions(github_action, action_data.body_args)
 
         const action_handler = handlers[action]
 
