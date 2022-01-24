@@ -1,6 +1,6 @@
-import { Arguments, Entity, Source } from "./types"
+import { Arguments, Entity, FieldModify, Source } from "./types"
 
-function make_actions(reqFn: CallableFunction, body_args: Array<string> = []) {
+function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify) {
   async function load(this:any, msg: any) {
     const args: Arguments = {...msg.q}
     let body: Record<string,any> = {}
