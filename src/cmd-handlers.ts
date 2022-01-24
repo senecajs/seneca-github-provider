@@ -1,4 +1,4 @@
-import { Arguments, Entity, FieldModify, Source } from "./types"
+import { Arguments, IncludeFromEnum, Entity, FieldModify, Source, FieldInclude } from "./types"
 
 function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify) {
   async function load(this:any, msg: any) {
@@ -74,6 +74,14 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
       object[mod.field] = mod.value
       return object
     }, object)
+  }
+
+
+  function include(to: Record<string, any>, include_data: FieldInclude, from: Arguments | Entity) {  
+    return {
+      field: include_data.rename || include_data.field, 
+      value: from[include_data.field]
+    }
   }
 
   function octokit_req_body(source: Source) {
