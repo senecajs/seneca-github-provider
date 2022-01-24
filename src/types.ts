@@ -7,12 +7,25 @@ type ActionDetails = {
 }
 
 type FieldModify = {
+  include: FieldInclude[]
   rename?: FieldRename[]
 }
 
 type FieldRename = {
   field: string,
   rename: string
+}
+
+type FieldInclude = {
+  field: string
+  from: IncludeFromEnum
+  rename?: string
+}
+
+enum IncludeFromEnum {
+  args,
+  HttpResponseData,
+  entity,
 }
 
 type Arguments = { [key: string]: any }
@@ -58,5 +71,8 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap, FieldModify, Entity, Arguments, Source, FieldRename }
+export type { Action, ActionDetails, EntityMap, FieldModify, Entity, Arguments, Source, FieldInclude, FieldRename }
 
+export {
+  IncludeFromEnum
+}
