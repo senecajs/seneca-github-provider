@@ -13,6 +13,13 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     
     let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
+    if (modify && modify.rename) {
+      modify.rename.forEach((rename_data) => {
+        entity[rename_data.rename] = entity[rename_data.field]
+        delete entity[rename_data.field]
+      })
+    }
+
     return entity
   }
 
@@ -30,6 +37,13 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     const res = await reqFn(body)
 
     let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
+
+    if (modify && modify.rename) {
+      modify.rename.forEach((rename_data) => {
+        new_entity[rename_data.rename] = new_entity[rename_data.field]
+        delete new_entity[rename_data.field]
+      })
+    }
 
     return new_entity
   }
