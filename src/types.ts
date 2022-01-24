@@ -3,8 +3,23 @@ type Action = "load" | "save"
 type ActionDetails = {
   action: string
   body_args?: string[]
-  include?: string[]
+  modify?: FieldModify
 }
+
+type FieldModify = {
+  rename?: FieldRename[]
+}
+
+type FieldRename = {
+  field: string,
+  rename: string
+}
+
+type Arguments = { [key: string]: any }
+
+type Source = { [key: string]: any }
+
+type Entity = { [key: string]: any }
 
 type EntityMap = {
   [name: string] : {
@@ -43,4 +58,5 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap }
+export type { Action, ActionDetails, EntityMap, FieldModify, Entity, Arguments, Source, FieldRename }
+
