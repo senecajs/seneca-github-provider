@@ -31,6 +31,9 @@ const ents_tests: TestEntityMap = {
         repo_id: {
           sameAs: test_args.repo_id,
         },
+        github_id: {
+          sameAs: test_args.github_id
+        }
       },
     },
     save: {
