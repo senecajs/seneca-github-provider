@@ -7,7 +7,7 @@ type ActionDetails = {
 }
 
 type FieldModify = {
-  include: FieldInclude[]
+  include?: FieldInclude[]
   rename?: FieldRename[]
 }
 
