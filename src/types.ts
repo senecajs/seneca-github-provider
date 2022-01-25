@@ -3,12 +3,16 @@ type Action = "load" | "save"
 type ActionDetails = {
   action: string
   body_args?: string[]
-  modify?: FieldModify
+  modify?: FieldModify[]
 }
 
 type FieldModify = {
-  include?: FieldInclude[]
-  rename?: FieldRename[]
+  field: string
+  rename?: string,
+  replace_for: {
+    field: string,
+    from: IncludeFromEnum
+  }
 }
 
 type FieldRename = {
