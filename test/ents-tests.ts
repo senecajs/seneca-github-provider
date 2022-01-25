@@ -11,7 +11,7 @@ let test_args = {
   issue_number: 1,
   license: "mit",
   org: "Organization123",
-  release_id: 123456,
+  release_id: 240776234,
   username: "senecajs",
   pull_number: 1256,
   alert_number: 1,

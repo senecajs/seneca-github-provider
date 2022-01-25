@@ -83,19 +83,23 @@ export default {
     },
   },
   release: {
+    // For release updates, octokit makes the same request as it does when updating a repository (/repos/:owner/:repo), 
+    // There is no need of mocking a release PATCH request since what will be returned is the mock data for repository PATCH request
+    /*
     patch: {
       method: "PATCH",
-      url: "/repositories/:repo_id", //octokit uses this url to update a release
+      url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
-        id: 123456,
+        id: 240776234,
         tag_name: 'tag_name',
       },
     },
+    */
     get: {
       method: "GET",
       url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
-        id: 123456,
+        id: 240776234,
         tag_name: 'tag_name',
       },
     },
