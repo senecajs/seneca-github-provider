@@ -83,7 +83,7 @@ export default {
   release: {
     patch: {
       method: "PATCH",
-      url: "/repos/:owner/:repo",
+      url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
         repo_id: "senecajs/seneca",
       },
