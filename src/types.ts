@@ -3,8 +3,25 @@ type Action = "load" | "save"
 type ActionDetails = {
   action: string
   body_args?: string[]
-  include?: string[]
+  modify?: FieldModify[]
 }
+
+type FieldModify = {
+  field: string
+  rename?: string,
+  replace_for?: {
+    field: string,
+    from: IncludeFromEnum
+  }
+}
+
+enum IncludeFromEnum {
+  args,
+  ResponseData,
+  entity,
+}
+
+type Entity = { [key: string]: any }
 
 type EntityMap = {
   [name: string] : {
@@ -43,4 +60,8 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap }
+export type { Action, ActionDetails, EntityMap, FieldModify, Entity }
+
+export {
+  IncludeFromEnum
+}

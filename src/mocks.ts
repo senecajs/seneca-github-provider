@@ -2,16 +2,16 @@ export default {
   repo: {
     patch: {
       method: "PATCH",
-      url: "/repos/:owner/:repo",
+      url: "/repoas/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 240776234,
       },
     },
     get: {
       method: "GET",
       url: "/repos/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 240776234,
       },
     },
   },
@@ -20,6 +20,7 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/code-scanning/alerts/:alert_number",
       mock_data: {
+        number: 1,
         dismissed_reason: "used in tests",
       },
     },
@@ -52,14 +53,13 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/issues/:issue_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        number: 1
       },
     },
     get: {
       method: "GET",
       url: "/repos/:owner/:repo/issues/:issue_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
         number: 1,
       },
     },
@@ -69,7 +69,8 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/pulls/:pull_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 819532044,
+        number: 1256,
       },
     },
     get: {
@@ -77,15 +78,17 @@ export default {
       url: "/repos/:owner/:repo/pulls/:pull_number",
       mock_data: {
         id: 819532044,
+        number: 1256,
       },
     },
   },
   release: {
     patch: {
       method: "PATCH",
-      url: "/repos/:owner/:repo",
+      url: "/repositories/:repo_id", //octokit uses this url to update a release
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 123456,
+        tag_name: 'tag_name',
       },
     },
     get: {
@@ -93,6 +96,7 @@ export default {
       url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
         id: 123456,
+        tag_name: 'tag_name',
       },
     },
   },
@@ -101,7 +105,6 @@ export default {
       method: "GET",
       url: "/repos/:owner/:repo/branches/:branch",
       mock_data: {
-        repo_id: "senecajs/seneca",
         name: "master",
       },
     },
@@ -120,7 +123,6 @@ export default {
       method: "GET",
       url: "/repos/:owner/:repo/git/commits/:commit_sha",
       mock_data: {
-        repo_id: "senecajs/seneca",
         sha: "commit-sha",
       },
     },

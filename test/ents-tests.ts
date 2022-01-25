@@ -3,7 +3,8 @@ import { TestEntityMap } from "./types"
 
 let test_args = {
   gist_id: "some-gist-id",
-  repo_id: "senecajs/seneca",
+  github_id: 240776234,
+  repo_id: "guhmerces/hiringTest",
   code_of_conduct_key: "contributor_covenant",
   branch_id: "master",
   commit_sha: "commit-sha",
@@ -12,7 +13,7 @@ let test_args = {
   org: "Organization123",
   release_id: 123456,
   username: "senecajs",
-  pull_number: 4,
+  pull_number: 1256,
   alert_number: 1,
   secret_scanning_alert_number: 11,
   check_run_id: 1,
@@ -28,8 +29,11 @@ const ents_tests: TestEntityMap = {
         repo_id: test_args.repo_id,
       },
       expectations: {
-        repo_id: {
+        id: {
           sameAs: test_args.repo_id,
+        },
+        github_id: {
+          sameAs: test_args.github_id
         },
       },
     },
@@ -38,7 +42,7 @@ const ents_tests: TestEntityMap = {
         description: rand,
       },
       expectations: {
-        repo_id: {
+        id: {
           sameAs: test_args.repo_id,
         },
       },
@@ -51,7 +55,7 @@ const ents_tests: TestEntityMap = {
         alert_number: test_args.alert_number,
       },
       expectations: {
-        number: {
+        alert_number: {
           sameAs: test_args.alert_number,
         },
       },
@@ -117,6 +121,11 @@ const ents_tests: TestEntityMap = {
       args: {
         gist_id: test_args.gist_id,
       },
+      expectations: {
+        gist_id: {
+          sameAs: test_args.gist_id,
+        },
+      },
     },
     save: {
       changes: {
@@ -139,7 +148,7 @@ const ents_tests: TestEntityMap = {
         repo_id: {
           sameAs: test_args.repo_id,
         },
-        number: {
+        issue_number: {
           sameAs: test_args.issue_number,
         },
       },
@@ -151,6 +160,9 @@ const ents_tests: TestEntityMap = {
       expectations: {
         repo_id: {
           sameAs: test_args.repo_id,
+        },
+        issue_number: {
+          sameAs: test_args.issue_number,
         },
       },
     },
@@ -185,6 +197,11 @@ const ents_tests: TestEntityMap = {
         repo_id: test_args.repo_id,
         pull_number: test_args.pull_number,
       },
+      expectations: {
+        pull_number: {
+          sameAs: test_args.pull_number,
+        },
+      },
     },
     save: {
       changes: {
@@ -194,6 +211,9 @@ const ents_tests: TestEntityMap = {
         repo_id: {
           sameAs: test_args.repo_id,
         },
+        pull_number: {
+          sameAs: test_args.pull_number
+        }
       },
       args: {
         base: "master",
@@ -206,6 +226,14 @@ const ents_tests: TestEntityMap = {
         repo_id: test_args.repo_id,
         release_id: test_args.release_id,
       },
+      expectations: {
+        repo_id: {
+          sameAs: test_args.repo_id,
+        },
+        release_id: {
+          sameAs: test_args.release_id,
+        },
+      },
     },
     save: {
       changes: {
@@ -214,6 +242,9 @@ const ents_tests: TestEntityMap = {
       expectations: {
         repo_id: {
           sameAs: test_args.repo_id,
+        },
+        release_id: {
+          sameAs: test_args.release_id,
         },
       },
     },
@@ -232,7 +263,7 @@ const ents_tests: TestEntityMap = {
         check_run_id: test_args.check_run_id,
       },
       expectations: {
-        id: {
+        check_run_id: {
           sameAs: test_args.check_run_id,
         },
       },
@@ -248,9 +279,6 @@ const ents_tests: TestEntityMap = {
         check_run_id: {
           sameAs: test_args.check_run_id,
         },
-        id: {
-          sameAs: test_args.check_run_id,
-        },
       },
     },
   },
@@ -260,7 +288,7 @@ const ents_tests: TestEntityMap = {
         project_id: test_args.project_id,
       },
       expectations: {
-        id: {
+        project_id: {
           sameAs: test_args.project_id,
         },
       },
@@ -270,7 +298,7 @@ const ents_tests: TestEntityMap = {
         name: rand,
       },
       expectations: {
-        id: {
+        project_id: {
           sameAs: test_args.project_id,
         },
       },
@@ -283,7 +311,7 @@ const ents_tests: TestEntityMap = {
         alert_number: test_args.secret_scanning_alert_number,
       },
       expectations: {
-        number: {
+        alert_number: {
           sameAs: test_args.secret_scanning_alert_number,
         },
       },
@@ -294,7 +322,7 @@ const ents_tests: TestEntityMap = {
         resolution: "used in tests",
       },
       expectations: {
-        number: {
+        alert_number: {
           sameAs: test_args.secret_scanning_alert_number,
         },
         state: {
