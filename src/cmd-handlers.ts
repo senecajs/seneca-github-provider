@@ -80,11 +80,9 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     }
   }
 
-  function modify_object(object: Record<string, any>, mod: Array< { [field: string]: any } > ) {
-    return mod.reduce((object, mod) => {
-      object[mod.field] = mod.value
-      return object
-    }, object)
+  function modify_object(object: Record<string, any>, field: string, replace_for: string, from: Record<string, any> ) {
+    object[field] = from[replace_for] // TODO : attrs existence validation
+    return object
   }
 
   return {
