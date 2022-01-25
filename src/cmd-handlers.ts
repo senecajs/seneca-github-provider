@@ -7,7 +7,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
 
     const old_args = {...args}
 
-    body = octokit_req_body(args)
+    body = basic_body(args)
 
     const res = await reqFn(body)
     
@@ -41,7 +41,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     const args = {...msg.q}
     let body: Record<string,any> = {}
 
-    body = octokit_req_body(entity)
+    body = basic_body({repo_id: entity.repo_id})
 
     body_args.forEach(attr => {
       body[attr] = entity[attr] 
@@ -59,6 +59,17 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     }
 
     return new_entity
+  }
+
+  function basic_body(source: Record<string, any>) {
+    let body = {}
+
+    if(source.repo_id) {
+      body = owner_repo(source.repo_id)
+      delete source.repo_id
+    }
+
+    return {...body, ...source}
   }
 
   function owner_repo(repo_id: string): Record<string, string> {
