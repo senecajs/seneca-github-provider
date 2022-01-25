@@ -9,7 +9,7 @@ type ActionDetails = {
 type FieldModify = {
   field: string
   rename?: string,
-  replace_for: {
+  replace_for?: {
     field: string,
     from: IncludeFromEnum
   }
