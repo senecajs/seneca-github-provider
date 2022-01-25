@@ -13,24 +13,15 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     
     let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if (modify && modify.include) {      
-      const includes_arr: any = []
-
-      modify.include.forEach((include_data) => {
-        let from  = include_data.from === IncludeFromEnum.HttpResponseData ? res.data : old_args
-        includes_arr.push(
-          include(entity, include_data, from)
-        )
+    if(modify) {
+      const replacements = modify.filter(mod => mod.replace_for !== undefined)
+      entity = ent_replacements(entity, replacements, {
+        args: old_args,
+        res
       })
-
-      entity = modify_object(entity, includes_arr)
-    }
-
-    if (modify && modify.rename) {
-      modify.rename.forEach((rename_data) => {
-        entity[rename_data.rename] = entity[rename_data.field]
-        delete entity[rename_data.field]
-      })
+      
+      const renamings = modify.filter(mod => mod.rename !== undefined)
+      entity = ent_renamings(entity, renamings)
     }
 
     return entity
@@ -51,11 +42,16 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
 
     let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if (modify && modify.rename) {
-      modify.rename.forEach((rename_data) => {
-        new_entity[rename_data.rename] = new_entity[rename_data.field]
-        delete new_entity[rename_data.field]
+    if(modify) {
+      const replacements = modify.filter(mod => mod.replace_for !== undefined)
+      new_entity = ent_replacements(new_entity, replacements, {
+        entity,
+        res,
+        args
       })
+      
+      const renamings = modify.filter(mod => mod.rename !== undefined)      
+      new_entity = ent_renamings(new_entity, renamings)
     }
 
     return new_entity
