@@ -1,8 +1,8 @@
-import { Arguments, IncludeFromEnum, Entity, FieldModify, Source, FieldInclude } from "./types"
+import { IncludeFromEnum, Entity, FieldModify } from "./types"
 
-function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify) {
+function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify[]) {
   async function load(this:any, msg: any) {
-    const args: Arguments = {...msg.q}
+    const args = {...msg.q}
     let body: Record<string,any> = {}
 
     const old_args = {...args}
