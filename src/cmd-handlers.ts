@@ -85,6 +85,38 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     return object
   }
 
+  function ent_renamings(entity: Entity, renamings: FieldModify[]) {
+    renamings.forEach(renaming => {
+      entity = modify_object(entity, renaming.rename, renaming.field,  entity)
+      delete entity[renaming.field]
+    })
+
+    return entity
+  }
+
+  function ent_replacements(entity: Entity, replacements: FieldModify[], sources: Record<string, any>) {
+    replacements.forEach(replace => {
+      let from: Record<string, any> = {}
+
+      switch (replace.replace_for.from) {
+        case IncludeFromEnum.args:
+          from = sources.args
+          break;
+        case IncludeFromEnum.entity:
+          from = sources.entity
+          break;
+      
+        default:
+          from = sources.res.data
+          break;
+      }
+
+      entity = modify_object(entity, replace.field, replace.replace_for.field, from)
+    })
+
+    return entity
+  }
+
   return {
     load,
     save
