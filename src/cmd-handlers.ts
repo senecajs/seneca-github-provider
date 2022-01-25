@@ -84,7 +84,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   function ent_renamings(entity: Entity, renamings: FieldModify[]) {
     renamings.forEach(renaming => {
       if(!renaming.rename) {
-        return entity
+        return
       }
       entity = modify_object(entity, renaming.rename, renaming.field,  entity)
       delete entity[renaming.field]
@@ -98,7 +98,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
       let from: Record<string, any> = {}
 
       if(!replace.replace_for) {
-        return entity
+        return
       }
 
       switch (replace.replace_for.from) {
