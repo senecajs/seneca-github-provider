@@ -87,26 +87,6 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     }, object)
   }
 
-
-  function include(to: Record<string, any>, include_data: FieldInclude, from: Arguments | Entity) {  
-    return {
-      field: include_data.rename || include_data.field, 
-      value: from[include_data.field]
-    }
-  }
-
-  function octokit_req_body(source: Source) {
-    let body = {}
-
-    if(source.repo_id) {
-      body = owner_repo(source.repo_id)
-    }
-
-    delete source.repo_id
-
-    return {...body, ...source}
-  }
-
   return {
     load,
     save
