@@ -2,7 +2,7 @@ export default {
   repo: {
     patch: {
       method: "PATCH",
-      url: "/repoas/:owner/:repo",
+      url: "/repos/:owner/:repo",
       mock_data: {
         id: 240776234,
       },
