@@ -3,7 +3,8 @@ import { TestEntityMap } from "./types"
 
 let test_args = {
   gist_id: "some-gist-id",
-  repo_id: "senecajs/seneca",
+  github_id: 240776234,
+  repo_id: "guhmerces/hiringTest",
   code_of_conduct_key: "contributor_covenant",
   branch_id: "master",
   commit_sha: "commit-sha",
@@ -28,12 +29,12 @@ const ents_tests: TestEntityMap = {
         repo_id: test_args.repo_id,
       },
       expectations: {
-        repo_id: {
+        id: {
           sameAs: test_args.repo_id,
         },
         github_id: {
           sameAs: test_args.github_id
-        }
+        },
       },
     },
     save: {
@@ -41,7 +42,7 @@ const ents_tests: TestEntityMap = {
         description: rand,
       },
       expectations: {
-        repo_id: {
+        id: {
           sameAs: test_args.repo_id,
         },
       },
