@@ -12,23 +12,55 @@ const ents: EntityMap = {
     actions: {
       load : {
         action: 'get',
-        modify: {
-          rename: [
-            {
+        modify: [
+          {
+            field: 'github_id',
+            replace_for: {
               field: 'id',
-              rename: 'github_id'
+              from: IncludeFromEnum.ResponseData
             },
-          ],
-          include: [
-            {
+          },
+          {
+            field: 'repo_id',
+            replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
-            }
-          ]
-        },
+              from: IncludeFromEnum.args
+            },
+          },
+          {
+            field: 'id',
+            replace_for: {
+              field: 'repo_id',
+              from: IncludeFromEnum.args
+            },
+          },
+        ],
       },
       save: {
         action: 'update',
+        modify: [
+          {
+            field: 'github_id',
+            replace_for: {
+              field: 'id',
+              from: IncludeFromEnum.ResponseData
+            },
+          },
+          {
+            field: 'repo_id',
+            replace_for: {
+              field: 'repo_id',
+              from: IncludeFromEnum.entity
+            },
+          },
+          {
+            field: 'id',
+            replace_for: {
+              field: 'repo_id',
+              from: IncludeFromEnum.entity
+            },
+          },
+        ],
         body_args: ['description'],
       }
     },
