@@ -4,14 +4,14 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 240776234,
       },
     },
     get: {
       method: "GET",
       url: "/repos/:owner/:repo",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 240776234,
       },
     },
   },
@@ -20,6 +20,7 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/code-scanning/alerts/:alert_number",
       mock_data: {
+        number: 1,
         dismissed_reason: "used in tests",
       },
     },
@@ -52,14 +53,13 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/issues/:issue_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        number: 1
       },
     },
     get: {
       method: "GET",
       url: "/repos/:owner/:repo/issues/:issue_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
         number: 1,
       },
     },
@@ -69,7 +69,8 @@ export default {
       method: "PATCH",
       url: "/repos/:owner/:repo/pulls/:pull_number",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 819532044,
+        number: 1256,
       },
     },
     get: {
@@ -77,22 +78,29 @@ export default {
       url: "/repos/:owner/:repo/pulls/:pull_number",
       mock_data: {
         id: 819532044,
+        number: 1256,
       },
     },
   },
   release: {
+    // For release updates, octokit makes the same request as it does when updating a repository (/repos/:owner/:repo), 
+    // There is no need of mocking a release PATCH request since what will be returned is the mock data for repository PATCH request
+    /*
     patch: {
       method: "PATCH",
-      url: "/repos/:owner/:repo",
+      url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
-        repo_id: "senecajs/seneca",
+        id: 240776234,
+        tag_name: 'tag_name',
       },
     },
+    */
     get: {
       method: "GET",
       url: "/repos/:owner/:repo/releases/:release_id",
       mock_data: {
-        id: 123456,
+        id: 240776234,
+        tag_name: 'tag_name',
       },
     },
   },
@@ -101,7 +109,6 @@ export default {
       method: "GET",
       url: "/repos/:owner/:repo/branches/:branch",
       mock_data: {
-        repo_id: "senecajs/seneca",
         name: "master",
       },
     },
@@ -120,7 +127,6 @@ export default {
       method: "GET",
       url: "/repos/:owner/:repo/git/commits/:commit_sha",
       mock_data: {
-        repo_id: "senecajs/seneca",
         sha: "commit-sha",
       },
     },
