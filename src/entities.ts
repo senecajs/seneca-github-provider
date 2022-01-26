@@ -11,7 +11,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'github_id',
@@ -37,7 +37,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'github_id',
@@ -74,7 +74,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getAlert',
+        cb_name:'getAlert',
         modify: [
           {
             field: 'repo_id',
@@ -90,7 +90,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'updateAlert',
+        cb_name:'updateAlert',
         modify: [
           {
             field: 'repo_id',
@@ -117,7 +117,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getBranch',
+        cb_name:'getBranch',
         modify: [
           {
             field: 'repo_id',
@@ -139,7 +139,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getConductCode',
+        cb_name:'getConductCode',
         modify: [
           {
             field: 'repo_id',
@@ -161,7 +161,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getCommit',
+        cb_name:'getCommit',
         modify: [
           {
             field: 'repo_id',
@@ -183,7 +183,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'gist_id',
@@ -199,7 +199,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'gist_id',
@@ -226,7 +226,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
@@ -242,7 +242,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
@@ -277,7 +277,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: []
       }
     },
@@ -291,7 +291,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'org',
@@ -313,7 +313,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
@@ -329,7 +329,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
@@ -363,7 +363,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getRelease',
+        cb_name:'getRelease',
         modify: [
           {
             field: 'repo_id',
@@ -379,7 +379,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
@@ -415,7 +415,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getByUsername',
+        cb_name:'getByUsername',
         modify: [],
       },
     },
@@ -429,7 +429,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
@@ -445,7 +445,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
@@ -483,7 +483,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'id',
@@ -492,7 +492,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'id',
@@ -519,7 +519,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getAlert',
+        cb_name:'getAlert',
         modify: [
           {
             field: 'repo_id',
@@ -535,7 +535,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'updateAlert',
+        cb_name:'updateAlert',
         modify: [
           {
             field: 'repo_id',
