@@ -115,6 +115,8 @@ function GithubProvider(this: any, _options: any) {
     }
 
     octokit = new Octokit(config)
+
+    add_actions()
   })
 
 
