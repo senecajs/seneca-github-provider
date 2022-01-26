@@ -5,6 +5,11 @@ type ActionDetails = {
   body_args?: string[]
   modify?: FieldModify[]
 }
+type ActionData = {
+  octokit_cb: CallableFunction
+  action_details: ActionDetails
+  pattern: Record<string, any>
+}
 
 type FieldModify = {
   field: string
@@ -60,7 +65,7 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap, FieldModify, Entity }
+export type { Action, ActionDetails, EntityMap, FieldModify, Entity, ActionData }
 
 export {
   IncludeFromEnum
