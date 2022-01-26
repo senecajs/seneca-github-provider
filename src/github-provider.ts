@@ -6,6 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
+import { ActionData, EntityMap } from './types'
 
 type GithubProviderOptions = {}
 
@@ -27,33 +28,40 @@ function GithubProvider(this: any, _options: any) {
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
 
-  function add_actions(github_actions: Record<string, any>) {
-    for(const [ent_name, data] of Object.entries(ents)) {
+  function prepare_actions(entities: EntityMap): Array<ActionData> {
+    const rest: Record<string, any> = octokit.rest
+    const actions_data = []
+
+    for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
       const { subpath } = data.sdk.rest
 
-      for(const [action, action_data] of Object.entries(actions)) {
-        const common = { zone: "provider", base: "github", role: "entity" }
-
+      for (const [action_name, action_details] of Object.entries(actions)) {
         const pattern = {
           name: ent_name,
-          cmd: action,
-          ...common,
+          cmd: action_name,
+          zone: 'provider',
+          base: 'github',
+          role: 'entity',
         }
 
-        const github_action: CallableFunction = github_actions[subpath][action_data.action]
+        const octokit_cb: CallableFunction = rest[subpath][action_details.cb_name]
 
-        if(!github_action) {
-          throw new Error(`Invalid action ${action} in ${subpath} endpoint`)
+        if (!octokit_cb) {
+          throw new Error(
+            `Invalid action ${action_name} in ${subpath} endpoint`
+          )
         }
 
-        const handlers: Record<string, CallableFunction> = make_actions(github_action, action_data.body_args, action_data.modify)
-
-        const action_handler = handlers[action]
-
-        seneca.message(pattern, action_handler)
+        actions_data.push({
+          pattern,
+          octokit_cb,
+          action_details,
+        })
       }
     }
+
+    return actions_data
   }
 
   async function get_info(this: any, _msg: any) {
@@ -77,10 +85,6 @@ function GithubProvider(this: any, _options: any) {
     }
 
     octokit = new Octokit(config)
-
-    const actions = octokit.rest
-
-    add_actions(actions)
   })
 
 
