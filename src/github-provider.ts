@@ -32,9 +32,15 @@ function GithubProvider(this: any, _options: any) {
     const actions = prepare_actions(ents)
 
     for (const action of actions) {
-      seneca
-        .message(action.pattern, make_load(action))
-        .message(action.pattern, make_save(action))
+      switch (action.pattern.cmd) {
+        case ActionsEnum.load:
+          seneca.message(action.pattern, make_load(action))
+          break
+      
+        case ActionsEnum.save:
+          seneca.message(action.pattern, make_save(action))
+          break
+      }
     }
   }
 
