@@ -6,7 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
-import { ActionData, EntityMap } from './types'
+import { ActionData, ActionsEnum, EntityMap } from './types'
 
 type GithubProviderOptions = {}
 
@@ -27,6 +27,30 @@ function GithubProvider(this: any, _options: any) {
 
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
+
+  function add_actions() {
+    const actions = prepare_actions(ents)
+
+    for (const action of actions) {
+      seneca
+        .message(action.pattern, make_load(action))
+        .message(action.pattern, make_save(action))
+    }
+  }
+
+  function make_load(action: ActionData) {
+    return make_actions(
+      action.octokit_cb,
+      action.action_details
+    )[ActionsEnum.load]
+  }
+
+  function make_save(action: ActionData) {
+    return make_actions(
+      action.octokit_cb,
+      action.action_details
+    )[ActionsEnum.save]
+  }
 
   function prepare_actions(entities: EntityMap): Array<ActionData> {
     const rest: Record<string, any> = octokit.rest
