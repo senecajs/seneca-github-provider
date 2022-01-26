@@ -1,9 +1,15 @@
 type Action = "load" | "save"
 
 type ActionDetails = {
-  action: string
+  cb_name: string
   body_args?: string[]
   modify?: FieldModify[]
+}
+
+type ActionData = {
+  octokit_cb: CallableFunction
+  action_details: ActionDetails
+  pattern: Record<string, any>
 }
 
 type FieldModify = {
@@ -22,6 +28,11 @@ enum IncludeFromEnum {
 }
 
 type Entity = { [key: string]: any }
+
+enum ActionsEnum {
+  load = 'load',
+  save = 'save',
+}
 
 type EntityMap = {
   [name: string] : {
@@ -60,8 +71,9 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap, FieldModify, Entity }
+export type { Action, ActionDetails, EntityMap, FieldModify, Entity, ActionData }
 
 export {
-  IncludeFromEnum
+  IncludeFromEnum,
+  ActionsEnum
 }

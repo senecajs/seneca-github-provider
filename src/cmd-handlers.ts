@@ -1,13 +1,13 @@
-import { IncludeFromEnum, Entity, FieldModify } from "./types"
+import { IncludeFromEnum, Entity, FieldModify, ActionDetails } from "./types"
 
-function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify[]) {
+function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
     const args = {...msg.q}
-    let body: Record<string,any> = {}
+    const { modify } = action_details
 
     const old_args = {...args}
 
-    body = basic_body(args)
+    let body = basic_body(args)
 
     const res = await reqFn(body)
     
@@ -30,27 +30,28 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   async function save(this:any, msg: any) {
     const entity = {...msg.ent}
     const args = {...msg.q}
-    let body: Record<string,any> = {}
 
-    body = basic_body({repo_id: entity.repo_id})
+    let body = basic_body({repo_id: entity.repo_id})
 
-    body_args.forEach(attr => {
-      body[attr] = entity[attr] 
-    })
+    if(action_details.body_args) {
+      action_details.body_args.forEach(attr => {
+        body[attr] = entity[attr] 
+      })
+    }
 
     const res = await reqFn(body)
 
     let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if(modify) {
-      const replacements = modify.filter(mod => mod.replace_for !== undefined)
+    if(action_details.modify) {
+      const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
         entity,
         res,
         args
       })
       
-      const renamings = modify.filter(mod => mod.rename !== undefined)      
+      const renamings = action_details.modify.filter(mod => mod.rename !== undefined)      
       new_entity = ent_renamings(new_entity, renamings)
     }
 
@@ -58,7 +59,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   }
 
   function basic_body(source: Record<string, any>) {
-    let body = {}
+    let body: Record<string,any> = {}
 
     if(source.repo_id) {
       body = owner_repo(source.repo_id)
@@ -84,7 +85,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   function ent_renamings(entity: Entity, renamings: FieldModify[]) {
     renamings.forEach(renaming => {
       if(!renaming.rename) {
-        return entity
+        return
       }
       entity = modify_object(entity, renaming.rename, renaming.field,  entity)
       delete entity[renaming.field]
@@ -98,7 +99,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
       let from: Record<string, any> = {}
 
       if(!replace.replace_for) {
-        return entity
+        return
       }
 
       switch (replace.replace_for.from) {
