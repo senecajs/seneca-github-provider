@@ -1,10 +1,11 @@
 type Action = "load" | "save"
 
 type ActionDetails = {
-  action: string
+  cb_name: string
   body_args?: string[]
   modify?: FieldModify[]
 }
+
 type ActionData = {
   octokit_cb: CallableFunction
   action_details: ActionDetails
