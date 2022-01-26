@@ -74,5 +74,6 @@ type GithubRestEndpoints =
 export type { Action, ActionDetails, EntityMap, FieldModify, Entity, ActionData }
 
 export {
-  IncludeFromEnum
+  IncludeFromEnum,
+  ActionsEnum
 }
