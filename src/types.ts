@@ -29,6 +29,11 @@ enum IncludeFromEnum {
 
 type Entity = { [key: string]: any }
 
+enum ActionsEnum {
+  load = 'load',
+  save = 'save',
+}
+
 type EntityMap = {
   [name: string] : {
     fields: { [entity: string]: Record<string, Record<string, any>> }
