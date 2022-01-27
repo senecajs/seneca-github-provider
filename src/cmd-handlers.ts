@@ -7,7 +7,7 @@ function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk:
   async function load(this:any, msg: any) {
     const { modify, cb_name } = action_details
 
-    const old_args = {...msg.q}
+    const old_args = msg.q
 
     let body = basic_body({...msg.q})
 
