@@ -27,22 +27,24 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   }
 
   async function save(this:any, msg: any) {
-    let body = basic_body({repo_id: msg.ent.repo_id})
+    const entity = msg.ent
+
+    let body = basic_body({repo_id: entity.repo_id})
 
     if(action_details.body_args) {
       action_details.body_args.forEach(attr => {
-        body[attr] = msg.ent[attr] 
+        body[attr] = entity[attr] 
       })
     }
 
     const res = await reqFn(body)
 
-    let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
+    let new_entity: Entity = this.make$(entity.entity$).data$(res.data)
 
     if(action_details.modify) {
       const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
-        entity: msg.ent,
+        entity,
         res,
         args: msg.q
       })
@@ -59,8 +61,9 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
 
     if(source.repo_id) {
       body = owner_repo(source.repo_id)
-      delete source.repo_id
     }
+
+    delete source.repo_id
 
     return {...body, ...source}
   }
