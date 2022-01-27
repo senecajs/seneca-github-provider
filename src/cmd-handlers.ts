@@ -4,7 +4,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
     const { modify } = action_details
 
-    const old_args = {...msg.q}
+    const old_args = msg.q
 
     let body = basic_body({...msg.q})
 
