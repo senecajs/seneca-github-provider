@@ -1,4 +1,4 @@
-import { IncludeFromEnum, Entity, FieldModify, ActionDetails } from "./types"
+import { Entity, FieldModify, ActionDetails } from "./types"
 
 function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
@@ -98,10 +98,10 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
       }
 
       switch (replace.replace_for.from) {
-        case IncludeFromEnum.args:
+        case 'args':
           from = sources.args
           break;
-        case IncludeFromEnum.entity:
+        case 'entity':
           from = sources.entity
           break;
       
