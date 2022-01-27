@@ -58,7 +58,6 @@ type GithubRestEndpoints =
   | "orgs"
   | "projects"
   | "pulls"
-  | "releases"
   | "secretScanning"
   | "teams"
   | "users"
