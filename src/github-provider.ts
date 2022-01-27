@@ -21,10 +21,11 @@ type GithubProviderOptions = {}
 function GithubProvider(this: any, _options: any) {
   const seneca: any = this
 
-  let octokit: Octokit
+  let sdk: Record<string, any> = { octokit: undefined }
 
   // NOTE: sys- zone prefix is reserved.
 
+  add_actions()
   seneca
     .message('sys:provider,provider:github,get:info', get_info)
 
@@ -46,25 +47,25 @@ function GithubProvider(this: any, _options: any) {
 
   function make_load(action: ActionData) {
     return make_actions(
-      action.octokit_cb,
-      action.action_details
+      action.sdk_params,
+      action.action_details,
+      sdk
     )['load']
   }
 
   function make_save(action: ActionData) {
     return make_actions(
-      action.octokit_cb,
-      action.action_details
+      action.sdk_params,
+      action.action_details,
+      sdk
     )['save']
   }
 
   function prepare_actions(entities: EntityMap): Array<ActionData> {
-    const rest: Record<string, any> = octokit.rest
     const actions_data = []
 
     for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
-      const { subpath } = data.sdk.rest
       data.name = ent_name
 
       for (const [action_name, action_details] of Object.entries(actions)) {
@@ -76,17 +77,9 @@ function GithubProvider(this: any, _options: any) {
           role: 'entity',
         }
 
-        const octokit_cb: CallableFunction = rest[subpath][action_details.cb_name]
-
-        if (!octokit_cb) {
-          throw new Error(
-            `Invalid action ${action_name} in ${subpath} endpoint`
-          )
-        }
-
         actions_data.push({
           pattern,
-          octokit_cb,
+          sdk_params: data.sdk,
           action_details,
         })
       }
@@ -115,16 +108,14 @@ function GithubProvider(this: any, _options: any) {
       auth: out.value
     }
 
-    octokit = new Octokit(config)
-
-    add_actions()
+    sdk.octokit = new Octokit(config)
   })
 
 
   return {
     exports: {
       native: () => ({
-        octokit
+        octokit: sdk.octokit
       })
     }
   }

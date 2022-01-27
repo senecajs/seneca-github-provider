@@ -1,14 +1,19 @@
-import { Entity, FieldModify, ActionDetails } from "./types"
+import { Octokit } from "@octokit/rest"
+import { Entity, FieldModify, ActionDetails, SdkParams } from "./types"
 
-function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
+function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk: Record<string, any>) {
+  const { subpath } = sdk_params.rest
+
   async function load(this:any, msg: any) {
-    const { modify } = action_details
+    const { modify, cb_name } = action_details
 
     const old_args = {...msg.q}
 
     let body = basic_body({...msg.q})
 
-    const res = await reqFn(body)
+    const endpoint_methods: Record<string, any> = sdk.octokit.rest[subpath]
+
+    const res = await endpoint_methods[cb_name](body)
     
     let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
@@ -27,6 +32,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   }
 
   async function save(this:any, msg: any) {
+    const { modify, cb_name } = action_details
     const entity = msg.ent
 
     let body = basic_body({repo_id: entity.repo_id})
@@ -37,19 +43,21 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
       })
     }
 
-    const res = await reqFn(body)
+    const endpoint_methods: Record<string, any> = sdk.octokit.rest[subpath]
+
+    const res = await endpoint_methods[cb_name](body)
 
     let new_entity: Entity = this.make$(entity.entity$).data$(res.data)
 
-    if(action_details.modify) {
-      const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
+    if(modify) {
+      const replacements = modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
         entity,
         res,
         args: msg.q
       })
       
-      const renamings = action_details.modify.filter(mod => mod.rename !== undefined)      
+      const renamings = modify.filter(mod => mod.rename !== undefined)      
       new_entity = ent_renamings(new_entity, renamings)
     }
 
