@@ -2,12 +2,11 @@ import { Entity, FieldModify, ActionDetails } from "./types"
 
 function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
-    const args = {...msg.q}
     const { modify } = action_details
 
-    const old_args = {...args}
+    const old_args = {...msg.q}
 
-    let body = basic_body(args)
+    let body = basic_body(msg.q)
 
     const res = await reqFn(body)
     
@@ -28,14 +27,11 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   }
 
   async function save(this:any, msg: any) {
-    const entity = {...msg.ent}
-    const args = {...msg.q}
-
-    let body = basic_body({repo_id: entity.repo_id})
+    let body = basic_body({repo_id: msg.ent.repo_id})
 
     if(action_details.body_args) {
       action_details.body_args.forEach(attr => {
-        body[attr] = entity[attr] 
+        body[attr] = msg.ent[attr] 
       })
     }
 
@@ -46,9 +42,9 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
     if(action_details.modify) {
       const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
-        entity,
+        entity: msg.ent,
         res,
-        args
+        args: msg.q
       })
       
       const renamings = action_details.modify.filter(mod => mod.rename !== undefined)      
