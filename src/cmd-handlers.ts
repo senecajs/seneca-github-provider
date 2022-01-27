@@ -77,17 +77,12 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
     }
   }
 
-  function modify_object(object: Record<string, any>, field: string, replace_for: string, from: Record<string, any> ) {
-    object[field] = from[replace_for] // TODO : attrs existence validation
-    return object
-  }
-
   function ent_renamings(entity: Entity, renamings: FieldModify[]) {
     renamings.forEach(renaming => {
       if(!renaming.rename) {
         return
       }
-      entity = modify_object(entity, renaming.rename, renaming.field,  entity)
+      entity[renaming.rename] = entity[renaming.field]
       delete entity[renaming.field]
     })
 
@@ -115,7 +110,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
           break;
       }
 
-      entity = modify_object(entity, replace.field, replace.replace_for.field, from)
+      entity[replace.field] = from[replace.replace_for.field]
     })
 
     return entity
