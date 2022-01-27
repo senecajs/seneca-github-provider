@@ -6,7 +6,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
 
     const old_args = {...msg.q}
 
-    let body = basic_body(msg.q)
+    let body = basic_body({...msg.q})
 
     const res = await reqFn(body)
     
