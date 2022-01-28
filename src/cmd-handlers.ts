@@ -1,13 +1,12 @@
-import { IncludeFromEnum, Entity, FieldModify, ActionDetails } from "./types"
+import { Entity, FieldModify, ActionDetails } from "./types"
 
 function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
-    const args = {...msg.q}
     const { modify } = action_details
 
-    const old_args = {...args}
+    const old_args = msg.q
 
-    let body = basic_body(args)
+    let body = basic_body({...msg.q})
 
     const res = await reqFn(body)
     
@@ -28,8 +27,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   }
 
   async function save(this:any, msg: any) {
-    const entity = {...msg.ent}
-    const args = {...msg.q}
+    const entity = msg.ent
 
     let body = basic_body({repo_id: entity.repo_id})
 
@@ -41,14 +39,14 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
 
     const res = await reqFn(body)
 
-    let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
+    let new_entity: Entity = this.make$(entity.entity$).data$(res.data)
 
     if(action_details.modify) {
       const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
         entity,
         res,
-        args
+        args: msg.q
       })
       
       const renamings = action_details.modify.filter(mod => mod.rename !== undefined)      
@@ -63,8 +61,9 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
 
     if(source.repo_id) {
       body = owner_repo(source.repo_id)
-      delete source.repo_id
     }
+
+    delete source.repo_id
 
     return {...body, ...source}
   }
@@ -77,17 +76,12 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
     }
   }
 
-  function modify_object(object: Record<string, any>, field: string, replace_for: string, from: Record<string, any> ) {
-    object[field] = from[replace_for] // TODO : attrs existence validation
-    return object
-  }
-
   function ent_renamings(entity: Entity, renamings: FieldModify[]) {
     renamings.forEach(renaming => {
       if(!renaming.rename) {
         return
       }
-      entity = modify_object(entity, renaming.rename, renaming.field,  entity)
+      entity[renaming.rename] = entity[renaming.field]
       delete entity[renaming.field]
     })
 
@@ -103,10 +97,10 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
       }
 
       switch (replace.replace_for.from) {
-        case IncludeFromEnum.args:
+        case 'args':
           from = sources.args
           break;
-        case IncludeFromEnum.entity:
+        case 'entity':
           from = sources.entity
           break;
       
@@ -115,7 +109,7 @@ function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
           break;
       }
 
-      entity = modify_object(entity, replace.field, replace.replace_for.field, from)
+      entity[replace.field] = from[replace.replace_for.field]
     })
 
     return entity

@@ -1,4 +1,4 @@
-type Action = "load" | "save"
+type ActionType = "load" | "save"
 
 type ActionDetails = {
   cb_name: string
@@ -17,25 +17,17 @@ type FieldModify = {
   rename?: string,
   replace_for?: {
     field: string,
-    from: IncludeFromEnum
+    from: IncludeFrom
   }
 }
 
-enum IncludeFromEnum {
-  args,
-  ResponseData,
-  entity,
-}
+type IncludeFrom = 'args' | 'responseData' | 'entity'
 
 type Entity = { [key: string]: any }
 
-enum ActionsEnum {
-  load = 'load',
-  save = 'save',
-}
-
 type EntityMap = {
   [name: string] : {
+    name?: string
     fields: { [entity: string]: Record<string, Record<string, any>> }
     sdk: SdkParams
     actions: EntityAction
@@ -71,9 +63,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { Action, ActionDetails, EntityMap, FieldModify, Entity, ActionData }
-
-export {
-  IncludeFromEnum,
-  ActionsEnum
-}
+export type { ActionType, ActionDetails, EntityMap, FieldModify, Entity, ActionData }

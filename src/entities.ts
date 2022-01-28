@@ -1,4 +1,4 @@
-import { EntityMap, IncludeFromEnum } from './types'
+import { EntityMap } from './types'
 import fields from './fields'
 
 const ents: EntityMap = {
@@ -17,21 +17,21 @@ const ents: EntityMap = {
             field: 'github_id',
             replace_for: {
               field: 'id',
-              from: IncludeFromEnum.ResponseData
+              from: 'responseData'
             },
           },
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args
+              from: 'args'
             },
           },
           {
             field: 'id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args
+              from: 'args'
             },
           },
         ],
@@ -43,21 +43,21 @@ const ents: EntityMap = {
             field: 'github_id',
             replace_for: {
               field: 'id',
-              from: IncludeFromEnum.ResponseData
+              from: 'responseData'
             },
           },
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity
+              from: 'entity'
             },
           },
           {
             field: 'id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity
+              from: 'entity'
             },
           },
         ],
@@ -80,7 +80,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -96,7 +96,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -123,7 +123,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -145,7 +145,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -167,7 +167,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -189,7 +189,7 @@ const ents: EntityMap = {
             field: 'gist_id',
             replace_for: {
               field: 'gist_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -205,7 +205,7 @@ const ents: EntityMap = {
             field: 'gist_id',
             replace_for: {
               field: 'gist_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -232,7 +232,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -248,7 +248,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -297,7 +297,7 @@ const ents: EntityMap = {
             field: 'org',
             replace_for: {
               field: 'og',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -319,7 +319,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -335,7 +335,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -369,7 +369,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -385,7 +385,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -435,7 +435,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -451,7 +451,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -525,7 +525,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -541,7 +541,7 @@ const ents: EntityMap = {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {

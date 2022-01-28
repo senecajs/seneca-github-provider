@@ -6,7 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
-import { ActionData, ActionsEnum, EntityMap } from './types'
+import { ActionData, EntityMap } from './types'
 
 type GithubProviderOptions = {}
 
@@ -33,11 +33,11 @@ function GithubProvider(this: any, _options: any) {
 
     for (const action of actions) {
       switch (action.pattern.cmd) {
-        case ActionsEnum.load:
+        case 'load':
           seneca.message(action.pattern, make_load(action))
           break
       
-        case ActionsEnum.save:
+        case 'save':
           seneca.message(action.pattern, make_save(action))
           break
       }
@@ -48,14 +48,14 @@ function GithubProvider(this: any, _options: any) {
     return make_actions(
       action.octokit_cb,
       action.action_details
-    )[ActionsEnum.load]
+    )['load']
   }
 
   function make_save(action: ActionData) {
     return make_actions(
       action.octokit_cb,
       action.action_details
-    )[ActionsEnum.save]
+    )['save']
   }
 
   function prepare_actions(entities: EntityMap): Array<ActionData> {
@@ -65,6 +65,7 @@ function GithubProvider(this: any, _options: any) {
     for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
       const { subpath } = data.sdk.rest
+      data.name = ent_name
 
       for (const [action_name, action_details] of Object.entries(actions)) {
         const pattern = {
