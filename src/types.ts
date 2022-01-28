@@ -7,7 +7,7 @@ type ActionDetails = {
 }
 
 type ActionData = {
-  octokit_cb: CallableFunction
+  sdk_params: SdkParams
   action_details: ActionDetails
   pattern: Record<string, any>
 }
@@ -58,9 +58,8 @@ type GithubRestEndpoints =
   | "orgs"
   | "projects"
   | "pulls"
-  | "releases"
   | "secretScanning"
   | "teams"
   | "users"
 
-export type { ActionType, ActionDetails, EntityMap, FieldModify, Entity, ActionData }
+export type { ActionType, ActionDetails, EntityMap, FieldModify, Entity, ActionData, SdkParams }
