@@ -1,4 +1,3 @@
-import { Octokit } from "@octokit/rest"
 import { Entity, FieldModify, ActionDetails, SdkParams } from "./types"
 
 function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk: Record<string, any>) {
