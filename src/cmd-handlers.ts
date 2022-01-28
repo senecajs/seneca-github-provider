@@ -1,13 +1,12 @@
-import { IncludeFromEnum, Entity, FieldModify } from "./types"
+import { Entity, FieldModify, ActionDetails } from "./types"
 
-function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], modify?: FieldModify[]) {
+function make_actions(reqFn: CallableFunction, action_details: ActionDetails) {
   async function load(this:any, msg: any) {
-    const args = {...msg.q}
-    let body: Record<string,any> = {}
+    const { modify } = action_details
 
-    const old_args = {...args}
+    const old_args = msg.q
 
-    body = basic_body(args)
+    let body = basic_body({...msg.q})
 
     const res = await reqFn(body)
     
@@ -28,29 +27,29 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   }
 
   async function save(this:any, msg: any) {
-    const entity = {...msg.ent}
-    const args = {...msg.q}
-    let body: Record<string,any> = {}
+    const entity = msg.ent
 
-    body = basic_body({repo_id: entity.repo_id})
+    let body = basic_body({repo_id: entity.repo_id})
 
-    body_args.forEach(attr => {
-      body[attr] = entity[attr] 
-    })
+    if(action_details.body_args) {
+      action_details.body_args.forEach(attr => {
+        body[attr] = entity[attr] 
+      })
+    }
 
     const res = await reqFn(body)
 
-    let new_entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
+    let new_entity: Entity = this.make$(entity.entity$).data$(res.data)
 
-    if(modify) {
-      const replacements = modify.filter(mod => mod.replace_for !== undefined)
+    if(action_details.modify) {
+      const replacements = action_details.modify.filter(mod => mod.replace_for !== undefined)
       new_entity = ent_replacements(new_entity, replacements, {
         entity,
         res,
-        args
+        args: msg.q
       })
       
-      const renamings = modify.filter(mod => mod.rename !== undefined)      
+      const renamings = action_details.modify.filter(mod => mod.rename !== undefined)      
       new_entity = ent_renamings(new_entity, renamings)
     }
 
@@ -58,12 +57,13 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
   }
 
   function basic_body(source: Record<string, any>) {
-    let body = {}
+    let body: Record<string,any> = {}
 
     if(source.repo_id) {
       body = owner_repo(source.repo_id)
-      delete source.repo_id
     }
+
+    delete source.repo_id
 
     return {...body, ...source}
   }
@@ -76,17 +76,12 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
     }
   }
 
-  function modify_object(object: Record<string, any>, field: string, replace_for: string, from: Record<string, any> ) {
-    object[field] = from[replace_for] // TODO : attrs existence validation
-    return object
-  }
-
   function ent_renamings(entity: Entity, renamings: FieldModify[]) {
     renamings.forEach(renaming => {
       if(!renaming.rename) {
         return
       }
-      entity = modify_object(entity, renaming.rename, renaming.field,  entity)
+      entity[renaming.rename] = entity[renaming.field]
       delete entity[renaming.field]
     })
 
@@ -102,10 +97,10 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
       }
 
       switch (replace.replace_for.from) {
-        case IncludeFromEnum.args:
+        case 'args':
           from = sources.args
           break;
-        case IncludeFromEnum.entity:
+        case 'entity':
           from = sources.entity
           break;
       
@@ -114,7 +109,7 @@ function make_actions(reqFn: CallableFunction, body_args: Array<string> = [], mo
           break;
       }
 
-      entity = modify_object(entity, replace.field, replace.replace_for.field, from)
+      entity[replace.field] = from[replace.replace_for.field]
     })
 
     return entity

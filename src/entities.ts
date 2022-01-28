@@ -1,4 +1,4 @@
-import { EntityMap, IncludeFromEnum } from './types'
+import { EntityMap } from './types'
 import fields from './fields'
 
 const ents: EntityMap = {
@@ -11,53 +11,53 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'github_id',
             replace_for: {
               field: 'id',
-              from: IncludeFromEnum.ResponseData
+              from: 'responseData'
             },
           },
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args
+              from: 'args'
             },
           },
           {
             field: 'id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args
+              from: 'args'
             },
           },
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'github_id',
             replace_for: {
               field: 'id',
-              from: IncludeFromEnum.ResponseData
+              from: 'responseData'
             },
           },
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity
+              from: 'entity'
             },
           },
           {
             field: 'id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity
+              from: 'entity'
             },
           },
         ],
@@ -74,13 +74,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getAlert',
+        cb_name:'getAlert',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -90,13 +90,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'updateAlert',
+        cb_name:'updateAlert',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -117,13 +117,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getBranch',
+        cb_name:'getBranch',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -139,13 +139,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getConductCode',
+        cb_name:'getConductCode',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -161,13 +161,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getCommit',
+        cb_name:'getCommit',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -183,13 +183,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'gist_id',
             replace_for: {
               field: 'gist_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -199,13 +199,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'gist_id',
             replace_for: {
               field: 'gist_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -226,13 +226,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -242,13 +242,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -277,7 +277,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: []
       }
     },
@@ -291,13 +291,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'org',
             replace_for: {
               field: 'og',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           }
         ],
@@ -313,13 +313,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -329,13 +329,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -363,13 +363,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getRelease',
+        cb_name:'getRelease',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -379,13 +379,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -415,7 +415,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getByUsername',
+        cb_name:'getByUsername',
         modify: [],
       },
     },
@@ -429,13 +429,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -445,13 +445,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
@@ -483,7 +483,7 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'get',
+        cb_name:'get',
         modify: [
           {
             field: 'id',
@@ -492,7 +492,7 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'update',
+        cb_name:'update',
         modify: [
           {
             field: 'id',
@@ -519,13 +519,13 @@ const ents: EntityMap = {
     },
     actions: {
       load : {
-        action: 'getAlert',
+        cb_name:'getAlert',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.args,
+              from: 'args',
             }
           },
           {
@@ -535,13 +535,13 @@ const ents: EntityMap = {
         ],
       },
       save: {
-        action: 'updateAlert',
+        cb_name:'updateAlert',
         modify: [
           {
             field: 'repo_id',
             replace_for: {
               field: 'repo_id',
-              from: IncludeFromEnum.entity,
+              from: 'entity',
             }
           },
           {
