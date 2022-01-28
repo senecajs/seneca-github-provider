@@ -65,6 +65,7 @@ function GithubProvider(this: any, _options: any) {
     for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
       const { subpath } = data.sdk.rest
+      data.name = ent_name
 
       for (const [action_name, action_details] of Object.entries(actions)) {
         const pattern = {

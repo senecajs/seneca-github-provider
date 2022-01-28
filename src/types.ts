@@ -27,6 +27,7 @@ type Entity = { [key: string]: any }
 
 type EntityMap = {
   [name: string] : {
+    name?: string
     fields: { [entity: string]: Record<string, Record<string, any>> }
     sdk: SdkParams
     actions: EntityAction
