@@ -5,7 +5,7 @@ function perform_tasks(tasks: Task[], context: Context ) {
     const [_, __, ...types] = Object.keys(task)
 
     types.forEach(type => {
-      const typeFn = tasksTypes[type]
+      const typeFn = tasksTypes[type as keyof TasksTypesFn]
 
       if(!typeFn) {
         throw new Error('unable to find task type ' + type)
@@ -28,13 +28,13 @@ function set(task: Task, context: Context) {
   const target  = context[task.on]
   const target_field = task.field
 
-  const source = context[source_name]
-  const source_field = task.set[source_name]
+  const source = context[source_name as keyof Context]
+  const source_field: any = task.set[source_name as keyof Context]
   
   target[target_field] = source[source_field]
 }
 
-const tasksTypes = {
+const tasksTypes: TasksTypesFn = {
   set
 }
 
