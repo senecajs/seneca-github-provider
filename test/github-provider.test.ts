@@ -1,11 +1,15 @@
 /* Copyright © 2021 Seneca Project Contributors, MIT License. */
 
 import * as Fs from 'fs'
+import crypto from 'crypto'
 
 import GithubProvider from '../src/github-provider'
 import { ents_tests } from "./ents-tests"
 import { set_mock_worker } from './set-mock-worker'
 import mocks from '../src/mocks'
+import { Task } from '../src/types'
+import { perform_tasks } from '../src/utils'
+import { Context } from 'vm'
 
 const Seneca = require('seneca')
 const SenecaMsgTest = require('seneca-msg-test')
@@ -179,6 +183,30 @@ describe("github-entities-save", () => {
         ? assert(expectations, entity)
         : expect(entity.id).toBeDefined() // check for a ID when no expectations were set
     })
+  })
+})
+
+describe('set', () => {
+  test('can-set-attribute-to-target', () => {
+    const task: Task = {
+      on: 'outent',
+      field: 'full_name',
+      set: {
+        query: 'name'
+      }
+    }
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex')
+      },
+      outent: {}
+    }
+
+    perform_tasks([task], context)
+
+    expect(context.outent).toHaveProperty('full_name')
+    expect(context.outent.full_name).toBe(context.query.name)
   })
 })
 
