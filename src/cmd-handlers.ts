@@ -5,9 +5,7 @@ function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk:
   const { subpath } = sdk_params.rest
   const { before, after, cb_name } = action_details
 
-  async function load(this:any, msg: any) {
-    const old_args = msg.q
-    
+  async function load(this:any, msg: any) {    
     let body = basic_body({...msg.q})
     
     const endpoint_methods: Record<string, any> = sdk.octokit.rest[subpath]
