@@ -1,37 +1,43 @@
-import { Entity, FieldModify, ActionDetails, SdkParams } from "./types"
+import { Entity, ActionDetails, SdkParams } from "./types"
+import { perform_tasks } from "./utils"
 
 function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk: Record<string, any>) {
   const { subpath } = sdk_params.rest
+  const { before, after, cb_name } = action_details
 
   async function load(this:any, msg: any) {
-    const { modify, cb_name } = action_details
-
     const old_args = msg.q
-
+    
     let body = basic_body({...msg.q})
-
+    
     const endpoint_methods: Record<string, any> = sdk.octokit.rest[subpath]
+
+    const context = {
+      inent: msg.ent,
+      request: body,
+      query: msg.q,
+    }
+    
+    if(before) {
+      perform_tasks(before, context)
+    }
 
     const res = await endpoint_methods[cb_name](body)
     
     let entity: Entity = this.make$(msg.ent.entity$).data$(res.data)
 
-    if(modify) {
-      const replacements = modify.filter(mod => mod.replace_for !== undefined)
-      entity = ent_replacements(entity, replacements, {
-        args: old_args,
-        res
+    if(after) {
+      perform_tasks(after, {
+        ...context,
+        outent: entity,
+        response: res.data
       })
-      
-      const renamings = modify.filter(mod => mod.rename !== undefined)
-      entity = ent_renamings(entity, renamings)
     }
 
     return entity
   }
 
   async function save(this:any, msg: any) {
-    const { modify, cb_name } = action_details
     const entity = msg.ent
 
     let body = basic_body({repo_id: entity.repo_id})
@@ -44,20 +50,26 @@ function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk:
 
     const endpoint_methods: Record<string, any> = sdk.octokit.rest[subpath]
 
+    const context = {
+      inent: msg.ent,
+      request: body,
+      query: msg.q,
+    }
+    
+    if(before) {
+      perform_tasks(before, context)
+    }
+
     const res = await endpoint_methods[cb_name](body)
 
     let new_entity: Entity = this.make$(entity.entity$).data$(res.data)
 
-    if(modify) {
-      const replacements = modify.filter(mod => mod.replace_for !== undefined)
-      new_entity = ent_replacements(new_entity, replacements, {
-        entity,
-        res,
-        args: msg.q
+    if(after) {
+      perform_tasks(after, {
+        ...context,
+        outent: new_entity,
+        response: res.data
       })
-      
-      const renamings = modify.filter(mod => mod.rename !== undefined)      
-      new_entity = ent_renamings(new_entity, renamings)
     }
 
     return new_entity
@@ -81,45 +93,6 @@ function make_actions(sdk_params: SdkParams, action_details: ActionDetails, sdk:
       owner,
       repo,
     }
-  }
-
-  function ent_renamings(entity: Entity, renamings: FieldModify[]) {
-    renamings.forEach(renaming => {
-      if(!renaming.rename) {
-        return
-      }
-      entity[renaming.rename] = entity[renaming.field]
-      delete entity[renaming.field]
-    })
-
-    return entity
-  }
-
-  function ent_replacements(entity: Entity, replacements: FieldModify[], sources: Record<string, any>) {
-    replacements.forEach(replace => {
-      let from: Record<string, any> = {}
-
-      if(!replace.replace_for) {
-        return
-      }
-
-      switch (replace.replace_for.from) {
-        case 'args':
-          from = sources.args
-          break;
-        case 'entity':
-          from = sources.entity
-          break;
-      
-        default:
-          from = sources.res.data
-          break;
-      }
-
-      entity[replace.field] = from[replace.replace_for.field]
-    })
-
-    return entity
   }
 
   return {
