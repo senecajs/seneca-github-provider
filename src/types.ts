@@ -18,6 +18,10 @@ type Task = {
   set?: Set
 }
 
+type TasksTypesFn = {
+  set: (task: Task, context: Context) => void
+}
+
 type ActionType = "load" | "save"
 
 type ActionDetails = {
@@ -72,4 +76,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task, Context }
+export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task, Context, TasksTypesFn }
