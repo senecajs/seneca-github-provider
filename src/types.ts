@@ -15,8 +15,7 @@ type Set = {
 type Task = {
   on: Target
   field: string
-} | {
-  set: Set
+  set?: Set
 }
 
 type ActionType = "load" | "save"
