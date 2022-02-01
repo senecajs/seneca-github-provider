@@ -7,9 +7,8 @@ import GithubProvider from '../src/github-provider'
 import { ents_tests } from "./ents-tests"
 import { set_mock_worker } from './set-mock-worker'
 import mocks from '../src/mocks'
-import { Task } from '../src/types'
+import { Context, Task } from '../src/types'
 import { perform_tasks } from '../src/utils'
-import { Context } from 'vm'
 
 const Seneca = require('seneca')
 const SenecaMsgTest = require('seneca-msg-test')
