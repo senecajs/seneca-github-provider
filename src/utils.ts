@@ -8,7 +8,7 @@ function perform_tasks(tasks: Task[], context: Context ) {
       const typeFn = tasksTypes[type as keyof TasksTypesFn]
 
       if(!typeFn) {
-        throw new Error('unable to find task type ' + type)
+        throw new Error('unable to find task of type ' + type)
       }
 
       typeFn(task, context)
@@ -26,7 +26,7 @@ function set(task: Task, context: Context) {
   const source_name = Object.keys(task.set)[0]
 
   if(!source_name) {
-    throw new Error('A source is required when setting a target')
+    throw new Error('A source object is required when setting a target')
   }
 
   const target  = context[task.on]
