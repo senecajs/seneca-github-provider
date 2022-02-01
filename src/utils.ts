@@ -1,5 +1,4 @@
-import { Context } from "vm"
-import { Task } from "./types"
+import { Context, Task, TasksTypesFn } from "./types"
 
 function perform_tasks(tasks: Task[], context: Context ) {
   tasks.forEach(task => {
