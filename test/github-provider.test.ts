@@ -187,25 +187,39 @@ describe("github-entities-save", () => {
 
 describe('set', () => {
   test('can-set-attribute-to-target', () => {
-    const task: Task = {
-      on: 'outent',
-      field: 'full_name',
-      set: {
-        query: 'name'
-      }
-    }
+    const tasks: Task[] = [
+      { on: 'outent', field: 'full_name', set: { query: 'name' } },
+      { on: 'request', field: 'number', set: { inent: 'attr_number' } },
+      { on: 'query', field: 'foo', set: { response: 'bar' } },
+    ]
 
     const context: Context = {
       query: {
-        name: crypto.randomBytes(10).toString('hex')
+        name: crypto.randomBytes(10).toString('hex'),
+        foo: 'foo'
       },
-      outent: {}
+      outent: {},
+      inent: {
+        attr_number: 5
+      },
+      request: {
+        number: 2
+      },
+      response: {
+        bar: 'bar'
+      }
     }
 
-    perform_tasks([task], context)
+    perform_tasks(tasks, context)
 
     expect(context.outent).toHaveProperty('full_name')
     expect(context.outent.full_name).toBe(context.query.name)
+
+    expect(context.request).toHaveProperty('number')
+    expect(context.request.number).toBe(context.inent.attr_number)
+    
+    expect(context.query).toHaveProperty('foo')
+    expect(context.query.foo).toBe(context.response.bar)
   })
 })
 
