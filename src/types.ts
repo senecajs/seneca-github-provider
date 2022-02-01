@@ -3,7 +3,6 @@ type ActionType = "load" | "save"
 type ActionDetails = {
   cb_name: string
   body_args?: string[]
-  modify?: FieldModify[]
 }
 
 type ActionData = {
@@ -11,17 +10,6 @@ type ActionData = {
   action_details: ActionDetails
   pattern: Record<string, any>
 }
-
-type FieldModify = {
-  field: string
-  rename?: string,
-  replace_for?: {
-    field: string,
-    from: IncludeFrom
-  }
-}
-
-type IncludeFrom = 'args' | 'responseData' | 'entity'
 
 type Entity = { [key: string]: any }
 
@@ -62,4 +50,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { ActionType, ActionDetails, EntityMap, FieldModify, Entity, ActionData, SdkParams }
+export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams }
