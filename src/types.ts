@@ -73,4 +73,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task }
+export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task, Context }
