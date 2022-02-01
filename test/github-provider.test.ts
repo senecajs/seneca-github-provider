@@ -221,6 +221,44 @@ describe('set', () => {
     expect(context.query).toHaveProperty('foo')
     expect(context.query.foo).toBe(context.response.bar)
   })
+
+  test('throws-error-for-invalid-task', () => {
+    const tasks = [
+      { on: 'outent', field: 'full_name', foo: { query: 'name' } },
+    ]
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex'),
+      },
+      outent: {},
+    }
+
+    try {
+      perform_tasks(tasks as Task[], context);
+    } catch (e) {
+      expect(e.message).toBe("unable to find task of type foo");
+    }    
+  })
+
+  test('throws-error-for-a-missing-source-obj', () => {
+    const tasks = [
+      { on: 'outent', field: 'full_name', set: {} },
+    ]
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex'),
+      },
+      outent: {},
+    }
+
+    try {
+      perform_tasks(tasks as Task[], context);
+    } catch (e) {
+      expect(e.message).toBe("A source object is required when setting a target");
+    }    
+  })
 })
 
 function assert(expectations: any, against: any) {
