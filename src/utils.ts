@@ -19,6 +19,10 @@ function perform_tasks(tasks: Task[], context: Context ) {
 }
 
 function set(task: Task, context: Context) {
+  if(!task.set) {
+    return
+  }
+
   const source_name = Object.keys(task.set)[0]
 
   if(!source_name) {
