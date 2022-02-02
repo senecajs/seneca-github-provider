@@ -1,11 +1,14 @@
 /* Copyright © 2021 Seneca Project Contributors, MIT License. */
 
 import * as Fs from 'fs'
+import crypto from 'crypto'
 
 import GithubProvider from '../src/github-provider'
 import { ents_tests } from "./ents-tests"
 import { set_mock_worker } from './set-mock-worker'
 import mocks from '../src/mocks'
+import { Context, Task } from '../src/types'
+import { perform_tasks } from '../src/utils'
 
 const Seneca = require('seneca')
 const SenecaMsgTest = require('seneca-msg-test')
@@ -179,6 +182,82 @@ describe("github-entities-save", () => {
         ? assert(expectations, entity)
         : expect(entity.id).toBeDefined() // check for a ID when no expectations were set
     })
+  })
+})
+
+describe('set', () => {
+  test('can-set-attribute-to-target', () => {
+    const tasks: Task[] = [
+      { on: 'outent', field: 'full_name', set: { query: 'name' } },
+      { on: 'request', field: 'number', set: { inent: 'attr_number' } },
+      { on: 'query', field: 'foo', set: { response: 'bar' } },
+    ]
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex'),
+        foo: 'foo'
+      },
+      outent: {},
+      inent: {
+        attr_number: 5
+      },
+      request: {
+        number: 2
+      },
+      response: {
+        bar: 'bar'
+      }
+    }
+
+    perform_tasks(tasks, context)
+
+    expect(context.outent).toHaveProperty('full_name')
+    expect(context.outent.full_name).toBe(context.query.name)
+
+    expect(context.request).toHaveProperty('number')
+    expect(context.request.number).toBe(context.inent.attr_number)
+    
+    expect(context.query).toHaveProperty('foo')
+    expect(context.query.foo).toBe(context.response.bar)
+  })
+
+  test('throws-error-for-invalid-task', () => {
+    const tasks = [
+      { on: 'outent', field: 'full_name', foo: { query: 'name' } },
+    ]
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex'),
+      },
+      outent: {},
+    }
+
+    try {
+      perform_tasks(tasks as Task[], context);
+    } catch (e) {
+      expect(e.message).toBe("unable to find task of type foo");
+    }    
+  })
+
+  test('throws-error-for-a-missing-source-obj', () => {
+    const tasks = [
+      { on: 'outent', field: 'full_name', set: {} },
+    ]
+
+    const context: Context = {
+      query: {
+        name: crypto.randomBytes(10).toString('hex'),
+      },
+      outent: {},
+    }
+
+    try {
+      perform_tasks(tasks as Task[], context);
+    } catch (e) {
+      expect(e.message).toBe("A source object is required when setting a target");
+    }    
   })
 })
 

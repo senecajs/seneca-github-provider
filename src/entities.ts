@@ -12,54 +12,18 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'github_id',
-            replace_for: {
-              field: 'id',
-              from: 'responseData'
-            },
-          },
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args'
-            },
-          },
-          {
-            field: 'id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args'
-            },
-          },
-        ],
+        after: [
+          { on: 'outent', field: 'id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'github_id', set: { response: 'id' } },
+        ]
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'github_id',
-            replace_for: {
-              field: 'id',
-              from: 'responseData'
-            },
-          },
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity'
-            },
-          },
-          {
-            field: 'id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity'
-            },
-          },
+        after: [
+          { on: 'outent', field: 'id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'github_id', set: { response: 'id' } },
         ],
         body_args: ['description'],
       }
@@ -75,34 +39,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getAlert',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'alert_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'alert_number', set: { response: 'number' } },
         ],
       },
       save: {
         cb_name:'updateAlert',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'alert_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'alert_number', set: { response: 'number' } },
         ],
         body_args: ['alert_number', 'state', 'dismissed_reason']
       }
@@ -118,14 +64,8 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getBranch',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
         ],
       }
     },
@@ -140,14 +80,8 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getConductCode',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
         ],
       },
     },
@@ -162,14 +96,8 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getCommit',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
         ],
       }
     },
@@ -184,34 +112,14 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'gist_id',
-            replace_for: {
-              field: 'gist_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'gist_id'
-          }
+        after: [
+          { on: 'outent', field: 'gist_id', set: { query: 'gist_id' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'gist_id',
-            replace_for: {
-              field: 'gist_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'gist_id'
-          }
+        after: [
+          { on: 'outent', field: 'gist_id', set: { inent: 'gist_id' } },
         ],
         body_args: ['gist_id', 'description', 'files']
       }
@@ -227,34 +135,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'issue_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'issue_number', set: { response: 'number' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'issue_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'issue_number', set: { response: 'number' } },
         ],
         body_args: [
           'issue_number',
@@ -278,7 +168,6 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: []
       }
     },
   },
@@ -292,14 +181,8 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'org',
-            replace_for: {
-              field: 'og',
-              from: 'args',
-            }
-          }
+        after: [
+          { on: 'outent', field: 'org', set: { query: 'org' } },
         ],
       }
     },
@@ -314,34 +197,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'pull_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'pull_number', set: { response: 'number' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'pull_number'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'pull_number', set: { response: 'number' } },
         ],
         body_args: [
           'pull_number',
@@ -364,34 +229,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getRelease',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'release_id'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'release_id', set: { response: 'id' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'release_id'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'release_id', set: { response: 'id' } },
         ],
         body_args: [
           'release_id',
@@ -416,7 +263,6 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getByUsername',
-        modify: [],
       },
     },
   },
@@ -430,34 +276,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'check_run_id'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'check_run_id', set: { response: 'id' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity',
-            }
-          },
-          {
-            field: 'id',
-            rename: 'check_run_id'
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'check_run_id', set: { response: 'id' } },
         ],
         body_args: [
           'check_run_id',
@@ -484,20 +312,14 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'get',
-        modify: [
-          {
-            field: 'id',
-            rename: 'project_id'
-          }
+        after: [
+          { on: 'outent', field: 'project_id', set: { response: 'id' } },
         ],
       },
       save: {
         cb_name:'update',
-        modify: [
-          {
-            field: 'id',
-            rename: 'project_id'
-          }
+        after: [
+          { on: 'outent', field: 'project_id', set: { response: 'id' } },
         ],
         body_args: [
           'project_id',
@@ -520,34 +342,16 @@ const ents: EntityMap = {
     actions: {
       load : {
         cb_name:'getAlert',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'args',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'alert_number',
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { query: 'repo_id' } },
+          { on: 'outent', field: 'alert_number', set: { response: 'number' } },
         ],
       },
       save: {
         cb_name:'updateAlert',
-        modify: [
-          {
-            field: 'repo_id',
-            replace_for: {
-              field: 'repo_id',
-              from: 'entity',
-            }
-          },
-          {
-            field: 'number',
-            rename: 'alert_number',
-          }
+        after: [
+          { on: 'outent', field: 'repo_id', set: { inent: 'repo_id' } },
+          { on: 'outent', field: 'alert_number', set: { response: 'number' } },
         ],
         body_args: [
           'alert_number',
