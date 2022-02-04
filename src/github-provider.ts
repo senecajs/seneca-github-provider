@@ -57,7 +57,7 @@ function GithubProvider(this: any, _options: any) {
   }
 
   async function unknown_cmd(this: any, msg: any) {
-    throw new Error(`undefined cmd: ${msg.cmd}, entity: ${msg.ent.entity$}`)
+    throw new Error(`undefined action: ${msg.cmd}, entity: ${msg.ent.entity$}`)
   }
 
   function prepare_ents(entities: EntityMap): Array<EntData> {
