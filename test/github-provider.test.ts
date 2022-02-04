@@ -150,6 +150,28 @@ describe("github-entities-load", () => {
   })
 })
 
+describe('undefined-action', () => {
+  test('throws-error-when-a-undefined-action-is-called', async() => {
+    const seneca = Seneca({ legacy: false })
+    .test()
+    .use("promisify")
+    .use("entity")
+    .use("provider", provider_options)
+    .use(GithubProvider)
+
+    let res_data = await seneca.entity("provider/github/" + 'license').load$({
+      license: 'mit'
+    })
+
+    try {
+      // there is no defined "save" action for license entity
+      const x = await res_data.save$()
+    } catch (e) {
+      expect(e.message).toBe('undefined action: save, entity: provider/github/license');
+    }
+  })
+})
+
 describe("github-entities-save", () => {
   Object.keys(saves).forEach(ent_name => {
     let test_data = saves[ent_name]

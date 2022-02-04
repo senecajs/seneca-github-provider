@@ -32,9 +32,17 @@ type ActionDetails = {
 }
 
 type ActionData = {
-  sdk_params: SdkParams
-  action_details: ActionDetails
-  pattern: Record<string, any>
+  [action in ActionType]: {
+    sdk_params: SdkParams
+    action_details: ActionDetails
+  }
+}
+
+interface EntData extends ActionData {
+  patterns: {
+    load: Record<string,any>
+    save: Record<string,any>
+  }
 }
 
 type Entity = { [key: string]: any }
@@ -76,4 +84,4 @@ type GithubRestEndpoints =
   | "teams"
   | "users"
 
-export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task, Context, TasksTypesFn }
+export type { ActionType, ActionDetails, EntityMap, Entity, ActionData, SdkParams, Task, Context, TasksTypesFn, EntData }
