@@ -38,6 +38,24 @@ function GithubProvider(this: any, _options: any) {
     }
   }
 
+  function make_load(ent: EntData) {
+    if(!ent.load) return false
+    return make_actions(
+      ent.load.sdk_params,
+      ent.load.action_details,
+      sdk
+    ).load
+  }
+
+  function make_save(ent: EntData) {
+    if(!ent.save) return false
+    return make_actions(
+      ent.save.sdk_params,
+      ent.save.action_details,
+      sdk
+    ).save
+  }
+
   async function unknown_cmd(this: any, msg: any) {
     throw new Error(`undefined cmd: ${msg.cmd}, entity: ${msg.ent.entity$}`)
   }
