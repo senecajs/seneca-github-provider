@@ -30,35 +30,16 @@ function GithubProvider(this: any, _options: any) {
     .message('sys:provider,provider:github,get:info', get_info)
 
   function add_actions() {
-    const actions = prepare_actions(ents)
+    const entities = prepare_ents(ents)
 
-    for (const action of actions) {
-      switch (action.pattern.cmd) {
-        case 'load':
-          seneca.message(action.pattern, make_load(action))
-          break
-      
-        case 'save':
-          seneca.message(action.pattern, make_save(action))
-          break
-      }
+    for (const ent of entities) {
+      seneca.message(ent.patterns.load, (make_load(ent) || unknown_cmd))
+      seneca.message(ent.patterns.save, (make_save(ent) || unknown_cmd))
     }
   }
 
-  function make_load(action: ActionData) {
-    return make_actions(
-      action.sdk_params,
-      action.action_details,
-      sdk
-    )['load']
-  }
-
-  function make_save(action: ActionData) {
-    return make_actions(
-      action.sdk_params,
-      action.action_details,
-      sdk
-    )['save']
+  async function unknown_cmd(this: any, msg: any) {
+    throw new Error(`undefined cmd: ${msg.cmd}, entity: ${msg.ent.entity$}`)
   }
 
   function prepare_ents(entities: EntityMap): Array<EntData> {
