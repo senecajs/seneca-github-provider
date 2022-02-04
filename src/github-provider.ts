@@ -6,7 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
-import { ActionData, EntityMap } from './types'
+import { EntData, EntityMap } from './types'
 
 type GithubProviderOptions = {}
 
@@ -61,31 +61,31 @@ function GithubProvider(this: any, _options: any) {
     )['save']
   }
 
-  function prepare_actions(entities: EntityMap): Array<ActionData> {
-    const actions_data = []
+  function prepare_ents(entities: EntityMap): Array<EntData> {
+    const ents_data: EntData[] = []
 
     for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
       data.name = ent_name
+      const ent_data:any = {}
+      
+      const common = { name: ent_name, zone: 'provider', base: 'github', role: 'entity'}
+      ent_data.patterns = {
+        load: {cmd: 'load', ...common},
+        save: {cmd: 'save', ...common}
+      }
 
       for (const [action_name, action_details] of Object.entries(actions)) {
-        const pattern = {
-          name: ent_name,
-          cmd: action_name,
-          zone: 'provider',
-          base: 'github',
-          role: 'entity',
-        }
-
-        actions_data.push({
-          pattern,
+        ent_data[action_name] = {
           sdk_params: data.sdk,
           action_details,
-        })
+        }
       }
+
+      ents_data.push(ent_data)
     }
 
-    return actions_data
+    return ents_data
   }
 
   async function get_info(this: any, _msg: any) {
