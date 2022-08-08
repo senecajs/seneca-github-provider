@@ -6,7 +6,7 @@
 import { Octokit } from '@octokit/rest'
 import { make_actions } from './cmd-handlers'
 import { ents } from './entities'
-import { ActionData, EntityMap } from './types'
+import { EntData, EntityMap } from './types'
 
 type GithubProviderOptions = {}
 
@@ -30,62 +30,61 @@ function GithubProvider(this: any, _options: any) {
     .message('sys:provider,provider:github,get:info', get_info)
 
   function add_actions() {
-    const actions = prepare_actions(ents)
+    const entities = prepare_ents(ents)
 
-    for (const action of actions) {
-      switch (action.pattern.cmd) {
-        case 'load':
-          seneca.message(action.pattern, make_load(action))
-          break
-      
-        case 'save':
-          seneca.message(action.pattern, make_save(action))
-          break
-      }
+    for (const ent of entities) {
+      seneca.message(ent.patterns.load, (make_load(ent) || unknown_cmd))
+      seneca.message(ent.patterns.save, (make_save(ent) || unknown_cmd))
     }
   }
 
-  function make_load(action: ActionData) {
+  function make_load(ent: EntData) {
+    if(!ent.load) return false
     return make_actions(
-      action.sdk_params,
-      action.action_details,
+      ent.load.sdk_params,
+      ent.load.action_details,
       sdk
-    )['load']
+    ).load
   }
 
-  function make_save(action: ActionData) {
+  function make_save(ent: EntData) {
+    if(!ent.save) return false
     return make_actions(
-      action.sdk_params,
-      action.action_details,
+      ent.save.sdk_params,
+      ent.save.action_details,
       sdk
-    )['save']
+    ).save
   }
 
-  function prepare_actions(entities: EntityMap): Array<ActionData> {
-    const actions_data = []
+  async function unknown_cmd(this: any, msg: any) {
+    throw new Error(`undefined action: ${msg.cmd}, entity: ${msg.ent.entity$}`)
+  }
+
+  function prepare_ents(entities: EntityMap): Array<EntData> {
+    const ents_data: EntData[] = []
 
     for (const [ent_name, data] of Object.entries(entities)) {
       const { actions } = data
       data.name = ent_name
+      const ent_data:any = {}
+      
+      const common = { name: ent_name, zone: 'provider', base: 'github', role: 'entity'}
+      ent_data.patterns = {
+        load: {cmd: 'load', ...common},
+        save: {cmd: 'save', ...common}
+      }
 
       for (const [action_name, action_details] of Object.entries(actions)) {
-        const pattern = {
-          name: ent_name,
-          cmd: action_name,
-          zone: 'provider',
-          base: 'github',
-          role: 'entity',
-        }
-
-        actions_data.push({
-          pattern,
+        ent_data[action_name] = {
           sdk_params: data.sdk,
           action_details,
-        })
+        }
       }
+
+      ents_data.push(ent_data)
     }
 
-    return actions_data
+    return ents_data
   }
 
   async function get_info(this: any, _msg: any) {
