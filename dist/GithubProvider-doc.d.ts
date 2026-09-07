@@ -1,12 +1,13 @@
 declare const docs: {
-    get_info: {
-        desc: string;
+    sections: {
+        intro: {
+            path: string;
+        };
     };
-    load_repo: {
-        desc: string;
-    };
-    save_repo: {
-        desc: string;
+    messages: {
+        get_info: {
+            desc: string;
+        };
     };
 };
 export default docs;
