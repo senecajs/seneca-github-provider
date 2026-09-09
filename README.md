@@ -108,6 +108,49 @@ missing key, rather than failing as an opaque 404 from a half-built URL.
 - `pull` requires `owner`, `repo`
 - `repo` requires `owner`
 
+### Actions
+
+Some API endpoints are not one of the five CRUD operations — merging a pull
+request, uploading an image. The API definition folds each one into an
+ordinary operation as an alternative route, and this plugin selects one with
+the `action$` directive, alongside Seneca's own `sort$`, `limit$` and
+`fields$`.
+
+| Entity | Action | Route | Command |
+| --- | --- | --- | --- |
+| `pull` | `merge` | `/repos/{owner}/{repo}/pulls/{pull_number}/merge` | `save$` |
+
+An action returns that action's OWN response, which is not necessarily a
+record of the entity it hangs off — check the API definition for its shape.
+Naming an action the entity does not have throws, and names the ones it
+does have. It never falls back to the plain command.
+
+On `save$`, pass it as a directive. The rest of the entity is the
+action's payload:
+
+```js
+const pull = seneca.entity('provider/github/pull')
+
+await pull
+  .make$({ id: 'some-id', /* ...the action's own arguments */ })
+  .directive$({ action$: 'merge' })
+  .save$()
+```
+
+> **`make$({ action$: 'merge' })` does not work**, and cannot.
+> `seneca-entity`'s `make$` copies only keys without a `$`, plus the four
+> directives it knows by name (`id$`, `merge$`, `custom$`, `directive$`),
+> so any other trailing-`$` key is dropped before this plugin sees it —
+> there is nothing left for it to refuse. Use `directive$` as above, or
+> assign the property to an entity you already made:
+>
+> ```js
+> const p = pull.make$({ id: 'some-id' })
+> p.action$ = 'merge'
+> await p.save$()
+> ```
+
+
 
 ## Action Patterns
 

@@ -190,6 +190,92 @@ describe('github-provider', () => {
   })
 
 
+  it('pull-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pull-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('pull-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/pull')
+
+    const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+    loaded.author_association = 'plain-author_association'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.author_association, 'plain-author_association')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/pull',
+    )
+  })
+
+
+  // `merge` is an action of `update`: /repos/{owner}/{repo}/pulls/{pull_number}/merge
+  it('pull-action-merge', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/pull')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+        .directive$({ action$: 'merge' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('repo-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repo')
+        .make$({ owner: 'owner0', id: 'repo0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repo-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repo')
+        .list$({ owner: 'owner0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
   it('maintain', async () => {
     const exclude = []
 

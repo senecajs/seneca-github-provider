@@ -37,6 +37,52 @@ function GithubProvider(options) {
         }
         return out;
     }
+    // `action$` — the directive that selects a custom API action instead of
+    // the plain cmd. READ BEFORE cleanq strips it, and still stripped from
+    // what reaches the SDK as match fields: it is an instruction to the store,
+    // like sort$ and limit$, not a value to filter on.
+    //
+    // THREE PLACES, because seneca-entity puts it in three places depending on
+    // how the caller spelled it, and dropping any one of them silently turns a
+    // named action into an ordinary call:
+    //
+    //   list$/load$/remove$({ action$ })         -> msg.q.action$
+    //   ent.directive$({ action$ }).save$()      -> msg.action$
+    //   const e = ent.make$({...}); e.action$=.. -> msg.ent.action$
+    //
+    // `make$({ action$ })` is NOT among them and cannot be: seneca-entity's
+    // make$ copies only keys without a `$`, plus the four directives it knows
+    // (id$, merge$, custom$, directive$), so an unknown trailing-`$` key is
+    // dropped before any store sees it. `id$` reads like the precedent for
+    // one, but it works only because make$ names it explicitly. The README
+    // says so; there is nothing this plugin can check, because nothing arrives.
+    function actionOf(msg) {
+        const q = msg && msg.q;
+        const ent = msg && msg.ent;
+        return null != (q && q.action$) ? q.action$ :
+            null != (msg && msg.action$) ? msg.action$ :
+                null != (ent && ent.action$) ? ent.action$ :
+                    undefined;
+    }
+    // The SDK argument for an ACTION on a read cmd: everything the caller sent
+    // minus Seneca's own directives, with the record key carried across, plus
+    // the `$action` selector the SDK dispatches on.
+    //
+    // WIDER than the canonical argument on purpose. An action route has its own
+    // parameters — GitHub's merge takes commit_title and merge_method, which the
+    // canonical PATCH knows nothing about — so narrowing to the plain op's
+    // required keys would strip the action's whole payload. The SDK still
+    // validates: an action whose own point cannot be built is refused with
+    // `point_action_invalid` rather than sent somewhere else.
+    function actionq(q, rk, action) {
+        const out = cleanq(q);
+        if ('id' !== rk && null != out.id) {
+            out[rk] = out.id;
+            delete out.id;
+        }
+        out.$action = action;
+        return out;
+    }
     // The SDK throws on any non-2xx. A 404 from a single-item read is an
     // ordinary "not found" answer rather than a failure, so return null and let
     // everything else propagate. SDK errors carry the HTTP status at the top
@@ -73,14 +119,6 @@ function GithubProvider(options) {
         }
         return value;
     }
-    // This API keys a pull by `pull_number`, Seneca by `id`. Carry the
-    // API's key across so the Seneca entity has one.
-    function id_pull(data) {
-        if (null != data && null == data.id) {
-            data.id = data.pull_number;
-        }
-        return data;
-    }
     // This API keys a repo by `repo`, Seneca by `id`. Carry the
     // API's key across so the Seneca entity has one.
     function id_repo(data) {
@@ -88,6 +126,49 @@ function GithubProvider(options) {
             data.id = data.repo;
         }
         return data;
+    }
+    // The custom actions each cmd can reach, as action -> SDK op. An action
+    // is an alternative POINT of an ordinary op (`select.$action` in the API
+    // model), so `save$` routes by this map rather than assuming update: an
+    // action folded into `create` is reached through `save$` too.
+    const ACTIONS = {
+        ["pull"]: {
+            list: {},
+            load: {},
+            save: { ["merge"]: 'update' },
+        },
+        ["repo"]: {
+            list: {},
+            load: {},
+            save: {},
+            remove: {},
+        },
+    };
+    // Resolve an `action$` to the SDK op that serves it, or REFUSE it.
+    //
+    // Never falls through to the ordinary call. An action name the entity does
+    // not have is a caller mistake worth a message that names what is
+    // available; performing a plain save instead is the one outcome that must
+    // not happen, because it succeeds and does the wrong thing.
+    // AN OWN PROPERTY, never an inherited one. `map[name]` resolves
+    // `toString`, `constructor`, `valueOf` and the rest off Object's
+    // prototype, and each of those is non-null — so the refusal below never
+    // fired and the inherited function was handed to the SDK as an op name.
+    // That is the silent drop in another hat: the caller named something the
+    // entity does not have and was not told. An empty map inherits them all,
+    // so a cmd with no actions was the most exposed.
+    function actionop(name, entname, cmd) {
+        const own = Object.prototype.hasOwnProperty;
+        const ents = own.call(ACTIONS, entname) ? ACTIONS[entname] : {};
+        const map = own.call(ents, cmd) ? ents[cmd] : {};
+        const op = own.call(map, name) ? map[name] : null;
+        if (null == op) {
+            const valid = Object.keys(map).sort();
+            throw new Error('@seneca/github-provider: ' + entname + ' ' + cmd + ': action$ "' + name +
+                '" is not an action of this operation. Valid: ' +
+                (0 < valid.length ? valid.join(', ') : '(none)'));
+        }
+        return op;
     }
     const entity = {
         pull: {
@@ -109,43 +190,73 @@ function GithubProvider(options) {
     entity.pull.cmd.list.action =
         async function list_pull(entize, msg) {
             const q = cleanq(msg.q);
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'pull', 'list');
+                const found = await this.shared.sdk.Pull()[op$](actionq(msg.q, 'id', action$));
+                return found.map((data) => entize(plain(data)));
+            }
             need_pull_owner(q.owner, 'list');
             need_pull_repo(q.repo, 'list');
             const list = await this.shared.sdk.Pull().list(q);
-            return list.map((data) => entize(id_pull(plain(data))));
+            return list.map((data) => entize(plain(data)));
         };
     entity.pull.cmd.load.action =
         async function load_pull(entize, msg) {
             const q = cleanq(msg.q);
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'pull', 'load');
+                const hit = await ornull(() => this.shared.sdk.Pull()[op$](actionq(msg.q, 'id', action$)));
+                return null == hit ? null : entize(plain(hit));
+            }
             need_pull_owner(q.owner, 'load');
             need_pull_repo(q.repo, 'load');
-            const res = await ornull(() => this.shared.sdk.Pull().load({ owner: q.owner, pull_number: q.id, repo: q.repo }));
-            return null == res ? null : entize(id_pull(plain(res)));
+            const res = await ornull(() => this.shared.sdk.Pull().load({ id: q.id, owner: q.owner, repo: q.repo }));
+            return null == res ? null : entize(plain(res));
         };
     entity.pull.cmd.save.action =
         async function save_pull(entize, msg) {
             const data = msg.ent.data$(false);
+            const sdk = this.shared.sdk;
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'pull', 'save');
+                // The action's OWN payload is the entity's own fields — data$(false)
+                // has already dropped every trailing-`$` key, `action$` included,
+                // so `$action` is the only thing added here.
+                data.$action = action$;
+                const done = await sdk.Pull()[op$](data);
+                return entize(plain(done));
+            }
             need_pull_owner(data.owner, 'save');
             need_pull_repo(data.repo, 'save');
-            // This API keys a pull by `pull_number`; Seneca carries it as `id`.
-            if (null == data.pull_number && null != data.id) {
-                data.pull_number = data.id;
-            }
-            const sdk = this.shared.sdk;
             const res = null == data.id
                 ? await sdk.Pull().create(data)
                 : await sdk.Pull().update(data);
-            return entize(id_pull(plain(res)));
+            return entize(plain(res));
         };
     entity.repo.cmd.list.action =
         async function list_repo(entize, msg) {
             const q = cleanq(msg.q);
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'repo', 'list');
+                const found = await this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$));
+                return found.map((data) => entize(id_repo(plain(data))));
+            }
             const list = await this.shared.sdk.Repo().list(q);
             return list.map((data) => entize(id_repo(plain(data))));
         };
     entity.repo.cmd.load.action =
         async function load_repo(entize, msg) {
             const q = cleanq(msg.q);
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'repo', 'load');
+                const hit = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$)));
+                return null == hit ? null : entize(id_repo(plain(hit)));
+            }
             need_repo_owner(q.owner, 'load');
             const res = await ornull(() => this.shared.sdk.Repo().load({ owner: q.owner, repo: q.id }));
             return null == res ? null : entize(id_repo(plain(res)));
@@ -153,20 +264,36 @@ function GithubProvider(options) {
     entity.repo.cmd.save.action =
         async function save_repo(entize, msg) {
             const data = msg.ent.data$(false);
-            need_repo_owner(data.owner, 'save');
             // This API keys a repo by `repo`; Seneca carries it as `id`.
             if (null == data.repo && null != data.id) {
                 data.repo = data.id;
             }
             const sdk = this.shared.sdk;
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'repo', 'save');
+                // The action's OWN payload is the entity's own fields — data$(false)
+                // has already dropped every trailing-`$` key, `action$` included,
+                // so `$action` is the only thing added here.
+                data.$action = action$;
+                const done = await sdk.Repo()[op$](data);
+                return entize(id_repo(plain(done)));
+            }
+            need_repo_owner(data.owner, 'save');
             const res = null == data.id
                 ? await sdk.Repo().create(data)
                 : await sdk.Repo().update(data);
             return entize(id_repo(plain(res)));
         };
     entity.repo.cmd.remove.action =
-        async function remove_repo(_entize, msg) {
+        async function remove_repo(entize, msg) {
             const q = cleanq(msg.q);
+            const action$ = actionOf(msg);
+            if (null != action$) {
+                const op$ = actionop(action$, 'repo', 'remove');
+                const gone = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$)));
+                return null == gone ? null : entize(id_repo(plain(gone)));
+            }
             need_repo_owner(q.owner, 'remove');
             await ornull(() => this.shared.sdk.Repo().remove({ owner: q.owner, repo: q.id }));
             return null;
@@ -179,11 +306,21 @@ function GithubProvider(options) {
     });
     seneca.prepare(async function () {
         const sdkopts = Object.assign({}, options.sdk);
-        // This API declares no authentication, so no credential is plumbed. The
-        // SDK's auth stage emits nothing for an auth-inactive model and deletes
-        // any `authorization` header regardless of options, so a keymap lookup
-        // here would read a key that could not reach the wire — which is what the
-        // first version of this target did.
+        // The provider convention carries credentials, so honour an `apikey`
+        // when one is configured and stay quiet when it is not.
+        const res = await this.post('sys:provider,get:keymap,provider:github');
+        const apikey = res?.keymap?.apikey?.value;
+        // Hand the credential to the SDK as `apikey`, NOT as an authorization
+        // HEADER. The SDK's own auth stage owns that header: it reads
+        // `options.apikey`, and on every path where it finds none it DELETES
+        // `authorization` before the request goes out. A provider that set the
+        // header itself was therefore never authenticated — the SDK stripped the
+        // very thing it had just written, on every call, silently. The SDK also
+        // owns the scheme prefix, which is resolved from the API definition
+        // rather than assumed to be `Bearer`.
+        if (null != apikey && '' !== apikey) {
+            sdkopts.apikey = apikey;
+        }
         this.shared.sdk = options.test
             ? GithubSDK.test(options.testopts || {}, sdkopts)
             : new GithubSDK(sdkopts);

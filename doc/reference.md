@@ -13,6 +13,7 @@ the [README](../README.md), and the document index is [here](README.md).
 - [Registration](#registration)
 - [Options](#options)
 - [Entities](#entities)
+- [Actions](#actions)
 - [Action patterns](#action-patterns)
 - [Plugin exports](#plugin-exports)
 - [Errors](#errors)
@@ -115,7 +116,7 @@ whole of what each one answers.
 
 | Seneca canon | SDK accessor | Route | Id field | Parent keys | Commands |
 | ------------ | ------------ | ----- | -------- | ----------- | -------- |
-| `provider/github/pull` | `sdk.Pull()` | `/repos/{owner}/{repo}/pulls` | `null` | `owner`, `repo` | `list$`, `load$`, `save$` |
+| `provider/github/pull` | `sdk.Pull()` | `/repos/{owner}/{repo}/pulls` | `id` | `owner`, `repo` | `list$`, `load$`, `save$` |
 | `provider/github/repo` | `sdk.Repo()` | `/user/repos` | `null` | `owner` | `list$`, `load$`, `save$`, `remove$` |
 
 ### `provider/github/pull`
@@ -131,7 +132,7 @@ before any request is made, rather than issuing one that would 404.
 | Command | Query / data | Returns |
 | ------- | ------------ | ------- |
 | `list$(q)` | `owner` and `repo`, both **required**, plus optional match fields | Array of `pull` entities. |
-| `load$(q)` | `owner`, `repo`, ``, all **required** | One `pull`, or `null` if not found. |
+| `load$(q)` | `owner`, `repo`, `id`, all **required** | One `pull`, or `null` if not found. |
 | `save$()` | entity data, including `owner` and `repo` | Created or updated `pull`. |
 
 Required fields, as declared by the API definition. Optional fields the API
@@ -156,7 +157,7 @@ also defines are passed through unchanged in both directions.
 | `diff_url` | string |  |
 | `head` | object |  |
 | `html_url` | string |  |
-| `id` | number |  |
+| `id` | number | Id field. |
 | `issue_url` | string |  |
 | `labels` | array |  |
 | `links` | object |  |
@@ -193,7 +194,7 @@ const pulls = await seneca
   .list$({ owner: '...', repo: '...' })
 const pull = await seneca
   .entity('provider/github/pull')
-  .load$({ owner: '...', repo: '...', null: '...' })
+  .load$({ owner: '...', repo: '...', id: '...' })
 ```
 
 ### `provider/github/repo`
@@ -352,6 +353,36 @@ Seneca query directives — any key ending in `$`, such as `sort$` or
 `limit$` — are stripped before the query reaches the SDK. They are
 instructions to a store, not match fields for the API, and are not
 otherwise supported.
+
+`action$` is the one this plugin reads. It is stripped from the match
+fields like the rest, but it is read FIRST, and it selects a custom API
+action instead of the plain command. See
+[Actions](#actions) below.
+
+### Actions
+
+An action is an API route folded into an ordinary operation as an
+alternative point — a verb that is not create, read, update or delete.
+Select one with the `action$` directive; the rest of the call is that
+action's own payload.
+
+| Entity | Action | Route | Operation | Command |
+| --- | --- | --- | --- | --- |
+| `pull` | `merge` | `/repos/{owner}/{repo}/pulls/{pull_number}/merge` | `update` | `save$` |
+
+On a read command (`list$`, `load$`, `remove$`) `action$` is a key of
+the query. On `save$` it is a directive on the entity, set with
+`directive$({ action$: '...' })` or assigned as a property —
+`make$({ action$ })` does NOT work, because `seneca-entity`'s `make$`
+drops any trailing-`$` key it does not know by name.
+
+Routing is by the operation the action belongs to, not by the command:
+`save$` covers both create and update, so an action folded into `create`
+is called as a create even when the entity carries an id.
+
+An action name the entity does not have throws, naming the entity, the
+command and the valid actions. It never falls back to the plain command.
+
 
 ## Action patterns
 
