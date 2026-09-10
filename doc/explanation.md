@@ -86,6 +86,12 @@ An entity whose API has no create and no update simply has no `save$`, which
 is a better answer than a `save$` that exists and then fails at the HTTP
 layer.
 
+Where an entity declares only one of create and update there is nothing to
+dispatch on, and `save$` means that operation whether an id is present or not:
+
+- `pull_request_review`: `save$` always creates
+- `pull_request_simple`: `save$` always creates
+
 ### Entity instances versus plain data
 
 Every SDK operation resolves to an SDK entity instance, never to raw data:
@@ -130,25 +136,25 @@ that is already gone leaves the caller with what the caller wanted.
 
 ### Nesting
 
-The API nests `pull` under a parent resource: a `pull`'s URL contains `owner`, `repo`.
+The API nests `issue` under a parent resource: a `issue`'s URL contains `owner`, `repo`.
 Seneca's entity model is flat — a canon has no notion of a parent.
 
 The gap is bridged by putting the parent id in the query, which is why
-`owner` is required on every `pull` command, and why
-`pull` `load$` takes an object rather than a bare id string.
-This is inherited from the API's URL structure — `/repos/{owner}/{repo}/pulls` — rather than
+`owner` is required on every `issue` command, and why
+`issue` `load$` takes an object rather than a bare id string.
+This is inherited from the API's URL structure — `/repos/{owner}/{repo}/issues/{issue_number}/comments` — rather than
 chosen here.
 
 The provider checks for `owner` itself and throws a named error
 rather than letting the request go out. Without the check, the SDK builds a URL
 with a missing segment and the server answers 404, and that 404 is
-indistinguishable from "that pull does not exist" — which the provider
+indistinguishable from "that issue does not exist" — which the provider
 would then dutifully translate to `null`. A forgotten argument would look
 exactly like an empty result. Failing early turns a confusing
 wrong answer into an obvious mistake.
 
 The same applies to every nested entity here —
-`pull`, `repo` — each guarded on its own keys.
+`issue`, `pull`, `pull_request_review`, `pull_request_simple`, `repo` — each guarded on its own keys.
 
 ### Query directives
 
@@ -175,7 +181,7 @@ unambiguous. For a CMS with draft states, localised fields and a separate
 publish step, `save$` would have to pick one interpretation and would mislead
 whoever guessed differently. Here the write operations are plain whole-record
 ones, so `save$` can mean exactly one thing for each of
-`pull`, `repo`, and the store surface those
+`issue`, `pull`, `pull_request_review`, `pull_request_simple`, `repo`, and the store surface those
 operations support is implemented in full.
 
 One wrinkle does not map cleanly. Seneca's model lets a caller choose an id;

@@ -91,7 +91,10 @@ Any option the `GithubSDK` constructor accepts:
   test: true,
   testopts: {
     entity: {
+      issue: { issue0: {"assignee":{},"closed_at":"closed_at0","closed_by":{},"comments":100,"comments_url":"comments_url0","created_at":"created_at0","events_url":"events_url0","html_url":"html_url0","id":"issue0","issue_dependencies_summary":{},"issue_url":"issue_url0","labels":[],"labels_url":"labels_url0","locked":false,"milestone":{},"minimized":{},"node_id":"node_id0","number":100,"performed_via_github_app":{},"pin":{},"pinned_comment":{},"pull_request":{},"reactions":{},"repository":{},"repository_url":"repository_url0","state":"state0","sub_issues_summary":{},"title":"title0","type":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"} },
       pull: { pull0: {"additions":100,"assignee":{},"author_association":"author_association0","auto_merge":{},"base":{},"body":"body0","changed_files":100,"closed_at":"closed_at0","comments":100,"comments_url":"comments_url0","commits":100,"commits_url":"commits_url0","created_at":"created_at0","deletions":100,"diff_url":"diff_url0","head":{},"html_url":"html_url0","id":"pull0","issue_url":"issue_url0","labels":[],"links":{},"locked":false,"maintainer_can_modify":false,"merge_commit_sha":"merge_commit_sha0","mergeable":false,"mergeable_state":"mergeable_state0","merged":false,"merged_at":"merged_at0","merged_by":{},"message":"message0","milestone":{},"node_id":"node_id0","number":100,"patch_url":"patch_url0","review_comment_url":"review_comment_url0","review_comments":100,"review_comments_url":"review_comments_url0","sha":"sha0","stack":{},"state":"state0","statuses_url":"statuses_url0","title":"title0","updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"} },
+      pull_request_review: { pull_request_review0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","html_url":"html_url0","id":"pull_request_review0","links":{},"node_id":"node_id0","pull_request_url":"pull_request_url0","state":"state0","teams":[],"user":{},"users":[],"owner":"owner0","pull_number":"pull_number0","repo":"repo0"} },
+      pull_request_simple: { pull_request_simple0: {"owner":"owner0","repo":"repo0"} },
       repo: { repo0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"repo0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","network_count":100,"node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"organization":{},"owner":"owner0","parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","size":100,"source":{},"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_count":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","template_repository":{},"trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100} },
     },
   },
@@ -109,15 +112,84 @@ yields nothing rather than an error.
 
 ## Entities
 
-The plugin registers 2 entity canons.
+The plugin registers 5 entity canons.
 A canon carries only the commands its API operations support — an entity the
 API offers no delete for has no `remove$` — so the tables below are the
 whole of what each one answers.
 
 | Seneca canon | SDK accessor | Route | Id field | Parent keys | Commands |
 | ------------ | ------------ | ----- | -------- | ----------- | -------- |
+| `provider/github/issue` | `sdk.Issue()` | `/repos/{owner}/{repo}/issues/{issue_number}/comments` | `id` | `owner`, `repo` | `list$`, `load$`, `save$`, `remove$` |
 | `provider/github/pull` | `sdk.Pull()` | `/repos/{owner}/{repo}/pulls` | `id` | `owner`, `repo` | `list$`, `load$`, `save$` |
+| `provider/github/pull_request_review` | `sdk.PullRequestReview()` | `/repos/{owner}/{repo}/pulls/{pull_number}/reviews` | `null` | `owner`, `pull_number`, `repo` | `list$`, `save$` |
+| `provider/github/pull_request_simple` | `sdk.PullRequestSimple()` | `/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers` | `null` | `owner`, `repo` | `save$`, `remove$` |
 | `provider/github/repo` | `sdk.Repo()` | `/user/repos` | `null` | `owner` | `list$`, `load$`, `save$`, `remove$` |
+
+### `provider/github/issue`
+
+Backed by `sdk.Issue()`, whose results are `IssueEntity` instances; the
+provider hands Seneca the plain record from `.data()`.
+
+`issue` is nested under `/repos/{owner}/{repo}/issues/{issue_number}/comments` in the API, so **every**
+`issue` command requires `owner` and `repo`. Omitting one throws —
+`@seneca/github-provider: issue <cmd>: owner is required` —
+before any request is made, rather than issuing one that would 404.
+
+| Command | Query / data | Returns |
+| ------- | ------------ | ------- |
+| `list$(q)` | `owner` and `repo`, both **required**, plus optional match fields | Array of `issue` entities. |
+| `load$(q)` | `owner`, `repo`, `id`, all **required** | One `issue`, or `null` if not found. |
+| `save$()` | entity data, including `owner` and `repo` | Created or updated `issue`. |
+| `remove$(q)` | `owner`, `repo`, `id`, all **required** | `null`. |
+
+Required fields, as declared by the API definition. Optional fields the API
+also defines are passed through unchanged in both directions.
+
+| Field | Type | Notes |
+| ----- | ---- | ----- |
+| `assignee` | object |  |
+| `closed_at` | string |  |
+| `closed_by` | object |  |
+| `comments` | number |  |
+| `comments_url` | string |  |
+| `created_at` | string |  |
+| `events_url` | string |  |
+| `html_url` | string |  |
+| `id` | number | Id field. |
+| `issue_dependencies_summary` | object |  |
+| `issue_url` | string |  |
+| `labels` | array |  |
+| `labels_url` | string |  |
+| `locked` | boolean |  |
+| `milestone` | object |  |
+| `minimized` | object |  |
+| `node_id` | string |  |
+| `number` | number |  |
+| `performed_via_github_app` | object |  |
+| `pin` | object |  |
+| `pinned_comment` | object |  |
+| `pull_request` | object |  |
+| `reactions` | object |  |
+| `repository` | object |  |
+| `repository_url` | string |  |
+| `state` | string |  |
+| `sub_issues_summary` | object |  |
+| `title` | string |  |
+| `type` | object |  |
+| `updated_at` | string |  |
+| `url` | string |  |
+| `user` | object |  |
+| `owner` | string | Parent key. Required by every command. |
+| `repo` | string | Parent key: the id of a `repo`. Required by every command. |
+
+```js
+const issues = await seneca
+  .entity('provider/github/issue')
+  .list$({ owner: '...', repo: '...' })
+const issue = await seneca
+  .entity('provider/github/issue')
+  .load$({ owner: '...', repo: '...', id: '...' })
+```
 
 ### `provider/github/pull`
 
@@ -196,6 +268,71 @@ const pull = await seneca
   .entity('provider/github/pull')
   .load$({ owner: '...', repo: '...', id: '...' })
 ```
+
+### `provider/github/pull_request_review`
+
+Backed by `sdk.PullRequestReview()`, whose results are `PullRequestReviewEntity` instances; the
+provider hands Seneca the plain record from `.data()`.
+
+`pull_request_review` is nested under `/repos/{owner}/{repo}/pulls/{pull_number}/reviews` in the API, so **every**
+`pull_request_review` command requires `owner`, `pull_number` and `repo`. Omitting one throws —
+`@seneca/github-provider: pull_request_review <cmd>: owner is required` —
+before any request is made, rather than issuing one that would 404.
+
+| Command | Query / data | Returns |
+| ------- | ------------ | ------- |
+| `list$(q)` | `owner`, `pull_number`, `repo`, all **required**, plus optional match fields | Array of `pull_request_review` entities. |
+| `save$()` | entity data, including `owner`, `pull_number` and `repo` | Created `pull_request_review`; the API declares no update operation. |
+
+Required fields, as declared by the API definition. Optional fields the API
+also defines are passed through unchanged in both directions.
+
+| Field | Type | Notes |
+| ----- | ---- | ----- |
+| `author_association` | string |  |
+| `body` | string |  |
+| `commit_id` | string |  |
+| `html_url` | string |  |
+| `id` | number |  |
+| `links` | object |  |
+| `node_id` | string |  |
+| `pull_request_url` | string |  |
+| `state` | string |  |
+| `teams` | array |  |
+| `user` | object |  |
+| `users` | array |  |
+| `owner` | string | Parent key. Required by every command. |
+| `pull_number` | string | Parent key. Required by every command. |
+| `repo` | string | Parent key: the id of a `repo`. Required by every command. |
+
+```js
+const pull_request_reviews = await seneca
+  .entity('provider/github/pull_request_review')
+  .list$({ owner: '...', pull_number: '...', repo: '...' })
+```
+
+### `provider/github/pull_request_simple`
+
+Backed by `sdk.PullRequestSimple()`, whose results are `PullRequestSimpleEntity` instances; the
+provider hands Seneca the plain record from `.data()`.
+
+`pull_request_simple` is nested under `/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers` in the API, so **every**
+`pull_request_simple` command requires `owner` and `repo`. Omitting one throws —
+`@seneca/github-provider: pull_request_simple <cmd>: owner is required` —
+before any request is made, rather than issuing one that would 404.
+
+| Command | Query / data | Returns |
+| ------- | ------------ | ------- |
+| `save$()` | entity data, including `owner` and `repo` | Created `pull_request_simple`; the API declares no update operation. |
+| `remove$(q)` | `owner`, `repo`, ``, all **required** | `null`. |
+
+Required fields, as declared by the API definition. Optional fields the API
+also defines are passed through unchanged in both directions.
+
+| Field | Type | Notes |
+| ----- | ---- | ----- |
+| `owner` | string | Parent key. Required by every command. |
+| `repo` | string | Parent key: the id of a `repo`. Required by every command. |
 
 ### `provider/github/repo`
 
@@ -332,6 +469,14 @@ Whether a client-supplied id survives a create is a property of the API, not
 of this plugin: many assign the id themselves and ignore the one sent. Read
 the id back off the returned entity rather than assuming the one you set.
 
+These entities support only one half of that pair, so `save$` does not
+dispatch for them:
+
+| Canon | Behaviour of `save$` |
+| ----- | -------------------- |
+| `provider/github/pull_request_review` | Always creates; the API declares no update operation. |
+| `provider/github/pull_request_simple` | Always creates; the API declares no update operation. |
+
 ### Command to SDK operation
 
 | Seneca command | SDK call | Notes |
@@ -368,6 +513,13 @@ action's own payload.
 
 | Entity | Action | Route | Operation | Command |
 | --- | --- | --- | --- | --- |
+| `issue` | `comment` | `/repos/{owner}/{repo}/issues/{issue_number}/comments` | `list` | `list$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `list` | `list$` |
+| `issue` | `assignee` | `/repos/{owner}/{repo}/issues/{issue_number}/assignees` | `remove` | `remove$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `remove` | `remove$` |
+| `issue` | `assignee` | `/repos/{owner}/{repo}/issues/{issue_number}/assignees` | `create` | `save$` |
+| `issue` | `comment` | `/repos/{owner}/{repo}/issues/{issue_number}/comments` | `create` | `save$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `create` | `save$` |
 | `pull` | `merge` | `/repos/{owner}/{repo}/pulls/{pull_number}/merge` | `update` | `save$` |
 
 On a read command (`list$`, `load$`, `remove$`) `action$` is a key of
@@ -417,9 +569,17 @@ rather than posted directly.
 
 | Pattern |
 | ------- |
+| `sys:entity,zone:provider,base:github,name:issue,cmd:list` |
+| `sys:entity,zone:provider,base:github,name:issue,cmd:load` |
+| `sys:entity,zone:provider,base:github,name:issue,cmd:save` |
+| `sys:entity,zone:provider,base:github,name:issue,cmd:remove` |
 | `sys:entity,zone:provider,base:github,name:pull,cmd:list` |
 | `sys:entity,zone:provider,base:github,name:pull,cmd:load` |
 | `sys:entity,zone:provider,base:github,name:pull,cmd:save` |
+| `sys:entity,zone:provider,base:github,name:pull_request_review,cmd:list` |
+| `sys:entity,zone:provider,base:github,name:pull_request_review,cmd:save` |
+| `sys:entity,zone:provider,base:github,name:pull_request_simple,cmd:save` |
+| `sys:entity,zone:provider,base:github,name:pull_request_simple,cmd:remove` |
 | `sys:entity,zone:provider,base:github,name:repo,cmd:list` |
 | `sys:entity,zone:provider,base:github,name:repo,cmd:load` |
 | `sys:entity,zone:provider,base:github,name:repo,cmd:save` |
@@ -487,8 +647,15 @@ called at all. Its message names the entity, the command and the key:
 
 | Entity | Message |
 | ------ | ------- |
+| `issue` | `@seneca/github-provider: issue <cmd>: owner is required` |
+| `issue` | `@seneca/github-provider: issue <cmd>: repo is required` |
 | `pull` | `@seneca/github-provider: pull <cmd>: owner is required` |
 | `pull` | `@seneca/github-provider: pull <cmd>: repo is required` |
+| `pull_request_review` | `@seneca/github-provider: pull_request_review <cmd>: owner is required` |
+| `pull_request_review` | `@seneca/github-provider: pull_request_review <cmd>: pull_number is required` |
+| `pull_request_review` | `@seneca/github-provider: pull_request_review <cmd>: repo is required` |
+| `pull_request_simple` | `@seneca/github-provider: pull_request_simple <cmd>: owner is required` |
+| `pull_request_simple` | `@seneca/github-provider: pull_request_simple <cmd>: repo is required` |
 | `repo` | `@seneca/github-provider: repo <cmd>: owner is required` |
 
 where `<cmd>` is the command that was called. A key counts as missing if

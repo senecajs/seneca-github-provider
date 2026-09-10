@@ -96,7 +96,10 @@ Each API entity is exposed as a Seneca entity under
 
 | Seneca entity | Commands | Fields |
 | --- | --- | --- |
+| `provider/github/issue` | `list$`, `load$`, `save$`, `remove$` | `assignee`, `closed_at`, `closed_by`, `comments`, `comments_url`, `created_at`, `events_url`, `html_url`, `id`, `issue_dependencies_summary`, `issue_url`, `labels`, `labels_url`, `locked`, `milestone`, `minimized`, `node_id`, `number`, `performed_via_github_app`, `pin`, `pinned_comment`, `pull_request`, `reactions`, `repository`, `repository_url`, `state`, `sub_issues_summary`, `title`, `type`, `updated_at`, `url`, `user`, `owner`, `repo` |
 | `provider/github/pull` | `list$`, `load$`, `save$` | `additions`, `assignee`, `author_association`, `auto_merge`, `base`, `body`, `changed_files`, `closed_at`, `comments`, `comments_url`, `commits`, `commits_url`, `created_at`, `deletions`, `diff_url`, `head`, `html_url`, `id`, `issue_url`, `labels`, `links`, `locked`, `maintainer_can_modify`, `merge_commit_sha`, `mergeable`, `mergeable_state`, `merged`, `merged_at`, `merged_by`, `message`, `milestone`, `node_id`, `number`, `patch_url`, `review_comment_url`, `review_comments`, `review_comments_url`, `sha`, `stack`, `state`, `statuses_url`, `title`, `updated_at`, `url`, `user`, `owner`, `repo` |
+| `provider/github/pull_request_review` | `list$`, `save$` | `author_association`, `body`, `commit_id`, `html_url`, `id`, `links`, `node_id`, `pull_request_url`, `state`, `teams`, `user`, `users`, `owner`, `pull_number`, `repo` |
+| `provider/github/pull_request_simple` | `save$`, `remove$` | `owner`, `repo` |
 | `provider/github/repo` | `list$`, `load$`, `save$`, `remove$` | `archive_url`, `archived`, `assignees_url`, `blobs_url`, `branches_url`, `clone_url`, `code_of_conduct`, `collaborators_url`, `comments_url`, `commits_url`, `compare_url`, `contents_url`, `contributors_url`, `created_at`, `default_branch`, `deployments_url`, `description`, `disabled`, `downloads_url`, `events_url`, `fork`, `forks`, `forks_count`, `forks_url`, `full_name`, `git_commits_url`, `git_refs_url`, `git_tags_url`, `git_url`, `has_discussions`, `has_issues`, `has_pages`, `has_projects`, `has_wiki`, `homepage`, `hooks_url`, `html_url`, `id`, `issue_comment_url`, `issue_events_url`, `issues_url`, `keys_url`, `labels_url`, `language`, `languages_url`, `license`, `merges_url`, `milestones_url`, `mirror_url`, `name`, `network_count`, `node_id`, `notifications_url`, `open_issues`, `open_issues_count`, `organization`, `owner`, `parent`, `permissions`, `private`, `pulls_url`, `pushed_at`, `releases_url`, `size`, `source`, `ssh_url`, `stargazers_count`, `stargazers_url`, `statuses_url`, `subscribers_count`, `subscribers_url`, `subscription_url`, `svn_url`, `tags_url`, `teams_url`, `template_repository`, `trees_url`, `updated_at`, `url`, `watchers`, `watchers_count` |
 
 ### Nested entities
@@ -105,7 +108,10 @@ Some entities live under a parent in the API path, so every command needs the
 parent's id in the query. Leaving it out throws with a message naming the
 missing key, rather than failing as an opaque 404 from a half-built URL.
 
+- `issue` requires `owner`, `repo`
 - `pull` requires `owner`, `repo`
+- `pull_request_review` requires `owner`, `pull_number`, `repo`
+- `pull_request_simple` requires `owner`, `repo`
 - `repo` requires `owner`
 
 ### Actions
@@ -118,6 +124,13 @@ the `action$` directive, alongside Seneca's own `sort$`, `limit$` and
 
 | Entity | Action | Route | Command |
 | --- | --- | --- | --- |
+| `issue` | `comment` | `/repos/{owner}/{repo}/issues/{issue_number}/comments` | `list$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `list$` |
+| `issue` | `assignee` | `/repos/{owner}/{repo}/issues/{issue_number}/assignees` | `remove$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `remove$` |
+| `issue` | `assignee` | `/repos/{owner}/{repo}/issues/{issue_number}/assignees` | `save$` |
+| `issue` | `comment` | `/repos/{owner}/{repo}/issues/{issue_number}/comments` | `save$` |
+| `issue` | `label` | `/repos/{owner}/{repo}/issues/{issue_number}/labels` | `save$` |
 | `pull` | `merge` | `/repos/{owner}/{repo}/pulls/{pull_number}/merge` | `save$` |
 
 An action returns that action's OWN response, which is not necessarily a
@@ -129,15 +142,15 @@ On `save$`, pass it as a directive. The rest of the entity is the
 action's payload:
 
 ```js
-const pull = seneca.entity('provider/github/pull')
+const issue = seneca.entity('provider/github/issue')
 
-await pull
+await issue
   .make$({ id: 'some-id', /* ...the action's own arguments */ })
-  .directive$({ action$: 'merge' })
+  .directive$({ action$: 'assignee' })
   .save$()
 ```
 
-> **`make$({ action$: 'merge' })` does not work**, and cannot.
+> **`make$({ action$: 'assignee' })` does not work**, and cannot.
 > `seneca-entity`'s `make$` copies only keys without a `$`, plus the four
 > directives it knows by name (`id$`, `merge$`, `custom$`, `directive$`),
 > so any other trailing-`$` key is dropped before this plugin sees it —
@@ -145,10 +158,17 @@ await pull
 > assign the property to an entity you already made:
 >
 > ```js
-> const p = pull.make$({ id: 'some-id' })
-> p.action$ = 'merge'
+> const p = issue.make$({ id: 'some-id' })
+> p.action$ = 'assignee'
 > await p.save$()
 > ```
+
+On `list$`, pass it in the query:
+
+```js
+await seneca.entity('provider/github/issue')
+  .list$({ action$: 'comment' })
+```
 
 
 
@@ -163,9 +183,17 @@ whose logs cannot be read.
 | Pattern | Description |
 | --- | --- |
 | `sys:provider,provider:github,get:info` | Plugin and SDK version information. |
+| `sys:entity,cmd:list,zone:provider,base:github,name:issue` | List records. |
+| `sys:entity,cmd:load,zone:provider,base:github,name:issue` | Load one record. |
+| `sys:entity,cmd:save,zone:provider,base:github,name:issue` | Create or update a record. |
+| `sys:entity,cmd:remove,zone:provider,base:github,name:issue` | Remove a record. |
 | `sys:entity,cmd:list,zone:provider,base:github,name:pull` | List records. |
 | `sys:entity,cmd:load,zone:provider,base:github,name:pull` | Load one record. |
 | `sys:entity,cmd:save,zone:provider,base:github,name:pull` | Create or update a record. |
+| `sys:entity,cmd:list,zone:provider,base:github,name:pull_request_review` | List records. |
+| `sys:entity,cmd:save,zone:provider,base:github,name:pull_request_review` | Create or update a record. |
+| `sys:entity,cmd:save,zone:provider,base:github,name:pull_request_simple` | Create or update a record. |
+| `sys:entity,cmd:remove,zone:provider,base:github,name:pull_request_simple` | Remove a record. |
 | `sys:entity,cmd:list,zone:provider,base:github,name:repo` | List records. |
 | `sys:entity,cmd:load,zone:provider,base:github,name:repo` | Load one record. |
 | `sys:entity,cmd:save,zone:provider,base:github,name:repo` | Create or update a record. |

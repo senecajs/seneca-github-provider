@@ -45,8 +45,60 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const sdk = seneca.export('GithubProvider/sdk')()
 
+    assert.equal(typeof sdk.Issue, 'function')
     assert.equal(typeof sdk.Pull, 'function')
+    assert.equal(typeof sdk.PullRequestReview, 'function')
+    assert.equal(typeof sdk.PullRequestSimple, 'function')
     assert.equal(typeof sdk.Repo, 'function')
+  })
+
+
+  it('issue-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/issue').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('issue-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/issue')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/issue',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('issue-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/issue')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'issue0' })
+
+    assert.equal(found.id, 'issue0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/issue',
+    )
+  })
+
+
+  it('issue-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/issue')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'nosuchissue' })
+
+    assert.equal(missing, null)
   })
 
 
@@ -99,6 +151,41 @@ describe('github-provider', () => {
   })
 
 
+  it('pull_request_review-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('pull_request_review-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/pull_request_review')
+      .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/pull_request_review',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('pull_request_simple-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_simple').remove$({ id: 'pull_request_simple0' }),
+      /owner is required/,
+    )
+  })
+
+
   it('repo-needs-owner', async () => {
     const seneca = await makeSeneca()
 
@@ -148,6 +235,80 @@ describe('github-provider', () => {
   })
 
 
+  it('issue-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/issue')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ owner: 'owner0', repo: 'repo0', assignee: {}, closed_at: 'crud-closed_at', closed_by: {}, comments: 12345, comments_url: 'crud-comments_url', created_at: 'crud-created_at', events_url: 'crud-events_url', html_url: 'crud-html_url', issue_dependencies_summary: {}, issue_url: 'crud-issue_url', labels: [], labels_url: 'crud-labels_url', locked: true, milestone: {}, minimized: {}, node_id: 'crud-node_id', number: 12345, performed_via_github_app: {}, pin: {}, pinned_comment: {}, pull_request: {}, reactions: {}, repository: {}, repository_url: 'crud-repository_url', state: 'crud-state', sub_issues_summary: {}, title: 'crud-title', type: {}, updated_at: 'crud-updated_at', url: 'crud-url', user: {} }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/issue',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.closed_at = 'crud-closed_at-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.closed_at, 'crud-closed_at-2')
+
+      const reloaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: id })
+      assert.equal(reloaded.closed_at, 'crud-closed_at-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ owner: 'owner0', repo: 'repo0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ owner: 'owner0', repo: 'repo0', id: id }), null)
+  })
+
+
+  it('pull_request_simple-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/pull_request_simple')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ owner: 'owner0', repo: 'repo0',  }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/pull_request_simple',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: id })
+      assert.equal(loaded.id, id)
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ owner: 'owner0', repo: 'repo0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ owner: 'owner0', repo: 'repo0', id: id }), null)
+  })
+
+
   it('repo-crud', async () => {
     const seneca = await makeSeneca()
     const ent = seneca.entity('provider/github/repo')
@@ -187,6 +348,68 @@ describe('github-provider', () => {
     // remove is real: the record is gone, and reading it is an ordinary
     // not-found rather than an error.
     assert.equal(await ent.load$({ owner: 'owner0', id: id }), null)
+  })
+
+
+  it('issue-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/issue')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'issue0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('issue-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/issue')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('issue-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/issue')
+
+    const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: 'issue0' })
+    loaded.closed_at = 'plain-closed_at'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.closed_at, 'plain-closed_at')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/issue',
+    )
+  })
+
+
+  // `assignee` is an action of `create`: /repos/{owner}/{repo}/issues/{issue_number}/assignees
+  it('issue-action-assignee', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/issue')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'issue0' })
+        .directive$({ action$: 'assignee' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
   })
 
 
@@ -249,6 +472,43 @@ describe('github-provider', () => {
       assert.ok(!/is not an action/.test(err.message),
         'the action was refused instead of routed: ' + err.message)
     }
+  })
+
+
+  it('pull_request_review-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review')
+        .make$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0', id: 'pull_request_review0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pull_request_review-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review')
+        .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pull_request_simple-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_simple')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull_request_simple0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
   })
 
 
