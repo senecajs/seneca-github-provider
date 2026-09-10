@@ -1,10 +1,11 @@
-declare function GithubProvider(this: any, _options: any): {
+type GithubProviderOptions = {
+    sdk?: Record<string, any>;
+    test?: boolean;
+    testopts?: Record<string, any>;
+};
+declare function GithubProvider(this: any, options: GithubProviderOptions): {
     exports: {
-        native: () => {
-            octokit: import("@octokit/core").Octokit & {
-                paginate: import("@octokit/plugin-paginate-rest").PaginateInterface;
-            } & import("@octokit/plugin-rest-endpoint-methods/dist-types/generated/method-types").RestEndpointMethods & import("@octokit/plugin-rest-endpoint-methods/dist-types/types").Api;
-        };
+        sdk: () => any;
     };
 };
 export default GithubProvider;
