@@ -45,11 +45,4895 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const sdk = seneca.export('GithubProvider/sdk')()
 
+    assert.equal(typeof sdk.Action, 'function')
+    assert.equal(typeof sdk.ActionsArtifactAndLogRetention, 'function')
+    assert.equal(typeof sdk.ActionsCacheList, 'function')
+    assert.equal(typeof sdk.ActionsCacheUsageByRepository, 'function')
+    assert.equal(typeof sdk.ActionsCacheUsageOrgEnterprise, 'function')
+    assert.equal(typeof sdk.ActionsForkPrContributorApproval, 'function')
+    assert.equal(typeof sdk.ActionsForkPrWorkflowsPrivateRepo, 'function')
+    assert.equal(typeof sdk.ActionsGetDefaultWorkflowPermission, 'function')
+    assert.equal(typeof sdk.ActionsHostedRunner, 'function')
+    assert.equal(typeof sdk.ActionsHostedRunnerLimit, 'function')
+    assert.equal(typeof sdk.ActionsOrganizationPermission, 'function')
+    assert.equal(typeof sdk.ActionsPublicKey, 'function')
+    assert.equal(typeof sdk.ActionsRepositoryPermission, 'function')
+    assert.equal(typeof sdk.ActionsSecret, 'function')
+    assert.equal(typeof sdk.ActionsVariable, 'function')
+    assert.equal(typeof sdk.ActionsWorkflowAccessToRepository, 'function')
+    assert.equal(typeof sdk.Activity, 'function')
+    assert.equal(typeof sdk.Add, 'function')
+    assert.equal(typeof sdk.ApiInsightsRouteStat, 'function')
+    assert.equal(typeof sdk.ApiInsightsSubjectStat, 'function')
+    assert.equal(typeof sdk.ApiInsightsSummaryStat, 'function')
+    assert.equal(typeof sdk.ApiInsightsTimeStat, 'function')
+    assert.equal(typeof sdk.ApiInsightsUserStat, 'function')
+    assert.equal(typeof sdk.ApiOverview, 'function')
+    assert.equal(typeof sdk.App, 'function')
+    assert.equal(typeof sdk.Artifact, 'function')
+    assert.equal(typeof sdk.Assignee, 'function')
+    assert.equal(typeof sdk.AuthenticationToken, 'function')
+    assert.equal(typeof sdk.Authorization, 'function')
+    assert.equal(typeof sdk.Autolink, 'function')
+    assert.equal(typeof sdk.BaseGist, 'function')
+    assert.equal(typeof sdk.BillingUsageReport, 'function')
+    assert.equal(typeof sdk.BillingUsageReportUser, 'function')
+    assert.equal(typeof sdk.Blob, 'function')
+    assert.equal(typeof sdk.Block, 'function')
+    assert.equal(typeof sdk.Branch, 'function')
+    assert.equal(typeof sdk.BranchProtection, 'function')
+    assert.equal(typeof sdk.BranchRestrictionPolicy, 'function')
+    assert.equal(typeof sdk.BranchShort, 'function')
+    assert.equal(typeof sdk.BranchWithProtection, 'function')
+    assert.equal(typeof sdk.Campaign, 'function')
+    assert.equal(typeof sdk.Check, 'function')
+    assert.equal(typeof sdk.CheckAnnotation, 'function')
+    assert.equal(typeof sdk.CheckAutomatedSecurityFix, 'function')
+    assert.equal(typeof sdk.CheckRun, 'function')
+    assert.equal(typeof sdk.CheckSuite, 'function')
+    assert.equal(typeof sdk.CheckSuitePreference, 'function')
+    assert.equal(typeof sdk.Classroom, 'function')
+    assert.equal(typeof sdk.ClassroomAcceptedAssignment, 'function')
+    assert.equal(typeof sdk.ClassroomAssignment, 'function')
+    assert.equal(typeof sdk.ClassroomAssignmentGrade, 'function')
+    assert.equal(typeof sdk.Clone, 'function')
+    assert.equal(typeof sdk.CodeFrequency, 'function')
+    assert.equal(typeof sdk.CodeFrequencyStat, 'function')
+    assert.equal(typeof sdk.CodeOfConduct, 'function')
+    assert.equal(typeof sdk.CodeScanning, 'function')
+    assert.equal(typeof sdk.CodeScanningAlert, 'function')
+    assert.equal(typeof sdk.CodeScanningAlertInstance, 'function')
+    assert.equal(typeof sdk.CodeScanningAlertItem, 'function')
+    assert.equal(typeof sdk.CodeScanningAnalysi, 'function')
+    assert.equal(typeof sdk.CodeScanningAnalysisDeletion, 'function')
+    assert.equal(typeof sdk.CodeScanningAutofix, 'function')
+    assert.equal(typeof sdk.CodeScanningAutofixCommit, 'function')
+    assert.equal(typeof sdk.CodeScanningCodeqlDatabase, 'function')
+    assert.equal(typeof sdk.CodeScanningDefaultSetup, 'function')
+    assert.equal(typeof sdk.CodeScanningOrganizationAlertItem, 'function')
+    assert.equal(typeof sdk.CodeScanningSarifsStatus, 'function')
+    assert.equal(typeof sdk.CodeScanningVariantAnalysi, 'function')
+    assert.equal(typeof sdk.CodeScanningVariantAnalysisRepoTask, 'function')
+    assert.equal(typeof sdk.CodeSecurity, 'function')
+    assert.equal(typeof sdk.CodeSecurityConfiguration, 'function')
+    assert.equal(typeof sdk.CodeSecurityConfigurationRepository, 'function')
+    assert.equal(typeof sdk.CodeSecurityDefaultConfiguration, 'function')
+    assert.equal(typeof sdk.CodeownersError, 'function')
+    assert.equal(typeof sdk.Codespace, 'function')
+    assert.equal(typeof sdk.Collaborator, 'function')
+    assert.equal(typeof sdk.CombinedBillingUsage, 'function')
+    assert.equal(typeof sdk.CombinedCommitStatus, 'function')
+    assert.equal(typeof sdk.Commit, 'function')
+    assert.equal(typeof sdk.CommitActivity, 'function')
+    assert.equal(typeof sdk.CommitComment, 'function')
+    assert.equal(typeof sdk.CommitComparison, 'function')
+    assert.equal(typeof sdk.CommunityProfile, 'function')
+    assert.equal(typeof sdk.ContentFile, 'function')
+    assert.equal(typeof sdk.ContentTraffic, 'function')
+    assert.equal(typeof sdk.Contributor, 'function')
+    assert.equal(typeof sdk.Copilot, 'function')
+    assert.equal(typeof sdk.CopilotOrganizationDetail, 'function')
+    assert.equal(typeof sdk.CopilotUsageMetricsDay, 'function')
+    assert.equal(typeof sdk.Credential, 'function')
+    assert.equal(typeof sdk.CustomProperty, 'function')
+    assert.equal(typeof sdk.CustomPropertyValue, 'function')
+    assert.equal(typeof sdk.Dependabot, 'function')
+    assert.equal(typeof sdk.DependabotAlert, 'function')
+    assert.equal(typeof sdk.DependabotAlertWithRepository, 'function')
+    assert.equal(typeof sdk.DependabotPublicKey, 'function')
+    assert.equal(typeof sdk.DependabotRepositoryAccessDetail, 'function')
+    assert.equal(typeof sdk.DependabotSecret, 'function')
+    assert.equal(typeof sdk.DependencyGraph, 'function')
+    assert.equal(typeof sdk.DependencyGraphDiff, 'function')
+    assert.equal(typeof sdk.DependencyGraphSpdxSbom, 'function')
+    assert.equal(typeof sdk.DeployKey, 'function')
+    assert.equal(typeof sdk.Deployment, 'function')
+    assert.equal(typeof sdk.DeploymentBranchPolicy, 'function')
+    assert.equal(typeof sdk.DeploymentProtectionRule, 'function')
+    assert.equal(typeof sdk.DeploymentStatus, 'function')
+    assert.equal(typeof sdk.DiffEntry, 'function')
+    assert.equal(typeof sdk.Email, 'function')
+    assert.equal(typeof sdk.Emoji, 'function')
+    assert.equal(typeof sdk.EmptyObject, 'function')
+    assert.equal(typeof sdk.EnterpriseTeam, 'function')
+    assert.equal(typeof sdk.EnterpriseTeamMembership, 'function')
+    assert.equal(typeof sdk.Environment, 'function')
+    assert.equal(typeof sdk.EnvironmentApproval, 'function')
+    assert.equal(typeof sdk.Event, 'function')
+    assert.equal(typeof sdk.Feed, 'function')
+    assert.equal(typeof sdk.FileCommit, 'function')
+    assert.equal(typeof sdk.Follower, 'function')
+    assert.equal(typeof sdk.Following, 'function')
+    assert.equal(typeof sdk.FullRepository, 'function')
+    assert.equal(typeof sdk.Gist, 'function')
+    assert.equal(typeof sdk.GistComment, 'function')
+    assert.equal(typeof sdk.GistCommit, 'function')
+    assert.equal(typeof sdk.GistSimple, 'function')
+    assert.equal(typeof sdk.Git, 'function')
+    assert.equal(typeof sdk.GitCommit, 'function')
+    assert.equal(typeof sdk.GitRef, 'function')
+    assert.equal(typeof sdk.GitTag, 'function')
+    assert.equal(typeof sdk.GitTree, 'function')
+    assert.equal(typeof sdk.Gitignore, 'function')
+    assert.equal(typeof sdk.GitignoreTemplate, 'function')
+    assert.equal(typeof sdk.GlobalAdvisory, 'function')
+    assert.equal(typeof sdk.GpgKey, 'function')
+    assert.equal(typeof sdk.Hook, 'function')
+    assert.equal(typeof sdk.HookDelivery, 'function')
+    assert.equal(typeof sdk.HookDeliveryItem, 'function')
+    assert.equal(typeof sdk.HostedCompute, 'function')
+    assert.equal(typeof sdk.Hovercard, 'function')
+    assert.equal(typeof sdk.Import, 'function')
+    assert.equal(typeof sdk.Installation, 'function')
+    assert.equal(typeof sdk.InstallationToken, 'function')
+    assert.equal(typeof sdk.Integration, 'function')
+    assert.equal(typeof sdk.IntegrationInstallation, 'function')
+    assert.equal(typeof sdk.Interaction, 'function')
+    assert.equal(typeof sdk.InteractionLimit, 'function')
     assert.equal(typeof sdk.Issue, 'function')
+    assert.equal(typeof sdk.IssueType, 'function')
+    assert.equal(typeof sdk.Job, 'function')
+    assert.equal(typeof sdk.Key, 'function')
+    assert.equal(typeof sdk.Label, 'function')
+    assert.equal(typeof sdk.Language, 'function')
+    assert.equal(typeof sdk.License, 'function')
+    assert.equal(typeof sdk.Markdown, 'function')
+    assert.equal(typeof sdk.MarketplaceListingPlan, 'function')
+    assert.equal(typeof sdk.MarketplacePurchase, 'function')
+    assert.equal(typeof sdk.Member, 'function')
+    assert.equal(typeof sdk.Membership, 'function')
+    assert.equal(typeof sdk.MergedUpstream, 'function')
+    assert.equal(typeof sdk.Meta, 'function')
+    assert.equal(typeof sdk.Metaroot, 'function')
+    assert.equal(typeof sdk.Migration, 'function')
+    assert.equal(typeof sdk.Milestone, 'function')
+    assert.equal(typeof sdk.MinimalRepository, 'function')
+    assert.equal(typeof sdk.NetworkConfiguration, 'function')
+    assert.equal(typeof sdk.NetworkSetting, 'function')
+    assert.equal(typeof sdk.OidcCustomSub, 'function')
+    assert.equal(typeof sdk.OidcCustomSubRepo, 'function')
+    assert.equal(typeof sdk.Org, 'function')
+    assert.equal(typeof sdk.OrgHook, 'function')
+    assert.equal(typeof sdk.OrgMembership, 'function')
+    assert.equal(typeof sdk.OrgPrivateRegistryConfiguration, 'function')
+    assert.equal(typeof sdk.OrgPrivateRegistryConfigurationWithSelectedRepository, 'function')
+    assert.equal(typeof sdk.OrgRepoCustomPropertyValue, 'function')
+    assert.equal(typeof sdk.OrganizationActionsSecret, 'function')
+    assert.equal(typeof sdk.OrganizationActionsVariable, 'function')
+    assert.equal(typeof sdk.OrganizationDependabotSecret, 'function')
+    assert.equal(typeof sdk.OrganizationInvitation, 'function')
+    assert.equal(typeof sdk.OrganizationProgrammaticAccessGrant, 'function')
+    assert.equal(typeof sdk.OrganizationRole, 'function')
+    assert.equal(typeof sdk.OrganizationSecretScanningAlert, 'function')
+    assert.equal(typeof sdk.OutsideCollaborator, 'function')
+    assert.equal(typeof sdk.Package, 'function')
+    assert.equal(typeof sdk.Page, 'function')
+    assert.equal(typeof sdk.PageBuild, 'function')
+    assert.equal(typeof sdk.PageBuildStatus, 'function')
+    assert.equal(typeof sdk.PageDeployment, 'function')
+    assert.equal(typeof sdk.PagesDeploymentStatus, 'function')
+    assert.equal(typeof sdk.PagesHealthCheck, 'function')
+    assert.equal(typeof sdk.Participation, 'function')
+    assert.equal(typeof sdk.PendingDeployment, 'function')
+    assert.equal(typeof sdk.PorterAuthor, 'function')
+    assert.equal(typeof sdk.PorterLargeFile, 'function')
+    assert.equal(typeof sdk.PrivateRegistry, 'function')
+    assert.equal(typeof sdk.Project, 'function')
+    assert.equal(typeof sdk.ProjectCollaboratorPermission, 'function')
+    assert.equal(typeof sdk.ProjectColumn, 'function')
+    assert.equal(typeof sdk.ProjectsClassic, 'function')
+    assert.equal(typeof sdk.ProjectsV2, 'function')
+    assert.equal(typeof sdk.ProjectsV2Field, 'function')
+    assert.equal(typeof sdk.ProjectsV2ItemSimple, 'function')
+    assert.equal(typeof sdk.ProjectsV2ItemWithContent, 'function')
+    assert.equal(typeof sdk.ProtectedBranch, 'function')
+    assert.equal(typeof sdk.ProtectedBranchAdminEnforced, 'function')
+    assert.equal(typeof sdk.ProtectedBranchPullRequestReview, 'function')
+    assert.equal(typeof sdk.PublicMember, 'function')
     assert.equal(typeof sdk.Pull, 'function')
     assert.equal(typeof sdk.PullRequestReview, 'function')
+    assert.equal(typeof sdk.PullRequestReviewComment, 'function')
     assert.equal(typeof sdk.PullRequestSimple, 'function')
+    assert.equal(typeof sdk.RateLimit, 'function')
+    assert.equal(typeof sdk.Reaction, 'function')
+    assert.equal(typeof sdk.Referrer, 'function')
+    assert.equal(typeof sdk.Release, 'function')
+    assert.equal(typeof sdk.ReleaseAsset, 'function')
+    assert.equal(typeof sdk.ReleaseNotesContent, 'function')
+    assert.equal(typeof sdk.Remove, 'function')
     assert.equal(typeof sdk.Repo, 'function')
+    assert.equal(typeof sdk.Repository, 'function')
+    assert.equal(typeof sdk.RepositoryAdvisory, 'function')
+    assert.equal(typeof sdk.RepositoryCollaboratorPermission, 'function')
+    assert.equal(typeof sdk.RepositoryInvitation, 'function')
+    assert.equal(typeof sdk.RepositoryRuleDetailed, 'function')
+    assert.equal(typeof sdk.RepositoryRuleset, 'function')
+    assert.equal(typeof sdk.RepositorySubscription, 'function')
+    assert.equal(typeof sdk.ReviewComment, 'function')
+    assert.equal(typeof sdk.RuleSuite, 'function')
+    assert.equal(typeof sdk.RulesetVersion, 'function')
+    assert.equal(typeof sdk.RulesetVersionWithState, 'function')
+    assert.equal(typeof sdk.Runner, 'function')
+    assert.equal(typeof sdk.RunnerApplication, 'function')
+    assert.equal(typeof sdk.RunnerGroup, 'function')
+    assert.equal(typeof sdk.Search, 'function')
+    assert.equal(typeof sdk.SecretScanning, 'function')
+    assert.equal(typeof sdk.SecretScanningAlert, 'function')
+    assert.equal(typeof sdk.SecretScanningLocation, 'function')
+    assert.equal(typeof sdk.SecretScanningPatternConfiguration, 'function')
+    assert.equal(typeof sdk.SecretScanningPushProtectionBypass, 'function')
+    assert.equal(typeof sdk.SecretScanningScanHistory, 'function')
+    assert.equal(typeof sdk.SecurityAdvisory, 'function')
+    assert.equal(typeof sdk.SelectedAction, 'function')
+    assert.equal(typeof sdk.SelfHostedRunner, 'function')
+    assert.equal(typeof sdk.ShortBlob, 'function')
+    assert.equal(typeof sdk.ShortBranch, 'function')
+    assert.equal(typeof sdk.SimpleClassroomAssignment, 'function')
+    assert.equal(typeof sdk.SocialAccount, 'function')
+    assert.equal(typeof sdk.SshSigningKey, 'function')
+    assert.equal(typeof sdk.Status, 'function')
+    assert.equal(typeof sdk.StatusCheckPolicy, 'function')
+    assert.equal(typeof sdk.Subscriber, 'function')
+    assert.equal(typeof sdk.Tag, 'function')
+    assert.equal(typeof sdk.TagProtection, 'function')
+    assert.equal(typeof sdk.Team, 'function')
+    assert.equal(typeof sdk.TeamSimple, 'function')
+    assert.equal(typeof sdk.Thread, 'function')
+    assert.equal(typeof sdk.ThreadSubscription, 'function')
+    assert.equal(typeof sdk.Topic, 'function')
+    assert.equal(typeof sdk.User, 'function')
+    assert.equal(typeof sdk.UserMarketplacePurchase, 'function')
+    assert.equal(typeof sdk.View, 'function')
+    assert.equal(typeof sdk.WebhookConfig, 'function')
+    assert.equal(typeof sdk.Workflow, 'function')
+    assert.equal(typeof sdk.WorkflowRun, 'function')
+    assert.equal(typeof sdk.WorkflowRunUsage, 'function')
+    assert.equal(typeof sdk.WorkflowUsage, 'function')
+  })
+
+
+  it('actions_artifact_and_log_retention-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_artifact_and_log_retention')
+      .load$('actions_artifact_and_log_retention0')
+
+    assert.equal(found.id, 'actions_artifact_and_log_retention0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_artifact_and_log_retention',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_artifact_and_log_retention-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_artifact_and_log_retention')
+      .load$('actions_artifact_and_log_retention-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_cache_usage_org_enterprise-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_cache_usage_org_enterprise')
+      .load$('actions_cache_usage_org_enterprise0')
+
+    assert.equal(found.id, 'actions_cache_usage_org_enterprise0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_cache_usage_org_enterprise',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_cache_usage_org_enterprise-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_cache_usage_org_enterprise')
+      .load$('actions_cache_usage_org_enterprise-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_fork_pr_contributor_approval-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_fork_pr_contributor_approval')
+      .load$('actions_fork_pr_contributor_approval0')
+
+    assert.equal(found.id, 'actions_fork_pr_contributor_approval0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_fork_pr_contributor_approval',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_fork_pr_contributor_approval-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_fork_pr_contributor_approval')
+      .load$('actions_fork_pr_contributor_approval-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_fork_pr_workflows_private_repo-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_fork_pr_workflows_private_repo')
+      .load$('actions_fork_pr_workflows_private_repo0')
+
+    assert.equal(found.id, 'actions_fork_pr_workflows_private_repo0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_fork_pr_workflows_private_repo',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_fork_pr_workflows_private_repo-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_fork_pr_workflows_private_repo')
+      .load$('actions_fork_pr_workflows_private_repo-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_get_default_workflow_permission-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_get_default_workflow_permission')
+      .load$('actions_get_default_workflow_permission0')
+
+    assert.equal(found.id, 'actions_get_default_workflow_permission0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_get_default_workflow_permission',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_get_default_workflow_permission-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_get_default_workflow_permission')
+      .load$('actions_get_default_workflow_permission-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_hosted_runner_limit-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_hosted_runner_limit')
+      .load$('actions_hosted_runner_limit0')
+
+    assert.equal(found.id, 'actions_hosted_runner_limit0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_hosted_runner_limit',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_hosted_runner_limit-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_hosted_runner_limit')
+      .load$('actions_hosted_runner_limit-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_organization_permission-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_organization_permission')
+      .load$('actions_organization_permission0')
+
+    assert.equal(found.id, 'actions_organization_permission0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_organization_permission',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_organization_permission-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_organization_permission')
+      .load$('actions_organization_permission-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_public_key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_public_key')
+      .load$('actions_public_key0')
+
+    assert.equal(found.id, 'actions_public_key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_public_key',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('actions_public_key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_public_key')
+      .load$('actions_public_key-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('api_overview-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/api_overview').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/api_overview',
+    )
+  })
+
+
+  it('block-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/block').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/block',
+    )
+  })
+
+
+  it('classroom-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/classroom').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/classroom',
+    )
+  })
+
+
+  it('classroom-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/classroom')
+      .load$('classroom0')
+
+    assert.equal(found.id, 'classroom0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/classroom',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('classroom-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/classroom')
+      .load$('classroom-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('classroom_assignment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/classroom_assignment')
+      .load$('classroom_assignment0')
+
+    assert.equal(found.id, 'classroom_assignment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/classroom_assignment',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('classroom_assignment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/classroom_assignment')
+      .load$('classroom_assignment-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_of_conduct-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/code_of_conduct').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_of_conduct',
+    )
+  })
+
+
+  it('code_of_conduct-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_of_conduct')
+      .load$('code_of_conduct0')
+
+    assert.equal(found.id, 'code_of_conduct0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_of_conduct',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('code_of_conduct-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_of_conduct')
+      .load$('code_of_conduct-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('combined_billing_usage-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/combined_billing_usage')
+      .load$('combined_billing_usage0')
+
+    assert.equal(found.id, 'combined_billing_usage0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/combined_billing_usage',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('combined_billing_usage-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/combined_billing_usage')
+      .load$('combined_billing_usage-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('copilot_organization_detail-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/copilot_organization_detail')
+      .load$('copilot_organization_detail0')
+
+    assert.equal(found.id, 'copilot_organization_detail0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/copilot_organization_detail',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('copilot_organization_detail-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/copilot_organization_detail')
+      .load$('copilot_organization_detail-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('dependabot_public_key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/dependabot_public_key')
+      .load$('dependabot_public_key0')
+
+    assert.equal(found.id, 'dependabot_public_key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/dependabot_public_key',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('dependabot_public_key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/dependabot_public_key')
+      .load$('dependabot_public_key-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('email-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/email').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/email',
+    )
+  })
+
+
+  it('emoji-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/emoji')
+      .load$('emoji0')
+
+    assert.equal(found.id, 'emoji0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/emoji',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('emoji-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/emoji')
+      .load$('emoji-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('feed-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/feed').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/feed',
+    )
+  })
+
+
+  it('follower-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/follower').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/follower',
+    )
+  })
+
+
+  it('following-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/following').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/following',
+    )
+  })
+
+
+  it('gist-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/gist').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gist',
+    )
+  })
+
+
+  it('gist-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/gist')
+      .load$('gist0')
+
+    assert.equal(found.id, 'gist0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/gist',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('gist-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/gist')
+      .load$('gist-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('gist_commit-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/gist_commit').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gist_commit',
+    )
+  })
+
+
+  it('gist_simple-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/gist_simple').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gist_simple',
+    )
+  })
+
+
+  it('gitignore-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/gitignore').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gitignore',
+    )
+  })
+
+
+  it('gitignore_template-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/gitignore_template')
+      .load$('gitignore_template0')
+
+    assert.equal(found.id, 'gitignore_template0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/gitignore_template',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('gitignore_template-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/gitignore_template')
+      .load$('gitignore_template-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('global_advisory-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/global_advisory').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/global_advisory',
+    )
+  })
+
+
+  it('global_advisory-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/global_advisory')
+      .load$('global_advisory0')
+
+    assert.equal(found.id, 'global_advisory0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/global_advisory',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('global_advisory-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/global_advisory')
+      .load$('global_advisory-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('gpg_key-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/gpg_key').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gpg_key',
+    )
+  })
+
+
+  it('gpg_key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/gpg_key')
+      .load$('gpg_key0')
+
+    assert.equal(found.id, 'gpg_key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/gpg_key',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('gpg_key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/gpg_key')
+      .load$('gpg_key-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('hook_delivery-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/hook_delivery')
+      .load$('hook_delivery0')
+
+    assert.equal(found.id, 'hook_delivery0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/hook_delivery',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('hook_delivery-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/hook_delivery')
+      .load$('hook_delivery-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('hook_delivery_item-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/hook_delivery_item').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/hook_delivery_item',
+    )
+  })
+
+
+  it('installation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/installation').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/installation',
+    )
+  })
+
+
+  it('installation-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/installation')
+      .load$('installation0')
+
+    assert.equal(found.id, 'installation0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/installation',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('installation-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/installation')
+      .load$('installation-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('integration_installation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/integration_installation').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/integration_installation',
+    )
+  })
+
+
+  it('interaction-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/interaction')
+      .load$('interaction0')
+
+    assert.equal(found.id, 'interaction0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/interaction',
+    )
+  })
+
+
+  it('key-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/key').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/key',
+    )
+  })
+
+
+  it('key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/key')
+      .load$('key0')
+
+    assert.equal(found.id, 'key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/key',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/key')
+      .load$('key-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('license-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/license').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/license',
+    )
+  })
+
+
+  it('license-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/license')
+      .load$('license0')
+
+    assert.equal(found.id, 'license0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/license',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('license-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/license')
+      .load$('license-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('marketplace_listing_plan-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/marketplace_listing_plan').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/marketplace_listing_plan',
+    )
+  })
+
+
+  it('meta-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/meta').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/meta',
+    )
+  })
+
+
+  it('meta-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/meta')
+      .load$('meta0')
+
+    assert.equal(found.id, 'meta0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/meta',
+    )
+  })
+
+
+  it('metaroot-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/metaroot')
+      .load$('metaroot0')
+
+    assert.equal(found.id, 'metaroot0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/metaroot',
+    )
+  })
+
+
+  it('minimal_repository-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/minimal_repository').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/minimal_repository',
+    )
+  })
+
+
+  it('private_registry-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/private_registry').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/private_registry',
+    )
+  })
+
+
+  it('private_registry-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/private_registry')
+      .load$('private_registry0')
+
+    assert.equal(found.id, 'private_registry0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/private_registry',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('private_registry-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/private_registry')
+      .load$('private_registry-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('project_column-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/project_column').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/project_column',
+    )
+  })
+
+
+  it('project_column-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/project_column')
+      .load$('project_column0')
+
+    assert.equal(found.id, 'project_column0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/project_column',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('project_column-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/project_column')
+      .load$('project_column-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('rate_limit-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/rate_limit')
+      .load$('rate_limit0')
+
+    assert.equal(found.id, 'rate_limit0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/rate_limit',
+    )
+  })
+
+
+  it('repository-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/repository').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/repository',
+    )
+  })
+
+
+  it('ruleset_version-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/ruleset_version').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/ruleset_version',
+    )
+  })
+
+
+  it('runner-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/runner')
+      .load$('runner0')
+
+    assert.equal(found.id, 'runner0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/runner',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('runner-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/runner')
+      .load$('runner-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('self_hosted_runner-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/self_hosted_runner')
+      .load$('self_hosted_runner0')
+
+    assert.equal(found.id, 'self_hosted_runner0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/self_hosted_runner',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('self_hosted_runner-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/self_hosted_runner')
+      .load$('self_hosted_runner-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('social_account-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/social_account').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/social_account',
+    )
+  })
+
+
+  it('ssh_signing_key-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/ssh_signing_key').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/ssh_signing_key',
+    )
+  })
+
+
+  it('ssh_signing_key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/ssh_signing_key')
+      .load$('ssh_signing_key0')
+
+    assert.equal(found.id, 'ssh_signing_key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/ssh_signing_key',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('ssh_signing_key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/ssh_signing_key')
+      .load$('ssh_signing_key-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('thread-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/thread').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/thread',
+    )
+  })
+
+
+  it('thread-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/thread')
+      .load$('thread0')
+
+    assert.equal(found.id, 'thread0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/thread',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('thread-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/thread')
+      .load$('thread-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('thread_subscription-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/thread_subscription')
+      .load$('thread_subscription0')
+
+    assert.equal(found.id, 'thread_subscription0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/thread_subscription',
+    )
+  })
+
+
+  // A 404 from a single-item read is an ordinary "not found" answer, not a
+  // failure: the provider turns it into null rather than letting the SDK
+  // throw.
+  it('thread_subscription-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/thread_subscription')
+      .load$('thread_subscription-nosuch')
+
+    assert.equal(missing, null)
+  })
+
+
+  it('user_marketplace_purchase-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca.entity('provider/github/user_marketplace_purchase').list$()
+
+    assert.equal(list.length, 2)
+
+    // Entities must come back as Seneca entities under this plugin's canon.
+    // The SDK tags its own results with its entity marker, which must not
+    // survive into the Seneca entity.
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/user_marketplace_purchase',
+    )
+  })
+
+
+  it('webhook_config-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/webhook_config')
+      .load$('webhook_config0')
+
+    assert.equal(found.id, 'webhook_config0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/webhook_config',
+    )
+  })
+
+
+  it('action-needs-artifact_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/action').load$({ id: 'action0' }),
+      /artifact_id is required/,
+    )
+  })
+
+
+  it('action-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/action')
+      .list$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/action',
+    )
+    assert.equal(list[0].artifact_id, 'artifact0')
+  })
+
+
+  it('action-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/action')
+      .load$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action0' })
+
+    assert.equal(found.id, 'action0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/action',
+    )
+  })
+
+
+  it('action-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/action')
+      .load$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_cache_list-needs-key', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_cache_list').remove$({ id: 'actions_cache_list0' }),
+      /key is required/,
+    )
+  })
+
+
+  it('actions_cache_list-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/actions_cache_list')
+      .list$({ key: 'key0', owner: 'owner0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/actions_cache_list',
+    )
+    assert.equal(list[0].key, 'key0')
+  })
+
+
+  it('actions_cache_usage_by_repository-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_cache_usage_by_repository').load$({ id: 'actions_cache_usage_by_repository0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('actions_cache_usage_by_repository-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_cache_usage_by_repository')
+      .load$({ owner: 'owner0', id: 'actions_cache_usage_by_repository0' })
+
+    assert.equal(found.id, 'actions_cache_usage_by_repository0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_cache_usage_by_repository',
+    )
+  })
+
+
+  it('actions_cache_usage_by_repository-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_cache_usage_by_repository')
+      .load$({ owner: 'owner0', id: 'actions_cache_usage_by_repository-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_hosted_runner-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_hosted_runner').load$({ id: 'actions_hosted_runner0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('actions_hosted_runner-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_hosted_runner')
+      .load$({ org_id: 'org0', id: 'actions_hosted_runner0' })
+
+    assert.equal(found.id, 'actions_hosted_runner0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_hosted_runner',
+    )
+  })
+
+
+  it('actions_hosted_runner-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_hosted_runner')
+      .load$({ org_id: 'org0', id: 'actions_hosted_runner-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_repository_permission-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_repository_permission').load$({ id: 'actions_repository_permission0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('actions_repository_permission-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_repository_permission')
+      .load$({ owner: 'owner0', id: 'actions_repository_permission0' })
+
+    assert.equal(found.id, 'actions_repository_permission0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_repository_permission',
+    )
+  })
+
+
+  it('actions_repository_permission-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_repository_permission')
+      .load$({ owner: 'owner0', id: 'actions_repository_permission-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_secret-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_secret').load$({ id: 'actions_secret0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('actions_secret-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_secret')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'actions_secret0' })
+
+    assert.equal(found.id, 'actions_secret0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_secret',
+    )
+  })
+
+
+  it('actions_secret-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_secret')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'actions_secret-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_variable-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_variable').load$({ id: 'actions_variable0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('actions_variable-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_variable')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'actions_variable0' })
+
+    assert.equal(found.id, 'actions_variable0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_variable',
+    )
+  })
+
+
+  it('actions_variable-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_variable')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'actions_variable-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('actions_workflow_access_to_repository-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_workflow_access_to_repository').load$({ id: 'actions_workflow_access_to_repository0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('actions_workflow_access_to_repository-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/actions_workflow_access_to_repository')
+      .load$({ owner: 'owner0', id: 'actions_workflow_access_to_repository0' })
+
+    assert.equal(found.id, 'actions_workflow_access_to_repository0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/actions_workflow_access_to_repository',
+    )
+  })
+
+
+  it('actions_workflow_access_to_repository-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/actions_workflow_access_to_repository')
+      .load$({ owner: 'owner0', id: 'actions_workflow_access_to_repository-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  // This activity is addressed by `owner/repo`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('activity-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/activity').load$({ thread_id: 'thread0', id: 'incomplete' }),
+      /id must be 'owner\/repo'/,
+    )
+  })
+
+
+  it('activity-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/activity')
+      .list$({ owner: 'owner0', thread_id: 'thread0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/activity',
+    )
+    assert.equal(list[0].id, 'owner0/activity0')
+  })
+
+
+  it('activity-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/activity')
+      .load$({ thread_id: 'thread0', id: 'owner0/activity0' })
+
+    assert.equal(found.id, 'owner0/activity0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/activity',
+    )
+  })
+
+
+  it('activity-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/activity')
+      .load$({ thread_id: 'thread0', id: 'owner0/activity-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('api_insights_route_stat-needs-actor_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_route_stat').list$({}),
+      /actor_id is required/,
+    )
+  })
+
+
+  it('api_insights_route_stat-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/api_insights_route_stat')
+      .list$({ actor_id: 'actor0', actor_type: 'actor_type0', min_timestamp: 'min_timestamp0', org: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/api_insights_route_stat',
+    )
+    assert.equal(list[0].actor_id, 'actor0')
+  })
+
+
+  it('api_insights_subject_stat-needs-min_timestamp', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_subject_stat').list$({}),
+      /min_timestamp is required/,
+    )
+  })
+
+
+  it('api_insights_subject_stat-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/api_insights_subject_stat')
+      .list$({ min_timestamp: 'min_timestamp0', org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/api_insights_subject_stat',
+    )
+    assert.equal(list[0].min_timestamp, 'min_timestamp0')
+  })
+
+
+  // This api_insights_summary_stat is addressed by `actor_type/actor_id`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('api_insights_summary_stat-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_summary_stat').load$({ min_timestamp: 'min_timestamp0', id: 'incomplete' }),
+      /id must be 'actor_type\/actor_id'/,
+    )
+  })
+
+
+  it('api_insights_summary_stat-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/api_insights_summary_stat')
+      .load$({ min_timestamp: 'min_timestamp0', id: 'api_insights_summary_stat0/api_insights_summary_stat0' })
+
+    assert.equal(found.id, 'api_insights_summary_stat0/api_insights_summary_stat0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/api_insights_summary_stat',
+    )
+  })
+
+
+  it('api_insights_summary_stat-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/api_insights_summary_stat')
+      .load$({ min_timestamp: 'min_timestamp0', id: 'api_insights_summary_stat-nosuch/api_insights_summary_stat-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('api_insights_time_stat-needs-min_timestamp', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_time_stat').list$({}),
+      /min_timestamp is required/,
+    )
+  })
+
+
+  it('api_insights_time_stat-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/api_insights_time_stat')
+      .list$({ min_timestamp: 'min_timestamp0', org_id: 'org0', timestamp_increment: 'timestamp_increment0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/api_insights_time_stat',
+    )
+    assert.equal(list[0].min_timestamp, 'min_timestamp0')
+  })
+
+
+  it('api_insights_time_stat-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/api_insights_time_stat')
+      .load$({ min_timestamp: 'min_timestamp0', org_id: 'org0', timestamp_increment: 'timestamp_increment0', id: 'api_insights_time_stat0' })
+
+    assert.equal(found.id, 'api_insights_time_stat0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/api_insights_time_stat',
+    )
+  })
+
+
+  it('api_insights_time_stat-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/api_insights_time_stat')
+      .load$({ min_timestamp: 'min_timestamp0', org_id: 'org0', timestamp_increment: 'timestamp_increment0', id: 'api_insights_time_stat-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('api_insights_user_stat-needs-min_timestamp', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_user_stat').load$({ id: 'api_insights_user_stat0' }),
+      /min_timestamp is required/,
+    )
+  })
+
+
+  it('api_insights_user_stat-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/api_insights_user_stat')
+      .load$({ min_timestamp: 'min_timestamp0', org_id: 'org0', id: 'api_insights_user_stat0' })
+
+    assert.equal(found.id, 'api_insights_user_stat0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/api_insights_user_stat',
+    )
+  })
+
+
+  it('api_insights_user_stat-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/api_insights_user_stat')
+      .load$({ min_timestamp: 'min_timestamp0', org_id: 'org0', id: 'api_insights_user_stat-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('app-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/app')
+      .list$({ code: 'code0', repository_id: 'repository0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/app',
+    )
+    assert.equal(list[0].code, 'code0')
+  })
+
+
+  it('artifact-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/artifact').load$({ id: 'artifact0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('artifact-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/artifact')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'artifact0' })
+
+    assert.equal(found.id, 'artifact0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/artifact',
+    )
+  })
+
+
+  it('artifact-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/artifact')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'artifact-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('assignee-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/assignee').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('assignee-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/assignee')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/assignee',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('autolink-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/autolink').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('autolink-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/autolink')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/autolink',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('autolink-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/autolink')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'autolink0' })
+
+    assert.equal(found.id, 'autolink0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/autolink',
+    )
+  })
+
+
+  it('autolink-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/autolink')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'autolink-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('base_gist-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/base_gist')
+      .list$({ gist_id: 'gist0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/base_gist',
+    )
+    assert.equal(list[0].gist_id, 'gist0')
+  })
+
+
+  it('billing_usage_report-needs-org', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/billing_usage_report').list$({}),
+      /org is required/,
+    )
+  })
+
+
+  it('billing_usage_report-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/billing_usage_report')
+      .list$({ org: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/billing_usage_report',
+    )
+    assert.equal(list[0].org, 'org0')
+  })
+
+
+  it('billing_usage_report_user-needs-username', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/billing_usage_report_user').list$({}),
+      /username is required/,
+    )
+  })
+
+
+  it('billing_usage_report_user-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/billing_usage_report_user')
+      .list$({ username: 'username0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/billing_usage_report_user',
+    )
+    assert.equal(list[0].username, 'username0')
+  })
+
+
+  it('blob-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/blob').load$({ id: 'blob0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('blob-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/blob')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'blob0' })
+
+    assert.equal(found.id, 'blob0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/blob',
+    )
+  })
+
+
+  it('blob-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/blob')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'blob-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('branch-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch').load$({ id: 'branch0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('branch-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/branch')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'branch0' })
+
+    assert.equal(found.id, 'branch0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/branch',
+    )
+  })
+
+
+  it('branch-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/branch')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'branch-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('branch_protection-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_protection').load$({ id: 'branch_protection0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('branch_protection-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/branch_protection')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'branch_protection0' })
+
+    assert.equal(found.id, 'branch_protection0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/branch_protection',
+    )
+  })
+
+
+  it('branch_protection-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/branch_protection')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'branch_protection-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('branch_restriction_policy-needs-branch_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_restriction_policy').list$({}),
+      /branch_id is required/,
+    )
+  })
+
+
+  it('branch_restriction_policy-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/branch_restriction_policy')
+      .list$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/branch_restriction_policy',
+    )
+    assert.equal(list[0].branch_id, 'branch0')
+  })
+
+
+  it('branch_short-needs-commit_sha', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_short').list$({}),
+      /commit_sha is required/,
+    )
+  })
+
+
+  it('branch_short-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/branch_short')
+      .list$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/branch_short',
+    )
+    assert.equal(list[0].commit_sha, 'commit_sha0')
+  })
+
+
+  it('campaign-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/campaign').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('campaign-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/campaign')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/campaign',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('campaign-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/campaign')
+      .load$({ org_id: 'org0', id: 'campaign0' })
+
+    assert.equal(found.id, 'campaign0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/campaign',
+    )
+  })
+
+
+  it('campaign-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/campaign')
+      .load$({ org_id: 'org0', id: 'campaign-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('check-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('check-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/check')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/check',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('check_annotation-needs-check_run_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_annotation').list$({}),
+      /check_run_id is required/,
+    )
+  })
+
+
+  it('check_annotation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/check_annotation')
+      .list$({ check_run_id: 'check_run0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/check_annotation',
+    )
+    assert.equal(list[0].check_run_id, 'check_run0')
+  })
+
+
+  it('check_automated_security_fix-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_automated_security_fix').load$({ id: 'check_automated_security_fix0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('check_automated_security_fix-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/check_automated_security_fix')
+      .load$({ owner: 'owner0', id: 'check_automated_security_fix0' })
+
+    assert.equal(found.id, 'check_automated_security_fix0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/check_automated_security_fix',
+    )
+  })
+
+
+  it('check_automated_security_fix-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/check_automated_security_fix')
+      .load$({ owner: 'owner0', id: 'check_automated_security_fix-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('check_run-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_run').load$({ id: 'check_run0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('check_run-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/check_run')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'check_run0' })
+
+    assert.equal(found.id, 'check_run0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/check_run',
+    )
+  })
+
+
+  it('check_run-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/check_run')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'check_run-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('check_suite-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_suite').load$({ id: 'check_suite0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('check_suite-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/check_suite')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'check_suite0' })
+
+    assert.equal(found.id, 'check_suite0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/check_suite',
+    )
+  })
+
+
+  it('check_suite-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/check_suite')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'check_suite-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('check_suite_preference-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_suite_preference').make$({ id: 'check_suite_preference0' }).save$(),
+      /owner is required/,
+    )
+  })
+
+
+  it('classroom_accepted_assignment-needs-assignment_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/classroom_accepted_assignment').list$({}),
+      /assignment_id is required/,
+    )
+  })
+
+
+  it('classroom_accepted_assignment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/classroom_accepted_assignment')
+      .list$({ assignment_id: 'assignment0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/classroom_accepted_assignment',
+    )
+    assert.equal(list[0].assignment_id, 'assignment0')
+  })
+
+
+  it('classroom_assignment_grade-needs-assignment_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/classroom_assignment_grade').list$({}),
+      /assignment_id is required/,
+    )
+  })
+
+
+  it('classroom_assignment_grade-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/classroom_assignment_grade')
+      .list$({ assignment_id: 'assignment0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/classroom_assignment_grade',
+    )
+    assert.equal(list[0].assignment_id, 'assignment0')
+  })
+
+
+  it('clone-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/clone').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('clone-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/clone')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/clone',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_frequency-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_frequency').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_frequency-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_frequency')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_frequency',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_frequency_stat-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_frequency_stat').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_frequency_stat-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_frequency_stat')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_frequency_stat',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_scanning-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning').remove$({ id: 'code_scanning0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_alert-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert').load$({ id: 'code_scanning_alert0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_alert-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_alert0' })
+
+    assert.equal(found.id, 'code_scanning_alert0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_alert',
+    )
+  })
+
+
+  it('code_scanning_alert-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_alert-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_scanning_alert_instance-needs-alert_number', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert_instance').list$({}),
+      /alert_number is required/,
+    )
+  })
+
+
+  it('code_scanning_alert_instance-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_alert_instance')
+      .list$({ alert_number: 'alert_number0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_alert_instance',
+    )
+    assert.equal(list[0].alert_number, 'alert_number0')
+  })
+
+
+  it('code_scanning_alert_item-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert_item').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_alert_item-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_alert_item')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_alert_item',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_scanning_analysi-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_analysi').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_analysi-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_analysi')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_analysi',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_scanning_analysi-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_analysi')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_analysi0' })
+
+    assert.equal(found.id, 'code_scanning_analysi0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_analysi',
+    )
+  })
+
+
+  it('code_scanning_analysi-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_analysi')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_analysi-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_scanning_analysis_deletion-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_analysis_deletion').remove$({ id: 'code_scanning_analysis_deletion0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_autofix-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_autofix').load$({ id: 'code_scanning_autofix0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_autofix-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_autofix')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_autofix0' })
+
+    assert.equal(found.id, 'code_scanning_autofix0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_autofix',
+    )
+  })
+
+
+  it('code_scanning_autofix-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_autofix')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_autofix-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_scanning_codeql_database-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_codeql_database').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_codeql_database-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_codeql_database')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_codeql_database',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_scanning_codeql_database-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_codeql_database')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_codeql_database0' })
+
+    assert.equal(found.id, 'code_scanning_codeql_database0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_codeql_database',
+    )
+  })
+
+
+  it('code_scanning_codeql_database-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_codeql_database')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_codeql_database-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_scanning_default_setup-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_default_setup').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_default_setup-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_default_setup')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_default_setup',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('code_scanning_organization_alert_item-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_organization_alert_item').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('code_scanning_organization_alert_item-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_scanning_organization_alert_item')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_scanning_organization_alert_item',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('code_scanning_sarifs_status-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_sarifs_status').load$({ id: 'code_scanning_sarifs_status0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_sarifs_status-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_sarifs_status')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_sarifs_status0' })
+
+    assert.equal(found.id, 'code_scanning_sarifs_status0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_sarifs_status',
+    )
+  })
+
+
+  it('code_scanning_sarifs_status-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_sarifs_status')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_sarifs_status-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_scanning_variant_analysi-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_variant_analysi').load$({ id: 'code_scanning_variant_analysi0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('code_scanning_variant_analysi-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_variant_analysi')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_variant_analysi0' })
+
+    assert.equal(found.id, 'code_scanning_variant_analysi0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_variant_analysi',
+    )
+  })
+
+
+  it('code_scanning_variant_analysi-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_variant_analysi')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_variant_analysi-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  // This code_scanning_variant_analysis_repo_task is addressed by `repo_owner/repo_name`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('code_scanning_variant_analysis_repo_task-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_variant_analysis_repo_task').load$({ codeql_variant_analysis_id: 'codeql_variant_analysis0', owner: 'owner0', repo: 'repo0', id: 'incomplete' }),
+      /id must be 'repo_owner\/repo_name'/,
+    )
+  })
+
+
+  it('code_scanning_variant_analysis_repo_task-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_scanning_variant_analysis_repo_task')
+      .load$({ codeql_variant_analysis_id: 'codeql_variant_analysis0', owner: 'owner0', repo: 'repo0', id: 'repo_owner0/code_scanning_variant_analysis_repo_task0' })
+
+    assert.equal(found.id, 'repo_owner0/code_scanning_variant_analysis_repo_task0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_scanning_variant_analysis_repo_task',
+    )
+  })
+
+
+  it('code_scanning_variant_analysis_repo_task-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_scanning_variant_analysis_repo_task')
+      .load$({ codeql_variant_analysis_id: 'codeql_variant_analysis0', owner: 'owner0', repo: 'repo0', id: 'repo_owner0/code_scanning_variant_analysis_repo_task-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_security-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security').remove$({ id: 'code_security0' }),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('code_security_configuration-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_configuration').load$({ id: 'code_security_configuration0' }),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('code_security_configuration-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_security_configuration')
+      .list$({ enterprise: 'enterprise0', org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_security_configuration',
+    )
+    assert.equal(list[0].enterprise, 'enterprise0')
+  })
+
+
+  it('code_security_configuration-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/code_security_configuration')
+      .load$({ enterprise: 'enterprise0', org_id: 'org0', id: 'code_security_configuration0' })
+
+    assert.equal(found.id, 'code_security_configuration0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/code_security_configuration',
+    )
+  })
+
+
+  it('code_security_configuration-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/code_security_configuration')
+      .load$({ enterprise: 'enterprise0', org_id: 'org0', id: 'code_security_configuration-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('code_security_configuration_repository-needs-configuration_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_configuration_repository').list$({}),
+      /configuration_id is required/,
+    )
+  })
+
+
+  it('code_security_configuration_repository-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_security_configuration_repository')
+      .list$({ configuration_id: 'configuration0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_security_configuration_repository',
+    )
+    assert.equal(list[0].configuration_id, 'configuration0')
+  })
+
+
+  it('code_security_default_configuration-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_default_configuration').list$({}),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('code_security_default_configuration-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/code_security_default_configuration')
+      .list$({ enterprise: 'enterprise0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/code_security_default_configuration',
+    )
+    assert.equal(list[0].enterprise, 'enterprise0')
+  })
+
+
+  it('codeowners_error-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/codeowners_error').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('codeowners_error-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/codeowners_error')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/codeowners_error',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('codespace-needs-secret_name', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/codespace').make$({ id: 'codespace0' }).save$(),
+      /secret_name is required/,
+    )
+  })
+
+
+  it('codespace-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/codespace')
+      .list$({ secret_name: 'secret_name0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/codespace',
+    )
+    assert.equal(list[0].secret_name, 'secret_name0')
+  })
+
+
+  it('codespace-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/codespace')
+      .load$({ secret_name: 'secret_name0', id: 'codespace0' })
+
+    assert.equal(found.id, 'codespace0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/codespace',
+    )
+  })
+
+
+  it('codespace-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/codespace')
+      .load$({ secret_name: 'secret_name0', id: 'codespace-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('collaborator-needs-project_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/collaborator').list$({}),
+      /project_id is required/,
+    )
+  })
+
+
+  it('collaborator-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/collaborator')
+      .list$({ project_id: 'project0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/collaborator',
+    )
+    assert.equal(list[0].project_id, 'project0')
+  })
+
+
+  it('combined_commit_status-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/combined_commit_status').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('combined_commit_status-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/combined_commit_status')
+      .list$({ owner: 'owner0', ref: 'ref0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/combined_commit_status',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('commit-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('commit-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/commit')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/commit',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('commit-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/commit')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'commit0' })
+
+    assert.equal(found.id, 'commit0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/commit',
+    )
+  })
+
+
+  it('commit-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/commit')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'commit-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('commit_activity-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit_activity').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('commit_activity-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/commit_activity')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/commit_activity',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('commit_comment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/commit_comment')
+      .list$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/commit_comment',
+    )
+    assert.equal(list[0].commit_sha, 'commit_sha0')
+  })
+
+
+  it('commit_comment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/commit_comment')
+      .load$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0', id: 'commit_comment0' })
+
+    assert.equal(found.id, 'commit_comment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/commit_comment',
+    )
+  })
+
+
+  it('commit_comment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/commit_comment')
+      .load$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0', id: 'commit_comment-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('commit_comparison-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit_comparison').load$({ id: 'commit_comparison0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('commit_comparison-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/commit_comparison')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'commit_comparison0' })
+
+    assert.equal(found.id, 'commit_comparison0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/commit_comparison',
+    )
+  })
+
+
+  it('commit_comparison-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/commit_comparison')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'commit_comparison-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('community_profile-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/community_profile').load$({ id: 'community_profile0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('community_profile-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/community_profile')
+      .load$({ owner: 'owner0', id: 'community_profile0' })
+
+    assert.equal(found.id, 'community_profile0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/community_profile',
+    )
+  })
+
+
+  it('community_profile-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/community_profile')
+      .load$({ owner: 'owner0', id: 'community_profile-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('content_file-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/content_file').load$({ id: 'content_file0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('content_file-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/content_file')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'content_file0' })
+
+    assert.equal(found.id, 'content_file0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/content_file',
+    )
+  })
+
+
+  it('content_file-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/content_file')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'content_file-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('content_traffic-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/content_traffic').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('content_traffic-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/content_traffic')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/content_traffic',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('contributor-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/contributor').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('contributor-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/contributor')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/contributor',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('copilot-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('copilot-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/copilot')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/copilot',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('copilot-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/copilot')
+      .load$({ org_id: 'org0', id: 'copilot0' })
+
+    assert.equal(found.id, 'copilot0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/copilot',
+    )
+  })
+
+
+  it('copilot-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/copilot')
+      .load$({ org_id: 'org0', id: 'copilot-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('copilot_usage_metrics_day-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot_usage_metrics_day').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('copilot_usage_metrics_day-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/copilot_usage_metrics_day')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/copilot_usage_metrics_day',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('custom_property-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/custom_property').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('custom_property-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/custom_property')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/custom_property',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('custom_property-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/custom_property')
+      .load$({ org_id: 'org0', id: 'custom_property0' })
+
+    assert.equal(found.id, 'custom_property0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/custom_property',
+    )
+  })
+
+
+  it('custom_property-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/custom_property')
+      .load$({ org_id: 'org0', id: 'custom_property-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('custom_property_value-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/custom_property_value').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('custom_property_value-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/custom_property_value')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/custom_property_value',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('dependabot-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/dependabot')
+      .list$({ org: 'org0', org_id: 'org0', repository_id: 'repository0', secret_id: 'secret0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/dependabot',
+    )
+    assert.equal(list[0].org, 'org0')
+  })
+
+
+  it('dependabot_alert-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_alert').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('dependabot_alert-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/dependabot_alert')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/dependabot_alert',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('dependabot_alert-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/dependabot_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependabot_alert0' })
+
+    assert.equal(found.id, 'dependabot_alert0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/dependabot_alert',
+    )
+  })
+
+
+  it('dependabot_alert-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/dependabot_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependabot_alert-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('dependabot_alert_with_repository-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_alert_with_repository').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('dependabot_alert_with_repository-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/dependabot_alert_with_repository')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/dependabot_alert_with_repository',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('dependabot_repository_access_detail-needs-org', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_repository_access_detail').list$({}),
+      /org is required/,
+    )
+  })
+
+
+  it('dependabot_repository_access_detail-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/dependabot_repository_access_detail')
+      .list$({ org: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/dependabot_repository_access_detail',
+    )
+    assert.equal(list[0].org, 'org0')
+  })
+
+
+  it('dependabot_secret-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_secret').load$({ id: 'dependabot_secret0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('dependabot_secret-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/dependabot_secret')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependabot_secret0' })
+
+    assert.equal(found.id, 'dependabot_secret0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/dependabot_secret',
+    )
+  })
+
+
+  it('dependabot_secret-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/dependabot_secret')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependabot_secret-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('dependency_graph_diff-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependency_graph_diff').load$({ id: 'dependency_graph_diff0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('dependency_graph_diff-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/dependency_graph_diff')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependency_graph_diff0' })
+
+    assert.equal(found.id, 'dependency_graph_diff0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/dependency_graph_diff',
+    )
+  })
+
+
+  it('dependency_graph_diff-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/dependency_graph_diff')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'dependency_graph_diff-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('dependency_graph_spdx_sbom-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependency_graph_spdx_sbom').load$({ id: 'dependency_graph_spdx_sbom0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('dependency_graph_spdx_sbom-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/dependency_graph_spdx_sbom')
+      .load$({ owner: 'owner0', id: 'dependency_graph_spdx_sbom0' })
+
+    assert.equal(found.id, 'dependency_graph_spdx_sbom0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/dependency_graph_spdx_sbom',
+    )
+  })
+
+
+  it('dependency_graph_spdx_sbom-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/dependency_graph_spdx_sbom')
+      .load$({ owner: 'owner0', id: 'dependency_graph_spdx_sbom-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('deploy_key-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deploy_key').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('deploy_key-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/deploy_key')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/deploy_key',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('deploy_key-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/deploy_key')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'deploy_key0' })
+
+    assert.equal(found.id, 'deploy_key0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/deploy_key',
+    )
+  })
+
+
+  it('deploy_key-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/deploy_key')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'deploy_key-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('deployment-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('deployment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/deployment')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/deployment',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('deployment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/deployment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'deployment0' })
+
+    assert.equal(found.id, 'deployment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/deployment',
+    )
+  })
+
+
+  it('deployment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/deployment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'deployment-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('deployment_branch_policy-needs-environment_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_branch_policy').load$({ id: 'deployment_branch_policy0' }),
+      /environment_id is required/,
+    )
+  })
+
+
+  it('deployment_branch_policy-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/deployment_branch_policy')
+      .load$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_branch_policy0' })
+
+    assert.equal(found.id, 'deployment_branch_policy0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/deployment_branch_policy',
+    )
+  })
+
+
+  it('deployment_branch_policy-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/deployment_branch_policy')
+      .load$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_branch_policy-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('deployment_protection_rule-needs-environment_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_protection_rule').load$({ id: 'deployment_protection_rule0' }),
+      /environment_id is required/,
+    )
+  })
+
+
+  it('deployment_protection_rule-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/deployment_protection_rule')
+      .load$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_protection_rule0' })
+
+    assert.equal(found.id, 'deployment_protection_rule0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/deployment_protection_rule',
+    )
+  })
+
+
+  it('deployment_protection_rule-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/deployment_protection_rule')
+      .load$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_protection_rule-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('deployment_status-needs-deployment_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_status').load$({ id: 'deployment_status0' }),
+      /deployment_id is required/,
+    )
+  })
+
+
+  it('deployment_status-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/deployment_status')
+      .list$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/deployment_status',
+    )
+    assert.equal(list[0].deployment_id, 'deployment0')
+  })
+
+
+  it('deployment_status-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/deployment_status')
+      .load$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'deployment_status0' })
+
+    assert.equal(found.id, 'deployment_status0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/deployment_status',
+    )
+  })
+
+
+  it('deployment_status-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/deployment_status')
+      .load$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'deployment_status-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('diff_entry-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/diff_entry').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('diff_entry-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/diff_entry')
+      .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/diff_entry',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('empty_object-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/empty_object')
+      .load$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', secret_name: 'secret_name0', username: 'username0', id: 'empty_object0' })
+
+    assert.equal(found.id, 'empty_object0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/empty_object',
+    )
+  })
+
+
+  it('empty_object-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/empty_object')
+      .load$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', secret_name: 'secret_name0', username: 'username0', id: 'empty_object-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('enterprise_team-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/enterprise_team').list$({}),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('enterprise_team-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/enterprise_team')
+      .list$({ enterprise: 'enterprise0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/enterprise_team',
+    )
+    assert.equal(list[0].enterprise, 'enterprise0')
+  })
+
+
+  it('enterprise_team-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/enterprise_team')
+      .load$({ enterprise: 'enterprise0', id: 'enterprise_team0' })
+
+    assert.equal(found.id, 'enterprise_team0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/enterprise_team',
+    )
+  })
+
+
+  it('enterprise_team-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/enterprise_team')
+      .load$({ enterprise: 'enterprise0', id: 'enterprise_team-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('enterprise_team_membership-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/enterprise_team_membership').remove$({ id: 'enterprise_team_membership0' }),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('environment-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/environment').load$({ id: 'environment0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('environment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/environment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'environment0' })
+
+    assert.equal(found.id, 'environment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/environment',
+    )
+  })
+
+
+  it('environment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/environment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'environment-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('environment_approval-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/environment_approval').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('environment_approval-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/environment_approval')
+      .list$({ owner: 'owner0', repo: 'repo0', run_id: 'run0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/environment_approval',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('event-needs-username', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/event').load$({ id: 'event0' }),
+      /username is required/,
+    )
+  })
+
+
+  it('event-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/event')
+      .list$({ username: 'username0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/event',
+    )
+    assert.equal(list[0].username, 'username0')
+  })
+
+
+  it('event-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/event')
+      .load$({ username: 'username0', id: 'event0' })
+
+    assert.equal(found.id, 'event0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/event',
+    )
+  })
+
+
+  it('event-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/event')
+      .load$({ username: 'username0', id: 'event-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('file_commit-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/file_commit').make$({ id: 'file_commit0' }).save$(),
+      /owner is required/,
+    )
+  })
+
+
+  // This full_repository is addressed by `owner/repo`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('full_repository-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/full_repository').load$({ id: 'incomplete' }),
+      /id must be 'owner\/repo'/,
+    )
+  })
+
+
+  it('full_repository-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/full_repository')
+      .load$({ id: 'owner0/full_repository0' })
+
+    assert.equal(found.id, 'owner0/full_repository0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/full_repository',
+    )
+  })
+
+
+  it('full_repository-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/full_repository')
+      .load$({ id: 'owner0/full_repository-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('gist_comment-needs-gist_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist_comment').load$({ id: 'gist_comment0' }),
+      /gist_id is required/,
+    )
+  })
+
+
+  it('gist_comment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/gist_comment')
+      .list$({ gist_id: 'gist0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/gist_comment',
+    )
+    assert.equal(list[0].gist_id, 'gist0')
+  })
+
+
+  it('gist_comment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/gist_comment')
+      .load$({ gist_id: 'gist0', id: 'gist_comment0' })
+
+    assert.equal(found.id, 'gist_comment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/gist_comment',
+    )
+  })
+
+
+  it('gist_comment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/gist_comment')
+      .load$({ gist_id: 'gist0', id: 'gist_comment-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('git-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git').remove$({ id: 'git0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('git_commit-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_commit').load$({ id: 'git_commit0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('git_commit-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/git_commit')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_commit0' })
+
+    assert.equal(found.id, 'git_commit0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/git_commit',
+    )
+  })
+
+
+  it('git_commit-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/git_commit')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_commit-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('git_ref-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_ref').load$({ id: 'git_ref0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('git_ref-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/git_ref')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_ref0' })
+
+    assert.equal(found.id, 'git_ref0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/git_ref',
+    )
+  })
+
+
+  it('git_ref-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/git_ref')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_ref-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('git_tag-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_tag').load$({ id: 'git_tag0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('git_tag-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/git_tag')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_tag0' })
+
+    assert.equal(found.id, 'git_tag0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/git_tag',
+    )
+  })
+
+
+  it('git_tag-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/git_tag')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_tag-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('git_tree-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_tree').load$({ id: 'git_tree0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('git_tree-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/git_tree')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_tree0' })
+
+    assert.equal(found.id, 'git_tree0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/git_tree',
+    )
+  })
+
+
+  it('git_tree-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/git_tree')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'git_tree-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('hook-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hook').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('hook-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/hook')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/hook',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('hook-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/hook')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'hook0' })
+
+    assert.equal(found.id, 'hook0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/hook',
+    )
+  })
+
+
+  it('hook-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/hook')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'hook-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('hosted_compute-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hosted_compute').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('hosted_compute-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/hosted_compute')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/hosted_compute',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('hovercard-needs-username', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hovercard').list$({}),
+      /username is required/,
+    )
+  })
+
+
+  it('hovercard-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/hovercard')
+      .list$({ username: 'username0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/hovercard',
+    )
+    assert.equal(list[0].username, 'username0')
+  })
+
+
+  it('import-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/import').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('import-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/import')
+      .list$({ owner: 'owner0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/import',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('integration-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/integration')
+      .list$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/integration',
+    )
+    assert.equal(list[0].branch_id, 'branch0')
+  })
+
+
+  it('integration-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/integration')
+      .load$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', id: 'integration0' })
+
+    assert.equal(found.id, 'integration0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/integration',
+    )
+  })
+
+
+  it('integration-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/integration')
+      .load$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', id: 'integration-nosuch' })
+
+    assert.equal(missing, null)
   })
 
 
@@ -57,7 +4941,7 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
 
     await assert.rejects(
-      () => seneca.entity('provider/github/issue').list$({}),
+      () => seneca.entity('provider/github/issue').load$({ id: 'issue0' }),
       /owner is required/,
     )
   })
@@ -96,19 +4980,1523 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const missing = await seneca
       .entity('provider/github/issue')
-      .load$({ owner: 'owner0', repo: 'repo0', id: 'nosuchissue' })
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'issue-nosuch' })
 
     assert.equal(missing, null)
   })
 
 
-  it('pull-needs-owner', async () => {
+  it('issue_type-needs-org_id', async () => {
     const seneca = await makeSeneca()
 
     await assert.rejects(
-      () => seneca.entity('provider/github/pull').list$({}),
+      () => seneca.entity('provider/github/issue_type').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('issue_type-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/issue_type')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/issue_type',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('job-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/job').load$({ id: 'job0' }),
       /owner is required/,
     )
+  })
+
+
+  it('job-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/job')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'job0' })
+
+    assert.equal(found.id, 'job0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/job',
+    )
+  })
+
+
+  it('job-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/job')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'job-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('label-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/label').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('label-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/label')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/label',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('label-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/label')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'label0' })
+
+    assert.equal(found.id, 'label0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/label',
+    )
+  })
+
+
+  it('label-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/label')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'label-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('language-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/language').load$({ id: 'language0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('language-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/language')
+      .load$({ owner: 'owner0', id: 'language0' })
+
+    assert.equal(found.id, 'language0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/language',
+    )
+  })
+
+
+  it('language-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/language')
+      .load$({ owner: 'owner0', id: 'language-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('marketplace_purchase-needs-plan_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/marketplace_purchase').list$({}),
+      /plan_id is required/,
+    )
+  })
+
+
+  it('marketplace_purchase-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/marketplace_purchase')
+      .list$({ plan_id: 'plan0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/marketplace_purchase',
+    )
+    assert.equal(list[0].plan_id, 'plan0')
+  })
+
+
+  it('marketplace_purchase-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/marketplace_purchase')
+      .load$({ plan_id: 'plan0', id: 'marketplace_purchase0' })
+
+    assert.equal(found.id, 'marketplace_purchase0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/marketplace_purchase',
+    )
+  })
+
+
+  it('marketplace_purchase-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/marketplace_purchase')
+      .load$({ plan_id: 'plan0', id: 'marketplace_purchase-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('member-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/member').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('member-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/member')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/member',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('membership-needs-enterprise', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/membership').list$({}),
+      /enterprise is required/,
+    )
+  })
+
+
+  it('membership-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/membership')
+      .list$({ enterprise: 'enterprise0', enterprise_team: 'enterprise_team0', team_id: 'team0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/membership',
+    )
+    assert.equal(list[0].enterprise, 'enterprise0')
+  })
+
+
+  it('membership-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/membership')
+      .load$({ enterprise: 'enterprise0', enterprise_team: 'enterprise_team0', team_id: 'team0', id: 'membership0' })
+
+    assert.equal(found.id, 'membership0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/membership',
+    )
+  })
+
+
+  it('membership-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/membership')
+      .load$({ enterprise: 'enterprise0', enterprise_team: 'enterprise_team0', team_id: 'team0', id: 'membership-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('migration-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/migration')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/migration',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('migration-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/migration')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'migration0' })
+
+    assert.equal(found.id, 'migration0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/migration',
+    )
+  })
+
+
+  it('migration-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/migration')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'migration-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('milestone-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/milestone').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('milestone-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/milestone')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/milestone',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('milestone-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/milestone')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'milestone0' })
+
+    assert.equal(found.id, 'milestone0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/milestone',
+    )
+  })
+
+
+  it('milestone-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/milestone')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'milestone-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('network_configuration-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/network_configuration').load$({ id: 'network_configuration0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('network_configuration-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/network_configuration')
+      .load$({ org_id: 'org0', id: 'network_configuration0' })
+
+    assert.equal(found.id, 'network_configuration0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/network_configuration',
+    )
+  })
+
+
+  it('network_configuration-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/network_configuration')
+      .load$({ org_id: 'org0', id: 'network_configuration-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('network_setting-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/network_setting').load$({ id: 'network_setting0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('network_setting-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/network_setting')
+      .load$({ org_id: 'org0', id: 'network_setting0' })
+
+    assert.equal(found.id, 'network_setting0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/network_setting',
+    )
+  })
+
+
+  it('network_setting-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/network_setting')
+      .load$({ org_id: 'org0', id: 'network_setting-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('oidc_custom_sub-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/oidc_custom_sub').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('oidc_custom_sub-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/oidc_custom_sub')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/oidc_custom_sub',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('oidc_custom_sub_repo-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/oidc_custom_sub_repo').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('oidc_custom_sub_repo-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/oidc_custom_sub_repo')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/oidc_custom_sub_repo',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('org-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/org')
+      .list$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/org',
+    )
+    assert.equal(list[0].enablement, 'enablement0')
+  })
+
+
+  it('org-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/org')
+      .load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: 'org0' })
+
+    assert.equal(found.id, 'org0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/org',
+    )
+  })
+
+
+  it('org-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/org')
+      .load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: 'org-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('org_hook-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_hook').load$({ id: 'org_hook0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('org_hook-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/org_hook')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/org_hook',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('org_hook-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/org_hook')
+      .load$({ org_id: 'org0', id: 'org_hook0' })
+
+    assert.equal(found.id, 'org_hook0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/org_hook',
+    )
+  })
+
+
+  it('org_hook-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/org_hook')
+      .load$({ org_id: 'org0', id: 'org_hook-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('org_membership-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_membership').load$({ id: 'org_membership0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('org_membership-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/org_membership')
+      .load$({ org_id: 'org0', id: 'org_membership0' })
+
+    assert.equal(found.id, 'org_membership0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/org_membership',
+    )
+  })
+
+
+  it('org_membership-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/org_membership')
+      .load$({ org_id: 'org0', id: 'org_membership-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('org_private_registry_configuration-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_private_registry_configuration').load$({ id: 'org_private_registry_configuration0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('org_private_registry_configuration-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/org_private_registry_configuration')
+      .load$({ org_id: 'org0', id: 'org_private_registry_configuration0' })
+
+    assert.equal(found.id, 'org_private_registry_configuration0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/org_private_registry_configuration',
+    )
+  })
+
+
+  it('org_private_registry_configuration-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/org_private_registry_configuration')
+      .load$({ org_id: 'org0', id: 'org_private_registry_configuration-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('org_repo_custom_property_value-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_repo_custom_property_value').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('org_repo_custom_property_value-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/org_repo_custom_property_value')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/org_repo_custom_property_value',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('organization_actions_secret-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_actions_secret').load$({ id: 'organization_actions_secret0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_actions_secret-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/organization_actions_secret')
+      .load$({ org_id: 'org0', id: 'organization_actions_secret0' })
+
+    assert.equal(found.id, 'organization_actions_secret0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/organization_actions_secret',
+    )
+  })
+
+
+  it('organization_actions_secret-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/organization_actions_secret')
+      .load$({ org_id: 'org0', id: 'organization_actions_secret-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('organization_actions_variable-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_actions_variable').load$({ id: 'organization_actions_variable0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_actions_variable-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/organization_actions_variable')
+      .load$({ org_id: 'org0', id: 'organization_actions_variable0' })
+
+    assert.equal(found.id, 'organization_actions_variable0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/organization_actions_variable',
+    )
+  })
+
+
+  it('organization_actions_variable-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/organization_actions_variable')
+      .load$({ org_id: 'org0', id: 'organization_actions_variable-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('organization_dependabot_secret-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_dependabot_secret').load$({ id: 'organization_dependabot_secret0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_dependabot_secret-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/organization_dependabot_secret')
+      .load$({ org_id: 'org0', id: 'organization_dependabot_secret0' })
+
+    assert.equal(found.id, 'organization_dependabot_secret0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/organization_dependabot_secret',
+    )
+  })
+
+
+  it('organization_dependabot_secret-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/organization_dependabot_secret')
+      .load$({ org_id: 'org0', id: 'organization_dependabot_secret-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('organization_invitation-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_invitation').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_invitation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/organization_invitation')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/organization_invitation',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('organization_programmatic_access_grant-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_programmatic_access_grant').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_programmatic_access_grant-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/organization_programmatic_access_grant')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/organization_programmatic_access_grant',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('organization_role-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_role').load$({ id: 'organization_role0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_role-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/organization_role')
+      .load$({ org_id: 'org0', id: 'organization_role0' })
+
+    assert.equal(found.id, 'organization_role0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/organization_role',
+    )
+  })
+
+
+  it('organization_role-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/organization_role')
+      .load$({ org_id: 'org0', id: 'organization_role-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('organization_secret_scanning_alert-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_secret_scanning_alert').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('organization_secret_scanning_alert-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/organization_secret_scanning_alert')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/organization_secret_scanning_alert',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('outside_collaborator-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/outside_collaborator').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('outside_collaborator-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/outside_collaborator')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/outside_collaborator',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  // This package is addressed by `package_type/package_name`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('package-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/package').load$({ package_id: 'package0', id: 'incomplete' }),
+      /id must be 'package_type\/package_name'/,
+    )
+  })
+
+
+  it('package-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/package')
+      .list$({ package_id: 'package0', package_type: 'package_type0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/package',
+    )
+    assert.equal(list[0].id, 'package_type0/package0')
+  })
+
+
+  it('package-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/package')
+      .load$({ package_id: 'package0', id: 'package_type0/package0' })
+
+    assert.equal(found.id, 'package_type0/package0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/package',
+    )
+  })
+
+
+  it('package-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/package')
+      .load$({ package_id: 'package0', id: 'package_type0/package-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('page-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page').load$({ id: 'page0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('page-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/page')
+      .load$({ owner: 'owner0', id: 'page0' })
+
+    assert.equal(found.id, 'page0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/page',
+    )
+  })
+
+
+  it('page-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/page')
+      .load$({ owner: 'owner0', id: 'page-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('page_build-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page_build').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('page_build-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/page_build')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/page_build',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('page_build-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/page_build')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'page_build0' })
+
+    assert.equal(found.id, 'page_build0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/page_build',
+    )
+  })
+
+
+  it('page_build-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/page_build')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'page_build-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('pages_deployment_status-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/pages_deployment_status')
+      .load$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'pages_deployment_status0' })
+
+    assert.equal(found.id, 'pages_deployment_status0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/pages_deployment_status',
+    )
+  })
+
+
+  it('pages_deployment_status-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/pages_deployment_status')
+      .load$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'pages_deployment_status-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('pages_health_check-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pages_health_check').load$({ id: 'pages_health_check0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('pages_health_check-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/pages_health_check')
+      .load$({ owner: 'owner0', id: 'pages_health_check0' })
+
+    assert.equal(found.id, 'pages_health_check0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/pages_health_check',
+    )
+  })
+
+
+  it('pages_health_check-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/pages_health_check')
+      .load$({ owner: 'owner0', id: 'pages_health_check-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('participation-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/participation').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('participation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/participation')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/participation',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('pending_deployment-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pending_deployment').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('pending_deployment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/pending_deployment')
+      .list$({ owner: 'owner0', repo: 'repo0', run_id: 'run0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/pending_deployment',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('porter_author-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/porter_author').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('porter_author-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/porter_author')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/porter_author',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('porter_large_file-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/porter_large_file').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('porter_large_file-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/porter_large_file')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/porter_large_file',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('project-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('project-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/project')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/project',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('project-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/project')
+      .load$({ org_id: 'org0', id: 'project0' })
+
+    assert.equal(found.id, 'project0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/project',
+    )
+  })
+
+
+  it('project-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/project')
+      .load$({ org_id: 'org0', id: 'project-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('project_collaborator_permission-needs-project_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project_collaborator_permission').load$({ id: 'project_collaborator_permission0' }),
+      /project_id is required/,
+    )
+  })
+
+
+  it('project_collaborator_permission-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/project_collaborator_permission')
+      .load$({ project_id: 'project0', id: 'project_collaborator_permission0' })
+
+    assert.equal(found.id, 'project_collaborator_permission0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/project_collaborator_permission',
+    )
+  })
+
+
+  it('project_collaborator_permission-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/project_collaborator_permission')
+      .load$({ project_id: 'project0', id: 'project_collaborator_permission-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('projects_v2-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('projects_v2-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/projects_v2')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/projects_v2',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('projects_v2-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/projects_v2')
+      .load$({ org_id: 'org0', id: 'projects_v20' })
+
+    assert.equal(found.id, 'projects_v20')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/projects_v2',
+    )
+  })
+
+
+  it('projects_v2-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/projects_v2')
+      .load$({ org_id: 'org0', id: 'projects_v2-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('projects_v2_field-needs-project_number', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_field').list$({}),
+      /project_number is required/,
+    )
+  })
+
+
+  it('projects_v2_field-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/projects_v2_field')
+      .list$({ project_number: 'project_number0', projects_v2_id: 'projects_v20' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/projects_v2_field',
+    )
+    assert.equal(list[0].project_number, 'project_number0')
+  })
+
+
+  it('projects_v2_field-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/projects_v2_field')
+      .load$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', id: 'projects_v2_field0' })
+
+    assert.equal(found.id, 'projects_v2_field0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/projects_v2_field',
+    )
+  })
+
+
+  it('projects_v2_field-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/projects_v2_field')
+      .load$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', id: 'projects_v2_field-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('projects_v2_item_with_content-needs-project_number', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_item_with_content').list$({}),
+      /project_number is required/,
+    )
+  })
+
+
+  it('projects_v2_item_with_content-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/projects_v2_item_with_content')
+      .list$({ project_number: 'project_number0', projects_v2_id: 'projects_v20' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/projects_v2_item_with_content',
+    )
+    assert.equal(list[0].project_number, 'project_number0')
+  })
+
+
+  it('projects_v2_item_with_content-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/projects_v2_item_with_content')
+      .load$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', id: 'projects_v2_item_with_content0' })
+
+    assert.equal(found.id, 'projects_v2_item_with_content0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/projects_v2_item_with_content',
+    )
+  })
+
+
+  it('projects_v2_item_with_content-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/projects_v2_item_with_content')
+      .load$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', id: 'projects_v2_item_with_content-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('protected_branch-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch').make$({ id: 'protected_branch0' }).save$(),
+      /owner is required/,
+    )
+  })
+
+
+  it('protected_branch_admin_enforced-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch_admin_enforced').load$({ id: 'protected_branch_admin_enforced0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('protected_branch_admin_enforced-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/protected_branch_admin_enforced')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_admin_enforced0' })
+
+    assert.equal(found.id, 'protected_branch_admin_enforced0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/protected_branch_admin_enforced',
+    )
+  })
+
+
+  it('protected_branch_admin_enforced-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/protected_branch_admin_enforced')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_admin_enforced-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('protected_branch_pull_request_review-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch_pull_request_review').load$({ id: 'protected_branch_pull_request_review0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('protected_branch_pull_request_review-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/protected_branch_pull_request_review')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_pull_request_review0' })
+
+    assert.equal(found.id, 'protected_branch_pull_request_review0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/protected_branch_pull_request_review',
+    )
+  })
+
+
+  it('protected_branch_pull_request_review-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/protected_branch_pull_request_review')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_pull_request_review-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('public_member-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/public_member').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('public_member-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/public_member')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/public_member',
+    )
+    assert.equal(list[0].org_id, 'org0')
   })
 
 
@@ -116,14 +6504,14 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const list = await seneca
       .entity('provider/github/pull')
-      .list$({ owner: 'owner0', repo: 'repo0' })
+      .list$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0' })
 
     assert.equal(list.length, 2)
     assert.equal(
       list[0].canon$({ string: true }),
       'provider/github/pull',
     )
-    assert.equal(list[0].owner, 'owner0')
+    assert.equal(list[0].comment_id, 'comment0')
   })
 
 
@@ -131,7 +6519,7 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const found = await seneca
       .entity('provider/github/pull')
-      .load$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+      .load$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull0' })
 
     assert.equal(found.id, 'pull0')
     assert.equal(
@@ -145,7 +6533,7 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const missing = await seneca
       .entity('provider/github/pull')
-      .load$({ owner: 'owner0', repo: 'repo0', id: 'nosuchpull' })
+      .load$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull-nosuch' })
 
     assert.equal(missing, null)
   })
@@ -165,7 +6553,7 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const list = await seneca
       .entity('provider/github/pull_request_review')
-      .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0' })
+      .list$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0' })
 
     assert.equal(list.length, 2)
     assert.equal(
@@ -173,6 +6561,79 @@ describe('github-provider', () => {
       'provider/github/pull_request_review',
     )
     assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('pull_request_review-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/pull_request_review')
+      .load$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: 'pull_request_review0' })
+
+    assert.equal(found.id, 'pull_request_review0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/pull_request_review',
+    )
+  })
+
+
+  it('pull_request_review-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/pull_request_review')
+      .load$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: 'pull_request_review-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('pull_request_review_comment-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review_comment').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('pull_request_review_comment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/pull_request_review_comment')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/pull_request_review_comment',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('pull_request_review_comment-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/pull_request_review_comment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'pull_request_review_comment0' })
+
+    assert.equal(found.id, 'pull_request_review_comment0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/pull_request_review_comment',
+    )
+  })
+
+
+  it('pull_request_review_comment-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/pull_request_review_comment')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'pull_request_review_comment-nosuch' })
+
+    assert.equal(missing, null)
   })
 
 
@@ -186,12 +6647,153 @@ describe('github-provider', () => {
   })
 
 
-  it('repo-needs-owner', async () => {
+  it('reaction-needs-discussion_number', async () => {
     const seneca = await makeSeneca()
 
     await assert.rejects(
-      () => seneca.entity('provider/github/repo').load$({ id: 'repo0' }),
+      () => seneca.entity('provider/github/reaction').list$({}),
+      /discussion_number is required/,
+    )
+  })
+
+
+  it('reaction-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/reaction')
+      .list$({ discussion_number: 'discussion_number0', team_id: 'team0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/reaction',
+    )
+    assert.equal(list[0].discussion_number, 'discussion_number0')
+  })
+
+
+  it('referrer-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/referrer').list$({}),
       /owner is required/,
+    )
+  })
+
+
+  it('referrer-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/referrer')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/referrer',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('release-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('release-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/release')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/release',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('release-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/release')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'release0' })
+
+    assert.equal(found.id, 'release0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/release',
+    )
+  })
+
+
+  it('release-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/release')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'release-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('release_asset-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/release_asset')
+      .list$({ name: 'name0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/release_asset',
+    )
+    assert.equal(list[0].name, 'name0')
+  })
+
+
+  it('release_asset-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/release_asset')
+      .load$({ name: 'name0', owner: 'owner0', repo: 'repo0', id: 'release_asset0' })
+
+    assert.equal(found.id, 'release_asset0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/release_asset',
+    )
+  })
+
+
+  it('release_asset-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/release_asset')
+      .load$({ name: 'name0', owner: 'owner0', repo: 'repo0', id: 'release_asset-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  // This repo is addressed by `owner/repo`, so an id that is not all
+  // of those parts cannot build a request. It is refused here rather than
+  // sent as a URL that would address the wrong record.
+  it('repo-needs-full-id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repo').load$({ branch_id: 'branch0', invitation_id: 'invitation0', id: 'incomplete' }),
+      /id must be 'owner\/repo'/,
     )
   })
 
@@ -200,14 +6802,14 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const list = await seneca
       .entity('provider/github/repo')
-      .list$({ owner: 'owner0' })
+      .list$({ branch_id: 'branch0', invitation_id: 'invitation0', owner: 'owner0', repo: 'repo0' })
 
     assert.equal(list.length, 2)
     assert.equal(
       list[0].canon$({ string: true }),
       'provider/github/repo',
     )
-    assert.equal(list[0].owner, 'owner0')
+    assert.equal(list[0].id, 'owner0/repo0')
   })
 
 
@@ -215,9 +6817,9 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const found = await seneca
       .entity('provider/github/repo')
-      .load$({ owner: 'owner0', id: 'repo0' })
+      .load$({ branch_id: 'branch0', invitation_id: 'invitation0', id: 'owner0/repo0' })
 
-    assert.equal(found.id, 'repo0')
+    assert.equal(found.id, 'owner0/repo0')
     assert.equal(
       found.canon$({ string: true }),
       'provider/github/repo',
@@ -229,10 +6831,1422 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const missing = await seneca
       .entity('provider/github/repo')
-      .load$({ owner: 'owner0', id: 'nosuchrepo' })
+      .load$({ branch_id: 'branch0', invitation_id: 'invitation0', id: 'owner0/repo0-nosuch' })
 
     assert.equal(missing, null)
   })
+
+
+  it('repository_advisory-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_advisory').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('repository_advisory-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/repository_advisory')
+      .list$({ org_id: 'org0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/repository_advisory',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('repository_advisory-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/repository_advisory')
+      .load$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', id: 'repository_advisory0' })
+
+    assert.equal(found.id, 'repository_advisory0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/repository_advisory',
+    )
+  })
+
+
+  it('repository_advisory-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/repository_advisory')
+      .load$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', id: 'repository_advisory-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('repository_collaborator_permission-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_collaborator_permission').load$({ id: 'repository_collaborator_permission0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('repository_collaborator_permission-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/repository_collaborator_permission')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'repository_collaborator_permission0' })
+
+    assert.equal(found.id, 'repository_collaborator_permission0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/repository_collaborator_permission',
+    )
+  })
+
+
+  it('repository_collaborator_permission-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/repository_collaborator_permission')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'repository_collaborator_permission-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('repository_invitation-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_invitation').make$({ id: 'repository_invitation0' }).save$(),
+      /owner is required/,
+    )
+  })
+
+
+  it('repository_invitation-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/repository_invitation')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/repository_invitation',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('repository_rule_detailed-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_rule_detailed').load$({ id: 'repository_rule_detailed0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('repository_rule_detailed-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/repository_rule_detailed')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'repository_rule_detailed0' })
+
+    assert.equal(found.id, 'repository_rule_detailed0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/repository_rule_detailed',
+    )
+  })
+
+
+  it('repository_rule_detailed-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/repository_rule_detailed')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'repository_rule_detailed-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('repository_ruleset-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_ruleset').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('repository_ruleset-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/repository_ruleset')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/repository_ruleset',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('repository_ruleset-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/repository_ruleset')
+      .load$({ org_id: 'org0', id: 'repository_ruleset0' })
+
+    assert.equal(found.id, 'repository_ruleset0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/repository_ruleset',
+    )
+  })
+
+
+  it('repository_ruleset-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/repository_ruleset')
+      .load$({ org_id: 'org0', id: 'repository_ruleset-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('repository_subscription-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_subscription').load$({ id: 'repository_subscription0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('repository_subscription-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/repository_subscription')
+      .load$({ owner: 'owner0', id: 'repository_subscription0' })
+
+    assert.equal(found.id, 'repository_subscription0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/repository_subscription',
+    )
+  })
+
+
+  it('repository_subscription-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/repository_subscription')
+      .load$({ owner: 'owner0', id: 'repository_subscription-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('review_comment-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/review_comment').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('review_comment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/review_comment')
+      .list$({ owner: 'owner0', pull_id: 'pull0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/review_comment',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('rule_suite-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/rule_suite').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('rule_suite-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/rule_suite')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/rule_suite',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('rule_suite-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/rule_suite')
+      .load$({ org_id: 'org0', id: 'rule_suite0' })
+
+    assert.equal(found.id, 'rule_suite0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/rule_suite',
+    )
+  })
+
+
+  it('rule_suite-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/rule_suite')
+      .load$({ org_id: 'org0', id: 'rule_suite-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('ruleset_version_with_state-needs-ruleset_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/ruleset_version_with_state').load$({ id: 'ruleset_version_with_state0' }),
+      /ruleset_id is required/,
+    )
+  })
+
+
+  it('ruleset_version_with_state-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/ruleset_version_with_state')
+      .load$({ ruleset_id: 'ruleset0', id: 'ruleset_version_with_state0' })
+
+    assert.equal(found.id, 'ruleset_version_with_state0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/ruleset_version_with_state',
+    )
+  })
+
+
+  it('ruleset_version_with_state-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/ruleset_version_with_state')
+      .load$({ ruleset_id: 'ruleset0', id: 'ruleset_version_with_state-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('runner_application-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/runner_application').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('runner_application-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/runner_application')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/runner_application',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('runner_group-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/runner_group').load$({ id: 'runner_group0' }),
+      /org_id is required/,
+    )
+  })
+
+
+  it('runner_group-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/runner_group')
+      .load$({ org_id: 'org0', id: 'runner_group0' })
+
+    assert.equal(found.id, 'runner_group0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/runner_group',
+    )
+  })
+
+
+  it('runner_group-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/runner_group')
+      .load$({ org_id: 'org0', id: 'runner_group-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('search-needs-q', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/search').list$({}),
+      /q is required/,
+    )
+  })
+
+
+  it('search-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/search')
+      .list$({ q: 'q0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/search',
+    )
+    assert.equal(list[0].q, 'q0')
+  })
+
+
+  it('secret_scanning_alert-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_alert').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('secret_scanning_alert-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/secret_scanning_alert')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/secret_scanning_alert',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('secret_scanning_alert-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/secret_scanning_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'secret_scanning_alert0' })
+
+    assert.equal(found.id, 'secret_scanning_alert0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/secret_scanning_alert',
+    )
+  })
+
+
+  it('secret_scanning_alert-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/secret_scanning_alert')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'secret_scanning_alert-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('secret_scanning_location-needs-alert_number', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_location').list$({}),
+      /alert_number is required/,
+    )
+  })
+
+
+  it('secret_scanning_location-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/secret_scanning_location')
+      .list$({ alert_number: 'alert_number0', owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/secret_scanning_location',
+    )
+    assert.equal(list[0].alert_number, 'alert_number0')
+  })
+
+
+  it('secret_scanning_pattern_configuration-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_pattern_configuration').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('secret_scanning_pattern_configuration-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/secret_scanning_pattern_configuration')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/secret_scanning_pattern_configuration',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('secret_scanning_scan_history-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_scan_history').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('secret_scanning_scan_history-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/secret_scanning_scan_history')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/secret_scanning_scan_history',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('selected_action-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/selected_action').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('selected_action-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/selected_action')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/selected_action',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('short_branch-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/short_branch').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('short_branch-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/short_branch')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/short_branch',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('simple_classroom_assignment-needs-classroom_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/simple_classroom_assignment').list$({}),
+      /classroom_id is required/,
+    )
+  })
+
+
+  it('simple_classroom_assignment-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/simple_classroom_assignment')
+      .list$({ classroom_id: 'classroom0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/simple_classroom_assignment',
+    )
+    assert.equal(list[0].classroom_id, 'classroom0')
+  })
+
+
+  it('status-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('status-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/status')
+      .list$({ owner: 'owner0', ref: 'ref0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/status',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('status_check_policy-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status_check_policy').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('status_check_policy-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/status_check_policy')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/status_check_policy',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('subscriber-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/subscriber').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('subscriber-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/subscriber')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/subscriber',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('tag-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/tag').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('tag-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/tag')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/tag',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('tag_protection-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/tag_protection').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('tag_protection-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/tag_protection')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/tag_protection',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('team-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/team')
+      .list$({ org_id: 'org0', project_id: 'project0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/team',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('team-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/team')
+      .load$({ org_id: 'org0', project_id: 'project0', id: 'team0' })
+
+    assert.equal(found.id, 'team0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/team',
+    )
+  })
+
+
+  it('team-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/team')
+      .load$({ org_id: 'org0', project_id: 'project0', id: 'team-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('team_simple-needs-org_id', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/team_simple').list$({}),
+      /org_id is required/,
+    )
+  })
+
+
+  it('team_simple-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/team_simple')
+      .list$({ org_id: 'org0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/team_simple',
+    )
+    assert.equal(list[0].org_id, 'org0')
+  })
+
+
+  it('topic-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/topic').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('topic-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/topic')
+      .list$({ owner: 'owner0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/topic',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('user-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/user')
+      .list$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/user',
+    )
+    assert.equal(list[0].branch_id, 'branch0')
+  })
+
+
+  it('user-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/user')
+      .load$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', id: 'user0' })
+
+    assert.equal(found.id, 'user0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/user',
+    )
+  })
+
+
+  it('user-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/user')
+      .load$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', id: 'user-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('view-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/view').list$({}),
+      /owner is required/,
+    )
+  })
+
+
+  it('view-list', async () => {
+    const seneca = await makeSeneca()
+    const list = await seneca
+      .entity('provider/github/view')
+      .list$({ owner: 'owner0', repo: 'repo0' })
+
+    assert.equal(list.length, 2)
+    assert.equal(
+      list[0].canon$({ string: true }),
+      'provider/github/view',
+    )
+    assert.equal(list[0].owner, 'owner0')
+  })
+
+
+  it('workflow-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow').load$({ id: 'workflow0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('workflow-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/workflow')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow0' })
+
+    assert.equal(found.id, 'workflow0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/workflow',
+    )
+  })
+
+
+  it('workflow-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/workflow')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('workflow_run-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow_run').load$({ id: 'workflow_run0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('workflow_run-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/workflow_run')
+      .load$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', id: 'workflow_run0' })
+
+    assert.equal(found.id, 'workflow_run0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/workflow_run',
+    )
+  })
+
+
+  it('workflow_run-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/workflow_run')
+      .load$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', id: 'workflow_run-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('workflow_run_usage-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow_run_usage').load$({ id: 'workflow_run_usage0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('workflow_run_usage-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/workflow_run_usage')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow_run_usage0' })
+
+    assert.equal(found.id, 'workflow_run_usage0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/workflow_run_usage',
+    )
+  })
+
+
+  it('workflow_run_usage-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/workflow_run_usage')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow_run_usage-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  it('workflow_usage-needs-owner', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow_usage').load$({ id: 'workflow_usage0' }),
+      /owner is required/,
+    )
+  })
+
+
+  it('workflow_usage-load', async () => {
+    const seneca = await makeSeneca()
+    const found = await seneca
+      .entity('provider/github/workflow_usage')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow_usage0' })
+
+    assert.equal(found.id, 'workflow_usage0')
+    assert.equal(
+      found.canon$({ string: true }),
+      'provider/github/workflow_usage',
+    )
+  })
+
+
+  it('workflow_usage-load-missing', async () => {
+    const seneca = await makeSeneca()
+    const missing = await seneca
+      .entity('provider/github/workflow_usage')
+      .load$({ owner: 'owner0', repo: 'repo0', id: 'workflow_usage-nosuch' })
+
+    assert.equal(missing, null)
+  })
+
+
+  // NO action create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE action.
+  //
+  // The key is `archive_format`, which the remove route does not
+  // take — it addresses `artifact_id`, `hosted_runner_id`, `name`, `org_id`, `owner`, `repo`, `repository_id` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see action-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  // NO activity create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE activity.
+  //
+  // The key is `owner/repo`, which the remove route does not
+  // take — it addresses `owner`, `thread_id` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see activity-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  it('app-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/app')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ code: 'code0', repository_id: 'repository0', access_tokens_url: 'crud-access_tokens_url', account: 'crud-account', app_id: 12345, app_slug: 'crud-app_slug', archive_url: 'crud-archive_url', archived: true, assignees_url: 'crud-assignees_url', blobs_url: 'crud-blobs_url', branches_url: 'crud-branches_url', clone_url: 'crud-clone_url', collaborators_url: 'crud-collaborators_url', comments_url: 'crud-comments_url', commits_url: 'crud-commits_url', compare_url: 'crud-compare_url', contents_url: 'crud-contents_url', contributors_url: 'crud-contributors_url', default_branch: 'crud-default_branch', deployments_url: 'crud-deployments_url', disabled: true, downloads_url: 'crud-downloads_url', events_url: 'crud-events_url', fork: true, forks: 12345, forks_count: 12345, forks_url: 'crud-forks_url', full_name: 'crud-full_name', git_commits_url: 'crud-git_commits_url', git_refs_url: 'crud-git_refs_url', git_tags_url: 'crud-git_tags_url', git_url: 'crud-git_url', has_downloads: true, has_issues: true, has_pages: true, has_projects: true, has_wiki: true, homepage: 'crud-homepage', hooks_url: 'crud-hooks_url', issue_comment_url: 'crud-issue_comment_url', issue_events_url: 'crud-issue_events_url', issues_url: 'crud-issues_url', keys_url: 'crud-keys_url', labels_url: 'crud-labels_url', language: 'crud-language', languages_url: 'crud-languages_url', license: {}, merges_url: 'crud-merges_url', milestones_url: 'crud-milestones_url', mirror_url: 'crud-mirror_url', notifications_url: 'crud-notifications_url', open_issues: 12345, open_issues_count: 12345, private: true, pulls_url: 'crud-pulls_url', pushed_at: 'crud-pushed_at', releases_url: 'crud-releases_url', repositories_url: 'crud-repositories_url', repository_selection: 'crud-repository_selection', single_file_name: 'crud-single_file_name', size: 12345, ssh_url: 'crud-ssh_url', stargazers_count: 12345, stargazers_url: 'crud-stargazers_url', statuses_url: 'crud-statuses_url', subscribers_url: 'crud-subscribers_url', subscription_url: 'crud-subscription_url', suspended_at: 'crud-suspended_at', suspended_by: {}, svn_url: 'crud-svn_url', tags_url: 'crud-tags_url', target_id: 12345, target_type: 'crud-target_type', teams_url: 'crud-teams_url', trees_url: 'crud-trees_url', url: 'crud-url', watchers: 12345, watchers_count: 12345 }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/app',
+    )
+
+    const id = made.id
+
+    // This app has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
+    try {
+      // An entity CARRYING an id is an update, not a second create.
+      made.access_tokens_url = 'crud-access_tokens_url-2'
+      const updated = await made.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.access_tokens_url, 'crud-access_tokens_url-2')
+    }
+    finally {
+      await ent.remove$({ code: 'code0', repository_id: 'repository0', id: id })
+    }
+  })
+
+
+  it('campaign-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/campaign')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ org_id: 'org0', alert_stats: {}, code_scanning_alerts: [], contact_link: 'crud-contact_link', created_at: 'crud-created_at', description: 'crud-description', ends_at: 'crud-ends_at', managers: [], number: 12345, state: 'crud-state', updated_at: 'crud-updated_at' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/campaign',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ org_id: 'org0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.contact_link = 'crud-contact_link-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.contact_link, 'crud-contact_link-2')
+
+      const reloaded = await ent.load$({ org_id: 'org0', id: id })
+      assert.equal(reloaded.contact_link, 'crud-contact_link-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ org_id: 'org0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ org_id: 'org0', id: id }), null)
+  })
+
+
+  it('code_scanning-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/code_scanning')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ owner: 'owner0', repo: 'repo0', commit_sha: 'crud-commit_sha', ref: 'crud-ref', sarif: 'crud-sarif' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/code_scanning',
+    )
+
+    const id = made.id
+
+    // This code_scanning has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
+    try {
+      // An entity CARRYING an id is an update, not a second create.
+      made.commit_sha = 'crud-commit_sha-2'
+      const updated = await made.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.commit_sha, 'crud-commit_sha-2')
+    }
+    finally {
+      await ent.remove$({ owner: 'owner0', repo: 'repo0', id: id })
+    }
+  })
+
+
+  it('code_security-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/code_security')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ enterprise: 'enterprise0',  }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/code_security',
+    )
+
+    const id = made.id
+
+    // This code_security has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
+    try {
+    }
+    finally {
+      await ent.remove$({ enterprise: 'enterprise0', id: id })
+    }
+  })
+
+
+  it('codespace-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/codespace')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ secret_name: 'secret_name0', accepted: true, archive_url: 'crud-archive_url', assignees_url: 'crud-assignees_url', billable_owner: {}, blobs_url: 'crud-blobs_url', branches_url: 'crud-branches_url', code_of_conduct: {}, collaborators_url: 'crud-collaborators_url', comments_url: 'crud-comments_url', commits_url: 'crud-commits_url', compare_url: 'crud-compare_url', contents_url: 'crud-contents_url', contributors_url: 'crud-contributors_url', cpus: 12345, created_at: 'crud-created_at', defaults: {}, deployments_url: 'crud-deployments_url', description: 'crud-description', downloads_url: 'crud-downloads_url', environment_id: 'crud-environment_id', events_url: 'crud-events_url', fork: true, forks_url: 'crud-forks_url', full_name: 'crud-full_name', git_commits_url: 'crud-git_commits_url', git_refs_url: 'crud-git_refs_url', git_status: {}, git_tags_url: 'crud-git_tags_url', hooks_url: 'crud-hooks_url', idle_timeout_minutes: 12345, issue_comment_url: 'crud-issue_comment_url', issue_events_url: 'crud-issue_events_url', issues_url: 'crud-issues_url', key: 'crud-key', key_id: 'crud-key_id', keys_url: 'crud-keys_url', labels_url: 'crud-labels_url', languages_url: 'crud-languages_url', last_used_at: 'crud-last_used_at', location: 'crud-location', machine: {}, machines_url: 'crud-machines_url', memory_in_bytes: 12345, merges_url: 'crud-merges_url', milestones_url: 'crud-milestones_url', name: 'crud-name', node_id: 'crud-node_id', notifications_url: 'crud-notifications_url', operating_system: 'crud-operating_system', owner: {}, path: 'crud-path', prebuild: true, prebuild_availability: 'crud-prebuild_availability', pulls_url: 'crud-pulls_url', recent_folders: [], releases_url: 'crud-releases_url', repository: {}, selected_usernames: [], stargazers_url: 'crud-stargazers_url', start_url: 'crud-start_url', statuses_url: 'crud-statuses_url', stop_url: 'crud-stop_url', storage_in_bytes: 12345, subscribers_url: 'crud-subscribers_url', subscription_url: 'crud-subscription_url', tags_url: 'crud-tags_url', teams_url: 'crud-teams_url', trees_url: 'crud-trees_url', updated_at: 'crud-updated_at', visibility: 'crud-visibility', web_url: 'crud-web_url' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/codespace',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ secret_name: 'secret_name0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.archive_url = 'crud-archive_url-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.archive_url, 'crud-archive_url-2')
+
+      const reloaded = await ent.load$({ secret_name: 'secret_name0', id: id })
+      assert.equal(reloaded.archive_url, 'crud-archive_url-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ secret_name: 'secret_name0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ secret_name: 'secret_name0', id: id }), null)
+  })
+
+
+  // NO copilot create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE copilot.
+  //
+  // The key is `username`, which the remove route does not
+  // take — it addresses `org_id` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see copilot-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  // NO dependabot create/update/remove round-trip: THIS API HAS NO UPDATE
+  // ROUTE FOR ONE dependabot. Its update route addresses
+  // `org_id`, `repository_id`, `secret_id`, not
+  // `secret_name`, so the update leg of a round-trip
+  // would change a different record. The cmd refuses instead — see
+  // dependabot-update-refused. Create and remove are unaffected.
+
+
+  it('enterprise_team-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/enterprise_team')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ enterprise: 'enterprise0', created_at: 'crud-created_at', group_id: 'crud-group_id', html_url: 'crud-html_url', members_url: 'crud-members_url', name: 'crud-name', slug: 'crud-slug', updated_at: 'crud-updated_at', url: 'crud-url' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/enterprise_team',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ enterprise: 'enterprise0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.created_at = 'crud-created_at-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.created_at, 'crud-created_at-2')
+
+      const reloaded = await ent.load$({ enterprise: 'enterprise0', id: id })
+      assert.equal(reloaded.created_at, 'crud-created_at-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ enterprise: 'enterprise0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ enterprise: 'enterprise0', id: id }), null)
+  })
+
+
+  it('file_commit-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/file_commit')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ owner: 'owner0', repo: 'repo0', author: {}, commit: {}, committer: {}, content: {}, message: 'crud-message' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/file_commit',
+    )
+
+    const id = made.id
+
+    // This file_commit has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
+    try {
+      // An entity CARRYING an id is an update, not a second create.
+      made.message = 'crud-message-2'
+      const updated = await made.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.message, 'crud-message-2')
+    }
+    finally {
+      await ent.remove$({ owner: 'owner0', repo: 'repo0', id: id })
+    }
+  })
+
+
+  it('gist-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/gist')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ fork_of: {}, owner: {} }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/gist',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ id: id })
+      assert.equal(loaded.id, id)
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ id: id }), null)
+  })
+
+
+  it('installation-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/installation')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ access_tokens_url: 'crud-access_tokens_url', account: 'crud-account', app_id: 12345, app_slug: 'crud-app_slug', created_at: 'crud-created_at', events: [], html_url: 'crud-html_url', permissions: {}, repositories_url: 'crud-repositories_url', repository_selection: 'crud-repository_selection', single_file_name: 'crud-single_file_name', suspended_at: 'crud-suspended_at', suspended_by: {}, target_id: 12345, target_type: 'crud-target_type', updated_at: 'crud-updated_at' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/installation',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.access_tokens_url = 'crud-access_tokens_url-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.access_tokens_url, 'crud-access_tokens_url-2')
+
+      const reloaded = await ent.load$({ id: id })
+      assert.equal(reloaded.access_tokens_url, 'crud-access_tokens_url-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ id: id }), null)
+  })
+
+
+  // NO integration create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE integration.
+  //
+  // The key is `app_slug`, which the remove route does not
+  // take — it addresses `branch_id`, `owner`, `repo` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see integration-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
 
 
   it('issue-crud', async () => {
@@ -241,7 +8255,7 @@ describe('github-provider', () => {
 
     // Seneca's convention: an entity WITHOUT an id is a create. The API
     // assigns the id itself, so the saved record comes back with one it chose.
-    const made = await ent.make$({ owner: 'owner0', repo: 'repo0', assignee: {}, closed_at: 'crud-closed_at', closed_by: {}, comments: 12345, comments_url: 'crud-comments_url', created_at: 'crud-created_at', events_url: 'crud-events_url', html_url: 'crud-html_url', issue_dependencies_summary: {}, issue_url: 'crud-issue_url', labels: [], labels_url: 'crud-labels_url', locked: true, milestone: {}, minimized: {}, node_id: 'crud-node_id', number: 12345, performed_via_github_app: {}, pin: {}, pinned_comment: {}, pull_request: {}, reactions: {}, repository: {}, repository_url: 'crud-repository_url', state: 'crud-state', sub_issues_summary: {}, title: 'crud-title', type: {}, updated_at: 'crud-updated_at', url: 'crud-url', user: {} }).save$()
+    const made = await ent.make$({ owner: 'owner0', repo: 'repo0', actor: {}, assignee: {}, assigner: {}, author_association: 'crud-author_association', closed_at: 'crud-closed_at', closed_by: {}, comments: 12345, comments_url: 'crud-comments_url', commit_id: 'crud-commit_id', commit_url: 'crud-commit_url', created_at: 'crud-created_at', dismissed_review: {}, event: 'crud-event', events_url: 'crud-events_url', html_url: 'crud-html_url', issue: {}, issue_dependencies_summary: {}, issue_id: 12345, issue_url: 'crud-issue_url', label: {}, labels: [], labels_url: 'crud-labels_url', locked: true, milestone: {}, node_id: 'crud-node_id', number: 12345, performed_via_github_app: {}, project_card: {}, pull_request: {}, reactions: {}, rename: {}, repository: {}, repository_url: 'crud-repository_url', requested_reviewer: {}, requested_team: {}, review_requester: {}, state: 'crud-state', sub_issue_id: 12345, sub_issues_summary: {}, title: 'crud-title', type: {}, updated_at: 'crud-updated_at', url: 'crud-url', user: {} }).save$()
 
     assert.ok(null != made.id)
     assert.equal(
@@ -256,14 +8270,14 @@ describe('github-provider', () => {
       assert.equal(loaded.id, id)
 
       // An entity CARRYING an id is an update, not a second create.
-      loaded.closed_at = 'crud-closed_at-2'
+      loaded.author_association = 'crud-author_association-2'
       const updated = await loaded.save$()
 
       assert.equal(updated.id, id)
-      assert.equal(updated.closed_at, 'crud-closed_at-2')
+      assert.equal(updated.author_association, 'crud-author_association-2')
 
       const reloaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: id })
-      assert.equal(reloaded.closed_at, 'crud-closed_at-2')
+      assert.equal(reloaded.author_association, 'crud-author_association-2')
     }
     finally {
       // Always clean up. The mock and the server both hold data for the
@@ -274,6 +8288,219 @@ describe('github-provider', () => {
     // remove is real: the record is gone, and reading it is an ordinary
     // not-found rather than an error.
     assert.equal(await ent.load$({ owner: 'owner0', repo: 'repo0', id: id }), null)
+  })
+
+
+  // NO migration create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE migration.
+  //
+  // The key is `id`, which the remove route does not
+  // take — it addresses `owner`, `repo` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see migration-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  it('org-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/org')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', access_tokens_url: 'crud-access_tokens_url', account: 'crud-account', action: 'crud-action', app_id: 12345, app_slug: 'crud-app_slug', avatar_url: 'crud-avatar_url', created_at: 'crud-created_at', digest: 'crud-digest', events: [], events_url: 'crud-events_url', hooks_url: 'crud-hooks_url', html_url: 'crud-html_url', issues_url: 'crud-issues_url', login: 'crud-login', members_url: 'crud-members_url', name: 'crud-name', node_id: 'crud-node_id', organization: {}, organization_url: 'crud-organization_url', pat_ids: [], permissions: {}, private_repos: 12345, properties: [], public_members_url: 'crud-public_members_url', registry_url: 'crud-registry_url', repos_url: 'crud-repos_url', repositories_url: 'crud-repositories_url', repository_names: [], repository_selection: 'crud-repository_selection', role: 'crud-role', single_file_name: 'crud-single_file_name', space: 12345, state: 'crud-state', subject_digests: [], suspended_at: 'crud-suspended_at', suspended_by: {}, target_id: 12345, target_type: 'crud-target_type', updated_at: 'crud-updated_at', url: 'crud-url', user: {} }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/org',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.access_tokens_url = 'crud-access_tokens_url-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.access_tokens_url, 'crud-access_tokens_url-2')
+
+      const reloaded = await ent.load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: id })
+      assert.equal(reloaded.access_tokens_url, 'crud-access_tokens_url-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: id }), null)
+  })
+
+
+  // NO package create/update/remove round-trip. This API addresses a
+  // package by `package_type/package_name`, and at least
+  // one of those parts is carried NESTED in a response
+  // ().
+  //
+  // Reads, lists and removes work: they address a record and never rewrite
+  // it. A create or update cannot, offline — the SDK takes path parameters
+  // from the same object as the request body, so the flat value the URL
+  // needs displaces the nested one the response shape requires, and this
+  // transport echoes a create and merges an update. Against the real API,
+  // where the two are separate, the cycle is fine.
+
+
+  it('private_registry-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/private_registry')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ created_at: 'crud-created_at', key: 'crud-key', key_id: 'crud-key_id', name: 'crud-name', updated_at: 'crud-updated_at' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/private_registry',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.created_at = 'crud-created_at-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.created_at, 'crud-created_at-2')
+
+      const reloaded = await ent.load$({ id: id })
+      assert.equal(reloaded.created_at, 'crud-created_at-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ id: id }), null)
+  })
+
+
+  it('project-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/project')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ org_id: 'org0', avatar_url: 'crud-avatar_url', columns_url: 'crud-columns_url', created_at: 'crud-created_at', creator: {}, events_url: 'crud-events_url', followers_url: 'crud-followers_url', following_url: 'crud-following_url', gists_url: 'crud-gists_url', gravatar_id: 'crud-gravatar_id', html_url: 'crud-html_url', login: 'crud-login', node_id: 'crud-node_id', number: 12345, organizations_url: 'crud-organizations_url', owner_url: 'crud-owner_url', received_events_url: 'crud-received_events_url', repos_url: 'crud-repos_url', site_admin: true, starred_url: 'crud-starred_url', subscriptions_url: 'crud-subscriptions_url', type: 'crud-type', updated_at: 'crud-updated_at', url: 'crud-url' }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/project',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ org_id: 'org0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.avatar_url = 'crud-avatar_url-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.avatar_url, 'crud-avatar_url-2')
+
+      const reloaded = await ent.load$({ org_id: 'org0', id: id })
+      assert.equal(reloaded.avatar_url, 'crud-avatar_url-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ org_id: 'org0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ org_id: 'org0', id: id }), null)
+  })
+
+
+  // NO projects_classic create/update/remove round-trip: THIS API HAS NO UPDATE
+  // ROUTE FOR ONE projects_classic. Its update route addresses
+  // `project_id`, `username`, not
+  // `column_id`, so the update leg of a round-trip
+  // would change a different record. The cmd refuses instead — see
+  // projects_classic-update-refused. Create and remove are unaffected.
+
+
+  // NO pull create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE pull.
+  //
+  // The key is `id`, which the remove route does not
+  // take — it addresses `comment_id`, `owner`, `repo` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see pull-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  it('pull_request_review-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/pull_request_review')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', author_association: 'crud-author_association', body: 'crud-body', commit_id: 'crud-commit_id', event: 'crud-event', html_url: 'crud-html_url', links: {}, message: 'crud-message', node_id: 'crud-node_id', pull_request_url: 'crud-pull_request_url', state: 'crud-state', teams: [], user: {}, users: [] }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/pull_request_review',
+    )
+
+    const id = made.id
+
+    try {
+      const loaded = await ent.load$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: id })
+      assert.equal(loaded.id, id)
+
+      // An entity CARRYING an id is an update, not a second create.
+      loaded.author_association = 'crud-author_association-2'
+      const updated = await loaded.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.author_association, 'crud-author_association-2')
+
+      const reloaded = await ent.load$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: id })
+      assert.equal(reloaded.author_association, 'crud-author_association-2')
+    }
+    finally {
+      // Always clean up. The mock and the server both hold data for the
+      // process lifetime, so a leaked record changes what later tests see.
+      await ent.remove$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: id })
+    }
+
+    // remove is real: the record is gone, and reading it is an ordinary
+    // not-found rather than an error.
+    assert.equal(await ent.load$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: id }), null)
   })
 
 
@@ -293,40 +8520,81 @@ describe('github-provider', () => {
 
     const id = made.id
 
+    // This pull_request_simple has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
     try {
-      const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: id })
-      assert.equal(loaded.id, id)
     }
     finally {
-      // Always clean up. The mock and the server both hold data for the
-      // process lifetime, so a leaked record changes what later tests see.
       await ent.remove$({ owner: 'owner0', repo: 'repo0', id: id })
     }
-
-    // remove is real: the record is gone, and reading it is an ordinary
-    // not-found rather than an error.
-    assert.equal(await ent.load$({ owner: 'owner0', repo: 'repo0', id: id }), null)
   })
 
 
-  it('repo-crud', async () => {
+  it('reaction-crud', async () => {
     const seneca = await makeSeneca()
-    const ent = seneca.entity('provider/github/repo')
+    const ent = seneca.entity('provider/github/reaction')
 
     // Seneca's convention: an entity WITHOUT an id is a create. The API
     // assigns the id itself, so the saved record comes back with one it chose.
-    const made = await ent.make$({ owner: 'owner0', archive_url: 'crud-archive_url', archived: true, assignees_url: 'crud-assignees_url', blobs_url: 'crud-blobs_url', branches_url: 'crud-branches_url', clone_url: 'crud-clone_url', code_of_conduct: {}, collaborators_url: 'crud-collaborators_url', comments_url: 'crud-comments_url', commits_url: 'crud-commits_url', compare_url: 'crud-compare_url', contents_url: 'crud-contents_url', contributors_url: 'crud-contributors_url', created_at: 'crud-created_at', default_branch: 'crud-default_branch', deployments_url: 'crud-deployments_url', description: 'crud-description', disabled: true, downloads_url: 'crud-downloads_url', events_url: 'crud-events_url', fork: true, forks: 12345, forks_count: 12345, forks_url: 'crud-forks_url', full_name: 'crud-full_name', git_commits_url: 'crud-git_commits_url', git_refs_url: 'crud-git_refs_url', git_tags_url: 'crud-git_tags_url', git_url: 'crud-git_url', has_discussions: true, has_issues: true, has_pages: true, has_projects: true, has_wiki: true, homepage: 'crud-homepage', hooks_url: 'crud-hooks_url', html_url: 'crud-html_url', issue_comment_url: 'crud-issue_comment_url', issue_events_url: 'crud-issue_events_url', issues_url: 'crud-issues_url', keys_url: 'crud-keys_url', labels_url: 'crud-labels_url', language: 'crud-language', languages_url: 'crud-languages_url', license: {}, merges_url: 'crud-merges_url', milestones_url: 'crud-milestones_url', mirror_url: 'crud-mirror_url', name: 'crud-name', network_count: 12345, node_id: 'crud-node_id', notifications_url: 'crud-notifications_url', open_issues: 12345, open_issues_count: 12345, organization: {}, parent: {}, permissions: {}, private: true, pulls_url: 'crud-pulls_url', pushed_at: 'crud-pushed_at', releases_url: 'crud-releases_url', size: 12345, source: {}, ssh_url: 'crud-ssh_url', stargazers_count: 12345, stargazers_url: 'crud-stargazers_url', statuses_url: 'crud-statuses_url', subscribers_count: 12345, subscribers_url: 'crud-subscribers_url', subscription_url: 'crud-subscription_url', svn_url: 'crud-svn_url', tags_url: 'crud-tags_url', teams_url: 'crud-teams_url', template_repository: {}, trees_url: 'crud-trees_url', updated_at: 'crud-updated_at', url: 'crud-url', watchers: 12345, watchers_count: 12345 }).save$()
+    const made = await ent.make$({ discussion_number: 'discussion_number0', team_id: 'team0', avatar_url: 'crud-avatar_url', content: 'crud-content', created_at: 'crud-created_at', events_url: 'crud-events_url', followers_url: 'crud-followers_url', following_url: 'crud-following_url', gists_url: 'crud-gists_url', gravatar_id: 'crud-gravatar_id', html_url: 'crud-html_url', login: 'crud-login', node_id: 'crud-node_id', organizations_url: 'crud-organizations_url', received_events_url: 'crud-received_events_url', repos_url: 'crud-repos_url', site_admin: true, starred_url: 'crud-starred_url', subscriptions_url: 'crud-subscriptions_url', type: 'crud-type', url: 'crud-url', user: {} }).save$()
 
     assert.ok(null != made.id)
     assert.equal(
       made.canon$({ string: true }),
-      'provider/github/repo',
+      'provider/github/reaction',
+    )
+
+    const id = made.id
+
+    // This reaction has no load cmd: the API offers no route that reads
+    // one back, so the record cannot be re-read here and the remove cannot
+    // be confirmed by a follow-up read. The write path is still exercised.
+    try {
+      // An entity CARRYING an id is an update, not a second create.
+      made.avatar_url = 'crud-avatar_url-2'
+      const updated = await made.save$()
+
+      assert.equal(updated.id, id)
+      assert.equal(updated.avatar_url, 'crud-avatar_url-2')
+    }
+    finally {
+      await ent.remove$({ discussion_number: 'discussion_number0', team_id: 'team0', id: id })
+    }
+  })
+
+
+  // NO repo create/update/remove round-trip. This API addresses a
+  // repo by `owner/repo`, and at least
+  // one of those parts is carried NESTED in a response
+  // (owner at owner.login).
+  //
+  // Reads, lists and removes work: they address a record and never rewrite
+  // it. A create or update cannot, offline — the SDK takes path parameters
+  // from the same object as the request body, so the flat value the URL
+  // needs displaces the nested one the response shape requires, and this
+  // transport echoes a create and merges an update. Against the real API,
+  // where the two are separate, the cycle is fine.
+
+
+  it('team-crud', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/team')
+
+    // Seneca's convention: an entity WITHOUT an id is a create. The API
+    // assigns the id itself, so the saved record comes back with one it chose.
+    const made = await ent.make$({ org_id: 'org0', project_id: 'project0', archive_url: 'crud-archive_url', archived: true, assignees_url: 'crud-assignees_url', author: {}, avatar_url: 'crud-avatar_url', blobs_url: 'crud-blobs_url', body: 'crud-body', body_html: 'crud-body_html', body_version: 'crud-body_version', branches_url: 'crud-branches_url', clone_url: 'crud-clone_url', code_of_conduct: {}, collaborators_url: 'crud-collaborators_url', columns_url: 'crud-columns_url', comments_count: 12345, comments_url: 'crud-comments_url', commits_url: 'crud-commits_url', compare_url: 'crud-compare_url', contents_url: 'crud-contents_url', contributors_url: 'crud-contributors_url', created_at: 'crud-created_at', creator: {}, default_branch: 'crud-default_branch', deployments_url: 'crud-deployments_url', description: 'crud-description', disabled: true, discussion_url: 'crud-discussion_url', downloads_url: 'crud-downloads_url', events_url: 'crud-events_url', followers_url: 'crud-followers_url', following_url: 'crud-following_url', fork: true, forks: 12345, forks_count: 12345, forks_url: 'crud-forks_url', full_name: 'crud-full_name', gists_url: 'crud-gists_url', git_commits_url: 'crud-git_commits_url', git_refs_url: 'crud-git_refs_url', git_tags_url: 'crud-git_tags_url', git_url: 'crud-git_url', gravatar_id: 'crud-gravatar_id', has_downloads: true, has_issues: true, has_pages: true, has_projects: true, has_wiki: true, homepage: 'crud-homepage', hooks_url: 'crud-hooks_url', html_url: 'crud-html_url', invitation_teams_url: 'crud-invitation_teams_url', inviter: {}, issue_comment_url: 'crud-issue_comment_url', issue_events_url: 'crud-issue_events_url', issues_url: 'crud-issues_url', keys_url: 'crud-keys_url', labels_url: 'crud-labels_url', language: 'crud-language', languages_url: 'crud-languages_url', last_edited_at: 'crud-last_edited_at', license: {}, login: 'crud-login', members_count: 12345, members_url: 'crud-members_url', merges_url: 'crud-merges_url', milestones_url: 'crud-milestones_url', mirror_url: 'crud-mirror_url', name: 'crud-name', node_id: 'crud-node_id', notifications_url: 'crud-notifications_url', number: 12345, open_issues: 12345, open_issues_count: 12345, organization: {}, organizations_url: 'crud-organizations_url', owner: {}, owner_url: 'crud-owner_url', parent: {}, permission: 'crud-permission', permissions: {}, pinned: true, private: true, pulls_url: 'crud-pulls_url', pushed_at: 'crud-pushed_at', reactions: {}, received_events_url: 'crud-received_events_url', releases_url: 'crud-releases_url', repos_count: 12345, repos_url: 'crud-repos_url', repositories_url: 'crud-repositories_url', role: 'crud-role', site_admin: true, size: 12345, slug: 'crud-slug', ssh_url: 'crud-ssh_url', stargazers_count: 12345, stargazers_url: 'crud-stargazers_url', starred_url: 'crud-starred_url', state: 'crud-state', statuses_url: 'crud-statuses_url', subscribers_url: 'crud-subscribers_url', subscription_url: 'crud-subscription_url', subscriptions_url: 'crud-subscriptions_url', svn_url: 'crud-svn_url', tags_url: 'crud-tags_url', team_count: 12345, team_url: 'crud-team_url', teams_url: 'crud-teams_url', title: 'crud-title', trees_url: 'crud-trees_url', type: 'crud-type', updated_at: 'crud-updated_at', url: 'crud-url', watchers: 12345, watchers_count: 12345 }).save$()
+
+    assert.ok(null != made.id)
+    assert.equal(
+      made.canon$({ string: true }),
+      'provider/github/team',
     )
 
     const id = made.id
 
     try {
-      const loaded = await ent.load$({ owner: 'owner0', id: id })
+      const loaded = await ent.load$({ org_id: 'org0', project_id: 'project0', id: id })
       assert.equal(loaded.id, id)
 
       // An entity CARRYING an id is an update, not a second create.
@@ -336,18 +8604,1966 @@ describe('github-provider', () => {
       assert.equal(updated.id, id)
       assert.equal(updated.archive_url, 'crud-archive_url-2')
 
-      const reloaded = await ent.load$({ owner: 'owner0', id: id })
+      const reloaded = await ent.load$({ org_id: 'org0', project_id: 'project0', id: id })
       assert.equal(reloaded.archive_url, 'crud-archive_url-2')
     }
     finally {
       // Always clean up. The mock and the server both hold data for the
       // process lifetime, so a leaked record changes what later tests see.
-      await ent.remove$({ owner: 'owner0', id: id })
+      await ent.remove$({ org_id: 'org0', project_id: 'project0', id: id })
     }
 
     // remove is real: the record is gone, and reading it is an ordinary
     // not-found rather than an error.
-    assert.equal(await ent.load$({ owner: 'owner0', id: id }), null)
+    assert.equal(await ent.load$({ org_id: 'org0', project_id: 'project0', id: id }), null)
+  })
+
+
+  // NO user create/update/remove round-trip: THIS API HAS NO REMOVE
+  // ROUTE FOR ONE user.
+  //
+  // The key is `id`, which the remove route does not
+  // take — it addresses `branch_id`, `gpg_key_id`, `owner`, `repo`, `username` and no further. So there is
+  // no record for this test to remove, and the cmd refuses rather than
+  // deleting whatever that route names: see user-remove-refused.
+  //
+  // This befalls an entity whose ops address DIFFERENT resources, which a
+  // tag-derived entity can. Reads and lists are unaffected.
+
+
+  it('action-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/action').remove$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action0' }),
+      /has no remove route for one action/,
+    )
+  })
+
+
+  it('action-update-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/action').make$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action0' }).save$(),
+      /has no update route for one action/,
+    )
+  })
+
+
+  it('activity-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/activity').remove$({ owner: 'owner0', thread_id: 'thread0', id: 'owner0/activity0' }),
+      /has no remove route for one activity/,
+    )
+  })
+
+
+  it('copilot-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot').remove$({ org_id: 'org0', id: 'copilot0' }),
+      /has no remove route for one copilot/,
+    )
+  })
+
+
+  it('dependabot-update-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot').make$({ org: 'org0', org_id: 'org0', repository_id: 'repository0', secret_id: 'secret0', id: 'dependabot0' }).save$(),
+      /has no update route for one dependabot/,
+    )
+  })
+
+
+  it('empty_object-update-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/empty_object').make$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', secret_name: 'secret_name0', username: 'username0', id: 'empty_object0' }).save$(),
+      /has no update route for one empty_object/,
+    )
+  })
+
+
+  it('integration-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/integration').remove$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', id: 'integration0' }),
+      /has no remove route for one integration/,
+    )
+  })
+
+
+  it('integration-update-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/integration').make$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', id: 'integration0' }).save$(),
+      /has no update route for one integration/,
+    )
+  })
+
+
+  it('migration-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/migration').remove$({ owner: 'owner0', repo: 'repo0', id: 'migration0' }),
+      /has no remove route for one migration/,
+    )
+  })
+
+
+  it('projects_classic-update-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_classic').make$({ project_id: 'project0', username: 'username0', id: 'projects_classic0' }).save$(),
+      /has no update route for one projects_classic/,
+    )
+  })
+
+
+  it('pull-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull').remove$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull0' }),
+      /has no remove route for one pull/,
+    )
+  })
+
+
+  it('user-remove-refused', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/user').remove$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', id: 'user0' }),
+      /has no remove route for one user/,
+    )
+  })
+
+
+  it('action-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/action')
+        .make$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('action-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/action')
+        .list$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `permission` is an action of `update`: /repos/{owner}/{repo}/actions/permissions
+  it('action-action-permission', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/action')
+        .make$({ artifact_id: 'artifact0', hosted_runner_id: 'hosted_runner0', name: 'name0', org_id: 'org0', owner: 'owner0', repo: 'repo0', repository_id: 'repository0', id: 'action0' })
+        .directive$({ action$: 'permission' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('actions_cache_list-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_cache_list')
+        .list$({ key: 'key0', owner: 'owner0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('actions_hosted_runner-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/actions_hosted_runner')
+        .make$({ org_id: 'org0', id: 'actions_hosted_runner0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('activity-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/activity')
+        .make$({ owner: 'owner0', thread_id: 'thread0', id: 'activity0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('activity-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/activity')
+        .list$({ owner: 'owner0', thread_id: 'thread0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('add-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/add')
+        .make$({ enterprise: 'enterprise0', team_id: 'team0', id: 'add0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('api_insights_route_stat-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_route_stat')
+        .list$({ actor_id: 'actor0', actor_type: 'actor_type0', min_timestamp: 'min_timestamp0', org: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('api_insights_subject_stat-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_subject_stat')
+        .list$({ min_timestamp: 'min_timestamp0', org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('api_insights_time_stat-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_insights_time_stat')
+        .list$({ min_timestamp: 'min_timestamp0', org_id: 'org0', timestamp_increment: 'timestamp_increment0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('api_overview-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/api_overview')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('app-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/app')
+        .make$({ code: 'code0', repository_id: 'repository0', id: 'app0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('app-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/app')
+        .list$({ code: 'code0', repository_id: 'repository0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('assignee-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/assignee')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('authentication_token-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/authentication_token')
+        .make$({ org_id: 'org0', id: 'authentication_token0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('authorization-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/authorization')
+        .make$({ id: 'authorization0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('autolink-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/autolink')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'autolink0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('autolink-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/autolink')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('base_gist-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/base_gist')
+        .make$({ gist_id: 'gist0', id: 'base_gist0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('base_gist-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/base_gist')
+        .list$({ gist_id: 'gist0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('billing_usage_report-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/billing_usage_report')
+        .list$({ org: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('billing_usage_report_user-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/billing_usage_report_user')
+        .list$({ username: 'username0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('block-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/block')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('branch_restriction_policy-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_restriction_policy')
+        .list$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('branch_short-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_short')
+        .list$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('branch_with_protection-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/branch_with_protection')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'branch_with_protection0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `rename` is an action of `create`: /repos/{owner}/{repo}/branches/{branch}/rename
+  it('branch_with_protection-action-rename', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/branch_with_protection')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'branch_with_protection0' })
+        .directive$({ action$: 'rename' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('campaign-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/campaign')
+        .make$({ org_id: 'org0', id: 'campaign0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('campaign-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/campaign')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('check-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('check_annotation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_annotation')
+        .list$({ check_run_id: 'check_run0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('check_run-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_run')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'check_run0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('check_suite-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_suite')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'check_suite0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('check_suite_preference-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/check_suite_preference')
+        .make$({ owner: 'owner0', id: 'check_suite_preference0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('classroom-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/classroom')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('classroom_accepted_assignment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/classroom_accepted_assignment')
+        .list$({ assignment_id: 'assignment0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('classroom_assignment_grade-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/classroom_assignment_grade')
+        .list$({ assignment_id: 'assignment0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('clone-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/clone')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_frequency-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_frequency')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_frequency_stat-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_frequency_stat')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_of_conduct-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_of_conduct')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `sarif` is an action of `create`: /repos/{owner}/{repo}/code-scanning/sarifs
+  it('code_scanning-action-sarif', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/code_scanning')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning0' })
+        .directive$({ action$: 'sarif' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('code_scanning_alert-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_alert0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_alert_instance-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert_instance')
+        .list$({ alert_number: 'alert_number0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_alert_item-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_alert_item')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_analysi-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_analysi')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_autofix-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_autofix')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_autofix0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_autofix_commit-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_autofix_commit')
+        .make$({ alert_id: 'alert0', owner: 'owner0', repo: 'repo0', id: 'code_scanning_autofix_commit0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_codeql_database-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_codeql_database')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_default_setup-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_default_setup')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_organization_alert_item-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_organization_alert_item')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_scanning_variant_analysi-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_scanning_variant_analysi')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'code_scanning_variant_analysi0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_security-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security')
+        .make$({ enterprise: 'enterprise0', id: 'code_security0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_security_configuration-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_configuration')
+        .make$({ enterprise: 'enterprise0', org_id: 'org0', id: 'code_security_configuration0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_security_configuration-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_configuration')
+        .list$({ enterprise: 'enterprise0', org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('code_security_configuration-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/code_security_configuration')
+
+    const loaded = await ent.load$({ enterprise: 'enterprise0', org_id: 'org0', id: 'code_security_configuration0' })
+    loaded.scope = 'plain-scope'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.scope, 'plain-scope')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/code_security_configuration',
+    )
+  })
+
+
+  // `attach` is an action of `create`: /enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach
+  it('code_security_configuration-action-attach', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/code_security_configuration')
+        .make$({ enterprise: 'enterprise0', org_id: 'org0', id: 'code_security_configuration0' })
+        .directive$({ action$: 'attach' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('code_security_configuration_repository-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_configuration_repository')
+        .list$({ configuration_id: 'configuration0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('code_security_default_configuration-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/code_security_default_configuration')
+        .list$({ enterprise: 'enterprise0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('codeowners_error-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/codeowners_error')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('codespace-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/codespace')
+        .make$({ secret_name: 'secret_name0', id: 'codespace0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('codespace-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/codespace')
+        .list$({ secret_name: 'secret_name0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('codespace-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/codespace')
+
+    const loaded = await ent.load$({ secret_name: 'secret_name0', id: 'codespace0' })
+    loaded.archive_url = 'plain-archive_url'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.archive_url, 'plain-archive_url')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/codespace',
+    )
+  })
+
+
+  // `export` is an action of `create`: /user/codespaces/{codespace_name}/exports
+  it('codespace-action-export', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/codespace')
+        .make$({ secret_name: 'secret_name0', id: 'codespace0' })
+        .directive$({ action$: 'export' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('collaborator-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/collaborator')
+        .list$({ project_id: 'project0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('combined_commit_status-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/combined_commit_status')
+        .list$({ owner: 'owner0', ref: 'ref0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('commit-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'commit0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('commit-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('commit_activity-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit_activity')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('commit_comment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit_comment')
+        .make$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0', id: 'commit_comment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('commit_comment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/commit_comment')
+        .list$({ commit_sha: 'commit_sha0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('content_traffic-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/content_traffic')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('contributor-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/contributor')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('copilot-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot')
+        .make$({ org_id: 'org0', id: 'copilot0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('copilot-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('copilot_usage_metrics_day-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/copilot_usage_metrics_day')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('credential-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/credential')
+        .make$({ id: 'credential0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `revoke` is an action of `create`: /credentials/revoke
+  it('credential-action-revoke', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/credential')
+        .make$({ id: 'credential0' })
+        .directive$({ action$: 'revoke' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('custom_property-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/custom_property')
+        .make$({ org_id: 'org0', id: 'custom_property0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('custom_property-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/custom_property')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('custom_property_value-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/custom_property_value')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot')
+        .make$({ org: 'org0', org_id: 'org0', repository_id: 'repository0', secret_id: 'secret0', id: 'dependabot0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot')
+        .list$({ org: 'org0', org_id: 'org0', repository_id: 'repository0', secret_id: 'secret0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot_alert-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_alert')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'dependabot_alert0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot_alert-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_alert')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot_alert_with_repository-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_alert_with_repository')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependabot_repository_access_detail-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependabot_repository_access_detail')
+        .list$({ org: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('dependency_graph-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/dependency_graph')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'dependency_graph0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `snapshot` is an action of `create`: /repos/{owner}/{repo}/dependency-graph/snapshots
+  it('dependency_graph-action-snapshot', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/dependency_graph')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'dependency_graph0' })
+        .directive$({ action$: 'snapshot' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('deploy_key-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deploy_key')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'deploy_key0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deploy_key-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deploy_key')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'deployment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment_branch_policy-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_branch_policy')
+        .make$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_branch_policy0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment_protection_rule-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_protection_rule')
+        .make$({ environment_id: 'environment0', environment_name: 'environment_name0', owner: 'owner0', repo: 'repo0', id: 'deployment_protection_rule0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment_status-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_status')
+        .make$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'deployment_status0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('deployment_status-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/deployment_status')
+        .list$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('diff_entry-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/diff_entry')
+        .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('email-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/email')
+        .make$({ id: 'email0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('email-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/email')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `visibility` is an action of `update`: /user/email/visibility
+  it('email-action-visibility', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/email')
+        .make$({ id: 'email0' })
+        .directive$({ action$: 'visibility' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('empty_object-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/empty_object')
+        .make$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', secret_name: 'secret_name0', username: 'username0', id: 'empty_object0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('enterprise_team-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/enterprise_team')
+        .make$({ enterprise: 'enterprise0', id: 'enterprise_team0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('enterprise_team-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/enterprise_team')
+        .list$({ enterprise: 'enterprise0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('environment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/environment')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'environment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('environment_approval-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/environment_approval')
+        .list$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('event-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/event')
+        .list$({ username: 'username0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('feed-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/feed')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('file_commit-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/file_commit')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'file_commit0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('follower-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/follower')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('following-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/following')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('full_repository-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/full_repository')
+        .make$({ owner: 'owner0', id: 'full_repository0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gist-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist')
+        .make$({ id: 'gist0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gist-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `star` is an action of `update`: /gists/{gist_id}/star
+  it('gist-action-star', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/gist')
+        .make$({ id: 'gist0' })
+        .directive$({ action$: 'star' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('gist_comment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist_comment')
+        .make$({ gist_id: 'gist0', id: 'gist_comment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gist_comment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist_comment')
+        .list$({ gist_id: 'gist0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gist_commit-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist_commit')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gist_simple-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gist_simple')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('git_commit-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_commit')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'git_commit0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('git_ref-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_ref')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'git_ref0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('git_tag-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_tag')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'git_tag0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('git_tree-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/git_tree')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'git_tree0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gitignore-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gitignore')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('global_advisory-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/global_advisory')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gpg_key-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gpg_key')
+        .make$({ id: 'gpg_key0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('gpg_key-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/gpg_key')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('hook-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hook')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'hook0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('hook-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hook')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('hook_delivery_item-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hook_delivery_item')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('hosted_compute-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hosted_compute')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('hovercard-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/hovercard')
+        .list$({ username: 'username0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('import-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/import')
+        .make$({ owner: 'owner0', id: 'import0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('import-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/import')
+        .list$({ owner: 'owner0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('installation-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/installation')
+        .make$({ id: 'installation0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('installation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/installation')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `suspended` is an action of `update`: /app/installations/{installation_id}/suspended
+  it('installation-action-suspended', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/installation')
+        .make$({ id: 'installation0' })
+        .directive$({ action$: 'suspended' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('installation_token-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/installation_token')
+        .make$({ id: 'installation_token0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `access_tokens` is an action of `create`: /app/installations/{installation_id}/access_tokens
+  it('installation_token-action-access_tokens', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/installation_token')
+        .make$({ id: 'installation_token0' })
+        .directive$({ action$: 'access_tokens' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('integration-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/integration')
+        .make$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', id: 'integration0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('integration-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/integration')
+        .list$({ branch_id: 'branch0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('integration_installation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/integration_installation')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('interaction_limit-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/interaction_limit')
+        .make$({ id: 'interaction_limit0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
   })
 
 
@@ -382,10 +10598,10 @@ describe('github-provider', () => {
     const ent = seneca.entity('provider/github/issue')
 
     const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: 'issue0' })
-    loaded.closed_at = 'plain-closed_at'
+    loaded.author_association = 'plain-author_association'
     const saved = await loaded.save$()
 
-    assert.equal(saved.closed_at, 'plain-closed_at')
+    assert.equal(saved.author_association, 'plain-author_association')
     assert.equal(
       saved.canon$({ string: true }),
       'provider/github/issue',
@@ -413,12 +10629,881 @@ describe('github-provider', () => {
   })
 
 
+  it('issue_type-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/issue_type')
+        .make$({ org_id: 'org0', id: 'issue_type0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('issue_type-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/issue_type')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('key-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/key')
+        .make$({ id: 'key0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('key-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/key')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('label-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/label')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'label0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('label-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/label')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('license-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/license')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('markdown-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/markdown')
+        .make$({ id: 'markdown0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `raw` is an action of `create`: /markdown/raw
+  it('markdown-action-raw', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/markdown')
+        .make$({ id: 'markdown0' })
+        .directive$({ action$: 'raw' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('marketplace_listing_plan-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/marketplace_listing_plan')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('marketplace_purchase-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/marketplace_purchase')
+        .list$({ plan_id: 'plan0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('member-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/member')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('membership-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/membership')
+        .make$({ enterprise: 'enterprise0', enterprise_team: 'enterprise_team0', team_id: 'team0', id: 'membership0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('membership-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/membership')
+        .list$({ enterprise: 'enterprise0', enterprise_team: 'enterprise_team0', team_id: 'team0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('merged_upstream-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/merged_upstream')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'merged_upstream0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('meta-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/meta')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('migration-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/migration')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'migration0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('migration-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/migration')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('milestone-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/milestone')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'milestone0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('milestone-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/milestone')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('minimal_repository-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/minimal_repository')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('network_configuration-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/network_configuration')
+        .make$({ org_id: 'org0', id: 'network_configuration0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('oidc_custom_sub-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/oidc_custom_sub')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('oidc_custom_sub_repo-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/oidc_custom_sub_repo')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('org-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org')
+        .make$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: 'org0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('org-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org')
+        .list$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('org-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/org')
+
+    const loaded = await ent.load$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: 'org0' })
+    loaded.access_tokens_url = 'plain-access_tokens_url'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.access_tokens_url, 'plain-access_tokens_url')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/org',
+    )
+  })
+
+
+  // `personal_access_token` is an action of `create`: /orgs/{org}/personal-access-tokens
+  it('org-action-personal_access_token', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/org')
+        .make$({ enablement: 'enablement0', org: 'org0', security_product: 'security_product0', username: 'username0', id: 'org0' })
+        .directive$({ action$: 'personal_access_token' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('org_hook-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_hook')
+        .make$({ org_id: 'org0', id: 'org_hook0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('org_hook-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_hook')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('org_membership-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_membership')
+        .make$({ org_id: 'org0', id: 'org_membership0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('org_private_registry_configuration_with_selected_repository-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_private_registry_configuration_with_selected_repository')
+        .make$({ id: 'org_private_registry_configuration_with_selected_repository0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `private-registries` is an action of `create`: /orgs/{org}/private-registries
+  it('org_private_registry_configuration_with_selected_repository-action-private-registries', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/org_private_registry_configuration_with_selected_repository')
+        .make$({ id: 'org_private_registry_configuration_with_selected_repository0' })
+        .directive$({ action$: 'private-registries' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('org_repo_custom_property_value-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/org_repo_custom_property_value')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('organization_invitation-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_invitation')
+        .make$({ org_id: 'org0', id: 'organization_invitation0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('organization_invitation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_invitation')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('organization_programmatic_access_grant-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_programmatic_access_grant')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('organization_secret_scanning_alert-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/organization_secret_scanning_alert')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('outside_collaborator-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/outside_collaborator')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('package-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/package')
+        .make$({ package_id: 'package0', package_type: 'package_type0', id: 'package0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('package-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/package')
+        .list$({ package_id: 'package0', package_type: 'package_type0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `restore` is an action of `create`: /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore
+  it('package-action-restore', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/package')
+        .make$({ package_id: 'package0', package_type: 'package_type0', id: 'package0' })
+        .directive$({ action$: 'restore' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('page-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page')
+        .make$({ owner: 'owner0', id: 'page0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('page_build-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page_build')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('page_build_status-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page_build_status')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'page_build_status0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('page_deployment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/page_deployment')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'page_deployment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pages_deployment_status-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pages_deployment_status')
+        .make$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'pages_deployment_status0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `cancel` is an action of `create`: /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel
+  it('pages_deployment_status-action-cancel', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/pages_deployment_status')
+        .make$({ deployment_id: 'deployment0', owner: 'owner0', repo: 'repo0', id: 'pages_deployment_status0' })
+        .directive$({ action$: 'cancel' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('participation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/participation')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pending_deployment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pending_deployment')
+        .list$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('porter_author-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/porter_author')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'porter_author0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('porter_author-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/porter_author')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('porter_large_file-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/porter_large_file')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('private_registry-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/private_registry')
+        .make$({ id: 'private_registry0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('private_registry-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/private_registry')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('project-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project')
+        .make$({ org_id: 'org0', id: 'project0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('project-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('project_column-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project_column')
+        .make$({ id: 'project_column0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('project_column-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/project_column')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_classic-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_classic')
+        .make$({ project_id: 'project0', username: 'username0', id: 'projects_classic0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_v2-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_v2_field-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_field')
+        .list$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_v2_item_simple-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_item_simple')
+        .make$({ project_number: 'project_number0', id: 'projects_v2_item_simple0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_v2_item_with_content-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_item_with_content')
+        .make$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', id: 'projects_v2_item_with_content0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('projects_v2_item_with_content-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/projects_v2_item_with_content')
+        .list$({ project_number: 'project_number0', projects_v2_id: 'projects_v20', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('protected_branch-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('protected_branch_admin_enforced-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch_admin_enforced')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_admin_enforced0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('protected_branch_pull_request_review-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/protected_branch_pull_request_review')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'protected_branch_pull_request_review0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('public_member-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/public_member')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
   it('pull-action-unknown-save', async () => {
     const seneca = await makeSeneca()
 
     await assert.rejects(
       () => seneca.entity('provider/github/pull')
-        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+        .make$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull0' })
         .directive$({ action$: 'no_such_action' })
         .save$(),
       /action\$ "no_such_action" is not an action/,
@@ -431,7 +11516,7 @@ describe('github-provider', () => {
 
     await assert.rejects(
       () => seneca.entity('provider/github/pull')
-        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+        .list$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
       /action\$ "no_such_action" is not an action/,
     )
   })
@@ -443,7 +11528,7 @@ describe('github-provider', () => {
     const seneca = await makeSeneca()
     const ent = seneca.entity('provider/github/pull')
 
-    const loaded = await ent.load$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+    const loaded = await ent.load$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull0' })
     loaded.author_association = 'plain-author_association'
     const saved = await loaded.save$()
 
@@ -462,7 +11547,7 @@ describe('github-provider', () => {
 
     try {
       await seneca.entity('provider/github/pull')
-        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull0' })
+        .make$({ comment_id: 'comment0', owner: 'owner0', repo: 'repo0', id: 'pull0' })
         .directive$({ action$: 'merge' })
         .save$()
     }
@@ -480,7 +11565,7 @@ describe('github-provider', () => {
 
     await assert.rejects(
       () => seneca.entity('provider/github/pull_request_review')
-        .make$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0', id: 'pull_request_review0' })
+        .make$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', id: 'pull_request_review0' })
         .directive$({ action$: 'no_such_action' })
         .save$(),
       /action\$ "no_such_action" is not an action/,
@@ -493,7 +11578,31 @@ describe('github-provider', () => {
 
     await assert.rejects(
       () => seneca.entity('provider/github/pull_request_review')
-        .list$({ owner: 'owner0', pull_number: 'pull_number0', repo: 'repo0', action$: 'no_such_action' }),
+        .list$({ owner: 'owner0', pull_id: 'pull0', pull_number: 'pull_number0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pull_request_review_comment-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review_comment')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'pull_request_review_comment0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('pull_request_review_comment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/pull_request_review_comment')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
       /action\$ "no_such_action" is not an action/,
     )
   })
@@ -512,12 +11621,121 @@ describe('github-provider', () => {
   })
 
 
+  it('reaction-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/reaction')
+        .make$({ discussion_number: 'discussion_number0', team_id: 'team0', id: 'reaction0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('reaction-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/reaction')
+        .list$({ discussion_number: 'discussion_number0', team_id: 'team0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('referrer-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/referrer')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('release-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'release0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('release-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('release_asset-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release_asset')
+        .make$({ name: 'name0', owner: 'owner0', repo: 'repo0', id: 'release_asset0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('release_asset-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release_asset')
+        .list$({ name: 'name0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('release_notes_content-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/release_notes_content')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'release_notes_content0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('remove-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/remove')
+        .make$({ enterprise: 'enterprise0', team_id: 'team0', id: 'remove0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
   it('repo-action-unknown-save', async () => {
     const seneca = await makeSeneca()
 
     await assert.rejects(
       () => seneca.entity('provider/github/repo')
-        .make$({ owner: 'owner0', id: 'repo0' })
+        .make$({ branch_id: 'branch0', invitation_id: 'invitation0', owner: 'owner0', repo: 'repo0', id: 'repo0' })
         .directive$({ action$: 'no_such_action' })
         .save$(),
       /action\$ "no_such_action" is not an action/,
@@ -530,9 +11748,839 @@ describe('github-provider', () => {
 
     await assert.rejects(
       () => seneca.entity('provider/github/repo')
+        .list$({ branch_id: 'branch0', invitation_id: 'invitation0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('repo-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/repo')
+
+    const loaded = await ent.load$({ branch_id: 'branch0', invitation_id: 'invitation0', id: 'owner0/repo0' })
+    loaded.archive_url = 'plain-archive_url'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.archive_url, 'plain-archive_url')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/repo',
+    )
+  })
+
+
+  // `attestation` is an action of `create`: /repos/{owner}/{repo}/attestations
+  it('repo-action-attestation', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/repo')
+        .make$({ branch_id: 'branch0', invitation_id: 'invitation0', owner: 'owner0', repo: 'repo0', id: 'repo0' })
+        .directive$({ action$: 'attestation' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('repository-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_advisory-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_advisory')
+        .make$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', id: 'repository_advisory0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_advisory-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_advisory')
+        .list$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('repository_advisory-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/repository_advisory')
+
+    const loaded = await ent.load$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', id: 'repository_advisory0' })
+    loaded.author = 'plain-author'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.author, 'plain-author')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/repository_advisory',
+    )
+  })
+
+
+  // `cve` is an action of `create`: /repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve
+  it('repository_advisory-action-cve', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/repository_advisory')
+        .make$({ org_id: 'org0', owner: 'owner0', repo: 'repo0', id: 'repository_advisory0' })
+        .directive$({ action$: 'cve' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('repository_invitation-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_invitation')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'repository_invitation0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_invitation-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_invitation')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_ruleset-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_ruleset')
+        .make$({ org_id: 'org0', id: 'repository_ruleset0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_ruleset-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_ruleset')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('repository_subscription-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/repository_subscription')
+        .make$({ owner: 'owner0', id: 'repository_subscription0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('review_comment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/review_comment')
+        .list$({ owner: 'owner0', pull_id: 'pull0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('rule_suite-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/rule_suite')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('ruleset_version-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/ruleset_version')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('runner_application-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/runner_application')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('runner_group-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/runner_group')
+        .make$({ org_id: 'org0', id: 'runner_group0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('search-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/search')
+        .list$({ q: 'q0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning')
+        .make$({ id: 'secret_scanning0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `pattern_configuration` is an action of `update`: /orgs/{org}/secret-scanning/pattern-configurations
+  it('secret_scanning-action-pattern_configuration', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/secret_scanning')
+        .make$({ id: 'secret_scanning0' })
+        .directive$({ action$: 'pattern_configuration' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('secret_scanning_alert-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_alert')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'secret_scanning_alert0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning_alert-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_alert')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning_location-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_location')
+        .list$({ alert_number: 'alert_number0', owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning_pattern_configuration-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_pattern_configuration')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning_push_protection_bypass-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_push_protection_bypass')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'secret_scanning_push_protection_bypass0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('secret_scanning_scan_history-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/secret_scanning_scan_history')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('security_advisory-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/security_advisory')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'security_advisory0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `fork` is an action of `create`: /repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks
+  it('security_advisory-action-fork', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/security_advisory')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'security_advisory0' })
+        .directive$({ action$: 'fork' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('selected_action-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/selected_action')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('short_blob-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/short_blob')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'short_blob0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('short_branch-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/short_branch')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('simple_classroom_assignment-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/simple_classroom_assignment')
+        .list$({ classroom_id: 'classroom0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('social_account-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/social_account')
+        .make$({ id: 'social_account0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('social_account-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/social_account')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('ssh_signing_key-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/ssh_signing_key')
+        .make$({ id: 'ssh_signing_key0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('ssh_signing_key-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/ssh_signing_key')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('status-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status')
+        .make$({ owner: 'owner0', ref: 'ref0', repo: 'repo0', id: 'status0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('status-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status')
+        .list$({ owner: 'owner0', ref: 'ref0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('status_check_policy-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status_check_policy')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'status_check_policy0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('status_check_policy-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/status_check_policy')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('subscriber-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/subscriber')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('tag-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/tag')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('tag_protection-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/tag_protection')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'tag_protection0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('tag_protection-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/tag_protection')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('team-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/team')
+        .make$({ org_id: 'org0', project_id: 'project0', id: 'team0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('team-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/team')
+        .list$({ org_id: 'org0', project_id: 'project0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // No action$ named, so this is the plain update — the action route must
+  // not run on a call that did not ask for it.
+  it('team-save-without-action', async () => {
+    const seneca = await makeSeneca()
+    const ent = seneca.entity('provider/github/team')
+
+    const loaded = await ent.load$({ org_id: 'org0', project_id: 'project0', id: 'team0' })
+    loaded.archive_url = 'plain-archive_url'
+    const saved = await loaded.save$()
+
+    assert.equal(saved.archive_url, 'plain-archive_url')
+    assert.equal(
+      saved.canon$({ string: true }),
+      'provider/github/team',
+    )
+  })
+
+
+  // `discussion` is an action of `create`: /orgs/{org}/teams/{team_slug}/discussions
+  it('team-action-discussion', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/team')
+        .make$({ org_id: 'org0', project_id: 'project0', id: 'team0' })
+        .directive$({ action$: 'discussion' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('team_simple-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/team_simple')
+        .list$({ org_id: 'org0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('thread-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/thread')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('thread_subscription-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/thread_subscription')
+        .make$({ id: 'thread_subscription0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('topic-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/topic')
+        .make$({ owner: 'owner0', id: 'topic0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('topic-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/topic')
         .list$({ owner: 'owner0', action$: 'no_such_action' }),
       /action\$ "no_such_action" is not an action/,
     )
+  })
+
+
+  it('user-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/user')
+        .make$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', id: 'user0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('user-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/user')
+        .list$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `attestation_bulk_list` is an action of `create`: /users/{username}/attestations/bulk-list
+  it('user-action-attestation_bulk_list', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/user')
+        .make$({ branch_id: 'branch0', gpg_key_id: 'gpg_key0', owner: 'owner0', repo: 'repo0', username: 'username0', id: 'user0' })
+        .directive$({ action$: 'attestation_bulk_list' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('user_marketplace_purchase-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/user_marketplace_purchase')
+        .list$({ action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('view-action-unknown-list', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/view')
+        .list$({ owner: 'owner0', repo: 'repo0', action$: 'no_such_action' }),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('webhook_config-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/webhook_config')
+        .make$({ id: 'webhook_config0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  it('workflow-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'workflow0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `disable` is an action of `update`: /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable
+  it('workflow-action-disable', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/workflow')
+        .make$({ owner: 'owner0', repo: 'repo0', id: 'workflow0' })
+        .directive$({ action$: 'disable' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
+  })
+
+
+  it('workflow_run-action-unknown-save', async () => {
+    const seneca = await makeSeneca()
+
+    await assert.rejects(
+      () => seneca.entity('provider/github/workflow_run')
+        .make$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', id: 'workflow_run0' })
+        .directive$({ action$: 'no_such_action' })
+        .save$(),
+      /action\$ "no_such_action" is not an action/,
+    )
+  })
+
+
+  // `cancel` is an action of `create`: /repos/{owner}/{repo}/actions/runs/{run_id}/cancel
+  it('workflow_run-action-cancel', async () => {
+    const seneca = await makeSeneca()
+    let err = null
+
+    try {
+      await seneca.entity('provider/github/workflow_run')
+        .make$({ owner: 'owner0', repo: 'repo0', run_id: 'run0', id: 'workflow_run0' })
+        .directive$({ action$: 'cancel' })
+        .save$()
+    }
+    catch (e) { err = e }
+
+    if (null != err) {
+      assert.ok(!/is not an action/.test(err.message),
+        'the action was refused instead of routed: ' + err.message)
+    }
   })
 
 

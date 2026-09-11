@@ -15,7 +15,7 @@ type GithubProviderOptions = {
   // Run the SDK in offline test mode (in-memory mock transport).
   test?: boolean
 
-  // Test feature options, e.g. {entity: {issue: {...}}} to
+  // Test feature options, e.g. {entity: {action: {...}}} to
   // seed the mock with data. Only used when `test` is true.
   testopts?: Record<string, any>
 }
@@ -135,6 +135,2126 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   // Nested entities cannot build their path without the parent id, so
   // say which key is missing rather than letting the SDK report an opaque
   // 404 on a half-built URL.
+  function need_action_artifact_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': artifact_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_hosted_runner_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': hosted_runner_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_action_repository_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: action ' + cmd + ': repository_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_cache_list_key(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_cache_list ' + cmd + ': key is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_cache_list_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_cache_list ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_cache_usage_by_repository_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_cache_usage_by_repository ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_hosted_runner_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_hosted_runner ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_repository_permission_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_repository_permission ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_secret_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_secret ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_secret_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_secret ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_variable_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_variable ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_variable_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_variable ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_actions_workflow_access_to_repository_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: actions_workflow_access_to_repository ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_activity_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: activity ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_activity_thread_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: activity ' + cmd + ': thread_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_add_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: add ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_add_team_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: add ' + cmd + ': team_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_route_stat_actor_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_route_stat ' + cmd + ': actor_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_route_stat_actor_type(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_route_stat ' + cmd + ': actor_type is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_route_stat_min_timestamp(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_route_stat ' + cmd + ': min_timestamp is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_route_stat_org(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_route_stat ' + cmd + ': org is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_subject_stat_min_timestamp(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_subject_stat ' + cmd + ': min_timestamp is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_subject_stat_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_subject_stat ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_summary_stat_min_timestamp(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_summary_stat ' + cmd + ': min_timestamp is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_time_stat_min_timestamp(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_time_stat ' + cmd + ': min_timestamp is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_time_stat_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_time_stat ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_time_stat_timestamp_increment(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_time_stat ' + cmd + ': timestamp_increment is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_user_stat_min_timestamp(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_user_stat ' + cmd + ': min_timestamp is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_api_insights_user_stat_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: api_insights_user_stat ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_app_code(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: app ' + cmd + ': code is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_app_repository_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: app ' + cmd + ': repository_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_artifact_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: artifact ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_artifact_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: artifact ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_assignee_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: assignee ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_assignee_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: assignee ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_authentication_token_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: authentication_token ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_autolink_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: autolink ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_autolink_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: autolink ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_base_gist_gist_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: base_gist ' + cmd + ': gist_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_billing_usage_report_org(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: billing_usage_report ' + cmd + ': org is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_billing_usage_report_user_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: billing_usage_report_user ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_blob_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: blob ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_blob_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: blob ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_protection_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_protection ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_protection_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_protection ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_restriction_policy_branch_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_restriction_policy ' + cmd + ': branch_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_restriction_policy_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_restriction_policy ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_restriction_policy_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_restriction_policy ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_short_commit_sha(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_short ' + cmd + ': commit_sha is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_short_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_short ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_short_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_short ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_with_protection_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_with_protection ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_branch_with_protection_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: branch_with_protection ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_campaign_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: campaign ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_annotation_check_run_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_annotation ' + cmd + ': check_run_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_annotation_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_annotation ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_annotation_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_annotation ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_automated_security_fix_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_automated_security_fix ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_run_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_run ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_run_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_run ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_suite_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_suite ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_suite_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_suite ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_check_suite_preference_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: check_suite_preference ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_classroom_accepted_assignment_assignment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: classroom_accepted_assignment ' + cmd + ': assignment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_classroom_assignment_grade_assignment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: classroom_assignment_grade ' + cmd + ': assignment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_clone_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: clone ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_clone_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: clone ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_frequency_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_frequency ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_frequency_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_frequency ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_frequency_stat_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_frequency_stat ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_frequency_stat_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_frequency_stat ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_instance_alert_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert_instance ' + cmd + ': alert_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_instance_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert_instance ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_instance_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert_instance ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_item_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert_item ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_alert_item_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_alert_item ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_analysi_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_analysi ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_analysi_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_analysi ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_analysis_deletion_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_analysis_deletion ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_analysis_deletion_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_analysis_deletion ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_autofix_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_autofix ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_autofix_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_autofix ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_autofix_commit_alert_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_autofix_commit ' + cmd + ': alert_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_autofix_commit_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_autofix_commit ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_autofix_commit_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_autofix_commit ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_codeql_database_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_codeql_database ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_codeql_database_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_codeql_database ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_default_setup_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_default_setup ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_default_setup_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_default_setup ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_organization_alert_item_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_organization_alert_item ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_sarifs_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_sarifs_status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_sarifs_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_sarifs_status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysi_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysi ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysi_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysi ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysis_repo_task_codeql_variant_analysis_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysis_repo_task ' + cmd + ': codeql_variant_analysis_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysis_repo_task_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysis_repo_task ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysis_repo_task_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysis_repo_task ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_scanning_variant_analysis_repo_task_repo_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_scanning_variant_analysis_repo_task ' + cmd + ': repo_owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_security_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_security ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_security_configuration_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_security_configuration ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_security_configuration_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_security_configuration ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_security_configuration_repository_configuration_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_security_configuration_repository ' + cmd + ': configuration_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_code_security_default_configuration_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: code_security_default_configuration ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_codeowners_error_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: codeowners_error ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_codeowners_error_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: codeowners_error ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_codespace_secret_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: codespace ' + cmd + ': secret_name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_collaborator_project_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: collaborator ' + cmd + ': project_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_combined_commit_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: combined_commit_status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_combined_commit_status_ref(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: combined_commit_status ' + cmd + ': ref is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_combined_commit_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: combined_commit_status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_activity_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_activity ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_activity_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_activity ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_comment_commit_sha(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_comment ' + cmd + ': commit_sha is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_comment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_comment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_comment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_comment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_comparison_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_comparison ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_commit_comparison_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: commit_comparison ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_community_profile_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: community_profile ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_content_file_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: content_file ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_content_file_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: content_file ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_content_traffic_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: content_traffic ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_content_traffic_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: content_traffic ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_contributor_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: contributor ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_contributor_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: contributor ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_copilot_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: copilot ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_copilot_usage_metrics_day_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: copilot_usage_metrics_day ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_custom_property_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: custom_property ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_custom_property_value_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: custom_property_value ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_custom_property_value_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: custom_property_value ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_org(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot ' + cmd + ': org is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_repository_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot ' + cmd + ': repository_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_secret_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot ' + cmd + ': secret_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_alert_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_alert ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_alert_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_alert ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_alert_with_repository_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_alert_with_repository ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_repository_access_detail_org(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_repository_access_detail ' + cmd + ': org is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_secret_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_secret ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependabot_secret_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependabot_secret ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependency_graph_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependency_graph ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependency_graph_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependency_graph ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependency_graph_diff_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependency_graph_diff ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependency_graph_diff_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependency_graph_diff ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_dependency_graph_spdx_sbom_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: dependency_graph_spdx_sbom ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deploy_key_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deploy_key ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deploy_key_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deploy_key ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_branch_policy_environment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_branch_policy ' + cmd + ': environment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_branch_policy_environment_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_branch_policy ' + cmd + ': environment_name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_branch_policy_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_branch_policy ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_branch_policy_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_branch_policy ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_protection_rule_environment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_protection_rule ' + cmd + ': environment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_protection_rule_environment_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_protection_rule ' + cmd + ': environment_name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_protection_rule_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_protection_rule ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_protection_rule_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_protection_rule ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_status_deployment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_status ' + cmd + ': deployment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_deployment_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: deployment_status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_diff_entry_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: diff_entry ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_diff_entry_pull_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: diff_entry ' + cmd + ': pull_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_diff_entry_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: diff_entry ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_empty_object_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: empty_object ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_empty_object_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: empty_object ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_empty_object_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: empty_object ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_empty_object_secret_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: empty_object ' + cmd + ': secret_name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_empty_object_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: empty_object ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_enterprise_team_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: enterprise_team ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_enterprise_team_membership_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: enterprise_team_membership ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_enterprise_team_membership_team_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: enterprise_team_membership ' + cmd + ': team_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_environment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: environment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_environment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: environment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_environment_approval_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: environment_approval ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_environment_approval_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: environment_approval ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_environment_approval_run_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: environment_approval ' + cmd + ': run_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_event_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: event ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_file_commit_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: file_commit ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_file_commit_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: file_commit ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_full_repository_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: full_repository ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_gist_comment_gist_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: gist_comment ' + cmd + ': gist_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_commit_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_commit ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_commit_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_commit ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_ref_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_ref ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_ref_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_ref ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_tag_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_tag ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_tag_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_tag ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_tree_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_tree ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_git_tree_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: git_tree ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_hook_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: hook ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_hook_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: hook ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_hosted_compute_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: hosted_compute ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_hovercard_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: hovercard ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_import_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: import ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_integration_branch_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: integration ' + cmd + ': branch_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_integration_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: integration ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_integration_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: integration ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
   function need_issue_owner(value: any, cmd: string) {
     if (null == value || '' === value) {
       throw new Error(
@@ -149,6 +2269,786 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     if (null == value || '' === value) {
       throw new Error(
         '@seneca/github-provider: issue ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_issue_type_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: issue_type ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_job_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: job ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_job_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: job ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_label_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: label ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_label_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: label ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_language_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: language ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_marketplace_purchase_plan_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: marketplace_purchase ' + cmd + ': plan_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_member_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: member ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_membership_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: membership ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_membership_enterprise_team(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: membership ' + cmd + ': enterprise_team is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_membership_team_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: membership ' + cmd + ': team_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_merged_upstream_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: merged_upstream ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_merged_upstream_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: merged_upstream ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_migration_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: migration ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_migration_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: migration ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_milestone_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: milestone ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_milestone_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: milestone ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_network_configuration_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: network_configuration ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_network_setting_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: network_setting ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_oidc_custom_sub_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: oidc_custom_sub ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_oidc_custom_sub_repo_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: oidc_custom_sub_repo ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_oidc_custom_sub_repo_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: oidc_custom_sub_repo ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_enablement(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org ' + cmd + ': enablement is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_org(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org ' + cmd + ': org is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_security_product(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org ' + cmd + ': security_product is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_hook_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org_hook ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_membership_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org_membership ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_private_registry_configuration_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org_private_registry_configuration ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_org_repo_custom_property_value_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: org_repo_custom_property_value ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_actions_secret_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_actions_secret ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_actions_variable_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_actions_variable ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_dependabot_secret_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_dependabot_secret ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_invitation_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_invitation ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_programmatic_access_grant_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_programmatic_access_grant ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_role_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_role ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_organization_secret_scanning_alert_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: organization_secret_scanning_alert ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_outside_collaborator_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: outside_collaborator ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_package_package_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: package ' + cmd + ': package_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_package_package_type(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: package ' + cmd + ': package_type is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_build_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_build ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_build_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_build ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_build_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_build_status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_build_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_build_status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_deployment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_deployment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_page_deployment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: page_deployment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pages_deployment_status_deployment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pages_deployment_status ' + cmd + ': deployment_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pages_deployment_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pages_deployment_status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pages_deployment_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pages_deployment_status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pages_health_check_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pages_health_check ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_participation_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: participation ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_participation_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: participation ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pending_deployment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pending_deployment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pending_deployment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pending_deployment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pending_deployment_run_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pending_deployment ' + cmd + ': run_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_porter_author_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: porter_author ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_porter_author_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: porter_author ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_porter_large_file_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: porter_large_file ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_porter_large_file_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: porter_large_file ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_project_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: project ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_project_collaborator_permission_project_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: project_collaborator_permission ' + cmd + ': project_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_classic_project_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_classic ' + cmd + ': project_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_classic_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_classic ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2 ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_field_project_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2_field ' + cmd + ': project_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_field_projects_v2_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2_field ' + cmd + ': projects_v2_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_item_simple_project_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2_item_simple ' + cmd + ': project_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_item_with_content_project_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2_item_with_content ' + cmd + ': project_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_projects_v2_item_with_content_projects_v2_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: projects_v2_item_with_content ' + cmd + ': projects_v2_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_admin_enforced_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch_admin_enforced ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_admin_enforced_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch_admin_enforced ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_pull_request_review_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch_pull_request_review ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_protected_branch_pull_request_review_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: protected_branch_pull_request_review ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_public_member_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: public_member ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_comment_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull ' + cmd + ': comment_id is required'
       )
     }
     return value
@@ -185,6 +3085,16 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   }
 
 
+  function need_pull_request_review_pull_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review ' + cmd + ': pull_id is required'
+      )
+    }
+    return value
+  }
+
+
   function need_pull_request_review_pull_number(value: any, cmd: string) {
     if (null == value || '' === value) {
       throw new Error(
@@ -199,6 +3109,26 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     if (null == value || '' === value) {
       throw new Error(
         '@seneca/github-provider: pull_request_review ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_review_comment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review_comment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_review_comment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review_comment ' + cmd + ': repo is required'
       )
     }
     return value
@@ -225,6 +3155,156 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   }
 
 
+  function need_reaction_discussion_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: reaction ' + cmd + ': discussion_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_reaction_team_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: reaction ' + cmd + ': team_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_referrer_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: referrer ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_referrer_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: referrer ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_asset_name(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release_asset ' + cmd + ': name is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_asset_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release_asset ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_asset_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release_asset ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_notes_content_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release_notes_content ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_release_notes_content_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: release_notes_content ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_remove_enterprise(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: remove ' + cmd + ': enterprise is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_remove_team_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: remove ' + cmd + ': team_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repo_branch_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repo ' + cmd + ': branch_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repo_invitation_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repo ' + cmd + ': invitation_id is required'
+      )
+    }
+    return value
+  }
+
+
   function need_repo_owner(value: any, cmd: string) {
     if (null == value || '' === value) {
       throw new Error(
@@ -235,22 +3315,869 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   }
 
 
-  // This API keys a pull_request_simple by `pull_number`, Seneca by `id`. Carry the
-  // API's key across so the Seneca entity has one.
-  function id_pull_request_simple(data: any) {
-    if (null != data && null == data.id) {
-      data.id = data.pull_number
+  function need_repo_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repo ' + cmd + ': repo is required'
+      )
     }
-    return data
+    return value
   }
 
 
-  // This API keys a repo by `repo`, Seneca by `id`. Carry the
-  // API's key across so the Seneca entity has one.
-  function id_repo(data: any) {
-    if (null != data && null == data.id) {
-      data.id = data.repo
+  function need_repository_advisory_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_advisory ' + cmd + ': org_id is required'
+      )
     }
+    return value
+  }
+
+
+  function need_repository_advisory_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_advisory ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_advisory_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_advisory ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_collaborator_permission_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_collaborator_permission ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_collaborator_permission_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_collaborator_permission ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_invitation_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_invitation ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_invitation_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_invitation ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_rule_detailed_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_rule_detailed ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_rule_detailed_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_rule_detailed ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_ruleset_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_ruleset ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_repository_subscription_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: repository_subscription ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_review_comment_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: review_comment ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_review_comment_pull_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: review_comment ' + cmd + ': pull_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_review_comment_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: review_comment ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_rule_suite_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: rule_suite ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_ruleset_version_with_state_ruleset_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: ruleset_version_with_state ' + cmd + ': ruleset_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_runner_application_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: runner_application ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_runner_group_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: runner_group ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_search_q(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: search ' + cmd + ': q is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_alert_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_alert ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_alert_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_alert ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_location_alert_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_location ' + cmd + ': alert_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_location_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_location ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_location_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_location ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_pattern_configuration_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_pattern_configuration ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_push_protection_bypass_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_push_protection_bypass ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_push_protection_bypass_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_push_protection_bypass ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_scan_history_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_scan_history ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_secret_scanning_scan_history_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: secret_scanning_scan_history ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_security_advisory_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: security_advisory ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_security_advisory_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: security_advisory ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_selected_action_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: selected_action ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_short_blob_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: short_blob ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_short_blob_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: short_blob ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_short_branch_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: short_branch ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_short_branch_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: short_branch ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_simple_classroom_assignment_classroom_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: simple_classroom_assignment ' + cmd + ': classroom_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_status_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: status ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_status_ref(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: status ' + cmd + ': ref is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_status_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: status ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_status_check_policy_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: status_check_policy ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_status_check_policy_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: status_check_policy ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_subscriber_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: subscriber ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_subscriber_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: subscriber ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_tag_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: tag ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_tag_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: tag ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_tag_protection_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: tag_protection ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_tag_protection_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: tag_protection ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_team_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: team ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_team_project_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: team ' + cmd + ': project_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_team_simple_org_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: team_simple ' + cmd + ': org_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_topic_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: topic ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_user_branch_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: user ' + cmd + ': branch_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_user_gpg_key_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: user ' + cmd + ': gpg_key_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_user_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: user ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_user_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: user ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_user_username(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: user ' + cmd + ': username is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_view_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: view ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_view_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: view ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_run_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_run ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_run_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_run ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_run_run_id(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_run ' + cmd + ': run_id is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_run_usage_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_run_usage ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_run_usage_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_run_usage ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_usage_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_usage ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_workflow_usage_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: workflow_usage ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  // HOW EACH ENTITY'S id MAPS TO THE API'S OWN KEYS, from the model.
+  //
+  // `parts`  the path parameters that address one record, in path order.
+  //          One part is the ordinary case: the API just calls its key
+  //          something other than `id`. Two or more is a compound key,
+  //          where no single parameter names the record.
+  // `sep`    joins the parts into the one id a Seneca entity carries. A
+  //          slash cannot occur inside a path segment, so the join is
+  //          unambiguous and the split cannot over-split.
+  // `from`   where each part's value lives in a RESPONSE, as a dotted
+  //          path. A path parameter's name is not generally a response
+  //          field's name: github returns a repo's owner as an OBJECT
+  //          (`owner.login`) and its name as `name`, never `repo`.
+  //          A part missing here cannot be read back off a response.
+  const ID_SPEC: Record<string, { parts: string[], sep: string, from?: Record<string, string> }> = {
+    action: { parts: ['archive_format'], sep: '/' },
+    actions_artifact_and_log_retention: { parts: ['org_id'], sep: '/' },
+    actions_cache_list: { parts: ['repo'], sep: '/' },
+    actions_cache_usage_by_repository: { parts: ['repo'], sep: '/' },
+    actions_cache_usage_org_enterprise: { parts: ['org_id'], sep: '/' },
+    actions_fork_pr_contributor_approval: { parts: ['org_id'], sep: '/' },
+    actions_fork_pr_workflows_private_repo: { parts: ['org_id'], sep: '/' },
+    actions_get_default_workflow_permission: { parts: ['org_id'], sep: '/' },
+    actions_hosted_runner_limit: { parts: ['org_id'], sep: '/' },
+    actions_organization_permission: { parts: ['org_id'], sep: '/' },
+    actions_public_key: { parts: ['org_id'], sep: '/' },
+    actions_repository_permission: { parts: ['repo'], sep: '/' },
+    actions_workflow_access_to_repository: { parts: ['repo'], sep: '/' },
+    activity: { parts: ['owner', 'repo'], sep: '/' },
+    api_insights_summary_stat: { parts: ['actor_type', 'actor_id'], sep: '/' },
+    api_insights_time_stat: { parts: ['user_id'], sep: '/' },
+    app: { parts: ['installation_id'], sep: '/' },
+    authorization: { parts: ['application_id'], sep: '/' },
+    check_automated_security_fix: { parts: ['repo'], sep: '/' },
+    check_suite_preference: { parts: ['repo'], sep: '/' },
+    code_of_conduct: { parts: ['key'], sep: '/' },
+    code_scanning: { parts: ['language'], sep: '/' },
+    code_scanning_analysi: { parts: ['analysis_id'], sep: '/' },
+    code_scanning_analysis_deletion: { parts: ['analysis_id'], sep: '/' },
+    code_scanning_autofix: { parts: ['alert_number'], sep: '/' },
+    code_scanning_codeql_database: { parts: ['language'], sep: '/' },
+    code_scanning_sarifs_status: { parts: ['sarif_id'], sep: '/' },
+    code_scanning_variant_analysi: { parts: ['codeql_variant_analysis_id'], sep: '/' },
+    code_scanning_variant_analysis_repo_task: { parts: ['repo_owner', 'repo_name'], sep: '/' },
+    code_security: { parts: ['configuration_id'], sep: '/' },
+    combined_billing_usage: { parts: ['org_id'], sep: '/' },
+    commit_comparison: { parts: ['basehead'], sep: '/' },
+    community_profile: { parts: ['repo'], sep: '/' },
+    content_file: { parts: ['dir'], sep: '/' },
+    copilot: { parts: ['username'], sep: '/' },
+    copilot_organization_detail: { parts: ['org_id'], sep: '/' },
+    custom_property: { parts: ['custom_property_name'], sep: '/' },
+    dependabot: { parts: ['secret_name'], sep: '/' },
+    dependabot_public_key: { parts: ['org_id'], sep: '/' },
+    dependency_graph_diff: { parts: ['basehead'], sep: '/' },
+    dependency_graph_spdx_sbom: { parts: ['repo'], sep: '/' },
+    empty_object: { parts: ['subject_digest'], sep: '/' },
+    event: { parts: ['org'], sep: '/' },
+    file_commit: { parts: ['path'], sep: '/' },
+    full_repository: { parts: ['owner', 'repo'], sep: '/', from: { owner: 'owner.login' } },
+    git: { parts: ['ref'], sep: '/' },
+    hosted_compute: { parts: ['network_configuration_id'], sep: '/' },
+    import: { parts: ['repo'], sep: '/' },
+    integration: { parts: ['app_slug'], sep: '/' },
+    language: { parts: ['repo'], sep: '/' },
+    marketplace_purchase: { parts: ['account_id'], sep: '/' },
+    org_private_registry_configuration: { parts: ['secret_name'], sep: '/' },
+    package: { parts: ['package_type', 'package_name'], sep: '/', from: { package_type: 'package_type' } },
+    page: { parts: ['repo'], sep: '/' },
+    pages_deployment_status: { parts: ['pages_deployment_id'], sep: '/' },
+    pages_health_check: { parts: ['repo'], sep: '/' },
+    private_registry: { parts: ['org_id'], sep: '/' },
+    project_collaborator_permission: { parts: ['username'], sep: '/' },
+    projects_classic: { parts: ['column_id'], sep: '/' },
+    projects_v2_item_with_content: { parts: ['item_id'], sep: '/' },
+    protected_branch: { parts: ['branch_id'], sep: '/' },
+    protected_branch_admin_enforced: { parts: ['branch_id'], sep: '/' },
+    protected_branch_pull_request_review: { parts: ['branch_id'], sep: '/' },
+    pull_request_simple: { parts: ['pull_number'], sep: '/' },
+    repo: { parts: ['owner', 'repo'], sep: '/', from: { owner: 'owner.login', repo: 'name' } },
+    repository_advisory: { parts: ['ghsa_id'], sep: '/' },
+    repository_collaborator_permission: { parts: ['username'], sep: '/' },
+    repository_invitation: { parts: ['username'], sep: '/' },
+    repository_rule_detailed: { parts: ['branch'], sep: '/' },
+    repository_subscription: { parts: ['repo'], sep: '/' },
+    ruleset_version_with_state: { parts: ['version_id'], sep: '/' },
+    secret_scanning: { parts: ['org_id'], sep: '/' },
+    self_hosted_runner: { parts: ['org_id'], sep: '/' },
+    status_check_policy: { parts: ['branch_id'], sep: '/' },
+    topic: { parts: ['repo'], sep: '/' },
+    workflow_run_usage: { parts: ['run_id'], sep: '/' },
+  }
+
+
+  // Read a dotted path out of a record. `from` maps a path parameter to
+  // wherever the response actually carries it, and that is sometimes inside
+  // a nested object.
+  function idread(data: any, path: string) {
+    let node: any = data
+    for (const key of path.split('.')) {
+      if (null == node) {
+        return undefined
+      }
+      node = node[key]
+    }
+    return node
+  }
+
+
+  // The Seneca id, split back into the parameters the API addresses a record
+  // with. Refuses a wrong part count rather than sending a URL built from
+  // whatever the id happened to contain — that would address a different
+  // record, or none, and the 404 would name nothing useful.
+  function splitid(name: string, id: any, what: string) {
+    const spec = ID_SPEC[name]
+    const text = null == id ? '' : String(id)
+    const got = 1 === spec.parts.length ? [text] : text.split(spec.sep)
+
+    if (spec.parts.length !== got.length || got.some((p: string) => '' === p)) {
+      throw new Error(
+        '@seneca/github-provider: ' + name + ' ' + what +
+        ": id must be '" + spec.parts.join(spec.sep) + "', got: " + JSON.stringify(id))
+    }
+
+    const out: Record<string, any> = {}
+    spec.parts.forEach((p: string, i: number) => { out[p] = got[i] })
+    return out
+  }
+
+
+  // The id for a record the API returned.
+  //
+  // `vals` are the parameters THIS request addressed it with, and they win:
+  // a response does not always repeat them. Otherwise the parts are read out
+  // of the response through `from`, which is what makes a created or listed
+  // record identifiable at all.
+  //
+  // THE ADDRESSING KEY WINS over an `id` the response already carries. A
+  // response often has both — github's pull has a global database `id` and
+  // a repo-scoped `number` — and the unrelated one is no use for addressing
+  // anything. It is kept as `github_id` rather than dropped.
+  function joinid(name: string, data: any, vals?: any) {
+    const spec = ID_SPEC[name]
+    if (null == data) {
+      return data
+    }
+
+    let id = null
+
+    if (null != vals) {
+      const got = spec.parts.map((p: string) => vals[p])
+      if (got.every((v: any) => null != v && '' !== String(v))) {
+        id = got.join(spec.sep)
+      }
+    }
+
+    if (null == id) {
+      const got = spec.parts.map((p: string) =>
+        idread(data, (spec.from || {})[p] || p))
+      if (got.every((v: any) =>
+        null != v && 'object' !== typeof v && '' !== String(v))) {
+        id = got.join(spec.sep)
+      }
+    }
+
+    if (null != id) {
+      if (null != data.id && String(data.id) !== id &&
+        null == data.github_id) {
+        data.github_id = data.id
+      }
+      data.id = id
+    }
+
     return data
   }
 
@@ -260,30 +4187,978 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   // model), so `save$` routes by this map rather than assuming update: an
   // action folded into `create` is reached through `save$` too.
   const ACTIONS: Record<string, Record<string, Record<string, string>>> = {
-    ["issue"]: {
-      list: { ["comment"]: 'list', ["label"]: 'list' },
+    ["action"]: {
+      list: { ["artifact"]: 'list', ["hosted_runner"]: 'list', ["organization_secret"]: 'list', ["organization_variable"]: 'list', ["run"]: 'list', ["runner"]: 'list', ["runner_group"]: 'list', ["secret"]: 'list', ["variable"]: 'list', ["workflow"]: 'list' },
       load: {},
-      save: { ["assignee"]: 'create', ["comment"]: 'create', ["label"]: 'create' },
-      remove: { ["assignee"]: 'remove', ["label"]: 'remove' },
+      save: { ["permission"]: 'update' },
+      remove: {},
+    },
+    ["actions_artifact_and_log_retention"]: {
+      load: {},
+    },
+    ["actions_cache_list"]: {
+      list: {},
+      remove: {},
+    },
+    ["actions_cache_usage_by_repository"]: {
+      load: {},
+    },
+    ["actions_cache_usage_org_enterprise"]: {
+      load: {},
+    },
+    ["actions_fork_pr_contributor_approval"]: {
+      load: {},
+    },
+    ["actions_fork_pr_workflows_private_repo"]: {
+      load: {},
+    },
+    ["actions_get_default_workflow_permission"]: {
+      load: {},
+    },
+    ["actions_hosted_runner"]: {
+      load: {},
+      save: {},
+    },
+    ["actions_hosted_runner_limit"]: {
+      load: {},
+    },
+    ["actions_organization_permission"]: {
+      load: {},
+    },
+    ["actions_public_key"]: {
+      load: {},
+    },
+    ["actions_repository_permission"]: {
+      load: {},
+    },
+    ["actions_secret"]: {
+      load: {},
+    },
+    ["actions_variable"]: {
+      load: {},
+    },
+    ["actions_workflow_access_to_repository"]: {
+      load: {},
+    },
+    ["activity"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["add"]: {
+      save: {},
+    },
+    ["api_insights_route_stat"]: {
+      list: {},
+    },
+    ["api_insights_subject_stat"]: {
+      list: {},
+    },
+    ["api_insights_summary_stat"]: {
+      load: {},
+    },
+    ["api_insights_time_stat"]: {
+      list: {},
+      load: {},
+    },
+    ["api_insights_user_stat"]: {
+      load: {},
+    },
+    ["api_overview"]: {
+      list: {},
+    },
+    ["app"]: {
+      list: {},
+      save: {},
+      remove: {},
+    },
+    ["artifact"]: {
+      load: {},
+    },
+    ["assignee"]: {
+      list: {},
+    },
+    ["authentication_token"]: {
+      save: {},
+    },
+    ["authorization"]: {
+      save: {},
+    },
+    ["autolink"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["base_gist"]: {
+      list: {},
+      save: {},
+    },
+    ["billing_usage_report"]: {
+      list: {},
+    },
+    ["billing_usage_report_user"]: {
+      list: {},
+    },
+    ["blob"]: {
+      load: {},
+    },
+    ["block"]: {
+      list: {},
+    },
+    ["branch"]: {
+      load: {},
+    },
+    ["branch_protection"]: {
+      load: {},
+    },
+    ["branch_restriction_policy"]: {
+      list: {},
+    },
+    ["branch_short"]: {
+      list: {},
+    },
+    ["branch_with_protection"]: {
+      save: { ["rename"]: 'create' },
+    },
+    ["campaign"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["check"]: {
+      list: {},
+    },
+    ["check_annotation"]: {
+      list: {},
+    },
+    ["check_automated_security_fix"]: {
+      load: {},
+    },
+    ["check_run"]: {
+      load: {},
+      save: {},
+    },
+    ["check_suite"]: {
+      load: {},
+      save: {},
+    },
+    ["check_suite_preference"]: {
+      save: {},
+    },
+    ["classroom"]: {
+      list: {},
+      load: {},
+    },
+    ["classroom_accepted_assignment"]: {
+      list: {},
+    },
+    ["classroom_assignment"]: {
+      load: {},
+    },
+    ["classroom_assignment_grade"]: {
+      list: {},
+    },
+    ["clone"]: {
+      list: {},
+    },
+    ["code_frequency"]: {
+      list: {},
+    },
+    ["code_frequency_stat"]: {
+      list: {},
+    },
+    ["code_of_conduct"]: {
+      list: {},
+      load: {},
+    },
+    ["code_scanning"]: {
+      save: { ["sarif"]: 'create' },
+      remove: {},
+    },
+    ["code_scanning_alert"]: {
+      load: {},
+      save: {},
+    },
+    ["code_scanning_alert_instance"]: {
+      list: {},
+    },
+    ["code_scanning_alert_item"]: {
+      list: {},
+    },
+    ["code_scanning_analysi"]: {
+      list: {},
+      load: {},
+    },
+    ["code_scanning_analysis_deletion"]: {
+      remove: {},
+    },
+    ["code_scanning_autofix"]: {
+      load: {},
+      save: {},
+    },
+    ["code_scanning_autofix_commit"]: {
+      save: {},
+    },
+    ["code_scanning_codeql_database"]: {
+      list: {},
+      load: {},
+    },
+    ["code_scanning_default_setup"]: {
+      list: {},
+    },
+    ["code_scanning_organization_alert_item"]: {
+      list: {},
+    },
+    ["code_scanning_sarifs_status"]: {
+      load: {},
+    },
+    ["code_scanning_variant_analysi"]: {
+      load: {},
+      save: {},
+    },
+    ["code_scanning_variant_analysis_repo_task"]: {
+      load: {},
+    },
+    ["code_security"]: {
+      save: {},
+      remove: {},
+    },
+    ["code_security_configuration"]: {
+      list: {},
+      load: {},
+      save: { ["attach"]: 'create' },
+    },
+    ["code_security_configuration_repository"]: {
+      list: {},
+    },
+    ["code_security_default_configuration"]: {
+      list: {},
+    },
+    ["codeowners_error"]: {
+      list: {},
+    },
+    ["codespace"]: {
+      list: { ["devcontainer"]: 'list', ["machine"]: 'list', ["secret"]: 'list' },
+      load: { ["new"]: 'load', ["permissions_check"]: 'load' },
+      save: { ["access"]: 'update', ["export"]: 'create', ["publish"]: 'create', ["start"]: 'create', ["stop"]: 'create' },
+      remove: {},
+    },
+    ["collaborator"]: {
+      list: {},
+    },
+    ["combined_billing_usage"]: {
+      load: {},
+    },
+    ["combined_commit_status"]: {
+      list: {},
+    },
+    ["commit"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["commit_activity"]: {
+      list: {},
+    },
+    ["commit_comment"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["commit_comparison"]: {
+      load: {},
+    },
+    ["community_profile"]: {
+      load: {},
+    },
+    ["content_file"]: {
+      load: {},
+    },
+    ["content_traffic"]: {
+      list: {},
+    },
+    ["contributor"]: {
+      list: {},
+    },
+    ["copilot"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["copilot_organization_detail"]: {
+      load: {},
+    },
+    ["copilot_usage_metrics_day"]: {
+      list: {},
+    },
+    ["credential"]: {
+      save: { ["revoke"]: 'create' },
+    },
+    ["custom_property"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["custom_property_value"]: {
+      list: {},
+    },
+    ["dependabot"]: {
+      list: { ["secret"]: 'list' },
+      save: {},
+      remove: {},
+    },
+    ["dependabot_alert"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["dependabot_alert_with_repository"]: {
+      list: {},
+    },
+    ["dependabot_public_key"]: {
+      load: {},
+    },
+    ["dependabot_repository_access_detail"]: {
+      list: {},
+    },
+    ["dependabot_secret"]: {
+      load: {},
+    },
+    ["dependency_graph"]: {
+      save: { ["snapshot"]: 'create' },
+    },
+    ["dependency_graph_diff"]: {
+      load: {},
+    },
+    ["dependency_graph_spdx_sbom"]: {
+      load: {},
+    },
+    ["deploy_key"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["deployment"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["deployment_branch_policy"]: {
+      load: {},
+      save: {},
+    },
+    ["deployment_protection_rule"]: {
+      load: {},
+      save: {},
+    },
+    ["deployment_status"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["diff_entry"]: {
+      list: {},
+    },
+    ["email"]: {
+      list: {},
+      save: { ["visibility"]: 'update' },
+    },
+    ["emoji"]: {
+      load: {},
+    },
+    ["empty_object"]: {
+      load: {},
+      save: {},
+    },
+    ["enterprise_team"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["enterprise_team_membership"]: {
+      remove: {},
+    },
+    ["environment"]: {
+      load: {},
+      save: {},
+    },
+    ["environment_approval"]: {
+      list: {},
+    },
+    ["event"]: {
+      list: { ["public"]: 'list' },
+      load: {},
+    },
+    ["feed"]: {
+      list: {},
+    },
+    ["file_commit"]: {
+      save: {},
+      remove: {},
+    },
+    ["follower"]: {
+      list: {},
+    },
+    ["following"]: {
+      list: {},
+    },
+    ["full_repository"]: {
+      load: {},
+      save: {},
+    },
+    ["gist"]: {
+      list: {},
+      load: { ["star"]: 'load' },
+      save: { ["star"]: 'update' },
+      remove: { ["star"]: 'remove' },
+    },
+    ["gist_comment"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["gist_commit"]: {
+      list: {},
+    },
+    ["gist_simple"]: {
+      list: { ["forks"]: 'list' },
+    },
+    ["git"]: {
+      remove: {},
+    },
+    ["git_commit"]: {
+      load: {},
+      save: {},
+    },
+    ["git_ref"]: {
+      load: {},
+      save: {},
+    },
+    ["git_tag"]: {
+      load: {},
+      save: {},
+    },
+    ["git_tree"]: {
+      load: {},
+      save: {},
+    },
+    ["gitignore"]: {
+      list: { ["template"]: 'list' },
+    },
+    ["gitignore_template"]: {
+      load: {},
+    },
+    ["global_advisory"]: {
+      list: {},
+      load: {},
+    },
+    ["gpg_key"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["hook"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["hook_delivery"]: {
+      load: {},
+    },
+    ["hook_delivery_item"]: {
+      list: { ["deliveries"]: 'list' },
+    },
+    ["hosted_compute"]: {
+      list: {},
+      remove: {},
+    },
+    ["hovercard"]: {
+      list: {},
+    },
+    ["import"]: {
+      list: {},
+      save: {},
+    },
+    ["installation"]: {
+      list: {},
+      load: {},
+      save: { ["suspended"]: 'update' },
+      remove: { ["suspended"]: 'remove' },
+    },
+    ["installation_token"]: {
+      save: { ["access_tokens"]: 'create' },
+    },
+    ["integration"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["integration_installation"]: {
+      list: {},
+    },
+    ["interaction"]: {
+      load: {},
+      remove: {},
+    },
+    ["interaction_limit"]: {
+      save: {},
+    },
+    ["issue"]: {
+      list: { ["comment"]: 'list', ["dependency_blocked_by"]: 'list', ["dependency_blocking"]: 'list', ["event"]: 'list', ["label"]: 'list', ["parent"]: 'list', ["sub_issue"]: 'list', ["timeline"]: 'list' },
+      load: {},
+      save: { ["assignee"]: 'create', ["comment"]: 'create', ["dependency_blocked_by"]: 'create', ["label"]: 'create', ["lock"]: 'update', ["sub_issue"]: 'create', ["sub_issue_priority"]: 'update' },
+      remove: { ["assignee"]: 'remove', ["label"]: 'remove', ["lock"]: 'remove', ["sub_issue"]: 'remove' },
+    },
+    ["issue_type"]: {
+      list: {},
+      save: {},
+    },
+    ["job"]: {
+      load: {},
+    },
+    ["key"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["label"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["language"]: {
+      load: {},
+    },
+    ["license"]: {
+      list: {},
+      load: {},
+    },
+    ["markdown"]: {
+      save: { ["raw"]: 'create' },
+    },
+    ["marketplace_listing_plan"]: {
+      list: {},
+    },
+    ["marketplace_purchase"]: {
+      list: {},
+      load: {},
+    },
+    ["member"]: {
+      list: {},
+    },
+    ["membership"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["merged_upstream"]: {
+      save: {},
+    },
+    ["meta"]: {
+      list: {},
+      load: {},
+    },
+    ["metaroot"]: {
+      load: {},
+    },
+    ["migration"]: {
+      list: { ["repository"]: 'list' },
+      load: { ["archive"]: 'load' },
+      save: {},
+      remove: { ["archive"]: 'remove' },
+    },
+    ["milestone"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["minimal_repository"]: {
+      list: {},
+    },
+    ["network_configuration"]: {
+      load: {},
+      save: {},
+    },
+    ["network_setting"]: {
+      load: {},
+    },
+    ["oidc_custom_sub"]: {
+      list: {},
+    },
+    ["oidc_custom_sub_repo"]: {
+      list: {},
+    },
+    ["org"]: {
+      list: { ["installation"]: 'list', ["organization_role"]: 'list' },
+      load: {},
+      save: { ["personal_access_token"]: 'create', ["personal_access_token_request"]: 'create' },
+      remove: {},
+    },
+    ["org_hook"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["org_membership"]: {
+      load: {},
+      save: {},
+    },
+    ["org_private_registry_configuration"]: {
+      load: {},
+    },
+    ["org_private_registry_configuration_with_selected_repository"]: {
+      save: { ["private-registries"]: 'create' },
+    },
+    ["org_repo_custom_property_value"]: {
+      list: {},
+    },
+    ["organization_actions_secret"]: {
+      load: {},
+    },
+    ["organization_actions_variable"]: {
+      load: {},
+    },
+    ["organization_dependabot_secret"]: {
+      load: {},
+    },
+    ["organization_invitation"]: {
+      list: {},
+      save: {},
+    },
+    ["organization_programmatic_access_grant"]: {
+      list: {},
+    },
+    ["organization_role"]: {
+      load: {},
+    },
+    ["organization_secret_scanning_alert"]: {
+      list: {},
+    },
+    ["outside_collaborator"]: {
+      list: {},
+    },
+    ["package"]: {
+      list: {},
+      load: {},
+      save: { ["restore"]: 'create' },
+      remove: {},
+    },
+    ["page"]: {
+      load: {},
+      save: {},
+    },
+    ["page_build"]: {
+      list: {},
+      load: {},
+    },
+    ["page_build_status"]: {
+      save: {},
+    },
+    ["page_deployment"]: {
+      save: {},
+    },
+    ["pages_deployment_status"]: {
+      load: {},
+      save: { ["cancel"]: 'create' },
+    },
+    ["pages_health_check"]: {
+      load: {},
+    },
+    ["participation"]: {
+      list: {},
+    },
+    ["pending_deployment"]: {
+      list: {},
+    },
+    ["porter_author"]: {
+      list: {},
+      save: {},
+    },
+    ["porter_large_file"]: {
+      list: {},
+    },
+    ["private_registry"]: {
+      list: {},
+      load: { ["public_key"]: 'load' },
+      save: {},
+      remove: {},
+    },
+    ["project"]: {
+      list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["project_collaborator_permission"]: {
+      load: {},
+    },
+    ["project_column"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["projects_classic"]: {
+      save: {},
+      remove: {},
+    },
+    ["projects_v2"]: {
+      list: {},
+      load: {},
+    },
+    ["projects_v2_field"]: {
+      list: {},
+      load: {},
+    },
+    ["projects_v2_item_simple"]: {
+      save: {},
+    },
+    ["projects_v2_item_with_content"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["protected_branch"]: {
+      save: {},
+    },
+    ["protected_branch_admin_enforced"]: {
+      load: {},
+      save: {},
+    },
+    ["protected_branch_pull_request_review"]: {
+      load: {},
+      save: {},
+    },
+    ["public_member"]: {
+      list: {},
     },
     ["pull"]: {
       list: {},
-      load: {},
-      save: { ["merge"]: 'update' },
+      load: { ["merge"]: 'load' },
+      save: { ["merge"]: 'update', ["update_branch"]: 'update' },
+      remove: {},
     },
     ["pull_request_review"]: {
       list: {},
+      load: {},
+      save: {},
+      remove: {},
+    },
+    ["pull_request_review_comment"]: {
+      list: {},
+      load: {},
       save: {},
     },
     ["pull_request_simple"]: {
       save: {},
       remove: {},
     },
-    ["repo"]: {
+    ["rate_limit"]: {
+      load: {},
+    },
+    ["reaction"]: {
+      list: {},
+      save: {},
+      remove: {},
+    },
+    ["referrer"]: {
+      list: {},
+    },
+    ["release"]: {
+      list: { ["latest"]: 'list' },
+      load: {},
+      save: {},
+    },
+    ["release_asset"]: {
       list: {},
       load: {},
       save: {},
+    },
+    ["release_notes_content"]: {
+      save: {},
+    },
+    ["remove"]: {
+      save: {},
+    },
+    ["repo"]: {
+      list: { ["environment"]: 'list' },
+      load: { ["private_vulnerability_reporting"]: 'load', ["vulnerability_alert"]: 'load' },
+      save: { ["attestation"]: 'create', ["automated_security_fix"]: 'update', ["dispatch"]: 'create', ["fork"]: 'create', ["page"]: 'update', ["private_vulnerability_reporting"]: 'update', ["transfer"]: 'create', ["vulnerability_alert"]: 'update' },
+      remove: { ["automated_security_fix"]: 'remove', ["page"]: 'remove', ["private_vulnerability_reporting"]: 'remove', ["vulnerability_alert"]: 'remove' },
+    },
+    ["repository"]: {
+      list: {},
+    },
+    ["repository_advisory"]: {
+      list: {},
+      load: {},
+      save: { ["cve"]: 'create' },
+    },
+    ["repository_collaborator_permission"]: {
+      load: {},
+    },
+    ["repository_invitation"]: {
+      list: {},
+      save: {},
+    },
+    ["repository_rule_detailed"]: {
+      load: {},
+    },
+    ["repository_ruleset"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["repository_subscription"]: {
+      load: {},
+      save: {},
+    },
+    ["review_comment"]: {
+      list: {},
+    },
+    ["rule_suite"]: {
+      list: {},
+      load: {},
+    },
+    ["ruleset_version"]: {
+      list: { ["history"]: 'list' },
+    },
+    ["ruleset_version_with_state"]: {
+      load: {},
+    },
+    ["runner"]: {
+      load: {},
+    },
+    ["runner_application"]: {
+      list: {},
+    },
+    ["runner_group"]: {
+      load: {},
+      save: {},
+    },
+    ["search"]: {
+      list: { ["code"]: 'list', ["commit"]: 'list', ["issue"]: 'list', ["label"]: 'list', ["repository"]: 'list', ["topic"]: 'list', ["user"]: 'list' },
+    },
+    ["secret_scanning"]: {
+      save: { ["pattern_configuration"]: 'update' },
+    },
+    ["secret_scanning_alert"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["secret_scanning_location"]: {
+      list: {},
+    },
+    ["secret_scanning_pattern_configuration"]: {
+      list: {},
+    },
+    ["secret_scanning_push_protection_bypass"]: {
+      save: {},
+    },
+    ["secret_scanning_scan_history"]: {
+      list: {},
+    },
+    ["security_advisory"]: {
+      save: { ["fork"]: 'create' },
+    },
+    ["selected_action"]: {
+      list: {},
+    },
+    ["self_hosted_runner"]: {
+      load: {},
+    },
+    ["short_blob"]: {
+      save: {},
+    },
+    ["short_branch"]: {
+      list: {},
+    },
+    ["simple_classroom_assignment"]: {
+      list: {},
+    },
+    ["social_account"]: {
+      list: {},
+      save: {},
+    },
+    ["ssh_signing_key"]: {
+      list: {},
+      load: {},
+      save: {},
+    },
+    ["status"]: {
+      list: {},
+      save: {},
+    },
+    ["status_check_policy"]: {
+      list: {},
+      save: {},
+    },
+    ["subscriber"]: {
+      list: {},
+    },
+    ["tag"]: {
+      list: {},
+    },
+    ["tag_protection"]: {
+      list: {},
+      save: {},
+    },
+    ["team"]: {
+      list: { ["discussion"]: 'list', ["invitation"]: 'list', ["member"]: 'list', ["project"]: 'list', ["repo"]: 'list' },
+      load: {},
+      save: { ["discussion"]: 'create' },
       remove: {},
+    },
+    ["team_simple"]: {
+      list: {},
+    },
+    ["thread"]: {
+      list: {},
+      load: {},
+      remove: { ["subscription"]: 'remove' },
+    },
+    ["thread_subscription"]: {
+      load: {},
+      save: {},
+    },
+    ["topic"]: {
+      list: {},
+      save: {},
+    },
+    ["user"]: {
+      list: {},
+      load: {},
+      save: { ["attestation_bulk_list"]: 'create', ["attestation_delete_request"]: 'create' },
+      remove: { ["email"]: 'remove', ["social_account"]: 'remove' },
+    },
+    ["user_marketplace_purchase"]: {
+      list: {},
+    },
+    ["view"]: {
+      list: {},
+    },
+    ["webhook_config"]: {
+      load: {},
+      save: {},
+    },
+    ["workflow"]: {
+      load: {},
+      save: { ["disable"]: 'update', ["enable"]: 'update' },
+    },
+    ["workflow_run"]: {
+      load: {},
+      save: { ["cancel"]: 'create', ["deployment_protection_rule"]: 'create', ["force_cancel"]: 'create' },
+    },
+    ["workflow_run_usage"]: {
+      load: {},
+    },
+    ["workflow_usage"]: {
+      load: { ["timing"]: 'load' },
     },
   }
 
@@ -301,6 +5176,37 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   // That is the silent drop in another hat: the caller named something the
   // entity does not have and was not told. An empty map inherits them all,
   // so a cmd with no actions was the most exposed.
+  // THE CMD THAT WOULD WRITE TO THE WRONG RESOURCE.
+  //
+  // Some entities gather their ops from unrelated routes, and then a cmd's
+  // only route addresses something that is not this record: `migration`'s
+  // remove deletes a repository's migration ARCHIVE, `user`'s deletes a GPG
+  // KEY, `pull`'s deletes a review COMMENT. The id the caller passed is not
+  // in the request at all.
+  //
+  // Such a cmd is refused rather than sent. A caller asking to remove one
+  // record must not have a different resource deleted instead, and a
+  // successful-looking reply is the worst possible answer. Where the real
+  // operation exists it is reachable by name, through `action$`.
+  function misaddressed(
+    entname: string, cmd: string, key: string, addresses: string[]
+  ) {
+    const own = Object.prototype.hasOwnProperty
+    const ents: any = own.call(ACTIONS, entname) ? ACTIONS[entname] : {}
+    const acts = Object.keys(own.call(ents, cmd) ? ents[cmd] : {}).sort()
+
+    throw new Error(
+      '@seneca/github-provider: ' + entname + ' ' + cmd +
+      ': this API has no ' + cmd + ' route for one ' + entname +
+      '. Its only ' + cmd + ' route addresses ' + addresses.join(', ') +
+      ', not ' + key + ', so the id would be ignored and a different record ' +
+      'changed. ' +
+      (0 < acts.length ?
+        'Name the operation with action$ instead: ' + acts.join(', ') :
+        'No action$ of this cmd is available either'))
+  }
+
+
   function actionop(name: string, entname: string, cmd: string) {
     const own = Object.prototype.hasOwnProperty
     const ents: any = own.call(ACTIONS, entname) ? ACTIONS[entname] : {}
@@ -320,6 +5226,962 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
 
 
   const entity: any = {
+    action: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    actions_artifact_and_log_retention: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_cache_list: {
+      cmd: {
+        list: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    actions_cache_usage_by_repository: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_cache_usage_org_enterprise: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_fork_pr_contributor_approval: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_fork_pr_workflows_private_repo: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_get_default_workflow_permission: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_hosted_runner: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    actions_hosted_runner_limit: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_organization_permission: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_public_key: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_repository_permission: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_secret: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_variable: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    actions_workflow_access_to_repository: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    activity: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    add: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    api_insights_route_stat: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    api_insights_subject_stat: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    api_insights_summary_stat: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    api_insights_time_stat: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    api_insights_user_stat: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    api_overview: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    app: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    artifact: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    assignee: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    authentication_token: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    authorization: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    autolink: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    base_gist: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    billing_usage_report: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    billing_usage_report_user: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    blob: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    block: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    branch: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    branch_protection: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    branch_restriction_policy: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    branch_short: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    branch_with_protection: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    campaign: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    check: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    check_annotation: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    check_automated_security_fix: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    check_run: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    check_suite: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    check_suite_preference: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    classroom: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    classroom_accepted_assignment: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    classroom_assignment: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    classroom_assignment_grade: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    clone: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_frequency: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_frequency_stat: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_of_conduct: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning: {
+      cmd: {
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_alert: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_alert_instance: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_alert_item: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_analysi: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_analysis_deletion: {
+      cmd: {
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_autofix: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_autofix_commit: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_codeql_database: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_default_setup: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_organization_alert_item: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_sarifs_status: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_variant_analysi: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    code_scanning_variant_analysis_repo_task: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    code_security: {
+      cmd: {
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    code_security_configuration: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    code_security_configuration_repository: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    code_security_default_configuration: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    codeowners_error: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    codespace: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    collaborator: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    combined_billing_usage: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    combined_commit_status: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    commit: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    commit_activity: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    commit_comment: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    commit_comparison: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    community_profile: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    content_file: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    content_traffic: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    contributor: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    copilot: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    copilot_organization_detail: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    copilot_usage_metrics_day: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    credential: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    custom_property: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    custom_property_value: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    dependabot: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    dependabot_alert: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    dependabot_alert_with_repository: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    dependabot_public_key: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    dependabot_repository_access_detail: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    dependabot_secret: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    dependency_graph: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    dependency_graph_diff: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    dependency_graph_spdx_sbom: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    deploy_key: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    deployment: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    deployment_branch_policy: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    deployment_protection_rule: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    deployment_status: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    diff_entry: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    email: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    emoji: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    empty_object: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    enterprise_team: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    enterprise_team_membership: {
+      cmd: {
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    environment: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    environment_approval: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    event: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    feed: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    file_commit: {
+      cmd: {
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    follower: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    following: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    full_repository: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    gist: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    gist_comment: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    gist_commit: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    gist_simple: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    git: {
+      cmd: {
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    git_commit: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    git_ref: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    git_tag: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    git_tree: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    gitignore: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    gitignore_template: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    global_advisory: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    gpg_key: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    hook: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    hook_delivery: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    hook_delivery_item: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    hosted_compute: {
+      cmd: {
+        list: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    hovercard: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    import: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    installation: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    installation_token: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    integration: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    integration_installation: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    interaction: {
+      cmd: {
+        load: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    interaction_limit: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
     issue: {
       cmd: {
         list: { action: (undefined as any) },
@@ -329,7 +6191,20 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       },
     },
 
-    pull: {
+    issue_type: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    job: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    key: {
       cmd: {
         list: { action: (undefined as any) },
         load: { action: (undefined as any) },
@@ -337,9 +6212,406 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       },
     },
 
+    label: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    language: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    license: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    markdown: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    marketplace_listing_plan: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    marketplace_purchase: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    member: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    membership: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    merged_upstream: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    meta: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    metaroot: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    migration: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    milestone: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    minimal_repository: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    network_configuration: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    network_setting: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    oidc_custom_sub: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    oidc_custom_sub_repo: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    org: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    org_hook: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    org_membership: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    org_private_registry_configuration: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    org_private_registry_configuration_with_selected_repository: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    org_repo_custom_property_value: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    organization_actions_secret: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    organization_actions_variable: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    organization_dependabot_secret: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    organization_invitation: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    organization_programmatic_access_grant: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    organization_role: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    organization_secret_scanning_alert: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    outside_collaborator: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    package: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    page: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    page_build: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    page_build_status: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    page_deployment: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    pages_deployment_status: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    pages_health_check: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    participation: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    pending_deployment: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    porter_author: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    porter_large_file: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    private_registry: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    project: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    project_collaborator_permission: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    project_column: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    projects_classic: {
+      cmd: {
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    projects_v2: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    projects_v2_field: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    projects_v2_item_simple: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    projects_v2_item_with_content: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    protected_branch: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    protected_branch_admin_enforced: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    protected_branch_pull_request_review: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    public_member: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    pull: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
     pull_request_review: {
       cmd: {
         list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    pull_request_review_comment: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
         save: { action: (undefined as any) },
       },
     },
@@ -348,6 +6620,54 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       cmd: {
         save: { action: (undefined as any) },
         remove: { action: (undefined as any) },
+      },
+    },
+
+    rate_limit: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    reaction: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    referrer: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    release: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    release_asset: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    release_notes_content: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    remove: {
+      cmd: {
+        save: { action: (undefined as any) },
       },
     },
 
@@ -360,7 +6680,4746 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       },
     },
 
+    repository: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    repository_advisory: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    repository_collaborator_permission: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    repository_invitation: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    repository_rule_detailed: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    repository_ruleset: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    repository_subscription: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    review_comment: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    rule_suite: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+      },
+    },
+
+    ruleset_version: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    ruleset_version_with_state: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    runner: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    runner_application: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    runner_group: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    search: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning_alert: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning_location: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning_pattern_configuration: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning_push_protection_bypass: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    secret_scanning_scan_history: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    security_advisory: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    selected_action: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    self_hosted_runner: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    short_blob: {
+      cmd: {
+        save: { action: (undefined as any) },
+      },
+    },
+
+    short_branch: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    simple_classroom_assignment: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    social_account: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    ssh_signing_key: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    status: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    status_check_policy: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    subscriber: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    tag: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    tag_protection: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    team: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    team_simple: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    thread: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    thread_subscription: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    topic: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    user: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
+    user_marketplace_purchase: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    view: {
+      cmd: {
+        list: { action: (undefined as any) },
+      },
+    },
+
+    webhook_config: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    workflow: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    workflow_run: {
+      cmd: {
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    workflow_run_usage: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
+    workflow_usage: {
+      cmd: {
+        load: { action: (undefined as any) },
+      },
+    },
+
   }
+
+
+  entity.action.cmd.list.action =
+    async function list_action(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'action', 'list')
+        const found = await this.shared.sdk.Action()[op$](actionq(msg.q, 'archive_format', action$))
+        return found.map((data: any) => entize(joinid('action', plain(data))))
+      }
+
+      need_action_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.Action().list(q)
+      return list.map((data: any) => entize(joinid('action', plain(data))))
+    }
+
+
+  entity.action.cmd.load.action =
+    async function load_action(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'action', 'load')
+        const hit = await ornull(() => this.shared.sdk.Action()[op$](actionq(msg.q, 'archive_format', action$)))
+        return null == hit ? null : entize(joinid('action', plain(hit)))
+      }
+
+      need_action_artifact_id(q.artifact_id, 'load')
+      need_action_owner(q.owner, 'load')
+      need_action_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Action().load({ archive_format: q.id, artifact_id: q.artifact_id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('action', plain(res)))
+    }
+
+
+  entity.action.cmd.save.action =
+    async function save_action(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a action by `archive_format`; Seneca carries it as `id`.
+      if (null == data.archive_format && null != data.id) {
+        data.archive_format = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'action', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Action()[op$](data)
+        return entize(joinid('action', plain(done)))
+      }
+
+      need_action_org_id(data.org_id, 'save')
+      need_action_repository_id(data.repository_id, 'save')
+      if (null != data.id) {
+        misaddressed('action', 'update', 'archive_format', ['org_id', 'repository_id'])
+      }
+
+      const res = await sdk.Action().create(data)
+
+      return entize(joinid('action', plain(res)))
+    }
+
+
+  entity.action.cmd.remove.action =
+    async function remove_action(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'action', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Action()[op$](actionq(msg.q, 'archive_format', action$)))
+        return null == gone ? null : entize(joinid('action', plain(gone)))
+      }
+
+      misaddressed('action', 'remove', 'archive_format', ['hosted_runner_id', 'org_id'])
+      return null
+    }
+
+
+  entity.actions_artifact_and_log_retention.cmd.load.action =
+    async function load_actions_artifact_and_log_retention(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_artifact_and_log_retention', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsArtifactAndLogRetention()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_artifact_and_log_retention', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsArtifactAndLogRetention().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_artifact_and_log_retention', plain(res)))
+    }
+
+
+  entity.actions_cache_list.cmd.list.action =
+    async function list_actions_cache_list(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_cache_list', 'list')
+        const found = await this.shared.sdk.ActionsCacheList()[op$](actionq(msg.q, 'repo', action$))
+        return found.map((data: any) => entize(joinid('actions_cache_list', plain(data))))
+      }
+
+      need_actions_cache_list_owner(q.owner, 'list')
+      const list = await this.shared.sdk.ActionsCacheList().list(q)
+      return list.map((data: any) => entize(joinid('actions_cache_list', plain(data))))
+    }
+
+
+  entity.actions_cache_list.cmd.remove.action =
+    async function remove_actions_cache_list(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_cache_list', 'remove')
+        const gone = await ornull(() => this.shared.sdk.ActionsCacheList()[op$](actionq(msg.q, 'repo', action$)))
+        return null == gone ? null : entize(joinid('actions_cache_list', plain(gone)))
+      }
+
+      need_actions_cache_list_key(q.key, 'remove')
+      need_actions_cache_list_owner(q.owner, 'remove')
+      await ornull(() => this.shared.sdk.ActionsCacheList().remove({ owner: q.owner, repo: q.id, key: q.key }))
+      return null
+    }
+
+
+  entity.actions_cache_usage_by_repository.cmd.load.action =
+    async function load_actions_cache_usage_by_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_cache_usage_by_repository', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsCacheUsageByRepository()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('actions_cache_usage_by_repository', plain(hit)))
+      }
+
+      need_actions_cache_usage_by_repository_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsCacheUsageByRepository().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('actions_cache_usage_by_repository', plain(res)))
+    }
+
+
+  entity.actions_cache_usage_org_enterprise.cmd.load.action =
+    async function load_actions_cache_usage_org_enterprise(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_cache_usage_org_enterprise', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsCacheUsageOrgEnterprise()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_cache_usage_org_enterprise', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsCacheUsageOrgEnterprise().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_cache_usage_org_enterprise', plain(res)))
+    }
+
+
+  entity.actions_fork_pr_contributor_approval.cmd.load.action =
+    async function load_actions_fork_pr_contributor_approval(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_fork_pr_contributor_approval', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsForkPrContributorApproval()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_fork_pr_contributor_approval', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsForkPrContributorApproval().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_fork_pr_contributor_approval', plain(res)))
+    }
+
+
+  entity.actions_fork_pr_workflows_private_repo.cmd.load.action =
+    async function load_actions_fork_pr_workflows_private_repo(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_fork_pr_workflows_private_repo', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsForkPrWorkflowsPrivateRepo()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_fork_pr_workflows_private_repo', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsForkPrWorkflowsPrivateRepo().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_fork_pr_workflows_private_repo', plain(res)))
+    }
+
+
+  entity.actions_get_default_workflow_permission.cmd.load.action =
+    async function load_actions_get_default_workflow_permission(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_get_default_workflow_permission', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsGetDefaultWorkflowPermission()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_get_default_workflow_permission', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsGetDefaultWorkflowPermission().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_get_default_workflow_permission', plain(res)))
+    }
+
+
+  entity.actions_hosted_runner.cmd.load.action =
+    async function load_actions_hosted_runner(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_hosted_runner', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsHostedRunner()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_actions_hosted_runner_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsHostedRunner().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.actions_hosted_runner.cmd.save.action =
+    async function save_actions_hosted_runner(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_hosted_runner', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ActionsHostedRunner()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_actions_hosted_runner_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.ActionsHostedRunner().create(data)
+        : await sdk.ActionsHostedRunner().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.actions_hosted_runner_limit.cmd.load.action =
+    async function load_actions_hosted_runner_limit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_hosted_runner_limit', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsHostedRunnerLimit()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_hosted_runner_limit', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsHostedRunnerLimit().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_hosted_runner_limit', plain(res)))
+    }
+
+
+  entity.actions_organization_permission.cmd.load.action =
+    async function load_actions_organization_permission(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_organization_permission', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsOrganizationPermission()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_organization_permission', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsOrganizationPermission().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_organization_permission', plain(res)))
+    }
+
+
+  entity.actions_public_key.cmd.load.action =
+    async function load_actions_public_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_public_key', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsPublicKey()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('actions_public_key', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ActionsPublicKey().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('actions_public_key', plain(res)))
+    }
+
+
+  entity.actions_repository_permission.cmd.load.action =
+    async function load_actions_repository_permission(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_repository_permission', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsRepositoryPermission()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('actions_repository_permission', plain(hit)))
+      }
+
+      need_actions_repository_permission_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsRepositoryPermission().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('actions_repository_permission', plain(res)))
+    }
+
+
+  entity.actions_secret.cmd.load.action =
+    async function load_actions_secret(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_secret', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsSecret()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_actions_secret_owner(q.owner, 'load')
+      need_actions_secret_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsSecret().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.actions_variable.cmd.load.action =
+    async function load_actions_variable(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_variable', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsVariable()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_actions_variable_owner(q.owner, 'load')
+      need_actions_variable_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsVariable().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.actions_workflow_access_to_repository.cmd.load.action =
+    async function load_actions_workflow_access_to_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'actions_workflow_access_to_repository', 'load')
+        const hit = await ornull(() => this.shared.sdk.ActionsWorkflowAccessToRepository()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('actions_workflow_access_to_repository', plain(hit)))
+      }
+
+      need_actions_workflow_access_to_repository_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.ActionsWorkflowAccessToRepository().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('actions_workflow_access_to_repository', plain(res)))
+    }
+
+
+  entity.activity.cmd.list.action =
+    async function list_activity(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'activity', 'list')
+        const found = await this.shared.sdk.Activity()[op$](actionq(msg.q, 'repo', action$))
+        return found.map((data: any) => entize(joinid('activity', plain(data))))
+      }
+
+      const list = await this.shared.sdk.Activity().list(q)
+      return list.map((data: any) => entize(joinid('activity', plain(data))))
+    }
+
+
+  entity.activity.cmd.load.action =
+    async function load_activity(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'activity', 'load')
+        const hit = await ornull(() => this.shared.sdk.Activity()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('activity', plain(hit)))
+      }
+
+      const key = splitid('activity', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.Activity().load({ owner: key.owner, repo: key.repo }))
+      return null == res ? null : entize(joinid('activity', plain(res), key))
+    }
+
+
+  entity.activity.cmd.save.action =
+    async function save_activity(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'activity', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Activity()[op$](data)
+        return entize(joinid('activity', plain(done)))
+      }
+
+
+      // Seneca carries this activity's key as one `id`; the API addresses
+      // the record by `owner` and `repo`.
+      //
+      // THE PARTS GO IN THE ENTITY MATCH, NOT ONTO THE DATA. They are path
+      // parameters, and the data is the request body. Writing them onto the
+      // data is how the flat `owner` the URL needs came to displace
+      // whatever the response carries under that name — for github's repo an
+      // `owner` OBJECT, so a saved record lost the field that identifies
+      // it. The SDK resolves a path parameter from the match ahead of the
+      // body, so passing it here leaves the body exactly as the caller meant
+      // it.
+      //
+      // `key` STAYS NULL ON A CREATE: there is no id yet, the API assigns
+      // the record, and the id is rebuilt from the response instead.
+      let key = null
+      if (null != data.id) {
+        key = splitid('activity', data.id, 'save')
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It is
+      // not a field of the API's write schema, so it must not travel in the
+      // request body.
+      delete data.github_id
+
+      // AND NEITHER DOES THE JOINED `id`. It is Seneca's key for this
+      // record, not the API's: a composite activity is addressed by
+      // `owner` and `repo`, which travel as path parameters in
+      // the match above. Leaving it on the body sent `owner0/repo0` as a
+      // field the write schema has no place for — and the offline transport,
+      // which matches a request against a stored record, then looked for a
+      // record whose own `id` was that joined string and found none.
+      delete data.id
+      const res = await sdk.Activity(null == key ? undefined : { match: key }).update(data)
+
+      return entize(joinid('activity', plain(res), key))
+    }
+
+
+  entity.activity.cmd.remove.action =
+    async function remove_activity(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'activity', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Activity()[op$](actionq(msg.q, 'repo', action$)))
+        return null == gone ? null : entize(joinid('activity', plain(gone)))
+      }
+
+      misaddressed('activity', 'remove', 'owner/repo', ['thread_id'])
+      return null
+    }
+
+
+  entity.add.cmd.save.action =
+    async function save_add(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'add', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Add()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_add_enterprise(data.enterprise, 'save')
+      need_add_team_id(data.team_id, 'save')
+      const res = await sdk.Add().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.api_insights_route_stat.cmd.list.action =
+    async function list_api_insights_route_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_route_stat', 'list')
+        const found = await this.shared.sdk.ApiInsightsRouteStat()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_api_insights_route_stat_actor_id(q.actor_id, 'list')
+      need_api_insights_route_stat_actor_type(q.actor_type, 'list')
+      need_api_insights_route_stat_min_timestamp(q.min_timestamp, 'list')
+      need_api_insights_route_stat_org(q.org, 'list')
+      const list = await this.shared.sdk.ApiInsightsRouteStat().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.api_insights_subject_stat.cmd.list.action =
+    async function list_api_insights_subject_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_subject_stat', 'list')
+        const found = await this.shared.sdk.ApiInsightsSubjectStat()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_api_insights_subject_stat_min_timestamp(q.min_timestamp, 'list')
+      need_api_insights_subject_stat_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.ApiInsightsSubjectStat().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.api_insights_summary_stat.cmd.load.action =
+    async function load_api_insights_summary_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_summary_stat', 'load')
+        const hit = await ornull(() => this.shared.sdk.ApiInsightsSummaryStat()[op$](actionq(msg.q, 'actor_id', action$)))
+        return null == hit ? null : entize(joinid('api_insights_summary_stat', plain(hit)))
+      }
+
+      need_api_insights_summary_stat_min_timestamp(q.min_timestamp, 'load')
+      const key = splitid('api_insights_summary_stat', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.ApiInsightsSummaryStat().load({ min_timestamp: q.min_timestamp, actor_type: key.actor_type, actor_id: key.actor_id }))
+      return null == res ? null : entize(joinid('api_insights_summary_stat', plain(res), key))
+    }
+
+
+  entity.api_insights_time_stat.cmd.list.action =
+    async function list_api_insights_time_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_time_stat', 'list')
+        const found = await this.shared.sdk.ApiInsightsTimeStat()[op$](actionq(msg.q, 'user_id', action$))
+        return found.map((data: any) => entize(joinid('api_insights_time_stat', plain(data))))
+      }
+
+      need_api_insights_time_stat_min_timestamp(q.min_timestamp, 'list')
+      need_api_insights_time_stat_timestamp_increment(q.timestamp_increment, 'list')
+      const list = await this.shared.sdk.ApiInsightsTimeStat().list(q)
+      return list.map((data: any) => entize(joinid('api_insights_time_stat', plain(data))))
+    }
+
+
+  entity.api_insights_time_stat.cmd.load.action =
+    async function load_api_insights_time_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_time_stat', 'load')
+        const hit = await ornull(() => this.shared.sdk.ApiInsightsTimeStat()[op$](actionq(msg.q, 'user_id', action$)))
+        return null == hit ? null : entize(joinid('api_insights_time_stat', plain(hit)))
+      }
+
+      need_api_insights_time_stat_min_timestamp(q.min_timestamp, 'load')
+      need_api_insights_time_stat_org_id(q.org_id, 'load')
+      need_api_insights_time_stat_timestamp_increment(q.timestamp_increment, 'load')
+      const res = await ornull(() => this.shared.sdk.ApiInsightsTimeStat().load({ org_id: q.org_id, user_id: q.id, min_timestamp: q.min_timestamp, timestamp_increment: q.timestamp_increment }))
+      return null == res ? null : entize(joinid('api_insights_time_stat', plain(res)))
+    }
+
+
+  entity.api_insights_user_stat.cmd.load.action =
+    async function load_api_insights_user_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_insights_user_stat', 'load')
+        const hit = await ornull(() => this.shared.sdk.ApiInsightsUserStat()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_api_insights_user_stat_min_timestamp(q.min_timestamp, 'load')
+      need_api_insights_user_stat_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.ApiInsightsUserStat().load({ id: q.id, org_id: q.org_id, min_timestamp: q.min_timestamp }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.api_overview.cmd.list.action =
+    async function list_api_overview(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'api_overview', 'list')
+        const found = await this.shared.sdk.ApiOverview()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.ApiOverview().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.app.cmd.list.action =
+    async function list_app(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'app', 'list')
+        const found = await this.shared.sdk.App()[op$](actionq(msg.q, 'installation_id', action$))
+        return found.map((data: any) => entize(joinid('app', plain(data))))
+      }
+
+      const list = await this.shared.sdk.App().list(q)
+      return list.map((data: any) => entize(joinid('app', plain(data))))
+    }
+
+
+  entity.app.cmd.save.action =
+    async function save_app(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a app by `installation_id`; Seneca carries it as `id`.
+      if (null == data.installation_id && null != data.id) {
+        data.installation_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'app', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.App()[op$](data)
+        return entize(joinid('app', plain(done)))
+      }
+
+      need_app_code(data.code, 'save')
+      need_app_repository_id(data.repository_id, 'save')
+      const res = null == data.id
+        ? await sdk.App().create(data)
+        : await sdk.App().update(data)
+
+      return entize(joinid('app', plain(res)))
+    }
+
+
+  entity.app.cmd.remove.action =
+    async function remove_app(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'app', 'remove')
+        const gone = await ornull(() => this.shared.sdk.App()[op$](actionq(msg.q, 'installation_id', action$)))
+        return null == gone ? null : entize(joinid('app', plain(gone)))
+      }
+
+      await ornull(() => this.shared.sdk.App().remove({ installation_id: q.id }))
+      return null
+    }
+
+
+  entity.artifact.cmd.load.action =
+    async function load_artifact(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'artifact', 'load')
+        const hit = await ornull(() => this.shared.sdk.Artifact()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_artifact_owner(q.owner, 'load')
+      need_artifact_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Artifact().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.assignee.cmd.list.action =
+    async function list_assignee(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'assignee', 'list')
+        const found = await this.shared.sdk.Assignee()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_assignee_owner(q.owner, 'list')
+      need_assignee_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Assignee().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.authentication_token.cmd.save.action =
+    async function save_authentication_token(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'authentication_token', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.AuthenticationToken()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_authentication_token_org_id(data.org_id, 'save')
+      const res = await sdk.AuthenticationToken().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.authorization.cmd.save.action =
+    async function save_authorization(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a authorization by `application_id`; Seneca carries it as `id`.
+      if (null == data.application_id && null != data.id) {
+        data.application_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'authorization', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Authorization()[op$](data)
+        return entize(joinid('authorization', plain(done)))
+      }
+
+      const res = null == data.id
+        ? await sdk.Authorization().create(data)
+        : await sdk.Authorization().update(data)
+
+      return entize(joinid('authorization', plain(res)))
+    }
+
+
+  entity.autolink.cmd.list.action =
+    async function list_autolink(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'autolink', 'list')
+        const found = await this.shared.sdk.Autolink()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_autolink_owner(q.owner, 'list')
+      need_autolink_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Autolink().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.autolink.cmd.load.action =
+    async function load_autolink(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'autolink', 'load')
+        const hit = await ornull(() => this.shared.sdk.Autolink()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_autolink_owner(q.owner, 'load')
+      need_autolink_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Autolink().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.autolink.cmd.save.action =
+    async function save_autolink(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'autolink', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Autolink()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_autolink_owner(data.owner, 'save')
+      need_autolink_repo(data.repo, 'save')
+      const res = await sdk.Autolink().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.base_gist.cmd.list.action =
+    async function list_base_gist(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'base_gist', 'list')
+        const found = await this.shared.sdk.BaseGist()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.BaseGist().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.base_gist.cmd.save.action =
+    async function save_base_gist(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'base_gist', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.BaseGist()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_base_gist_gist_id(data.gist_id, 'save')
+      const res = await sdk.BaseGist().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.billing_usage_report.cmd.list.action =
+    async function list_billing_usage_report(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'billing_usage_report', 'list')
+        const found = await this.shared.sdk.BillingUsageReport()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_billing_usage_report_org(q.org, 'list')
+      const list = await this.shared.sdk.BillingUsageReport().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.billing_usage_report_user.cmd.list.action =
+    async function list_billing_usage_report_user(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'billing_usage_report_user', 'list')
+        const found = await this.shared.sdk.BillingUsageReportUser()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_billing_usage_report_user_username(q.username, 'list')
+      const list = await this.shared.sdk.BillingUsageReportUser().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.blob.cmd.load.action =
+    async function load_blob(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'blob', 'load')
+        const hit = await ornull(() => this.shared.sdk.Blob()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_blob_owner(q.owner, 'load')
+      need_blob_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Blob().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.block.cmd.list.action =
+    async function list_block(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'block', 'list')
+        const found = await this.shared.sdk.Block()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Block().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.branch.cmd.load.action =
+    async function load_branch(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'branch', 'load')
+        const hit = await ornull(() => this.shared.sdk.Branch()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_branch_owner(q.owner, 'load')
+      need_branch_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Branch().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.branch_protection.cmd.load.action =
+    async function load_branch_protection(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'branch_protection', 'load')
+        const hit = await ornull(() => this.shared.sdk.BranchProtection()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_branch_protection_owner(q.owner, 'load')
+      need_branch_protection_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.BranchProtection().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.branch_restriction_policy.cmd.list.action =
+    async function list_branch_restriction_policy(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'branch_restriction_policy', 'list')
+        const found = await this.shared.sdk.BranchRestrictionPolicy()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_branch_restriction_policy_branch_id(q.branch_id, 'list')
+      need_branch_restriction_policy_owner(q.owner, 'list')
+      need_branch_restriction_policy_repo(q.repo, 'list')
+      const list = await this.shared.sdk.BranchRestrictionPolicy().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.branch_short.cmd.list.action =
+    async function list_branch_short(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'branch_short', 'list')
+        const found = await this.shared.sdk.BranchShort()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_branch_short_commit_sha(q.commit_sha, 'list')
+      need_branch_short_owner(q.owner, 'list')
+      need_branch_short_repo(q.repo, 'list')
+      const list = await this.shared.sdk.BranchShort().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.branch_with_protection.cmd.save.action =
+    async function save_branch_with_protection(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'branch_with_protection', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.BranchWithProtection()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_branch_with_protection_owner(data.owner, 'save')
+      need_branch_with_protection_repo(data.repo, 'save')
+      const res = await sdk.BranchWithProtection().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.campaign.cmd.list.action =
+    async function list_campaign(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'campaign', 'list')
+        const found = await this.shared.sdk.Campaign()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_campaign_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.Campaign().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.campaign.cmd.load.action =
+    async function load_campaign(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'campaign', 'load')
+        const hit = await ornull(() => this.shared.sdk.Campaign()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_campaign_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.Campaign().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.campaign.cmd.save.action =
+    async function save_campaign(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'campaign', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Campaign()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_campaign_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.Campaign().create(data)
+        : await sdk.Campaign().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.campaign.cmd.remove.action =
+    async function remove_campaign(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'campaign', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Campaign()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      need_campaign_org_id(q.org_id, 'remove')
+      await ornull(() => this.shared.sdk.Campaign().remove({ id: q.id, org_id: q.org_id }))
+      return null
+    }
+
+
+  entity.check.cmd.list.action =
+    async function list_check(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check', 'list')
+        const found = await this.shared.sdk.Check()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_check_owner(q.owner, 'list')
+      need_check_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Check().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.check_annotation.cmd.list.action =
+    async function list_check_annotation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_annotation', 'list')
+        const found = await this.shared.sdk.CheckAnnotation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_check_annotation_check_run_id(q.check_run_id, 'list')
+      need_check_annotation_owner(q.owner, 'list')
+      need_check_annotation_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CheckAnnotation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.check_automated_security_fix.cmd.load.action =
+    async function load_check_automated_security_fix(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_automated_security_fix', 'load')
+        const hit = await ornull(() => this.shared.sdk.CheckAutomatedSecurityFix()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('check_automated_security_fix', plain(hit)))
+      }
+
+      need_check_automated_security_fix_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.CheckAutomatedSecurityFix().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('check_automated_security_fix', plain(res)))
+    }
+
+
+  entity.check_run.cmd.load.action =
+    async function load_check_run(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_run', 'load')
+        const hit = await ornull(() => this.shared.sdk.CheckRun()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_check_run_owner(q.owner, 'load')
+      need_check_run_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CheckRun().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.check_run.cmd.save.action =
+    async function save_check_run(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_run', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CheckRun()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_check_run_owner(data.owner, 'save')
+      need_check_run_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.CheckRun().create(data)
+        : await sdk.CheckRun().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.check_suite.cmd.load.action =
+    async function load_check_suite(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_suite', 'load')
+        const hit = await ornull(() => this.shared.sdk.CheckSuite()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_check_suite_owner(q.owner, 'load')
+      need_check_suite_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CheckSuite().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.check_suite.cmd.save.action =
+    async function save_check_suite(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_suite', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CheckSuite()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_check_suite_owner(data.owner, 'save')
+      need_check_suite_repo(data.repo, 'save')
+      const res = await sdk.CheckSuite().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.check_suite_preference.cmd.save.action =
+    async function save_check_suite_preference(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a check_suite_preference by `repo`; Seneca carries it as `id`.
+      if (null == data.repo && null != data.id) {
+        data.repo = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'check_suite_preference', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CheckSuitePreference()[op$](data)
+        return entize(joinid('check_suite_preference', plain(done)))
+      }
+
+      need_check_suite_preference_owner(data.owner, 'save')
+      const res = await sdk.CheckSuitePreference().update(data)
+
+      return entize(joinid('check_suite_preference', plain(res)))
+    }
+
+
+  entity.classroom.cmd.list.action =
+    async function list_classroom(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'classroom', 'list')
+        const found = await this.shared.sdk.Classroom()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Classroom().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.classroom.cmd.load.action =
+    async function load_classroom(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'classroom', 'load')
+        const hit = await ornull(() => this.shared.sdk.Classroom()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Classroom().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.classroom_accepted_assignment.cmd.list.action =
+    async function list_classroom_accepted_assignment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'classroom_accepted_assignment', 'list')
+        const found = await this.shared.sdk.ClassroomAcceptedAssignment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_classroom_accepted_assignment_assignment_id(q.assignment_id, 'list')
+      const list = await this.shared.sdk.ClassroomAcceptedAssignment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.classroom_assignment.cmd.load.action =
+    async function load_classroom_assignment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'classroom_assignment', 'load')
+        const hit = await ornull(() => this.shared.sdk.ClassroomAssignment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ClassroomAssignment().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.classroom_assignment_grade.cmd.list.action =
+    async function list_classroom_assignment_grade(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'classroom_assignment_grade', 'list')
+        const found = await this.shared.sdk.ClassroomAssignmentGrade()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_classroom_assignment_grade_assignment_id(q.assignment_id, 'list')
+      const list = await this.shared.sdk.ClassroomAssignmentGrade().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.clone.cmd.list.action =
+    async function list_clone(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'clone', 'list')
+        const found = await this.shared.sdk.Clone()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_clone_owner(q.owner, 'list')
+      need_clone_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Clone().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_frequency.cmd.list.action =
+    async function list_code_frequency(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_frequency', 'list')
+        const found = await this.shared.sdk.CodeFrequency()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_frequency_owner(q.owner, 'list')
+      need_code_frequency_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeFrequency().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_frequency_stat.cmd.list.action =
+    async function list_code_frequency_stat(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_frequency_stat', 'list')
+        const found = await this.shared.sdk.CodeFrequencyStat()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_frequency_stat_owner(q.owner, 'list')
+      need_code_frequency_stat_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeFrequencyStat().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_of_conduct.cmd.list.action =
+    async function list_code_of_conduct(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_of_conduct', 'list')
+        const found = await this.shared.sdk.CodeOfConduct()[op$](actionq(msg.q, 'key', action$))
+        return found.map((data: any) => entize(joinid('code_of_conduct', plain(data))))
+      }
+
+      const list = await this.shared.sdk.CodeOfConduct().list(q)
+      return list.map((data: any) => entize(joinid('code_of_conduct', plain(data))))
+    }
+
+
+  entity.code_of_conduct.cmd.load.action =
+    async function load_code_of_conduct(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_of_conduct', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeOfConduct()[op$](actionq(msg.q, 'key', action$)))
+        return null == hit ? null : entize(joinid('code_of_conduct', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.CodeOfConduct().load({ key: q.id }))
+      return null == res ? null : entize(joinid('code_of_conduct', plain(res)))
+    }
+
+
+  entity.code_scanning.cmd.save.action =
+    async function save_code_scanning(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a code_scanning by `language`; Seneca carries it as `id`.
+      if (null == data.language && null != data.id) {
+        data.language = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeScanning()[op$](data)
+        return entize(joinid('code_scanning', plain(done)))
+      }
+
+      need_code_scanning_owner(data.owner, 'save')
+      need_code_scanning_repo(data.repo, 'save')
+      const res = await sdk.CodeScanning().create(data)
+
+      return entize(joinid('code_scanning', plain(res)))
+    }
+
+
+  entity.code_scanning.cmd.remove.action =
+    async function remove_code_scanning(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning', 'remove')
+        const gone = await ornull(() => this.shared.sdk.CodeScanning()[op$](actionq(msg.q, 'language', action$)))
+        return null == gone ? null : entize(joinid('code_scanning', plain(gone)))
+      }
+
+      need_code_scanning_owner(q.owner, 'remove')
+      need_code_scanning_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.CodeScanning().remove({ language: q.id, owner: q.owner, repo: q.repo }))
+      return null
+    }
+
+
+  entity.code_scanning_alert.cmd.load.action =
+    async function load_code_scanning_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_alert', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningAlert()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_code_scanning_alert_owner(q.owner, 'load')
+      need_code_scanning_alert_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningAlert().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.code_scanning_alert.cmd.save.action =
+    async function save_code_scanning_alert(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_alert', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeScanningAlert()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_code_scanning_alert_owner(data.owner, 'save')
+      need_code_scanning_alert_repo(data.repo, 'save')
+      const res = await sdk.CodeScanningAlert().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.code_scanning_alert_instance.cmd.list.action =
+    async function list_code_scanning_alert_instance(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_alert_instance', 'list')
+        const found = await this.shared.sdk.CodeScanningAlertInstance()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_scanning_alert_instance_alert_number(q.alert_number, 'list')
+      need_code_scanning_alert_instance_owner(q.owner, 'list')
+      need_code_scanning_alert_instance_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeScanningAlertInstance().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_scanning_alert_item.cmd.list.action =
+    async function list_code_scanning_alert_item(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_alert_item', 'list')
+        const found = await this.shared.sdk.CodeScanningAlertItem()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_scanning_alert_item_owner(q.owner, 'list')
+      need_code_scanning_alert_item_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeScanningAlertItem().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_scanning_analysi.cmd.list.action =
+    async function list_code_scanning_analysi(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_analysi', 'list')
+        const found = await this.shared.sdk.CodeScanningAnalysi()[op$](actionq(msg.q, 'analysis_id', action$))
+        return found.map((data: any) => entize(joinid('code_scanning_analysi', plain(data))))
+      }
+
+      need_code_scanning_analysi_owner(q.owner, 'list')
+      need_code_scanning_analysi_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeScanningAnalysi().list(q)
+      return list.map((data: any) => entize(joinid('code_scanning_analysi', plain(data))))
+    }
+
+
+  entity.code_scanning_analysi.cmd.load.action =
+    async function load_code_scanning_analysi(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_analysi', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningAnalysi()[op$](actionq(msg.q, 'analysis_id', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_analysi', plain(hit)))
+      }
+
+      need_code_scanning_analysi_owner(q.owner, 'load')
+      need_code_scanning_analysi_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningAnalysi().load({ analysis_id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('code_scanning_analysi', plain(res)))
+    }
+
+
+  entity.code_scanning_analysis_deletion.cmd.remove.action =
+    async function remove_code_scanning_analysis_deletion(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_analysis_deletion', 'remove')
+        const gone = await ornull(() => this.shared.sdk.CodeScanningAnalysisDeletion()[op$](actionq(msg.q, 'analysis_id', action$)))
+        return null == gone ? null : entize(joinid('code_scanning_analysis_deletion', plain(gone)))
+      }
+
+      need_code_scanning_analysis_deletion_owner(q.owner, 'remove')
+      need_code_scanning_analysis_deletion_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.CodeScanningAnalysisDeletion().remove({ analysis_id: q.id, owner: q.owner, repo: q.repo }))
+      return null
+    }
+
+
+  entity.code_scanning_autofix.cmd.load.action =
+    async function load_code_scanning_autofix(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_autofix', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningAutofix()[op$](actionq(msg.q, 'alert_number', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_autofix', plain(hit)))
+      }
+
+      need_code_scanning_autofix_owner(q.owner, 'load')
+      need_code_scanning_autofix_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningAutofix().load({ alert_number: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('code_scanning_autofix', plain(res)))
+    }
+
+
+  entity.code_scanning_autofix.cmd.save.action =
+    async function save_code_scanning_autofix(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a code_scanning_autofix by `alert_number`; Seneca carries it as `id`.
+      if (null == data.alert_number && null != data.id) {
+        data.alert_number = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_autofix', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeScanningAutofix()[op$](data)
+        return entize(joinid('code_scanning_autofix', plain(done)))
+      }
+
+      need_code_scanning_autofix_owner(data.owner, 'save')
+      need_code_scanning_autofix_repo(data.repo, 'save')
+      const res = await sdk.CodeScanningAutofix().create(data)
+
+      return entize(joinid('code_scanning_autofix', plain(res)))
+    }
+
+
+  entity.code_scanning_autofix_commit.cmd.save.action =
+    async function save_code_scanning_autofix_commit(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_autofix_commit', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeScanningAutofixCommit()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_code_scanning_autofix_commit_alert_id(data.alert_id, 'save')
+      need_code_scanning_autofix_commit_owner(data.owner, 'save')
+      need_code_scanning_autofix_commit_repo(data.repo, 'save')
+      const res = await sdk.CodeScanningAutofixCommit().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.code_scanning_codeql_database.cmd.list.action =
+    async function list_code_scanning_codeql_database(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_codeql_database', 'list')
+        const found = await this.shared.sdk.CodeScanningCodeqlDatabase()[op$](actionq(msg.q, 'language', action$))
+        return found.map((data: any) => entize(joinid('code_scanning_codeql_database', plain(data))))
+      }
+
+      need_code_scanning_codeql_database_owner(q.owner, 'list')
+      need_code_scanning_codeql_database_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeScanningCodeqlDatabase().list(q)
+      return list.map((data: any) => entize(joinid('code_scanning_codeql_database', plain(data))))
+    }
+
+
+  entity.code_scanning_codeql_database.cmd.load.action =
+    async function load_code_scanning_codeql_database(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_codeql_database', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningCodeqlDatabase()[op$](actionq(msg.q, 'language', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_codeql_database', plain(hit)))
+      }
+
+      need_code_scanning_codeql_database_owner(q.owner, 'load')
+      need_code_scanning_codeql_database_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningCodeqlDatabase().load({ language: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('code_scanning_codeql_database', plain(res)))
+    }
+
+
+  entity.code_scanning_default_setup.cmd.list.action =
+    async function list_code_scanning_default_setup(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_default_setup', 'list')
+        const found = await this.shared.sdk.CodeScanningDefaultSetup()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_scanning_default_setup_owner(q.owner, 'list')
+      need_code_scanning_default_setup_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeScanningDefaultSetup().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_scanning_organization_alert_item.cmd.list.action =
+    async function list_code_scanning_organization_alert_item(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_organization_alert_item', 'list')
+        const found = await this.shared.sdk.CodeScanningOrganizationAlertItem()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_scanning_organization_alert_item_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.CodeScanningOrganizationAlertItem().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_scanning_sarifs_status.cmd.load.action =
+    async function load_code_scanning_sarifs_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_sarifs_status', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningSarifsStatus()[op$](actionq(msg.q, 'sarif_id', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_sarifs_status', plain(hit)))
+      }
+
+      need_code_scanning_sarifs_status_owner(q.owner, 'load')
+      need_code_scanning_sarifs_status_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningSarifsStatus().load({ owner: q.owner, repo: q.repo, sarif_id: q.id }))
+      return null == res ? null : entize(joinid('code_scanning_sarifs_status', plain(res)))
+    }
+
+
+  entity.code_scanning_variant_analysi.cmd.load.action =
+    async function load_code_scanning_variant_analysi(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_variant_analysi', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningVariantAnalysi()[op$](actionq(msg.q, 'codeql_variant_analysis_id', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_variant_analysi', plain(hit)))
+      }
+
+      need_code_scanning_variant_analysi_owner(q.owner, 'load')
+      need_code_scanning_variant_analysi_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningVariantAnalysi().load({ codeql_variant_analysis_id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('code_scanning_variant_analysi', plain(res)))
+    }
+
+
+  entity.code_scanning_variant_analysi.cmd.save.action =
+    async function save_code_scanning_variant_analysi(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a code_scanning_variant_analysi by `codeql_variant_analysis_id`; Seneca carries it as `id`.
+      if (null == data.codeql_variant_analysis_id && null != data.id) {
+        data.codeql_variant_analysis_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_variant_analysi', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeScanningVariantAnalysi()[op$](data)
+        return entize(joinid('code_scanning_variant_analysi', plain(done)))
+      }
+
+      need_code_scanning_variant_analysi_owner(data.owner, 'save')
+      need_code_scanning_variant_analysi_repo(data.repo, 'save')
+      const res = await sdk.CodeScanningVariantAnalysi().create(data)
+
+      return entize(joinid('code_scanning_variant_analysi', plain(res)))
+    }
+
+
+  entity.code_scanning_variant_analysis_repo_task.cmd.load.action =
+    async function load_code_scanning_variant_analysis_repo_task(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_scanning_variant_analysis_repo_task', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeScanningVariantAnalysisRepoTask()[op$](actionq(msg.q, 'repo_name', action$)))
+        return null == hit ? null : entize(joinid('code_scanning_variant_analysis_repo_task', plain(hit)))
+      }
+
+      need_code_scanning_variant_analysis_repo_task_codeql_variant_analysis_id(q.codeql_variant_analysis_id, 'load')
+      need_code_scanning_variant_analysis_repo_task_owner(q.owner, 'load')
+      need_code_scanning_variant_analysis_repo_task_repo(q.repo, 'load')
+      const key = splitid('code_scanning_variant_analysis_repo_task', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeScanningVariantAnalysisRepoTask().load({ codeql_variant_analysis_id: q.codeql_variant_analysis_id, owner: q.owner, repo: q.repo, repo_name: key.repo_name, repo_owner: key.repo_owner }))
+      return null == res ? null : entize(joinid('code_scanning_variant_analysis_repo_task', plain(res), key))
+    }
+
+
+  entity.code_security.cmd.save.action =
+    async function save_code_security(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a code_security by `configuration_id`; Seneca carries it as `id`.
+      if (null == data.configuration_id && null != data.id) {
+        data.configuration_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeSecurity()[op$](data)
+        return entize(joinid('code_security', plain(done)))
+      }
+
+      const res = await sdk.CodeSecurity().update(data)
+
+      return entize(joinid('code_security', plain(res)))
+    }
+
+
+  entity.code_security.cmd.remove.action =
+    async function remove_code_security(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security', 'remove')
+        const gone = await ornull(() => this.shared.sdk.CodeSecurity()[op$](actionq(msg.q, 'configuration_id', action$)))
+        return null == gone ? null : entize(joinid('code_security', plain(gone)))
+      }
+
+      need_code_security_enterprise(q.enterprise, 'remove')
+      await ornull(() => this.shared.sdk.CodeSecurity().remove({ configuration_id: q.id, enterprise: q.enterprise }))
+      return null
+    }
+
+
+  entity.code_security_configuration.cmd.list.action =
+    async function list_code_security_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security_configuration', 'list')
+        const found = await this.shared.sdk.CodeSecurityConfiguration()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_security_configuration_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.CodeSecurityConfiguration().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_security_configuration.cmd.load.action =
+    async function load_code_security_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security_configuration', 'load')
+        const hit = await ornull(() => this.shared.sdk.CodeSecurityConfiguration()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_code_security_configuration_enterprise(q.enterprise, 'load')
+      const res = await ornull(() => this.shared.sdk.CodeSecurityConfiguration().load({ id: q.id, enterprise: q.enterprise }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.code_security_configuration.cmd.save.action =
+    async function save_code_security_configuration(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security_configuration', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CodeSecurityConfiguration()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_code_security_configuration_enterprise(data.enterprise, 'save')
+      const res = null == data.id
+        ? await sdk.CodeSecurityConfiguration().create(data)
+        : await sdk.CodeSecurityConfiguration().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.code_security_configuration_repository.cmd.list.action =
+    async function list_code_security_configuration_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security_configuration_repository', 'list')
+        const found = await this.shared.sdk.CodeSecurityConfigurationRepository()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_security_configuration_repository_configuration_id(q.configuration_id, 'list')
+      const list = await this.shared.sdk.CodeSecurityConfigurationRepository().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.code_security_default_configuration.cmd.list.action =
+    async function list_code_security_default_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'code_security_default_configuration', 'list')
+        const found = await this.shared.sdk.CodeSecurityDefaultConfiguration()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_code_security_default_configuration_enterprise(q.enterprise, 'list')
+      const list = await this.shared.sdk.CodeSecurityDefaultConfiguration().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.codeowners_error.cmd.list.action =
+    async function list_codeowners_error(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'codeowners_error', 'list')
+        const found = await this.shared.sdk.CodeownersError()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_codeowners_error_owner(q.owner, 'list')
+      need_codeowners_error_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CodeownersError().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.codespace.cmd.list.action =
+    async function list_codespace(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'codespace', 'list')
+        const found = await this.shared.sdk.Codespace()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Codespace().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.codespace.cmd.load.action =
+    async function load_codespace(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'codespace', 'load')
+        const hit = await ornull(() => this.shared.sdk.Codespace()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Codespace().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.codespace.cmd.save.action =
+    async function save_codespace(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'codespace', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Codespace()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_codespace_secret_name(data.secret_name, 'save')
+      const res = null == data.id
+        ? await sdk.Codespace().create(data)
+        : await sdk.Codespace().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.codespace.cmd.remove.action =
+    async function remove_codespace(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'codespace', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Codespace()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Codespace().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.collaborator.cmd.list.action =
+    async function list_collaborator(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'collaborator', 'list')
+        const found = await this.shared.sdk.Collaborator()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_collaborator_project_id(q.project_id, 'list')
+      const list = await this.shared.sdk.Collaborator().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.combined_billing_usage.cmd.load.action =
+    async function load_combined_billing_usage(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'combined_billing_usage', 'load')
+        const hit = await ornull(() => this.shared.sdk.CombinedBillingUsage()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('combined_billing_usage', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.CombinedBillingUsage().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('combined_billing_usage', plain(res)))
+    }
+
+
+  entity.combined_commit_status.cmd.list.action =
+    async function list_combined_commit_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'combined_commit_status', 'list')
+        const found = await this.shared.sdk.CombinedCommitStatus()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_combined_commit_status_owner(q.owner, 'list')
+      need_combined_commit_status_ref(q.ref, 'list')
+      need_combined_commit_status_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CombinedCommitStatus().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.commit.cmd.list.action =
+    async function list_commit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit', 'list')
+        const found = await this.shared.sdk.Commit()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_commit_owner(q.owner, 'list')
+      need_commit_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Commit().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.commit.cmd.load.action =
+    async function load_commit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit', 'load')
+        const hit = await ornull(() => this.shared.sdk.Commit()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_commit_owner(q.owner, 'load')
+      need_commit_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Commit().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.commit.cmd.save.action =
+    async function save_commit(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Commit()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_commit_owner(data.owner, 'save')
+      need_commit_repo(data.repo, 'save')
+      const res = await sdk.Commit().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.commit_activity.cmd.list.action =
+    async function list_commit_activity(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit_activity', 'list')
+        const found = await this.shared.sdk.CommitActivity()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_commit_activity_owner(q.owner, 'list')
+      need_commit_activity_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CommitActivity().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.commit_comment.cmd.list.action =
+    async function list_commit_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit_comment', 'list')
+        const found = await this.shared.sdk.CommitComment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_commit_comment_owner(q.owner, 'list')
+      need_commit_comment_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CommitComment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.commit_comment.cmd.load.action =
+    async function load_commit_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit_comment', 'load')
+        const hit = await ornull(() => this.shared.sdk.CommitComment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_commit_comment_owner(q.owner, 'load')
+      need_commit_comment_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CommitComment().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.commit_comment.cmd.save.action =
+    async function save_commit_comment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit_comment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CommitComment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_commit_comment_commit_sha(data.commit_sha, 'save')
+      need_commit_comment_owner(data.owner, 'save')
+      need_commit_comment_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.CommitComment().create(data)
+        : await sdk.CommitComment().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.commit_comparison.cmd.load.action =
+    async function load_commit_comparison(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'commit_comparison', 'load')
+        const hit = await ornull(() => this.shared.sdk.CommitComparison()[op$](actionq(msg.q, 'basehead', action$)))
+        return null == hit ? null : entize(joinid('commit_comparison', plain(hit)))
+      }
+
+      need_commit_comparison_owner(q.owner, 'load')
+      need_commit_comparison_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.CommitComparison().load({ basehead: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('commit_comparison', plain(res)))
+    }
+
+
+  entity.community_profile.cmd.load.action =
+    async function load_community_profile(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'community_profile', 'load')
+        const hit = await ornull(() => this.shared.sdk.CommunityProfile()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('community_profile', plain(hit)))
+      }
+
+      need_community_profile_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.CommunityProfile().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('community_profile', plain(res)))
+    }
+
+
+  entity.content_file.cmd.load.action =
+    async function load_content_file(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'content_file', 'load')
+        const hit = await ornull(() => this.shared.sdk.ContentFile()[op$](actionq(msg.q, 'dir', action$)))
+        return null == hit ? null : entize(joinid('content_file', plain(hit)))
+      }
+
+      need_content_file_owner(q.owner, 'load')
+      need_content_file_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ContentFile().load({ owner: q.owner, repo: q.repo, dir: q.id }))
+      return null == res ? null : entize(joinid('content_file', plain(res)))
+    }
+
+
+  entity.content_traffic.cmd.list.action =
+    async function list_content_traffic(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'content_traffic', 'list')
+        const found = await this.shared.sdk.ContentTraffic()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_content_traffic_owner(q.owner, 'list')
+      need_content_traffic_repo(q.repo, 'list')
+      const list = await this.shared.sdk.ContentTraffic().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.contributor.cmd.list.action =
+    async function list_contributor(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'contributor', 'list')
+        const found = await this.shared.sdk.Contributor()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_contributor_owner(q.owner, 'list')
+      need_contributor_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Contributor().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.copilot.cmd.list.action =
+    async function list_copilot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot', 'list')
+        const found = await this.shared.sdk.Copilot()[op$](actionq(msg.q, 'username', action$))
+        return found.map((data: any) => entize(joinid('copilot', plain(data))))
+      }
+
+      need_copilot_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.Copilot().list(q)
+      return list.map((data: any) => entize(joinid('copilot', plain(data))))
+    }
+
+
+  entity.copilot.cmd.load.action =
+    async function load_copilot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot', 'load')
+        const hit = await ornull(() => this.shared.sdk.Copilot()[op$](actionq(msg.q, 'username', action$)))
+        return null == hit ? null : entize(joinid('copilot', plain(hit)))
+      }
+
+      need_copilot_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.Copilot().load({ org_id: q.org_id, username: q.id }))
+      return null == res ? null : entize(joinid('copilot', plain(res)))
+    }
+
+
+  entity.copilot.cmd.save.action =
+    async function save_copilot(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a copilot by `username`; Seneca carries it as `id`.
+      if (null == data.username && null != data.id) {
+        data.username = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Copilot()[op$](data)
+        return entize(joinid('copilot', plain(done)))
+      }
+
+      need_copilot_org_id(data.org_id, 'save')
+      const res = await sdk.Copilot().create(data)
+
+      return entize(joinid('copilot', plain(res)))
+    }
+
+
+  entity.copilot.cmd.remove.action =
+    async function remove_copilot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Copilot()[op$](actionq(msg.q, 'username', action$)))
+        return null == gone ? null : entize(joinid('copilot', plain(gone)))
+      }
+
+      misaddressed('copilot', 'remove', 'username', ['org_id'])
+      return null
+    }
+
+
+  entity.copilot_organization_detail.cmd.load.action =
+    async function load_copilot_organization_detail(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot_organization_detail', 'load')
+        const hit = await ornull(() => this.shared.sdk.CopilotOrganizationDetail()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('copilot_organization_detail', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.CopilotOrganizationDetail().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('copilot_organization_detail', plain(res)))
+    }
+
+
+  entity.copilot_usage_metrics_day.cmd.list.action =
+    async function list_copilot_usage_metrics_day(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'copilot_usage_metrics_day', 'list')
+        const found = await this.shared.sdk.CopilotUsageMetricsDay()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_copilot_usage_metrics_day_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.CopilotUsageMetricsDay().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.credential.cmd.save.action =
+    async function save_credential(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'credential', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Credential()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.Credential().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.custom_property.cmd.list.action =
+    async function list_custom_property(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'custom_property', 'list')
+        const found = await this.shared.sdk.CustomProperty()[op$](actionq(msg.q, 'custom_property_name', action$))
+        return found.map((data: any) => entize(joinid('custom_property', plain(data))))
+      }
+
+      need_custom_property_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.CustomProperty().list(q)
+      return list.map((data: any) => entize(joinid('custom_property', plain(data))))
+    }
+
+
+  entity.custom_property.cmd.load.action =
+    async function load_custom_property(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'custom_property', 'load')
+        const hit = await ornull(() => this.shared.sdk.CustomProperty()[op$](actionq(msg.q, 'custom_property_name', action$)))
+        return null == hit ? null : entize(joinid('custom_property', plain(hit)))
+      }
+
+      need_custom_property_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.CustomProperty().load({ custom_property_name: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(joinid('custom_property', plain(res)))
+    }
+
+
+  entity.custom_property.cmd.save.action =
+    async function save_custom_property(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a custom_property by `custom_property_name`; Seneca carries it as `id`.
+      if (null == data.custom_property_name && null != data.id) {
+        data.custom_property_name = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'custom_property', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.CustomProperty()[op$](data)
+        return entize(joinid('custom_property', plain(done)))
+      }
+
+      need_custom_property_org_id(data.org_id, 'save')
+      const res = await sdk.CustomProperty().update(data)
+
+      return entize(joinid('custom_property', plain(res)))
+    }
+
+
+  entity.custom_property_value.cmd.list.action =
+    async function list_custom_property_value(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'custom_property_value', 'list')
+        const found = await this.shared.sdk.CustomPropertyValue()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_custom_property_value_owner(q.owner, 'list')
+      need_custom_property_value_repo(q.repo, 'list')
+      const list = await this.shared.sdk.CustomPropertyValue().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.dependabot.cmd.list.action =
+    async function list_dependabot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot', 'list')
+        const found = await this.shared.sdk.Dependabot()[op$](actionq(msg.q, 'secret_name', action$))
+        return found.map((data: any) => entize(joinid('dependabot', plain(data))))
+      }
+
+      const list = await this.shared.sdk.Dependabot().list(q)
+      return list.map((data: any) => entize(joinid('dependabot', plain(data))))
+    }
+
+
+  entity.dependabot.cmd.save.action =
+    async function save_dependabot(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a dependabot by `secret_name`; Seneca carries it as `id`.
+      if (null == data.secret_name && null != data.id) {
+        data.secret_name = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Dependabot()[op$](data)
+        return entize(joinid('dependabot', plain(done)))
+      }
+
+      need_dependabot_org_id(data.org_id, 'save')
+      need_dependabot_repository_id(data.repository_id, 'save')
+      need_dependabot_secret_id(data.secret_id, 'save')
+      misaddressed('dependabot', 'update', 'secret_name', ['org_id', 'repository_id', 'secret_id'])
+      const res = await sdk.Dependabot().update(data)
+
+      return entize(joinid('dependabot', plain(res)))
+    }
+
+
+  entity.dependabot.cmd.remove.action =
+    async function remove_dependabot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Dependabot()[op$](actionq(msg.q, 'secret_name', action$)))
+        return null == gone ? null : entize(joinid('dependabot', plain(gone)))
+      }
+
+      need_dependabot_org_id(q.org_id, 'remove')
+      await ornull(() => this.shared.sdk.Dependabot().remove({ org_id: q.org_id, secret_name: q.id }))
+      return null
+    }
+
+
+  entity.dependabot_alert.cmd.list.action =
+    async function list_dependabot_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_alert', 'list')
+        const found = await this.shared.sdk.DependabotAlert()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_dependabot_alert_owner(q.owner, 'list')
+      need_dependabot_alert_repo(q.repo, 'list')
+      const list = await this.shared.sdk.DependabotAlert().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.dependabot_alert.cmd.load.action =
+    async function load_dependabot_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_alert', 'load')
+        const hit = await ornull(() => this.shared.sdk.DependabotAlert()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_dependabot_alert_owner(q.owner, 'load')
+      need_dependabot_alert_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DependabotAlert().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.dependabot_alert.cmd.save.action =
+    async function save_dependabot_alert(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_alert', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DependabotAlert()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_dependabot_alert_owner(data.owner, 'save')
+      need_dependabot_alert_repo(data.repo, 'save')
+      const res = await sdk.DependabotAlert().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.dependabot_alert_with_repository.cmd.list.action =
+    async function list_dependabot_alert_with_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_alert_with_repository', 'list')
+        const found = await this.shared.sdk.DependabotAlertWithRepository()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_dependabot_alert_with_repository_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.DependabotAlertWithRepository().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.dependabot_public_key.cmd.load.action =
+    async function load_dependabot_public_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_public_key', 'load')
+        const hit = await ornull(() => this.shared.sdk.DependabotPublicKey()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('dependabot_public_key', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.DependabotPublicKey().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('dependabot_public_key', plain(res)))
+    }
+
+
+  entity.dependabot_repository_access_detail.cmd.list.action =
+    async function list_dependabot_repository_access_detail(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_repository_access_detail', 'list')
+        const found = await this.shared.sdk.DependabotRepositoryAccessDetail()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_dependabot_repository_access_detail_org(q.org, 'list')
+      const list = await this.shared.sdk.DependabotRepositoryAccessDetail().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.dependabot_secret.cmd.load.action =
+    async function load_dependabot_secret(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependabot_secret', 'load')
+        const hit = await ornull(() => this.shared.sdk.DependabotSecret()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_dependabot_secret_owner(q.owner, 'load')
+      need_dependabot_secret_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DependabotSecret().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.dependency_graph.cmd.save.action =
+    async function save_dependency_graph(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependency_graph', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DependencyGraph()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_dependency_graph_owner(data.owner, 'save')
+      need_dependency_graph_repo(data.repo, 'save')
+      const res = await sdk.DependencyGraph().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.dependency_graph_diff.cmd.load.action =
+    async function load_dependency_graph_diff(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependency_graph_diff', 'load')
+        const hit = await ornull(() => this.shared.sdk.DependencyGraphDiff()[op$](actionq(msg.q, 'basehead', action$)))
+        return null == hit ? null : entize(joinid('dependency_graph_diff', plain(hit)))
+      }
+
+      need_dependency_graph_diff_owner(q.owner, 'load')
+      need_dependency_graph_diff_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DependencyGraphDiff().load({ basehead: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('dependency_graph_diff', plain(res)))
+    }
+
+
+  entity.dependency_graph_spdx_sbom.cmd.load.action =
+    async function load_dependency_graph_spdx_sbom(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'dependency_graph_spdx_sbom', 'load')
+        const hit = await ornull(() => this.shared.sdk.DependencyGraphSpdxSbom()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('dependency_graph_spdx_sbom', plain(hit)))
+      }
+
+      need_dependency_graph_spdx_sbom_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.DependencyGraphSpdxSbom().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('dependency_graph_spdx_sbom', plain(res)))
+    }
+
+
+  entity.deploy_key.cmd.list.action =
+    async function list_deploy_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deploy_key', 'list')
+        const found = await this.shared.sdk.DeployKey()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_deploy_key_owner(q.owner, 'list')
+      need_deploy_key_repo(q.repo, 'list')
+      const list = await this.shared.sdk.DeployKey().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.deploy_key.cmd.load.action =
+    async function load_deploy_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deploy_key', 'load')
+        const hit = await ornull(() => this.shared.sdk.DeployKey()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_deploy_key_owner(q.owner, 'load')
+      need_deploy_key_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DeployKey().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.deploy_key.cmd.save.action =
+    async function save_deploy_key(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deploy_key', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DeployKey()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_deploy_key_owner(data.owner, 'save')
+      need_deploy_key_repo(data.repo, 'save')
+      const res = await sdk.DeployKey().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.deployment.cmd.list.action =
+    async function list_deployment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment', 'list')
+        const found = await this.shared.sdk.Deployment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_deployment_owner(q.owner, 'list')
+      need_deployment_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Deployment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.deployment.cmd.load.action =
+    async function load_deployment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment', 'load')
+        const hit = await ornull(() => this.shared.sdk.Deployment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_deployment_owner(q.owner, 'load')
+      need_deployment_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Deployment().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.deployment.cmd.save.action =
+    async function save_deployment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Deployment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_deployment_owner(data.owner, 'save')
+      need_deployment_repo(data.repo, 'save')
+      const res = await sdk.Deployment().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.deployment_branch_policy.cmd.load.action =
+    async function load_deployment_branch_policy(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_branch_policy', 'load')
+        const hit = await ornull(() => this.shared.sdk.DeploymentBranchPolicy()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_deployment_branch_policy_environment_id(q.environment_id, 'load')
+      need_deployment_branch_policy_owner(q.owner, 'load')
+      need_deployment_branch_policy_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DeploymentBranchPolicy().load({ id: q.id, environment_id: q.environment_id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.deployment_branch_policy.cmd.save.action =
+    async function save_deployment_branch_policy(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_branch_policy', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DeploymentBranchPolicy()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_deployment_branch_policy_environment_id(data.environment_id, 'save')
+      need_deployment_branch_policy_environment_name(data.environment_name, 'save')
+      need_deployment_branch_policy_owner(data.owner, 'save')
+      need_deployment_branch_policy_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.DeploymentBranchPolicy().create(data)
+        : await sdk.DeploymentBranchPolicy().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.deployment_protection_rule.cmd.load.action =
+    async function load_deployment_protection_rule(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_protection_rule', 'load')
+        const hit = await ornull(() => this.shared.sdk.DeploymentProtectionRule()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_deployment_protection_rule_environment_id(q.environment_id, 'load')
+      need_deployment_protection_rule_owner(q.owner, 'load')
+      need_deployment_protection_rule_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DeploymentProtectionRule().load({ id: q.id, environment_id: q.environment_id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.deployment_protection_rule.cmd.save.action =
+    async function save_deployment_protection_rule(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_protection_rule', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DeploymentProtectionRule()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_deployment_protection_rule_environment_name(data.environment_name, 'save')
+      need_deployment_protection_rule_owner(data.owner, 'save')
+      need_deployment_protection_rule_repo(data.repo, 'save')
+      const res = await sdk.DeploymentProtectionRule().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.deployment_status.cmd.list.action =
+    async function list_deployment_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_status', 'list')
+        const found = await this.shared.sdk.DeploymentStatus()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_deployment_status_owner(q.owner, 'list')
+      need_deployment_status_repo(q.repo, 'list')
+      const list = await this.shared.sdk.DeploymentStatus().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.deployment_status.cmd.load.action =
+    async function load_deployment_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_status', 'load')
+        const hit = await ornull(() => this.shared.sdk.DeploymentStatus()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_deployment_status_deployment_id(q.deployment_id, 'load')
+      need_deployment_status_owner(q.owner, 'load')
+      need_deployment_status_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.DeploymentStatus().load({ id: q.id, deployment_id: q.deployment_id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.deployment_status.cmd.save.action =
+    async function save_deployment_status(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'deployment_status', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.DeploymentStatus()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_deployment_status_owner(data.owner, 'save')
+      need_deployment_status_repo(data.repo, 'save')
+      const res = await sdk.DeploymentStatus().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.diff_entry.cmd.list.action =
+    async function list_diff_entry(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'diff_entry', 'list')
+        const found = await this.shared.sdk.DiffEntry()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_diff_entry_owner(q.owner, 'list')
+      need_diff_entry_pull_number(q.pull_number, 'list')
+      need_diff_entry_repo(q.repo, 'list')
+      const list = await this.shared.sdk.DiffEntry().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.email.cmd.list.action =
+    async function list_email(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'email', 'list')
+        const found = await this.shared.sdk.Email()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Email().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.email.cmd.save.action =
+    async function save_email(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'email', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Email()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = null == data.id
+        ? await sdk.Email().create(data)
+        : await sdk.Email().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.emoji.cmd.load.action =
+    async function load_emoji(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'emoji', 'load')
+        const hit = await ornull(() => this.shared.sdk.Emoji()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Emoji().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.empty_object.cmd.load.action =
+    async function load_empty_object(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'empty_object', 'load')
+        const hit = await ornull(() => this.shared.sdk.EmptyObject()[op$](actionq(msg.q, 'subject_digest', action$)))
+        return null == hit ? null : entize(joinid('empty_object', plain(hit)))
+      }
+
+      need_empty_object_username(q.username, 'load')
+      const res = await ornull(() => this.shared.sdk.EmptyObject().load({ subject_digest: q.id, username: q.username }))
+      return null == res ? null : entize(joinid('empty_object', plain(res)))
+    }
+
+
+  entity.empty_object.cmd.save.action =
+    async function save_empty_object(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a empty_object by `subject_digest`; Seneca carries it as `id`.
+      if (null == data.subject_digest && null != data.id) {
+        data.subject_digest = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'empty_object', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.EmptyObject()[op$](data)
+        return entize(joinid('empty_object', plain(done)))
+      }
+
+      need_empty_object_org_id(data.org_id, 'save')
+      need_empty_object_secret_name(data.secret_name, 'save')
+      if (null != data.id) {
+        misaddressed('empty_object', 'update', 'subject_digest', ['org_id', 'secret_name'])
+      }
+
+      const res = await sdk.EmptyObject().create(data)
+
+      return entize(joinid('empty_object', plain(res)))
+    }
+
+
+  entity.enterprise_team.cmd.list.action =
+    async function list_enterprise_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'enterprise_team', 'list')
+        const found = await this.shared.sdk.EnterpriseTeam()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_enterprise_team_enterprise(q.enterprise, 'list')
+      const list = await this.shared.sdk.EnterpriseTeam().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.enterprise_team.cmd.load.action =
+    async function load_enterprise_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'enterprise_team', 'load')
+        const hit = await ornull(() => this.shared.sdk.EnterpriseTeam()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_enterprise_team_enterprise(q.enterprise, 'load')
+      const res = await ornull(() => this.shared.sdk.EnterpriseTeam().load({ id: q.id, enterprise: q.enterprise }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.enterprise_team.cmd.save.action =
+    async function save_enterprise_team(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'enterprise_team', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.EnterpriseTeam()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_enterprise_team_enterprise(data.enterprise, 'save')
+      const res = null == data.id
+        ? await sdk.EnterpriseTeam().create(data)
+        : await sdk.EnterpriseTeam().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.enterprise_team.cmd.remove.action =
+    async function remove_enterprise_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'enterprise_team', 'remove')
+        const gone = await ornull(() => this.shared.sdk.EnterpriseTeam()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      need_enterprise_team_enterprise(q.enterprise, 'remove')
+      await ornull(() => this.shared.sdk.EnterpriseTeam().remove({ id: q.id, enterprise: q.enterprise }))
+      return null
+    }
+
+
+  entity.enterprise_team_membership.cmd.remove.action =
+    async function remove_enterprise_team_membership(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'enterprise_team_membership', 'remove')
+        const gone = await ornull(() => this.shared.sdk.EnterpriseTeamMembership()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      need_enterprise_team_membership_enterprise(q.enterprise, 'remove')
+      need_enterprise_team_membership_team_id(q.team_id, 'remove')
+      await ornull(() => this.shared.sdk.EnterpriseTeamMembership().remove({ enterprise: q.enterprise, id: q.id, team_id: q.team_id }))
+      return null
+    }
+
+
+  entity.environment.cmd.load.action =
+    async function load_environment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'environment', 'load')
+        const hit = await ornull(() => this.shared.sdk.Environment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_environment_owner(q.owner, 'load')
+      need_environment_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Environment().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.environment.cmd.save.action =
+    async function save_environment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'environment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Environment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_environment_owner(data.owner, 'save')
+      need_environment_repo(data.repo, 'save')
+      const res = await sdk.Environment().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.environment_approval.cmd.list.action =
+    async function list_environment_approval(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'environment_approval', 'list')
+        const found = await this.shared.sdk.EnvironmentApproval()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_environment_approval_owner(q.owner, 'list')
+      need_environment_approval_repo(q.repo, 'list')
+      need_environment_approval_run_id(q.run_id, 'list')
+      const list = await this.shared.sdk.EnvironmentApproval().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.event.cmd.list.action =
+    async function list_event(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'event', 'list')
+        const found = await this.shared.sdk.Event()[op$](actionq(msg.q, 'org', action$))
+        return found.map((data: any) => entize(joinid('event', plain(data))))
+      }
+
+      const list = await this.shared.sdk.Event().list(q)
+      return list.map((data: any) => entize(joinid('event', plain(data))))
+    }
+
+
+  entity.event.cmd.load.action =
+    async function load_event(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'event', 'load')
+        const hit = await ornull(() => this.shared.sdk.Event()[op$](actionq(msg.q, 'org', action$)))
+        return null == hit ? null : entize(joinid('event', plain(hit)))
+      }
+
+      need_event_username(q.username, 'load')
+      const res = await ornull(() => this.shared.sdk.Event().load({ org: q.id, username: q.username }))
+      return null == res ? null : entize(joinid('event', plain(res)))
+    }
+
+
+  entity.feed.cmd.list.action =
+    async function list_feed(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'feed', 'list')
+        const found = await this.shared.sdk.Feed()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Feed().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.file_commit.cmd.save.action =
+    async function save_file_commit(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a file_commit by `path`; Seneca carries it as `id`.
+      if (null == data.path && null != data.id) {
+        data.path = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'file_commit', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.FileCommit()[op$](data)
+        return entize(joinid('file_commit', plain(done)))
+      }
+
+      need_file_commit_owner(data.owner, 'save')
+      need_file_commit_repo(data.repo, 'save')
+      const res = await sdk.FileCommit().update(data)
+
+      return entize(joinid('file_commit', plain(res)))
+    }
+
+
+  entity.file_commit.cmd.remove.action =
+    async function remove_file_commit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'file_commit', 'remove')
+        const gone = await ornull(() => this.shared.sdk.FileCommit()[op$](actionq(msg.q, 'path', action$)))
+        return null == gone ? null : entize(joinid('file_commit', plain(gone)))
+      }
+
+      need_file_commit_owner(q.owner, 'remove')
+      need_file_commit_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.FileCommit().remove({ owner: q.owner, path: q.id, repo: q.repo }))
+      return null
+    }
+
+
+  entity.follower.cmd.list.action =
+    async function list_follower(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'follower', 'list')
+        const found = await this.shared.sdk.Follower()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Follower().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.following.cmd.list.action =
+    async function list_following(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'following', 'list')
+        const found = await this.shared.sdk.Following()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Following().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.full_repository.cmd.load.action =
+    async function load_full_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'full_repository', 'load')
+        const hit = await ornull(() => this.shared.sdk.FullRepository()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('full_repository', plain(hit)))
+      }
+
+      const key = splitid('full_repository', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.FullRepository().load({ owner: key.owner, repo: key.repo }))
+      return null == res ? null : entize(joinid('full_repository', plain(res), key))
+    }
+
+
+  entity.full_repository.cmd.save.action =
+    async function save_full_repository(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'full_repository', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.FullRepository()[op$](data)
+        return entize(joinid('full_repository', plain(done)))
+      }
+
+
+      // Seneca carries this full_repository's key as one `id`; the API addresses
+      // the record by `owner` and `repo`.
+      //
+      // THE PARTS GO IN THE ENTITY MATCH, NOT ONTO THE DATA. They are path
+      // parameters, and the data is the request body. Writing them onto the
+      // data is how the flat `owner` the URL needs came to displace
+      // whatever the response carries under that name — for github's repo an
+      // `owner` OBJECT, so a saved record lost the field that identifies
+      // it. The SDK resolves a path parameter from the match ahead of the
+      // body, so passing it here leaves the body exactly as the caller meant
+      // it.
+      //
+      // `key` STAYS NULL ON A CREATE: there is no id yet, the API assigns
+      // the record, and the id is rebuilt from the response instead.
+      let key = null
+      if (null != data.id) {
+        key = splitid('full_repository', data.id, 'save')
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It is
+      // not a field of the API's write schema, so it must not travel in the
+      // request body.
+      delete data.github_id
+
+      // AND NEITHER DOES THE JOINED `id`. It is Seneca's key for this
+      // record, not the API's: a composite full_repository is addressed by
+      // `owner` and `repo`, which travel as path parameters in
+      // the match above. Leaving it on the body sent `owner0/repo0` as a
+      // field the write schema has no place for — and the offline transport,
+      // which matches a request against a stored record, then looked for a
+      // record whose own `id` was that joined string and found none.
+      delete data.id
+      const res = null == data.id
+        ? await sdk.FullRepository(null == key ? undefined : { match: key }).create(data)
+        : await sdk.FullRepository(null == key ? undefined : { match: key }).update(data)
+
+      return entize(joinid('full_repository', plain(res), key))
+    }
+
+
+  entity.gist.cmd.list.action =
+    async function list_gist(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist', 'list')
+        const found = await this.shared.sdk.Gist()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Gist().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.gist.cmd.load.action =
+    async function load_gist(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist', 'load')
+        const hit = await ornull(() => this.shared.sdk.Gist()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Gist().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.gist.cmd.save.action =
+    async function save_gist(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Gist()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = null == data.id
+        ? await sdk.Gist().create(data)
+        : await sdk.Gist().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.gist.cmd.remove.action =
+    async function remove_gist(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Gist()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Gist().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.gist_comment.cmd.list.action =
+    async function list_gist_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist_comment', 'list')
+        const found = await this.shared.sdk.GistComment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.GistComment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.gist_comment.cmd.load.action =
+    async function load_gist_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist_comment', 'load')
+        const hit = await ornull(() => this.shared.sdk.GistComment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_gist_comment_gist_id(q.gist_id, 'load')
+      const res = await ornull(() => this.shared.sdk.GistComment().load({ id: q.id, gist_id: q.gist_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.gist_comment.cmd.save.action =
+    async function save_gist_comment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist_comment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GistComment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_gist_comment_gist_id(data.gist_id, 'save')
+      const res = null == data.id
+        ? await sdk.GistComment().create(data)
+        : await sdk.GistComment().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.gist_commit.cmd.list.action =
+    async function list_gist_commit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist_commit', 'list')
+        const found = await this.shared.sdk.GistCommit()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.GistCommit().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.gist_simple.cmd.list.action =
+    async function list_gist_simple(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gist_simple', 'list')
+        const found = await this.shared.sdk.GistSimple()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.GistSimple().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.git.cmd.remove.action =
+    async function remove_git(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Git()[op$](actionq(msg.q, 'ref', action$)))
+        return null == gone ? null : entize(joinid('git', plain(gone)))
+      }
+
+      need_git_owner(q.owner, 'remove')
+      need_git_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.Git().remove({ owner: q.owner, ref: q.id, repo: q.repo }))
+      return null
+    }
+
+
+  entity.git_commit.cmd.load.action =
+    async function load_git_commit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_commit', 'load')
+        const hit = await ornull(() => this.shared.sdk.GitCommit()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_git_commit_owner(q.owner, 'load')
+      need_git_commit_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.GitCommit().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.git_commit.cmd.save.action =
+    async function save_git_commit(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_commit', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GitCommit()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_git_commit_owner(data.owner, 'save')
+      need_git_commit_repo(data.repo, 'save')
+      const res = await sdk.GitCommit().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.git_ref.cmd.load.action =
+    async function load_git_ref(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_ref', 'load')
+        const hit = await ornull(() => this.shared.sdk.GitRef()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_git_ref_owner(q.owner, 'load')
+      need_git_ref_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.GitRef().load({ owner: q.owner, repo: q.repo, id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.git_ref.cmd.save.action =
+    async function save_git_ref(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_ref', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GitRef()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_git_ref_owner(data.owner, 'save')
+      need_git_ref_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.GitRef().create(data)
+        : await sdk.GitRef().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.git_tag.cmd.load.action =
+    async function load_git_tag(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_tag', 'load')
+        const hit = await ornull(() => this.shared.sdk.GitTag()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_git_tag_owner(q.owner, 'load')
+      need_git_tag_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.GitTag().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.git_tag.cmd.save.action =
+    async function save_git_tag(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_tag', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GitTag()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_git_tag_owner(data.owner, 'save')
+      need_git_tag_repo(data.repo, 'save')
+      const res = await sdk.GitTag().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.git_tree.cmd.load.action =
+    async function load_git_tree(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_tree', 'load')
+        const hit = await ornull(() => this.shared.sdk.GitTree()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_git_tree_owner(q.owner, 'load')
+      need_git_tree_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.GitTree().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.git_tree.cmd.save.action =
+    async function save_git_tree(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'git_tree', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GitTree()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_git_tree_owner(data.owner, 'save')
+      need_git_tree_repo(data.repo, 'save')
+      const res = await sdk.GitTree().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.gitignore.cmd.list.action =
+    async function list_gitignore(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gitignore', 'list')
+        const found = await this.shared.sdk.Gitignore()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Gitignore().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.gitignore_template.cmd.load.action =
+    async function load_gitignore_template(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gitignore_template', 'load')
+        const hit = await ornull(() => this.shared.sdk.GitignoreTemplate()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.GitignoreTemplate().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.global_advisory.cmd.list.action =
+    async function list_global_advisory(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'global_advisory', 'list')
+        const found = await this.shared.sdk.GlobalAdvisory()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.GlobalAdvisory().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.global_advisory.cmd.load.action =
+    async function load_global_advisory(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'global_advisory', 'load')
+        const hit = await ornull(() => this.shared.sdk.GlobalAdvisory()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.GlobalAdvisory().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.gpg_key.cmd.list.action =
+    async function list_gpg_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gpg_key', 'list')
+        const found = await this.shared.sdk.GpgKey()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.GpgKey().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.gpg_key.cmd.load.action =
+    async function load_gpg_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gpg_key', 'load')
+        const hit = await ornull(() => this.shared.sdk.GpgKey()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.GpgKey().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.gpg_key.cmd.save.action =
+    async function save_gpg_key(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'gpg_key', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.GpgKey()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.GpgKey().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.hook.cmd.list.action =
+    async function list_hook(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hook', 'list')
+        const found = await this.shared.sdk.Hook()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_hook_owner(q.owner, 'list')
+      need_hook_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Hook().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.hook.cmd.load.action =
+    async function load_hook(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hook', 'load')
+        const hit = await ornull(() => this.shared.sdk.Hook()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_hook_owner(q.owner, 'load')
+      need_hook_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Hook().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.hook.cmd.save.action =
+    async function save_hook(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hook', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Hook()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_hook_owner(data.owner, 'save')
+      need_hook_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.Hook().create(data)
+        : await sdk.Hook().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.hook_delivery.cmd.load.action =
+    async function load_hook_delivery(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hook_delivery', 'load')
+        const hit = await ornull(() => this.shared.sdk.HookDelivery()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.HookDelivery().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.hook_delivery_item.cmd.list.action =
+    async function list_hook_delivery_item(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hook_delivery_item', 'list')
+        const found = await this.shared.sdk.HookDeliveryItem()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.HookDeliveryItem().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.hosted_compute.cmd.list.action =
+    async function list_hosted_compute(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hosted_compute', 'list')
+        const found = await this.shared.sdk.HostedCompute()[op$](actionq(msg.q, 'network_configuration_id', action$))
+        return found.map((data: any) => entize(joinid('hosted_compute', plain(data))))
+      }
+
+      need_hosted_compute_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.HostedCompute().list(q)
+      return list.map((data: any) => entize(joinid('hosted_compute', plain(data))))
+    }
+
+
+  entity.hosted_compute.cmd.remove.action =
+    async function remove_hosted_compute(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hosted_compute', 'remove')
+        const gone = await ornull(() => this.shared.sdk.HostedCompute()[op$](actionq(msg.q, 'network_configuration_id', action$)))
+        return null == gone ? null : entize(joinid('hosted_compute', plain(gone)))
+      }
+
+      need_hosted_compute_org_id(q.org_id, 'remove')
+      await ornull(() => this.shared.sdk.HostedCompute().remove({ network_configuration_id: q.id, org_id: q.org_id }))
+      return null
+    }
+
+
+  entity.hovercard.cmd.list.action =
+    async function list_hovercard(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'hovercard', 'list')
+        const found = await this.shared.sdk.Hovercard()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_hovercard_username(q.username, 'list')
+      const list = await this.shared.sdk.Hovercard().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.import.cmd.list.action =
+    async function list_import(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'import', 'list')
+        const found = await this.shared.sdk.Import()[op$](actionq(msg.q, 'repo', action$))
+        return found.map((data: any) => entize(joinid('import', plain(data))))
+      }
+
+      need_import_owner(q.owner, 'list')
+      const list = await this.shared.sdk.Import().list(q)
+      return list.map((data: any) => entize(joinid('import', plain(data))))
+    }
+
+
+  entity.import.cmd.save.action =
+    async function save_import(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a import by `repo`; Seneca carries it as `id`.
+      if (null == data.repo && null != data.id) {
+        data.repo = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'import', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Import()[op$](data)
+        return entize(joinid('import', plain(done)))
+      }
+
+      need_import_owner(data.owner, 'save')
+      const res = await sdk.Import().update(data)
+
+      return entize(joinid('import', plain(res)))
+    }
+
+
+  entity.installation.cmd.list.action =
+    async function list_installation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'installation', 'list')
+        const found = await this.shared.sdk.Installation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Installation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.installation.cmd.load.action =
+    async function load_installation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'installation', 'load')
+        const hit = await ornull(() => this.shared.sdk.Installation()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Installation().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.installation.cmd.save.action =
+    async function save_installation(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'installation', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Installation()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.Installation().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.installation.cmd.remove.action =
+    async function remove_installation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'installation', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Installation()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Installation().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.installation_token.cmd.save.action =
+    async function save_installation_token(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'installation_token', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.InstallationToken()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.InstallationToken().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.integration.cmd.list.action =
+    async function list_integration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'integration', 'list')
+        const found = await this.shared.sdk.Integration()[op$](actionq(msg.q, 'app_slug', action$))
+        return found.map((data: any) => entize(joinid('integration', plain(data))))
+      }
+
+      const list = await this.shared.sdk.Integration().list(q)
+      return list.map((data: any) => entize(joinid('integration', plain(data))))
+    }
+
+
+  entity.integration.cmd.load.action =
+    async function load_integration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'integration', 'load')
+        const hit = await ornull(() => this.shared.sdk.Integration()[op$](actionq(msg.q, 'app_slug', action$)))
+        return null == hit ? null : entize(joinid('integration', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Integration().load({ app_slug: q.id }))
+      return null == res ? null : entize(joinid('integration', plain(res)))
+    }
+
+
+  entity.integration.cmd.save.action =
+    async function save_integration(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a integration by `app_slug`; Seneca carries it as `id`.
+      if (null == data.app_slug && null != data.id) {
+        data.app_slug = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'integration', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Integration()[op$](data)
+        return entize(joinid('integration', plain(done)))
+      }
+
+      need_integration_branch_id(data.branch_id, 'save')
+      need_integration_owner(data.owner, 'save')
+      need_integration_repo(data.repo, 'save')
+      if (null != data.id) {
+        misaddressed('integration', 'update', 'app_slug', ['branch_id', 'owner', 'repo'])
+      }
+
+      const res = await sdk.Integration().create(data)
+
+      return entize(joinid('integration', plain(res)))
+    }
+
+
+  entity.integration.cmd.remove.action =
+    async function remove_integration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'integration', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Integration()[op$](actionq(msg.q, 'app_slug', action$)))
+        return null == gone ? null : entize(joinid('integration', plain(gone)))
+      }
+
+      misaddressed('integration', 'remove', 'app_slug', ['branch_id', 'owner', 'repo'])
+      return null
+    }
+
+
+  entity.integration_installation.cmd.list.action =
+    async function list_integration_installation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'integration_installation', 'list')
+        const found = await this.shared.sdk.IntegrationInstallation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.IntegrationInstallation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.interaction.cmd.load.action =
+    async function load_interaction(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'interaction', 'load')
+        const hit = await ornull(() => this.shared.sdk.Interaction()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Interaction().load({}))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.interaction.cmd.remove.action =
+    async function remove_interaction(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'interaction', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Interaction()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Interaction().remove({}))
+      return null
+    }
+
+
+  entity.interaction_limit.cmd.save.action =
+    async function save_interaction_limit(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'interaction_limit', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.InteractionLimit()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.InteractionLimit().update(data)
+
+      return entize(plain(res))
+    }
 
 
   entity.issue.cmd.list.action =
@@ -373,8 +11432,6 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
         return found.map((data: any) => entize(plain(data)))
       }
 
-      need_issue_owner(q.owner, 'list')
-      need_issue_repo(q.repo, 'list')
       const list = await this.shared.sdk.Issue().list(q)
       return list.map((data: any) => entize(plain(data)))
     }
@@ -392,7 +11449,7 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
 
       need_issue_owner(q.owner, 'load')
       need_issue_repo(q.repo, 'load')
-      const res = await ornull(() => this.shared.sdk.Issue().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      const res = await ornull(() => this.shared.sdk.Issue().load({ owner: q.owner, repo: q.repo, id: q.id }))
       return null == res ? null : entize(plain(res))
     }
 
@@ -435,8 +11492,2025 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
 
       need_issue_owner(q.owner, 'remove')
       need_issue_repo(q.repo, 'remove')
-      await ornull(() => this.shared.sdk.Issue().remove({ id: q.id, owner: q.owner, repo: q.repo }))
+      await ornull(() => this.shared.sdk.Issue().remove({ owner: q.owner, repo: q.repo, id: q.id }))
       return null
+    }
+
+
+  entity.issue_type.cmd.list.action =
+    async function list_issue_type(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue_type', 'list')
+        const found = await this.shared.sdk.IssueType()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_issue_type_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.IssueType().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.issue_type.cmd.save.action =
+    async function save_issue_type(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue_type', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.IssueType()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_issue_type_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.IssueType().create(data)
+        : await sdk.IssueType().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.job.cmd.load.action =
+    async function load_job(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'job', 'load')
+        const hit = await ornull(() => this.shared.sdk.Job()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_job_owner(q.owner, 'load')
+      need_job_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Job().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.key.cmd.list.action =
+    async function list_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'key', 'list')
+        const found = await this.shared.sdk.Key()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Key().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.key.cmd.load.action =
+    async function load_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'key', 'load')
+        const hit = await ornull(() => this.shared.sdk.Key()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Key().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.key.cmd.save.action =
+    async function save_key(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'key', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Key()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.Key().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.label.cmd.list.action =
+    async function list_label(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'label', 'list')
+        const found = await this.shared.sdk.Label()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_label_owner(q.owner, 'list')
+      need_label_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Label().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.label.cmd.load.action =
+    async function load_label(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'label', 'load')
+        const hit = await ornull(() => this.shared.sdk.Label()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_label_owner(q.owner, 'load')
+      need_label_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Label().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.label.cmd.save.action =
+    async function save_label(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'label', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Label()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_label_owner(data.owner, 'save')
+      need_label_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.Label().create(data)
+        : await sdk.Label().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.language.cmd.load.action =
+    async function load_language(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'language', 'load')
+        const hit = await ornull(() => this.shared.sdk.Language()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('language', plain(hit)))
+      }
+
+      need_language_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.Language().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('language', plain(res)))
+    }
+
+
+  entity.license.cmd.list.action =
+    async function list_license(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'license', 'list')
+        const found = await this.shared.sdk.License()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.License().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.license.cmd.load.action =
+    async function load_license(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'license', 'load')
+        const hit = await ornull(() => this.shared.sdk.License()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.License().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.markdown.cmd.save.action =
+    async function save_markdown(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'markdown', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Markdown()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.Markdown().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.marketplace_listing_plan.cmd.list.action =
+    async function list_marketplace_listing_plan(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'marketplace_listing_plan', 'list')
+        const found = await this.shared.sdk.MarketplaceListingPlan()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.MarketplaceListingPlan().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.marketplace_purchase.cmd.list.action =
+    async function list_marketplace_purchase(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'marketplace_purchase', 'list')
+        const found = await this.shared.sdk.MarketplacePurchase()[op$](actionq(msg.q, 'account_id', action$))
+        return found.map((data: any) => entize(joinid('marketplace_purchase', plain(data))))
+      }
+
+      need_marketplace_purchase_plan_id(q.plan_id, 'list')
+      const list = await this.shared.sdk.MarketplacePurchase().list(q)
+      return list.map((data: any) => entize(joinid('marketplace_purchase', plain(data))))
+    }
+
+
+  entity.marketplace_purchase.cmd.load.action =
+    async function load_marketplace_purchase(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'marketplace_purchase', 'load')
+        const hit = await ornull(() => this.shared.sdk.MarketplacePurchase()[op$](actionq(msg.q, 'account_id', action$)))
+        return null == hit ? null : entize(joinid('marketplace_purchase', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.MarketplacePurchase().load({ account_id: q.id }))
+      return null == res ? null : entize(joinid('marketplace_purchase', plain(res)))
+    }
+
+
+  entity.member.cmd.list.action =
+    async function list_member(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'member', 'list')
+        const found = await this.shared.sdk.Member()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_member_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.Member().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.membership.cmd.list.action =
+    async function list_membership(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'membership', 'list')
+        const found = await this.shared.sdk.Membership()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_membership_enterprise(q.enterprise, 'list')
+      need_membership_enterprise_team(q.enterprise_team, 'list')
+      const list = await this.shared.sdk.Membership().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.membership.cmd.load.action =
+    async function load_membership(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'membership', 'load')
+        const hit = await ornull(() => this.shared.sdk.Membership()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_membership_enterprise(q.enterprise, 'load')
+      need_membership_team_id(q.team_id, 'load')
+      const res = await ornull(() => this.shared.sdk.Membership().load({ id: q.id, enterprise: q.enterprise, team_id: q.team_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.membership.cmd.save.action =
+    async function save_membership(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'membership', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Membership()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_membership_enterprise(data.enterprise, 'save')
+      need_membership_team_id(data.team_id, 'save')
+      const res = await sdk.Membership().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.merged_upstream.cmd.save.action =
+    async function save_merged_upstream(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'merged_upstream', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.MergedUpstream()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_merged_upstream_owner(data.owner, 'save')
+      need_merged_upstream_repo(data.repo, 'save')
+      const res = await sdk.MergedUpstream().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.meta.cmd.list.action =
+    async function list_meta(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'meta', 'list')
+        const found = await this.shared.sdk.Meta()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Meta().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.meta.cmd.load.action =
+    async function load_meta(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'meta', 'load')
+        const hit = await ornull(() => this.shared.sdk.Meta()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Meta().load({}))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.metaroot.cmd.load.action =
+    async function load_metaroot(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'metaroot', 'load')
+        const hit = await ornull(() => this.shared.sdk.Metaroot()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Metaroot().load({}))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.migration.cmd.list.action =
+    async function list_migration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'migration', 'list')
+        const found = await this.shared.sdk.Migration()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Migration().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.migration.cmd.load.action =
+    async function load_migration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'migration', 'load')
+        const hit = await ornull(() => this.shared.sdk.Migration()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Migration().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.migration.cmd.save.action =
+    async function save_migration(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'migration', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Migration()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.Migration().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.migration.cmd.remove.action =
+    async function remove_migration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'migration', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Migration()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      misaddressed('migration', 'remove', 'id', ['owner', 'repo'])
+      return null
+    }
+
+
+  entity.milestone.cmd.list.action =
+    async function list_milestone(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'milestone', 'list')
+        const found = await this.shared.sdk.Milestone()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_milestone_owner(q.owner, 'list')
+      need_milestone_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Milestone().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.milestone.cmd.load.action =
+    async function load_milestone(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'milestone', 'load')
+        const hit = await ornull(() => this.shared.sdk.Milestone()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_milestone_owner(q.owner, 'load')
+      need_milestone_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Milestone().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.milestone.cmd.save.action =
+    async function save_milestone(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'milestone', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Milestone()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_milestone_owner(data.owner, 'save')
+      need_milestone_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.Milestone().create(data)
+        : await sdk.Milestone().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.minimal_repository.cmd.list.action =
+    async function list_minimal_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'minimal_repository', 'list')
+        const found = await this.shared.sdk.MinimalRepository()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.MinimalRepository().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.network_configuration.cmd.load.action =
+    async function load_network_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'network_configuration', 'load')
+        const hit = await ornull(() => this.shared.sdk.NetworkConfiguration()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_network_configuration_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.NetworkConfiguration().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.network_configuration.cmd.save.action =
+    async function save_network_configuration(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'network_configuration', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.NetworkConfiguration()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_network_configuration_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.NetworkConfiguration().create(data)
+        : await sdk.NetworkConfiguration().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.network_setting.cmd.load.action =
+    async function load_network_setting(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'network_setting', 'load')
+        const hit = await ornull(() => this.shared.sdk.NetworkSetting()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_network_setting_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.NetworkSetting().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.oidc_custom_sub.cmd.list.action =
+    async function list_oidc_custom_sub(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'oidc_custom_sub', 'list')
+        const found = await this.shared.sdk.OidcCustomSub()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_oidc_custom_sub_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OidcCustomSub().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.oidc_custom_sub_repo.cmd.list.action =
+    async function list_oidc_custom_sub_repo(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'oidc_custom_sub_repo', 'list')
+        const found = await this.shared.sdk.OidcCustomSubRepo()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_oidc_custom_sub_repo_owner(q.owner, 'list')
+      need_oidc_custom_sub_repo_repo(q.repo, 'list')
+      const list = await this.shared.sdk.OidcCustomSubRepo().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.org.cmd.list.action =
+    async function list_org(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org', 'list')
+        const found = await this.shared.sdk.Org()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Org().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.org.cmd.load.action =
+    async function load_org(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org', 'load')
+        const hit = await ornull(() => this.shared.sdk.Org()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Org().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.org.cmd.save.action =
+    async function save_org(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Org()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_org_enablement(data.enablement, 'save')
+      need_org_org(data.org, 'save')
+      need_org_security_product(data.security_product, 'save')
+      need_org_username(data.username, 'save')
+      const res = null == data.id
+        ? await sdk.Org().create(data)
+        : await sdk.Org().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.org.cmd.remove.action =
+    async function remove_org(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Org()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Org().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.org_hook.cmd.list.action =
+    async function list_org_hook(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_hook', 'list')
+        const found = await this.shared.sdk.OrgHook()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.OrgHook().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.org_hook.cmd.load.action =
+    async function load_org_hook(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_hook', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrgHook()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_org_hook_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrgHook().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.org_hook.cmd.save.action =
+    async function save_org_hook(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_hook', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.OrgHook()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_org_hook_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.OrgHook().create(data)
+        : await sdk.OrgHook().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.org_membership.cmd.load.action =
+    async function load_org_membership(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_membership', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrgMembership()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_org_membership_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrgMembership().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.org_membership.cmd.save.action =
+    async function save_org_membership(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_membership', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.OrgMembership()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_org_membership_org_id(data.org_id, 'save')
+      const res = await sdk.OrgMembership().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.org_private_registry_configuration.cmd.load.action =
+    async function load_org_private_registry_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_private_registry_configuration', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrgPrivateRegistryConfiguration()[op$](actionq(msg.q, 'secret_name', action$)))
+        return null == hit ? null : entize(joinid('org_private_registry_configuration', plain(hit)))
+      }
+
+      need_org_private_registry_configuration_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrgPrivateRegistryConfiguration().load({ org_id: q.org_id, secret_name: q.id }))
+      return null == res ? null : entize(joinid('org_private_registry_configuration', plain(res)))
+    }
+
+
+  entity.org_private_registry_configuration_with_selected_repository.cmd.save.action =
+    async function save_org_private_registry_configuration_with_selected_repository(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_private_registry_configuration_with_selected_repository', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.OrgPrivateRegistryConfigurationWithSelectedRepository()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.OrgPrivateRegistryConfigurationWithSelectedRepository().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.org_repo_custom_property_value.cmd.list.action =
+    async function list_org_repo_custom_property_value(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'org_repo_custom_property_value', 'list')
+        const found = await this.shared.sdk.OrgRepoCustomPropertyValue()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_org_repo_custom_property_value_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OrgRepoCustomPropertyValue().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.organization_actions_secret.cmd.load.action =
+    async function load_organization_actions_secret(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_actions_secret', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrganizationActionsSecret()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_organization_actions_secret_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrganizationActionsSecret().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.organization_actions_variable.cmd.load.action =
+    async function load_organization_actions_variable(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_actions_variable', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrganizationActionsVariable()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_organization_actions_variable_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrganizationActionsVariable().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.organization_dependabot_secret.cmd.load.action =
+    async function load_organization_dependabot_secret(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_dependabot_secret', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrganizationDependabotSecret()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_organization_dependabot_secret_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrganizationDependabotSecret().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.organization_invitation.cmd.list.action =
+    async function list_organization_invitation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_invitation', 'list')
+        const found = await this.shared.sdk.OrganizationInvitation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_organization_invitation_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OrganizationInvitation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.organization_invitation.cmd.save.action =
+    async function save_organization_invitation(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_invitation', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.OrganizationInvitation()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_organization_invitation_org_id(data.org_id, 'save')
+      const res = await sdk.OrganizationInvitation().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.organization_programmatic_access_grant.cmd.list.action =
+    async function list_organization_programmatic_access_grant(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_programmatic_access_grant', 'list')
+        const found = await this.shared.sdk.OrganizationProgrammaticAccessGrant()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_organization_programmatic_access_grant_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OrganizationProgrammaticAccessGrant().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.organization_role.cmd.load.action =
+    async function load_organization_role(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_role', 'load')
+        const hit = await ornull(() => this.shared.sdk.OrganizationRole()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_organization_role_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.OrganizationRole().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.organization_secret_scanning_alert.cmd.list.action =
+    async function list_organization_secret_scanning_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'organization_secret_scanning_alert', 'list')
+        const found = await this.shared.sdk.OrganizationSecretScanningAlert()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_organization_secret_scanning_alert_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OrganizationSecretScanningAlert().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.outside_collaborator.cmd.list.action =
+    async function list_outside_collaborator(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'outside_collaborator', 'list')
+        const found = await this.shared.sdk.OutsideCollaborator()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_outside_collaborator_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.OutsideCollaborator().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.package.cmd.list.action =
+    async function list_package(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'package', 'list')
+        const found = await this.shared.sdk.Package()[op$](actionq(msg.q, 'package_name', action$))
+        return found.map((data: any) => entize(joinid('package', plain(data))))
+      }
+
+      const list = await this.shared.sdk.Package().list(q)
+      return list.map((data: any) => entize(joinid('package', plain(data))))
+    }
+
+
+  entity.package.cmd.load.action =
+    async function load_package(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'package', 'load')
+        const hit = await ornull(() => this.shared.sdk.Package()[op$](actionq(msg.q, 'package_name', action$)))
+        return null == hit ? null : entize(joinid('package', plain(hit)))
+      }
+
+      const key = splitid('package', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.Package().load({ package_name: key.package_name, package_type: key.package_type }))
+      return null == res ? null : entize(joinid('package', plain(res), key))
+    }
+
+
+  entity.package.cmd.save.action =
+    async function save_package(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'package', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Package()[op$](data)
+        return entize(joinid('package', plain(done)))
+      }
+
+      need_package_package_id(data.package_id, 'save')
+
+      // Seneca carries this package's key as one `id`; the API addresses
+      // the record by `package_type` and `package_name`.
+      //
+      // THE PARTS GO IN THE ENTITY MATCH, NOT ONTO THE DATA. They are path
+      // parameters, and the data is the request body. Writing them onto the
+      // data is how the flat `package_type` the URL needs came to displace
+      // whatever the response carries under that name — for github's repo an
+      // `owner` OBJECT, so a saved record lost the field that identifies
+      // it. The SDK resolves a path parameter from the match ahead of the
+      // body, so passing it here leaves the body exactly as the caller meant
+      // it.
+      //
+      // `key` STAYS NULL ON A CREATE: there is no id yet, the API assigns
+      // the record, and the id is rebuilt from the response instead.
+      let key = null
+      if (null != data.id) {
+        key = splitid('package', data.id, 'save')
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It is
+      // not a field of the API's write schema, so it must not travel in the
+      // request body.
+      delete data.github_id
+
+      // AND NEITHER DOES THE JOINED `id`. It is Seneca's key for this
+      // record, not the API's: a composite package is addressed by
+      // `package_type` and `package_name`, which travel as path parameters in
+      // the match above. Leaving it on the body sent `owner0/repo0` as a
+      // field the write schema has no place for — and the offline transport,
+      // which matches a request against a stored record, then looked for a
+      // record whose own `id` was that joined string and found none.
+      delete data.id
+      const res = await sdk.Package(null == key ? undefined : { match: key }).create(data)
+
+      return entize(joinid('package', plain(res), key))
+    }
+
+
+  entity.package.cmd.remove.action =
+    async function remove_package(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'package', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Package()[op$](actionq(msg.q, 'package_name', action$)))
+        return null == gone ? null : entize(joinid('package', plain(gone)))
+      }
+
+      const key = splitid('package', q.id, 'remove')
+      await ornull(() => this.shared.sdk.Package().remove({ package_name: key.package_name, package_type: key.package_type }))
+      return null
+    }
+
+
+  entity.page.cmd.load.action =
+    async function load_page(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page', 'load')
+        const hit = await ornull(() => this.shared.sdk.Page()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('page', plain(hit)))
+      }
+
+      need_page_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.Page().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('page', plain(res)))
+    }
+
+
+  entity.page.cmd.save.action =
+    async function save_page(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a page by `repo`; Seneca carries it as `id`.
+      if (null == data.repo && null != data.id) {
+        data.repo = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Page()[op$](data)
+        return entize(joinid('page', plain(done)))
+      }
+
+      need_page_owner(data.owner, 'save')
+      const res = await sdk.Page().create(data)
+
+      return entize(joinid('page', plain(res)))
+    }
+
+
+  entity.page_build.cmd.list.action =
+    async function list_page_build(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page_build', 'list')
+        const found = await this.shared.sdk.PageBuild()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_page_build_owner(q.owner, 'list')
+      need_page_build_repo(q.repo, 'list')
+      const list = await this.shared.sdk.PageBuild().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.page_build.cmd.load.action =
+    async function load_page_build(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page_build', 'load')
+        const hit = await ornull(() => this.shared.sdk.PageBuild()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_page_build_owner(q.owner, 'load')
+      need_page_build_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.PageBuild().load({ owner: q.owner, repo: q.repo, id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.page_build_status.cmd.save.action =
+    async function save_page_build_status(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page_build_status', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PageBuildStatus()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_page_build_status_owner(data.owner, 'save')
+      need_page_build_status_repo(data.repo, 'save')
+      const res = await sdk.PageBuildStatus().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.page_deployment.cmd.save.action =
+    async function save_page_deployment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'page_deployment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PageDeployment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_page_deployment_owner(data.owner, 'save')
+      need_page_deployment_repo(data.repo, 'save')
+      const res = await sdk.PageDeployment().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.pages_deployment_status.cmd.load.action =
+    async function load_pages_deployment_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pages_deployment_status', 'load')
+        const hit = await ornull(() => this.shared.sdk.PagesDeploymentStatus()[op$](actionq(msg.q, 'pages_deployment_id', action$)))
+        return null == hit ? null : entize(joinid('pages_deployment_status', plain(hit)))
+      }
+
+      need_pages_deployment_status_owner(q.owner, 'load')
+      need_pages_deployment_status_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.PagesDeploymentStatus().load({ owner: q.owner, pages_deployment_id: q.id, repo: q.repo }))
+      return null == res ? null : entize(joinid('pages_deployment_status', plain(res)))
+    }
+
+
+  entity.pages_deployment_status.cmd.save.action =
+    async function save_pages_deployment_status(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a pages_deployment_status by `pages_deployment_id`; Seneca carries it as `id`.
+      if (null == data.pages_deployment_id && null != data.id) {
+        data.pages_deployment_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pages_deployment_status', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PagesDeploymentStatus()[op$](data)
+        return entize(joinid('pages_deployment_status', plain(done)))
+      }
+
+      need_pages_deployment_status_deployment_id(data.deployment_id, 'save')
+      need_pages_deployment_status_owner(data.owner, 'save')
+      need_pages_deployment_status_repo(data.repo, 'save')
+      const res = await sdk.PagesDeploymentStatus().create(data)
+
+      return entize(joinid('pages_deployment_status', plain(res)))
+    }
+
+
+  entity.pages_health_check.cmd.load.action =
+    async function load_pages_health_check(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pages_health_check', 'load')
+        const hit = await ornull(() => this.shared.sdk.PagesHealthCheck()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('pages_health_check', plain(hit)))
+      }
+
+      need_pages_health_check_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.PagesHealthCheck().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('pages_health_check', plain(res)))
+    }
+
+
+  entity.participation.cmd.list.action =
+    async function list_participation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'participation', 'list')
+        const found = await this.shared.sdk.Participation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_participation_owner(q.owner, 'list')
+      need_participation_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Participation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.pending_deployment.cmd.list.action =
+    async function list_pending_deployment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pending_deployment', 'list')
+        const found = await this.shared.sdk.PendingDeployment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_pending_deployment_owner(q.owner, 'list')
+      need_pending_deployment_repo(q.repo, 'list')
+      need_pending_deployment_run_id(q.run_id, 'list')
+      const list = await this.shared.sdk.PendingDeployment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.porter_author.cmd.list.action =
+    async function list_porter_author(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'porter_author', 'list')
+        const found = await this.shared.sdk.PorterAuthor()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_porter_author_owner(q.owner, 'list')
+      need_porter_author_repo(q.repo, 'list')
+      const list = await this.shared.sdk.PorterAuthor().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.porter_author.cmd.save.action =
+    async function save_porter_author(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'porter_author', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PorterAuthor()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_porter_author_owner(data.owner, 'save')
+      need_porter_author_repo(data.repo, 'save')
+      const res = await sdk.PorterAuthor().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.porter_large_file.cmd.list.action =
+    async function list_porter_large_file(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'porter_large_file', 'list')
+        const found = await this.shared.sdk.PorterLargeFile()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_porter_large_file_owner(q.owner, 'list')
+      need_porter_large_file_repo(q.repo, 'list')
+      const list = await this.shared.sdk.PorterLargeFile().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.private_registry.cmd.list.action =
+    async function list_private_registry(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'private_registry', 'list')
+        const found = await this.shared.sdk.PrivateRegistry()[op$](actionq(msg.q, 'org_id', action$))
+        return found.map((data: any) => entize(joinid('private_registry', plain(data))))
+      }
+
+      const list = await this.shared.sdk.PrivateRegistry().list(q)
+      return list.map((data: any) => entize(joinid('private_registry', plain(data))))
+    }
+
+
+  entity.private_registry.cmd.load.action =
+    async function load_private_registry(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'private_registry', 'load')
+        const hit = await ornull(() => this.shared.sdk.PrivateRegistry()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('private_registry', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.PrivateRegistry().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('private_registry', plain(res)))
+    }
+
+
+  entity.private_registry.cmd.save.action =
+    async function save_private_registry(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a private_registry by `org_id`; Seneca carries it as `id`.
+      if (null == data.org_id && null != data.id) {
+        data.org_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'private_registry', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PrivateRegistry()[op$](data)
+        return entize(joinid('private_registry', plain(done)))
+      }
+
+      const res = await sdk.PrivateRegistry().update(data)
+
+      return entize(joinid('private_registry', plain(res)))
+    }
+
+
+  entity.private_registry.cmd.remove.action =
+    async function remove_private_registry(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'private_registry', 'remove')
+        const gone = await ornull(() => this.shared.sdk.PrivateRegistry()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == gone ? null : entize(joinid('private_registry', plain(gone)))
+      }
+
+      await ornull(() => this.shared.sdk.PrivateRegistry().remove({ id: q.id, org_id: q.id }))
+      return null
+    }
+
+
+  entity.project.cmd.list.action =
+    async function list_project(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project', 'list')
+        const found = await this.shared.sdk.Project()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_project_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.Project().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.project.cmd.load.action =
+    async function load_project(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project', 'load')
+        const hit = await ornull(() => this.shared.sdk.Project()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Project().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.project.cmd.save.action =
+    async function save_project(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Project()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = null == data.id
+        ? await sdk.Project().create(data)
+        : await sdk.Project().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.project.cmd.remove.action =
+    async function remove_project(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Project()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Project().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.project_collaborator_permission.cmd.load.action =
+    async function load_project_collaborator_permission(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project_collaborator_permission', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProjectCollaboratorPermission()[op$](actionq(msg.q, 'username', action$)))
+        return null == hit ? null : entize(joinid('project_collaborator_permission', plain(hit)))
+      }
+
+      need_project_collaborator_permission_project_id(q.project_id, 'load')
+      const res = await ornull(() => this.shared.sdk.ProjectCollaboratorPermission().load({ project_id: q.project_id, username: q.id }))
+      return null == res ? null : entize(joinid('project_collaborator_permission', plain(res)))
+    }
+
+
+  entity.project_column.cmd.list.action =
+    async function list_project_column(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project_column', 'list')
+        const found = await this.shared.sdk.ProjectColumn()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.ProjectColumn().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.project_column.cmd.load.action =
+    async function load_project_column(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project_column', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProjectColumn()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ProjectColumn().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.project_column.cmd.save.action =
+    async function save_project_column(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'project_column', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProjectColumn()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = null == data.id
+        ? await sdk.ProjectColumn().create(data)
+        : await sdk.ProjectColumn().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.projects_classic.cmd.save.action =
+    async function save_projects_classic(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a projects_classic by `column_id`; Seneca carries it as `id`.
+      if (null == data.column_id && null != data.id) {
+        data.column_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_classic', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProjectsClassic()[op$](data)
+        return entize(joinid('projects_classic', plain(done)))
+      }
+
+      need_projects_classic_project_id(data.project_id, 'save')
+      need_projects_classic_username(data.username, 'save')
+      if (null != data.id) {
+        misaddressed('projects_classic', 'update', 'column_id', ['project_id', 'username'])
+      }
+
+      const res = await sdk.ProjectsClassic().create(data)
+
+      return entize(joinid('projects_classic', plain(res)))
+    }
+
+
+  entity.projects_classic.cmd.remove.action =
+    async function remove_projects_classic(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_classic', 'remove')
+        const gone = await ornull(() => this.shared.sdk.ProjectsClassic()[op$](actionq(msg.q, 'column_id', action$)))
+        return null == gone ? null : entize(joinid('projects_classic', plain(gone)))
+      }
+
+      await ornull(() => this.shared.sdk.ProjectsClassic().remove({ column_id: q.id }))
+      return null
+    }
+
+
+  entity.projects_v2.cmd.list.action =
+    async function list_projects_v2(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2', 'list')
+        const found = await this.shared.sdk.ProjectsV2()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_projects_v2_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.ProjectsV2().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.projects_v2.cmd.load.action =
+    async function load_projects_v2(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProjectsV2()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ProjectsV2().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.projects_v2_field.cmd.list.action =
+    async function list_projects_v2_field(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_field', 'list')
+        const found = await this.shared.sdk.ProjectsV2Field()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_projects_v2_field_project_number(q.project_number, 'list')
+      const list = await this.shared.sdk.ProjectsV2Field().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.projects_v2_field.cmd.load.action =
+    async function load_projects_v2_field(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_field', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProjectsV2Field()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_projects_v2_field_projects_v2_id(q.projects_v2_id, 'load')
+      const res = await ornull(() => this.shared.sdk.ProjectsV2Field().load({ id: q.id, projects_v2_id: q.projects_v2_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.projects_v2_item_simple.cmd.save.action =
+    async function save_projects_v2_item_simple(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_item_simple', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProjectsV2ItemSimple()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_projects_v2_item_simple_project_number(data.project_number, 'save')
+      const res = await sdk.ProjectsV2ItemSimple().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.projects_v2_item_with_content.cmd.list.action =
+    async function list_projects_v2_item_with_content(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_item_with_content', 'list')
+        const found = await this.shared.sdk.ProjectsV2ItemWithContent()[op$](actionq(msg.q, 'item_id', action$))
+        return found.map((data: any) => entize(joinid('projects_v2_item_with_content', plain(data))))
+      }
+
+      need_projects_v2_item_with_content_project_number(q.project_number, 'list')
+      const list = await this.shared.sdk.ProjectsV2ItemWithContent().list(q)
+      return list.map((data: any) => entize(joinid('projects_v2_item_with_content', plain(data))))
+    }
+
+
+  entity.projects_v2_item_with_content.cmd.load.action =
+    async function load_projects_v2_item_with_content(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_item_with_content', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProjectsV2ItemWithContent()[op$](actionq(msg.q, 'item_id', action$)))
+        return null == hit ? null : entize(joinid('projects_v2_item_with_content', plain(hit)))
+      }
+
+      need_projects_v2_item_with_content_projects_v2_id(q.projects_v2_id, 'load')
+      const res = await ornull(() => this.shared.sdk.ProjectsV2ItemWithContent().load({ item_id: q.id, projects_v2_id: q.projects_v2_id }))
+      return null == res ? null : entize(joinid('projects_v2_item_with_content', plain(res)))
+    }
+
+
+  entity.projects_v2_item_with_content.cmd.save.action =
+    async function save_projects_v2_item_with_content(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a projects_v2_item_with_content by `item_id`; Seneca carries it as `id`.
+      if (null == data.item_id && null != data.id) {
+        data.item_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'projects_v2_item_with_content', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProjectsV2ItemWithContent()[op$](data)
+        return entize(joinid('projects_v2_item_with_content', plain(done)))
+      }
+
+      need_projects_v2_item_with_content_projects_v2_id(data.projects_v2_id, 'save')
+      const res = await sdk.ProjectsV2ItemWithContent().update(data)
+
+      return entize(joinid('projects_v2_item_with_content', plain(res)))
+    }
+
+
+  entity.protected_branch.cmd.save.action =
+    async function save_protected_branch(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a protected_branch by `branch_id`; Seneca carries it as `id`.
+      if (null == data.branch_id && null != data.id) {
+        data.branch_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'protected_branch', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProtectedBranch()[op$](data)
+        return entize(joinid('protected_branch', plain(done)))
+      }
+
+      need_protected_branch_owner(data.owner, 'save')
+      need_protected_branch_repo(data.repo, 'save')
+      const res = await sdk.ProtectedBranch().update(data)
+
+      return entize(joinid('protected_branch', plain(res)))
+    }
+
+
+  entity.protected_branch_admin_enforced.cmd.load.action =
+    async function load_protected_branch_admin_enforced(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'protected_branch_admin_enforced', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProtectedBranchAdminEnforced()[op$](actionq(msg.q, 'branch_id', action$)))
+        return null == hit ? null : entize(joinid('protected_branch_admin_enforced', plain(hit)))
+      }
+
+      need_protected_branch_admin_enforced_owner(q.owner, 'load')
+      need_protected_branch_admin_enforced_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ProtectedBranchAdminEnforced().load({ branch_id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('protected_branch_admin_enforced', plain(res)))
+    }
+
+
+  entity.protected_branch_admin_enforced.cmd.save.action =
+    async function save_protected_branch_admin_enforced(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a protected_branch_admin_enforced by `branch_id`; Seneca carries it as `id`.
+      if (null == data.branch_id && null != data.id) {
+        data.branch_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'protected_branch_admin_enforced', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProtectedBranchAdminEnforced()[op$](data)
+        return entize(joinid('protected_branch_admin_enforced', plain(done)))
+      }
+
+      need_protected_branch_admin_enforced_owner(data.owner, 'save')
+      need_protected_branch_admin_enforced_repo(data.repo, 'save')
+      const res = await sdk.ProtectedBranchAdminEnforced().create(data)
+
+      return entize(joinid('protected_branch_admin_enforced', plain(res)))
+    }
+
+
+  entity.protected_branch_pull_request_review.cmd.load.action =
+    async function load_protected_branch_pull_request_review(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'protected_branch_pull_request_review', 'load')
+        const hit = await ornull(() => this.shared.sdk.ProtectedBranchPullRequestReview()[op$](actionq(msg.q, 'branch_id', action$)))
+        return null == hit ? null : entize(joinid('protected_branch_pull_request_review', plain(hit)))
+      }
+
+      need_protected_branch_pull_request_review_owner(q.owner, 'load')
+      need_protected_branch_pull_request_review_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ProtectedBranchPullRequestReview().load({ branch_id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('protected_branch_pull_request_review', plain(res)))
+    }
+
+
+  entity.protected_branch_pull_request_review.cmd.save.action =
+    async function save_protected_branch_pull_request_review(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a protected_branch_pull_request_review by `branch_id`; Seneca carries it as `id`.
+      if (null == data.branch_id && null != data.id) {
+        data.branch_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'protected_branch_pull_request_review', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ProtectedBranchPullRequestReview()[op$](data)
+        return entize(joinid('protected_branch_pull_request_review', plain(done)))
+      }
+
+      need_protected_branch_pull_request_review_owner(data.owner, 'save')
+      need_protected_branch_pull_request_review_repo(data.repo, 'save')
+      const res = await sdk.ProtectedBranchPullRequestReview().update(data)
+
+      return entize(joinid('protected_branch_pull_request_review', plain(res)))
+    }
+
+
+  entity.public_member.cmd.list.action =
+    async function list_public_member(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'public_member', 'list')
+        const found = await this.shared.sdk.PublicMember()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_public_member_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.PublicMember().list(q)
+      return list.map((data: any) => entize(plain(data)))
     }
 
 
@@ -500,6 +13574,21 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     }
 
 
+  entity.pull.cmd.remove.action =
+    async function remove_pull(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Pull()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      misaddressed('pull', 'remove', 'id', ['comment_id', 'owner', 'repo'])
+      return null
+    }
+
+
   entity.pull_request_review.cmd.list.action =
     async function list_pull_request_review(this: any, entize: any, msg: any) {
       const q = cleanq(msg.q)
@@ -515,6 +13604,24 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       need_pull_request_review_repo(q.repo, 'list')
       const list = await this.shared.sdk.PullRequestReview().list(q)
       return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.pull_request_review.cmd.load.action =
+    async function load_pull_request_review(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review', 'load')
+        const hit = await ornull(() => this.shared.sdk.PullRequestReview()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_pull_request_review_owner(q.owner, 'load')
+      need_pull_request_review_pull_id(q.pull_id, 'load')
+      need_pull_request_review_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.PullRequestReview().load({ id: q.id, owner: q.owner, pull_id: q.pull_id, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
     }
 
 
@@ -535,9 +13642,89 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       }
 
       need_pull_request_review_owner(data.owner, 'save')
-      need_pull_request_review_pull_number(data.pull_number, 'save')
+      need_pull_request_review_pull_id(data.pull_id, 'save')
       need_pull_request_review_repo(data.repo, 'save')
-      const res = await sdk.PullRequestReview().create(data)
+      const res = null == data.id
+        ? await sdk.PullRequestReview().create(data)
+        : await sdk.PullRequestReview().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.pull_request_review.cmd.remove.action =
+    async function remove_pull_request_review(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review', 'remove')
+        const gone = await ornull(() => this.shared.sdk.PullRequestReview()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      need_pull_request_review_owner(q.owner, 'remove')
+      need_pull_request_review_pull_id(q.pull_id, 'remove')
+      need_pull_request_review_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.PullRequestReview().remove({ id: q.id, owner: q.owner, pull_id: q.pull_id, repo: q.repo }))
+      return null
+    }
+
+
+  entity.pull_request_review_comment.cmd.list.action =
+    async function list_pull_request_review_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review_comment', 'list')
+        const found = await this.shared.sdk.PullRequestReviewComment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_pull_request_review_comment_owner(q.owner, 'list')
+      need_pull_request_review_comment_repo(q.repo, 'list')
+      const list = await this.shared.sdk.PullRequestReviewComment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.pull_request_review_comment.cmd.load.action =
+    async function load_pull_request_review_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review_comment', 'load')
+        const hit = await ornull(() => this.shared.sdk.PullRequestReviewComment()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_pull_request_review_comment_owner(q.owner, 'load')
+      need_pull_request_review_comment_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.PullRequestReviewComment().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.pull_request_review_comment.cmd.save.action =
+    async function save_pull_request_review_comment(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review_comment', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PullRequestReviewComment()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_pull_request_review_comment_owner(data.owner, 'save')
+      need_pull_request_review_comment_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.PullRequestReviewComment().create(data)
+        : await sdk.PullRequestReviewComment().update(data)
 
       return entize(plain(res))
     }
@@ -551,6 +13738,13 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       if (null == data.pull_number && null != data.id) {
         data.pull_number = data.id
       }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
       const sdk = this.shared.sdk
 
       const action$ = actionOf(msg)
@@ -561,14 +13755,14 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
         // so `$action` is the only thing added here.
         data.$action = action$
         const done = await sdk.PullRequestSimple()[op$](data)
-        return entize(id_pull_request_simple(plain(done)))
+        return entize(joinid('pull_request_simple', plain(done)))
       }
 
       need_pull_request_simple_owner(data.owner, 'save')
       need_pull_request_simple_repo(data.repo, 'save')
       const res = await sdk.PullRequestSimple().create(data)
 
-      return entize(id_pull_request_simple(plain(res)))
+      return entize(joinid('pull_request_simple', plain(res)))
     }
 
 
@@ -579,7 +13773,7 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       if (null != action$) {
         const op$ = actionop(action$, 'pull_request_simple', 'remove')
         const gone = await ornull(() => this.shared.sdk.PullRequestSimple()[op$](actionq(msg.q, 'pull_number', action$)))
-        return null == gone ? null : entize(id_pull_request_simple(plain(gone)))
+        return null == gone ? null : entize(joinid('pull_request_simple', plain(gone)))
       }
 
       need_pull_request_simple_owner(q.owner, 'remove')
@@ -589,18 +13783,275 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     }
 
 
+  entity.rate_limit.cmd.load.action =
+    async function load_rate_limit(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'rate_limit', 'load')
+        const hit = await ornull(() => this.shared.sdk.RateLimit()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.RateLimit().load({}))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.reaction.cmd.list.action =
+    async function list_reaction(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'reaction', 'list')
+        const found = await this.shared.sdk.Reaction()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_reaction_discussion_number(q.discussion_number, 'list')
+      need_reaction_team_id(q.team_id, 'list')
+      const list = await this.shared.sdk.Reaction().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.reaction.cmd.save.action =
+    async function save_reaction(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'reaction', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Reaction()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_reaction_discussion_number(data.discussion_number, 'save')
+      need_reaction_team_id(data.team_id, 'save')
+      const res = await sdk.Reaction().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.reaction.cmd.remove.action =
+    async function remove_reaction(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'reaction', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Reaction()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Reaction().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.referrer.cmd.list.action =
+    async function list_referrer(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'referrer', 'list')
+        const found = await this.shared.sdk.Referrer()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_referrer_owner(q.owner, 'list')
+      need_referrer_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Referrer().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.release.cmd.list.action =
+    async function list_release(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release', 'list')
+        const found = await this.shared.sdk.Release()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_release_owner(q.owner, 'list')
+      need_release_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Release().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.release.cmd.load.action =
+    async function load_release(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release', 'load')
+        const hit = await ornull(() => this.shared.sdk.Release()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_release_owner(q.owner, 'load')
+      need_release_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Release().load({ owner: q.owner, repo: q.repo, id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.release.cmd.save.action =
+    async function save_release(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Release()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_release_owner(data.owner, 'save')
+      need_release_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.Release().create(data)
+        : await sdk.Release().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.release_asset.cmd.list.action =
+    async function list_release_asset(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release_asset', 'list')
+        const found = await this.shared.sdk.ReleaseAsset()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_release_asset_owner(q.owner, 'list')
+      need_release_asset_repo(q.repo, 'list')
+      const list = await this.shared.sdk.ReleaseAsset().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.release_asset.cmd.load.action =
+    async function load_release_asset(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release_asset', 'load')
+        const hit = await ornull(() => this.shared.sdk.ReleaseAsset()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_release_asset_owner(q.owner, 'load')
+      need_release_asset_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.ReleaseAsset().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.release_asset.cmd.save.action =
+    async function save_release_asset(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release_asset', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ReleaseAsset()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_release_asset_name(data.name, 'save')
+      need_release_asset_owner(data.owner, 'save')
+      need_release_asset_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.ReleaseAsset().create(data)
+        : await sdk.ReleaseAsset().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.release_notes_content.cmd.save.action =
+    async function save_release_notes_content(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'release_notes_content', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ReleaseNotesContent()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_release_notes_content_owner(data.owner, 'save')
+      need_release_notes_content_repo(data.repo, 'save')
+      const res = await sdk.ReleaseNotesContent().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.remove.cmd.save.action =
+    async function save_remove(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'remove', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Remove()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_remove_enterprise(data.enterprise, 'save')
+      need_remove_team_id(data.team_id, 'save')
+      const res = await sdk.Remove().create(data)
+
+      return entize(plain(res))
+    }
+
+
   entity.repo.cmd.list.action =
     async function list_repo(this: any, entize: any, msg: any) {
       const q = cleanq(msg.q)
       const action$ = actionOf(msg)
       if (null != action$) {
         const op$ = actionop(action$, 'repo', 'list')
-        const found = await this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$))
-        return found.map((data: any) => entize(id_repo(plain(data))))
+        const found = await this.shared.sdk.Repo()[op$](actionq(msg.q, 'subject_digest', action$))
+        return found.map((data: any) => entize(joinid('repo', plain(data))))
       }
 
       const list = await this.shared.sdk.Repo().list(q)
-      return list.map((data: any) => entize(id_repo(plain(data))))
+      return list.map((data: any) => entize(joinid('repo', plain(data))))
     }
 
 
@@ -610,24 +14061,19 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       const action$ = actionOf(msg)
       if (null != action$) {
         const op$ = actionop(action$, 'repo', 'load')
-        const hit = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$)))
-        return null == hit ? null : entize(id_repo(plain(hit)))
+        const hit = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'subject_digest', action$)))
+        return null == hit ? null : entize(joinid('repo', plain(hit)))
       }
 
-      need_repo_owner(q.owner, 'load')
-      const res = await ornull(() => this.shared.sdk.Repo().load({ owner: q.owner, repo: q.id }))
-      return null == res ? null : entize(id_repo(plain(res)))
+      const key = splitid('repo', q.id, 'load')
+      const res = await ornull(() => this.shared.sdk.Repo().load({ owner: key.owner, repo: key.repo }))
+      return null == res ? null : entize(joinid('repo', plain(res), key))
     }
 
 
   entity.repo.cmd.save.action =
     async function save_repo(this: any, entize: any, msg: any) {
       const data = msg.ent.data$(false)
-
-      // This API keys a repo by `repo`; Seneca carries it as `id`.
-      if (null == data.repo && null != data.id) {
-        data.repo = data.id
-      }
       const sdk = this.shared.sdk
 
       const action$ = actionOf(msg)
@@ -638,15 +14084,49 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
         // so `$action` is the only thing added here.
         data.$action = action$
         const done = await sdk.Repo()[op$](data)
-        return entize(id_repo(plain(done)))
+        return entize(joinid('repo', plain(done)))
       }
 
-      need_repo_owner(data.owner, 'save')
-      const res = null == data.id
-        ? await sdk.Repo().create(data)
-        : await sdk.Repo().update(data)
+      need_repo_branch_id(data.branch_id, 'save')
 
-      return entize(id_repo(plain(res)))
+      // Seneca carries this repo's key as one `id`; the API addresses
+      // the record by `owner` and `repo`.
+      //
+      // THE PARTS GO IN THE ENTITY MATCH, NOT ONTO THE DATA. They are path
+      // parameters, and the data is the request body. Writing them onto the
+      // data is how the flat `owner` the URL needs came to displace
+      // whatever the response carries under that name — for github's repo an
+      // `owner` OBJECT, so a saved record lost the field that identifies
+      // it. The SDK resolves a path parameter from the match ahead of the
+      // body, so passing it here leaves the body exactly as the caller meant
+      // it.
+      //
+      // `key` STAYS NULL ON A CREATE: there is no id yet, the API assigns
+      // the record, and the id is rebuilt from the response instead.
+      let key = null
+      if (null != data.id) {
+        key = splitid('repo', data.id, 'save')
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It is
+      // not a field of the API's write schema, so it must not travel in the
+      // request body.
+      delete data.github_id
+
+      // AND NEITHER DOES THE JOINED `id`. It is Seneca's key for this
+      // record, not the API's: a composite repo is addressed by
+      // `owner` and `repo`, which travel as path parameters in
+      // the match above. Leaving it on the body sent `owner0/repo0` as a
+      // field the write schema has no place for — and the offline transport,
+      // which matches a request against a stored record, then looked for a
+      // record whose own `id` was that joined string and found none.
+      delete data.id
+      const res = null == data.id
+        ? await sdk.Repo(null == key ? undefined : { match: key }).create(data)
+        : await sdk.Repo(null == key ? undefined : { match: key }).update(data)
+
+      return entize(joinid('repo', plain(res), key))
     }
 
 
@@ -656,13 +14136,1476 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       const action$ = actionOf(msg)
       if (null != action$) {
         const op$ = actionop(action$, 'repo', 'remove')
-        const gone = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'repo', action$)))
-        return null == gone ? null : entize(id_repo(plain(gone)))
+        const gone = await ornull(() => this.shared.sdk.Repo()[op$](actionq(msg.q, 'subject_digest', action$)))
+        return null == gone ? null : entize(joinid('repo', plain(gone)))
       }
 
-      need_repo_owner(q.owner, 'remove')
-      await ornull(() => this.shared.sdk.Repo().remove({ owner: q.owner, repo: q.id }))
+      const key = splitid('repo', q.id, 'remove')
+      await ornull(() => this.shared.sdk.Repo().remove({ owner: key.owner, repo: key.repo }))
       return null
+    }
+
+
+  entity.repository.cmd.list.action =
+    async function list_repository(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository', 'list')
+        const found = await this.shared.sdk.Repository()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Repository().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.repository_advisory.cmd.list.action =
+    async function list_repository_advisory(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_advisory', 'list')
+        const found = await this.shared.sdk.RepositoryAdvisory()[op$](actionq(msg.q, 'ghsa_id', action$))
+        return found.map((data: any) => entize(joinid('repository_advisory', plain(data))))
+      }
+
+      need_repository_advisory_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.RepositoryAdvisory().list(q)
+      return list.map((data: any) => entize(joinid('repository_advisory', plain(data))))
+    }
+
+
+  entity.repository_advisory.cmd.load.action =
+    async function load_repository_advisory(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_advisory', 'load')
+        const hit = await ornull(() => this.shared.sdk.RepositoryAdvisory()[op$](actionq(msg.q, 'ghsa_id', action$)))
+        return null == hit ? null : entize(joinid('repository_advisory', plain(hit)))
+      }
+
+      need_repository_advisory_owner(q.owner, 'load')
+      need_repository_advisory_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.RepositoryAdvisory().load({ ghsa_id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('repository_advisory', plain(res)))
+    }
+
+
+  entity.repository_advisory.cmd.save.action =
+    async function save_repository_advisory(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a repository_advisory by `ghsa_id`; Seneca carries it as `id`.
+      if (null == data.ghsa_id && null != data.id) {
+        data.ghsa_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_advisory', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.RepositoryAdvisory()[op$](data)
+        return entize(joinid('repository_advisory', plain(done)))
+      }
+
+      need_repository_advisory_owner(data.owner, 'save')
+      need_repository_advisory_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.RepositoryAdvisory().create(data)
+        : await sdk.RepositoryAdvisory().update(data)
+
+      return entize(joinid('repository_advisory', plain(res)))
+    }
+
+
+  entity.repository_collaborator_permission.cmd.load.action =
+    async function load_repository_collaborator_permission(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_collaborator_permission', 'load')
+        const hit = await ornull(() => this.shared.sdk.RepositoryCollaboratorPermission()[op$](actionq(msg.q, 'username', action$)))
+        return null == hit ? null : entize(joinid('repository_collaborator_permission', plain(hit)))
+      }
+
+      need_repository_collaborator_permission_owner(q.owner, 'load')
+      need_repository_collaborator_permission_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.RepositoryCollaboratorPermission().load({ owner: q.owner, repo: q.repo, username: q.id }))
+      return null == res ? null : entize(joinid('repository_collaborator_permission', plain(res)))
+    }
+
+
+  entity.repository_invitation.cmd.list.action =
+    async function list_repository_invitation(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_invitation', 'list')
+        const found = await this.shared.sdk.RepositoryInvitation()[op$](actionq(msg.q, 'username', action$))
+        return found.map((data: any) => entize(joinid('repository_invitation', plain(data))))
+      }
+
+      const list = await this.shared.sdk.RepositoryInvitation().list(q)
+      return list.map((data: any) => entize(joinid('repository_invitation', plain(data))))
+    }
+
+
+  entity.repository_invitation.cmd.save.action =
+    async function save_repository_invitation(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a repository_invitation by `username`; Seneca carries it as `id`.
+      if (null == data.username && null != data.id) {
+        data.username = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_invitation', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.RepositoryInvitation()[op$](data)
+        return entize(joinid('repository_invitation', plain(done)))
+      }
+
+      need_repository_invitation_owner(data.owner, 'save')
+      need_repository_invitation_repo(data.repo, 'save')
+      const res = await sdk.RepositoryInvitation().update(data)
+
+      return entize(joinid('repository_invitation', plain(res)))
+    }
+
+
+  entity.repository_rule_detailed.cmd.load.action =
+    async function load_repository_rule_detailed(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_rule_detailed', 'load')
+        const hit = await ornull(() => this.shared.sdk.RepositoryRuleDetailed()[op$](actionq(msg.q, 'branch', action$)))
+        return null == hit ? null : entize(joinid('repository_rule_detailed', plain(hit)))
+      }
+
+      need_repository_rule_detailed_owner(q.owner, 'load')
+      need_repository_rule_detailed_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.RepositoryRuleDetailed().load({ branch: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(joinid('repository_rule_detailed', plain(res)))
+    }
+
+
+  entity.repository_ruleset.cmd.list.action =
+    async function list_repository_ruleset(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_ruleset', 'list')
+        const found = await this.shared.sdk.RepositoryRuleset()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_repository_ruleset_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.RepositoryRuleset().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.repository_ruleset.cmd.load.action =
+    async function load_repository_ruleset(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_ruleset', 'load')
+        const hit = await ornull(() => this.shared.sdk.RepositoryRuleset()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.RepositoryRuleset().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.repository_ruleset.cmd.save.action =
+    async function save_repository_ruleset(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_ruleset', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.RepositoryRuleset()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_repository_ruleset_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.RepositoryRuleset().create(data)
+        : await sdk.RepositoryRuleset().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.repository_subscription.cmd.load.action =
+    async function load_repository_subscription(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_subscription', 'load')
+        const hit = await ornull(() => this.shared.sdk.RepositorySubscription()[op$](actionq(msg.q, 'repo', action$)))
+        return null == hit ? null : entize(joinid('repository_subscription', plain(hit)))
+      }
+
+      need_repository_subscription_owner(q.owner, 'load')
+      const res = await ornull(() => this.shared.sdk.RepositorySubscription().load({ owner: q.owner, repo: q.id }))
+      return null == res ? null : entize(joinid('repository_subscription', plain(res)))
+    }
+
+
+  entity.repository_subscription.cmd.save.action =
+    async function save_repository_subscription(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a repository_subscription by `repo`; Seneca carries it as `id`.
+      if (null == data.repo && null != data.id) {
+        data.repo = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'repository_subscription', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.RepositorySubscription()[op$](data)
+        return entize(joinid('repository_subscription', plain(done)))
+      }
+
+      need_repository_subscription_owner(data.owner, 'save')
+      const res = await sdk.RepositorySubscription().update(data)
+
+      return entize(joinid('repository_subscription', plain(res)))
+    }
+
+
+  entity.review_comment.cmd.list.action =
+    async function list_review_comment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'review_comment', 'list')
+        const found = await this.shared.sdk.ReviewComment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_review_comment_owner(q.owner, 'list')
+      need_review_comment_pull_id(q.pull_id, 'list')
+      need_review_comment_repo(q.repo, 'list')
+      const list = await this.shared.sdk.ReviewComment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.rule_suite.cmd.list.action =
+    async function list_rule_suite(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'rule_suite', 'list')
+        const found = await this.shared.sdk.RuleSuite()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_rule_suite_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.RuleSuite().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.rule_suite.cmd.load.action =
+    async function load_rule_suite(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'rule_suite', 'load')
+        const hit = await ornull(() => this.shared.sdk.RuleSuite()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.RuleSuite().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.ruleset_version.cmd.list.action =
+    async function list_ruleset_version(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'ruleset_version', 'list')
+        const found = await this.shared.sdk.RulesetVersion()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.RulesetVersion().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.ruleset_version_with_state.cmd.load.action =
+    async function load_ruleset_version_with_state(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'ruleset_version_with_state', 'load')
+        const hit = await ornull(() => this.shared.sdk.RulesetVersionWithState()[op$](actionq(msg.q, 'version_id', action$)))
+        return null == hit ? null : entize(joinid('ruleset_version_with_state', plain(hit)))
+      }
+
+      need_ruleset_version_with_state_ruleset_id(q.ruleset_id, 'load')
+      const res = await ornull(() => this.shared.sdk.RulesetVersionWithState().load({ ruleset_id: q.ruleset_id, version_id: q.id }))
+      return null == res ? null : entize(joinid('ruleset_version_with_state', plain(res)))
+    }
+
+
+  entity.runner.cmd.load.action =
+    async function load_runner(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'runner', 'load')
+        const hit = await ornull(() => this.shared.sdk.Runner()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Runner().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.runner_application.cmd.list.action =
+    async function list_runner_application(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'runner_application', 'list')
+        const found = await this.shared.sdk.RunnerApplication()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_runner_application_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.RunnerApplication().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.runner_group.cmd.load.action =
+    async function load_runner_group(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'runner_group', 'load')
+        const hit = await ornull(() => this.shared.sdk.RunnerGroup()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_runner_group_org_id(q.org_id, 'load')
+      const res = await ornull(() => this.shared.sdk.RunnerGroup().load({ id: q.id, org_id: q.org_id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.runner_group.cmd.save.action =
+    async function save_runner_group(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'runner_group', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.RunnerGroup()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_runner_group_org_id(data.org_id, 'save')
+      const res = null == data.id
+        ? await sdk.RunnerGroup().create(data)
+        : await sdk.RunnerGroup().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.search.cmd.list.action =
+    async function list_search(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'search', 'list')
+        const found = await this.shared.sdk.Search()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_search_q(q.q, 'list')
+      const list = await this.shared.sdk.Search().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.secret_scanning.cmd.save.action =
+    async function save_secret_scanning(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a secret_scanning by `org_id`; Seneca carries it as `id`.
+      if (null == data.org_id && null != data.id) {
+        data.org_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SecretScanning()[op$](data)
+        return entize(joinid('secret_scanning', plain(done)))
+      }
+
+      const res = await sdk.SecretScanning().update(data)
+
+      return entize(joinid('secret_scanning', plain(res)))
+    }
+
+
+  entity.secret_scanning_alert.cmd.list.action =
+    async function list_secret_scanning_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_alert', 'list')
+        const found = await this.shared.sdk.SecretScanningAlert()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_secret_scanning_alert_owner(q.owner, 'list')
+      need_secret_scanning_alert_repo(q.repo, 'list')
+      const list = await this.shared.sdk.SecretScanningAlert().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.secret_scanning_alert.cmd.load.action =
+    async function load_secret_scanning_alert(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_alert', 'load')
+        const hit = await ornull(() => this.shared.sdk.SecretScanningAlert()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_secret_scanning_alert_owner(q.owner, 'load')
+      need_secret_scanning_alert_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.SecretScanningAlert().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.secret_scanning_alert.cmd.save.action =
+    async function save_secret_scanning_alert(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_alert', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SecretScanningAlert()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_secret_scanning_alert_owner(data.owner, 'save')
+      need_secret_scanning_alert_repo(data.repo, 'save')
+      const res = await sdk.SecretScanningAlert().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.secret_scanning_location.cmd.list.action =
+    async function list_secret_scanning_location(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_location', 'list')
+        const found = await this.shared.sdk.SecretScanningLocation()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_secret_scanning_location_alert_number(q.alert_number, 'list')
+      need_secret_scanning_location_owner(q.owner, 'list')
+      need_secret_scanning_location_repo(q.repo, 'list')
+      const list = await this.shared.sdk.SecretScanningLocation().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.secret_scanning_pattern_configuration.cmd.list.action =
+    async function list_secret_scanning_pattern_configuration(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_pattern_configuration', 'list')
+        const found = await this.shared.sdk.SecretScanningPatternConfiguration()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_secret_scanning_pattern_configuration_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.SecretScanningPatternConfiguration().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.secret_scanning_push_protection_bypass.cmd.save.action =
+    async function save_secret_scanning_push_protection_bypass(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_push_protection_bypass', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SecretScanningPushProtectionBypass()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_secret_scanning_push_protection_bypass_owner(data.owner, 'save')
+      need_secret_scanning_push_protection_bypass_repo(data.repo, 'save')
+      const res = await sdk.SecretScanningPushProtectionBypass().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.secret_scanning_scan_history.cmd.list.action =
+    async function list_secret_scanning_scan_history(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'secret_scanning_scan_history', 'list')
+        const found = await this.shared.sdk.SecretScanningScanHistory()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_secret_scanning_scan_history_owner(q.owner, 'list')
+      need_secret_scanning_scan_history_repo(q.repo, 'list')
+      const list = await this.shared.sdk.SecretScanningScanHistory().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.security_advisory.cmd.save.action =
+    async function save_security_advisory(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'security_advisory', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SecurityAdvisory()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_security_advisory_owner(data.owner, 'save')
+      need_security_advisory_repo(data.repo, 'save')
+      const res = await sdk.SecurityAdvisory().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.selected_action.cmd.list.action =
+    async function list_selected_action(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'selected_action', 'list')
+        const found = await this.shared.sdk.SelectedAction()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_selected_action_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.SelectedAction().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.self_hosted_runner.cmd.load.action =
+    async function load_self_hosted_runner(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'self_hosted_runner', 'load')
+        const hit = await ornull(() => this.shared.sdk.SelfHostedRunner()[op$](actionq(msg.q, 'org_id', action$)))
+        return null == hit ? null : entize(joinid('self_hosted_runner', plain(hit)))
+      }
+
+      const res = await ornull(() => this.shared.sdk.SelfHostedRunner().load({ org_id: q.id }))
+      return null == res ? null : entize(joinid('self_hosted_runner', plain(res)))
+    }
+
+
+  entity.short_blob.cmd.save.action =
+    async function save_short_blob(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'short_blob', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ShortBlob()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_short_blob_owner(data.owner, 'save')
+      need_short_blob_repo(data.repo, 'save')
+      const res = await sdk.ShortBlob().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.short_branch.cmd.list.action =
+    async function list_short_branch(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'short_branch', 'list')
+        const found = await this.shared.sdk.ShortBranch()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_short_branch_owner(q.owner, 'list')
+      need_short_branch_repo(q.repo, 'list')
+      const list = await this.shared.sdk.ShortBranch().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.simple_classroom_assignment.cmd.list.action =
+    async function list_simple_classroom_assignment(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'simple_classroom_assignment', 'list')
+        const found = await this.shared.sdk.SimpleClassroomAssignment()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_simple_classroom_assignment_classroom_id(q.classroom_id, 'list')
+      const list = await this.shared.sdk.SimpleClassroomAssignment().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.social_account.cmd.list.action =
+    async function list_social_account(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'social_account', 'list')
+        const found = await this.shared.sdk.SocialAccount()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.SocialAccount().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.social_account.cmd.save.action =
+    async function save_social_account(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'social_account', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SocialAccount()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.SocialAccount().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.ssh_signing_key.cmd.list.action =
+    async function list_ssh_signing_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'ssh_signing_key', 'list')
+        const found = await this.shared.sdk.SshSigningKey()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.SshSigningKey().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.ssh_signing_key.cmd.load.action =
+    async function load_ssh_signing_key(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'ssh_signing_key', 'load')
+        const hit = await ornull(() => this.shared.sdk.SshSigningKey()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.SshSigningKey().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.ssh_signing_key.cmd.save.action =
+    async function save_ssh_signing_key(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'ssh_signing_key', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.SshSigningKey()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.SshSigningKey().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.status.cmd.list.action =
+    async function list_status(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'status', 'list')
+        const found = await this.shared.sdk.Status()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_status_owner(q.owner, 'list')
+      need_status_ref(q.ref, 'list')
+      need_status_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Status().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.status.cmd.save.action =
+    async function save_status(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'status', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Status()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_status_owner(data.owner, 'save')
+      need_status_repo(data.repo, 'save')
+      const res = await sdk.Status().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.status_check_policy.cmd.list.action =
+    async function list_status_check_policy(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'status_check_policy', 'list')
+        const found = await this.shared.sdk.StatusCheckPolicy()[op$](actionq(msg.q, 'branch_id', action$))
+        return found.map((data: any) => entize(joinid('status_check_policy', plain(data))))
+      }
+
+      need_status_check_policy_owner(q.owner, 'list')
+      need_status_check_policy_repo(q.repo, 'list')
+      const list = await this.shared.sdk.StatusCheckPolicy().list(q)
+      return list.map((data: any) => entize(joinid('status_check_policy', plain(data))))
+    }
+
+
+  entity.status_check_policy.cmd.save.action =
+    async function save_status_check_policy(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a status_check_policy by `branch_id`; Seneca carries it as `id`.
+      if (null == data.branch_id && null != data.id) {
+        data.branch_id = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'status_check_policy', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.StatusCheckPolicy()[op$](data)
+        return entize(joinid('status_check_policy', plain(done)))
+      }
+
+      need_status_check_policy_owner(data.owner, 'save')
+      need_status_check_policy_repo(data.repo, 'save')
+      const res = await sdk.StatusCheckPolicy().update(data)
+
+      return entize(joinid('status_check_policy', plain(res)))
+    }
+
+
+  entity.subscriber.cmd.list.action =
+    async function list_subscriber(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'subscriber', 'list')
+        const found = await this.shared.sdk.Subscriber()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_subscriber_owner(q.owner, 'list')
+      need_subscriber_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Subscriber().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.tag.cmd.list.action =
+    async function list_tag(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'tag', 'list')
+        const found = await this.shared.sdk.Tag()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_tag_owner(q.owner, 'list')
+      need_tag_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Tag().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.tag_protection.cmd.list.action =
+    async function list_tag_protection(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'tag_protection', 'list')
+        const found = await this.shared.sdk.TagProtection()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_tag_protection_owner(q.owner, 'list')
+      need_tag_protection_repo(q.repo, 'list')
+      const list = await this.shared.sdk.TagProtection().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.tag_protection.cmd.save.action =
+    async function save_tag_protection(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'tag_protection', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.TagProtection()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_tag_protection_owner(data.owner, 'save')
+      need_tag_protection_repo(data.repo, 'save')
+      const res = await sdk.TagProtection().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.team.cmd.list.action =
+    async function list_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'team', 'list')
+        const found = await this.shared.sdk.Team()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Team().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.team.cmd.load.action =
+    async function load_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'team', 'load')
+        const hit = await ornull(() => this.shared.sdk.Team()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Team().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.team.cmd.save.action =
+    async function save_team(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'team', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Team()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_team_org_id(data.org_id, 'save')
+      need_team_project_id(data.project_id, 'save')
+      const res = null == data.id
+        ? await sdk.Team().create(data)
+        : await sdk.Team().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.team.cmd.remove.action =
+    async function remove_team(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'team', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Team()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Team().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.team_simple.cmd.list.action =
+    async function list_team_simple(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'team_simple', 'list')
+        const found = await this.shared.sdk.TeamSimple()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_team_simple_org_id(q.org_id, 'list')
+      const list = await this.shared.sdk.TeamSimple().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.thread.cmd.list.action =
+    async function list_thread(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'thread', 'list')
+        const found = await this.shared.sdk.Thread()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.Thread().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.thread.cmd.load.action =
+    async function load_thread(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'thread', 'load')
+        const hit = await ornull(() => this.shared.sdk.Thread()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.Thread().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.thread.cmd.remove.action =
+    async function remove_thread(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'thread', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Thread()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      await ornull(() => this.shared.sdk.Thread().remove({ id: q.id }))
+      return null
+    }
+
+
+  entity.thread_subscription.cmd.load.action =
+    async function load_thread_subscription(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'thread_subscription', 'load')
+        const hit = await ornull(() => this.shared.sdk.ThreadSubscription()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.ThreadSubscription().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.thread_subscription.cmd.save.action =
+    async function save_thread_subscription(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'thread_subscription', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.ThreadSubscription()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.ThreadSubscription().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.topic.cmd.list.action =
+    async function list_topic(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'topic', 'list')
+        const found = await this.shared.sdk.Topic()[op$](actionq(msg.q, 'repo', action$))
+        return found.map((data: any) => entize(joinid('topic', plain(data))))
+      }
+
+      need_topic_owner(q.owner, 'list')
+      const list = await this.shared.sdk.Topic().list(q)
+      return list.map((data: any) => entize(joinid('topic', plain(data))))
+    }
+
+
+  entity.topic.cmd.save.action =
+    async function save_topic(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a topic by `repo`; Seneca carries it as `id`.
+      if (null == data.repo && null != data.id) {
+        data.repo = data.id
+      }
+
+      // `github_id` is this provider's own bookkeeping — the
+      // API's unrelated `id`, parked by joinid() so it is not lost. It
+      // is not a field of the API's write schema, so it must not travel in
+      // the request body: a strict API rejects an unknown property, and a
+      // lax one may persist it.
+      delete data.github_id
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'topic', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Topic()[op$](data)
+        return entize(joinid('topic', plain(done)))
+      }
+
+      need_topic_owner(data.owner, 'save')
+      const res = await sdk.Topic().update(data)
+
+      return entize(joinid('topic', plain(res)))
+    }
+
+
+  entity.user.cmd.list.action =
+    async function list_user(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'user', 'list')
+        const found = await this.shared.sdk.User()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.User().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.user.cmd.load.action =
+    async function load_user(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'user', 'load')
+        const hit = await ornull(() => this.shared.sdk.User()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.User().load({ id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.user.cmd.save.action =
+    async function save_user(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'user', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.User()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_user_branch_id(data.branch_id, 'save')
+      need_user_owner(data.owner, 'save')
+      need_user_repo(data.repo, 'save')
+      need_user_username(data.username, 'save')
+      const res = null == data.id
+        ? await sdk.User().create(data)
+        : await sdk.User().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.user.cmd.remove.action =
+    async function remove_user(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'user', 'remove')
+        const gone = await ornull(() => this.shared.sdk.User()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      misaddressed('user', 'remove', 'id', ['gpg_key_id'])
+      return null
+    }
+
+
+  entity.user_marketplace_purchase.cmd.list.action =
+    async function list_user_marketplace_purchase(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'user_marketplace_purchase', 'list')
+        const found = await this.shared.sdk.UserMarketplacePurchase()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      const list = await this.shared.sdk.UserMarketplacePurchase().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.view.cmd.list.action =
+    async function list_view(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'view', 'list')
+        const found = await this.shared.sdk.View()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_view_owner(q.owner, 'list')
+      need_view_repo(q.repo, 'list')
+      const list = await this.shared.sdk.View().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.webhook_config.cmd.load.action =
+    async function load_webhook_config(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'webhook_config', 'load')
+        const hit = await ornull(() => this.shared.sdk.WebhookConfig()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      const res = await ornull(() => this.shared.sdk.WebhookConfig().load({}))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.webhook_config.cmd.save.action =
+    async function save_webhook_config(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'webhook_config', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.WebhookConfig()[op$](data)
+        return entize(plain(done))
+      }
+
+      const res = await sdk.WebhookConfig().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.workflow.cmd.load.action =
+    async function load_workflow(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow', 'load')
+        const hit = await ornull(() => this.shared.sdk.Workflow()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_workflow_owner(q.owner, 'load')
+      need_workflow_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Workflow().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.workflow.cmd.save.action =
+    async function save_workflow(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Workflow()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_workflow_owner(data.owner, 'save')
+      need_workflow_repo(data.repo, 'save')
+      const res = await sdk.Workflow().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.workflow_run.cmd.load.action =
+    async function load_workflow_run(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow_run', 'load')
+        const hit = await ornull(() => this.shared.sdk.WorkflowRun()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_workflow_run_owner(q.owner, 'load')
+      need_workflow_run_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.WorkflowRun().load({ owner: q.owner, repo: q.repo, id: q.id }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.workflow_run.cmd.save.action =
+    async function save_workflow_run(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow_run', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.WorkflowRun()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_workflow_run_owner(data.owner, 'save')
+      need_workflow_run_repo(data.repo, 'save')
+      need_workflow_run_run_id(data.run_id, 'save')
+      const res = await sdk.WorkflowRun().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.workflow_run_usage.cmd.load.action =
+    async function load_workflow_run_usage(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow_run_usage', 'load')
+        const hit = await ornull(() => this.shared.sdk.WorkflowRunUsage()[op$](actionq(msg.q, 'run_id', action$)))
+        return null == hit ? null : entize(joinid('workflow_run_usage', plain(hit)))
+      }
+
+      need_workflow_run_usage_owner(q.owner, 'load')
+      need_workflow_run_usage_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.WorkflowRunUsage().load({ owner: q.owner, repo: q.repo, run_id: q.id }))
+      return null == res ? null : entize(joinid('workflow_run_usage', plain(res)))
+    }
+
+
+  entity.workflow_usage.cmd.load.action =
+    async function load_workflow_usage(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'workflow_usage', 'load')
+        const hit = await ornull(() => this.shared.sdk.WorkflowUsage()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_workflow_usage_owner(q.owner, 'load')
+      need_workflow_usage_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.WorkflowUsage().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
     }
 
 
@@ -678,9 +15621,20 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     const sdkopts: any = Object.assign({}, options.sdk)
 
     // The provider convention carries credentials, so honour an `apikey`
-    // when one is configured and stay quiet when it is not.
+    // when one is configured.
     const res = await this.post('sys:provider,get:keymap,provider:github')
-    const apikey = res?.keymap?.apikey?.value
+
+    // ACCEPT `api` AS WELL AS `apikey`. The older provider convention
+    // named this key `api` and read it with
+    // `sys:provider,get:key,...,key:api`; the keymap message replaced that,
+    // and the rename was silent. An application still configured as
+    // `keys: { api: { value: ... } }` therefore resolved to undefined and
+    // the SDK was constructed with NO credential at all — the request went
+    // out unauthenticated and failed much later as a 401 or a 404 on
+    // anything private, with nothing at startup to point at the cause.
+    // `apikey` wins when both are set, so a config that has migrated is
+    // unaffected.
+    const apikey = res?.keymap?.apikey?.value ?? res?.keymap?.api?.value
 
     // Hand the credential to the SDK as `apikey`, NOT as an authorization
     // HEADER. The SDK's own auth stage owns that header: it reads
@@ -692,6 +15646,23 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     // rather than assumed to be `Bearer`.
     if (null != apikey && '' !== apikey) {
       sdkopts.apikey = apikey
+    }
+
+    // AN UNRESOLVED CREDENTIAL IS SAID OUT LOUD. This API declares
+    // authentication, so reaching here with nothing configured means every
+    // call goes out unauthenticated. That is not always wrong — public
+    // read-only endpoints work, at a much lower rate limit — so this warns
+    // rather than throwing, and names both accepted key spellings so a
+    // misnamed key is obvious from one line of log. Silence here is what
+    // made the `api` -> `apikey` rename above cost a debugging session
+    // instead of a glance.
+    else {
+      this.log.warn({
+        fix: 'unauthenticated',
+        note: 'no github credential resolved from the keymap ' +
+          '(looked for keys.apikey then keys.api); requests will be sent ' +
+          'unauthenticated and will fail on anything non-public',
+      })
     }
 
     this.shared.sdk = options.test

@@ -1,6 +1,6 @@
 {
   "name": "@seneca/github-provider",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "main": "dist/github-provider.js",
   "type": "commonjs",
   "types": "dist/github-provider.d.ts",
@@ -37,6 +37,7 @@
   },
   "files": [
     "dist",
+    "doc",
     "src/**/*.ts",
     "LICENSE"
   ],
@@ -44,8 +45,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@voxgig-sdk/github": "^0.0.1",
-    "@seneca/maintain": "^0.1.0"
+    "@voxgig-sdk/github": "github:voxgig-sdk/github-sdk#v0.0.1::path:ts"
   },
   "peerDependencies": {
     "@seneca/env": ">=0.4",
@@ -56,6 +56,7 @@
   },
   "devDependencies": {
     "@seneca/doc": "^8.0.0",
+    "@seneca/maintain": "^0.1.0",
     "@types/node": "^24.0.0",
     "seneca": ">=3||>=4.0.0-rc2",
     "seneca-msg-test": "^4.1.0",

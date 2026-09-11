@@ -37,13 +37,13 @@ const Seneca = require('seneca')
 // id, and each record is what the API would have answered with.
 const SEED = {
   entity: {
-    issue: {
-      issue0: {"assignee":{},"closed_at":"closed_at0","closed_by":{},"comments":100,"comments_url":"comments_url0","created_at":"created_at0","events_url":"events_url0","html_url":"html_url0","id":"issue0","issue_dependencies_summary":{},"issue_url":"issue_url0","labels":[],"labels_url":"labels_url0","locked":false,"milestone":{},"minimized":{},"node_id":"node_id0","number":100,"performed_via_github_app":{},"pin":{},"pinned_comment":{},"pull_request":{},"reactions":{},"repository":{},"repository_url":"repository_url0","state":"state0","sub_issues_summary":{},"title":"title0","type":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"},
-      issue1: {"assignee":{},"closed_at":"closed_at1","closed_by":{},"comments":200,"comments_url":"comments_url1","created_at":"created_at1","events_url":"events_url1","html_url":"html_url1","id":"issue1","issue_dependencies_summary":{},"issue_url":"issue_url1","labels":[],"labels_url":"labels_url1","locked":false,"milestone":{},"minimized":{},"node_id":"node_id1","number":200,"performed_via_github_app":{},"pin":{},"pinned_comment":{},"pull_request":{},"reactions":{},"repository":{},"repository_url":"repository_url1","state":"state1","sub_issues_summary":{},"title":"title1","type":{},"updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","repo":"repo0"},
+    base_gist: {
+      base_gist0: {"gist_id":"gist0","id":"base_gist0"},
+      base_gist1: {"gist_id":"gist0","id":"base_gist1"},
     },
-    repo: {
-      repo0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"repo0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","network_count":100,"node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"organization":{},"owner":"owner0","parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","size":100,"source":{},"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_count":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","template_repository":{},"trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100},
-      repo1: {"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"repo1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","network_count":200,"node_id":"node_id1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"organization":{},"owner":"owner0","parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","size":200,"source":{},"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_count":200,"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","template_repository":{},"trees_url":"trees_url1","updated_at":"updated_at1","url":"url1","watchers":200,"watchers_count":200},
+    gist: {
+      gist0: {"fork_of":{},"owner":{},"id":"gist0"},
+      gist1: {"fork_of":{},"owner":{},"id":"gist1"},
     },
   },
 }
@@ -86,7 +86,7 @@ You should see:
 {
   ok: true,
   name: 'github',
-  version: '0.0.1',
+  version: '0.3.0',
   sdk: { name: '@voxgig-sdk/github', version: '0.0.1' },
 }
 ```
@@ -100,32 +100,22 @@ And `get:info` is answered by the plugin itself, without calling the
 API, so a reply tells you the plugin loaded and initialised before any
 request goes anywhere.
 
-## Step 3: List the repo records
-
-Repo records live inside a parent record in the API,
-and the route says so:
-
-`/user/repos`
-
-The parent id there is not optional, so every repo call
-carries `owner` in its query. Leave it out and the provider
-names the key you missed, rather than letting a half-built URL come
-back as a puzzling 404.
+## Step 3: List the gist records
 
 Replace the `console.log(info)` line with:
 
 ```js
-  const repos = await seneca
-    .entity('provider/github/repo')
-    .list$({ owner: '0' })
+  const gists = await seneca
+    .entity('provider/github/gist')
+    .list$()
 
-  console.log('Found ' + repos.length + ' repo record(s):')
-  repos.forEach((r) => {
-    console.log('  ' + r.id + '  ' + r.archive_url + '  ' + r.archived)
+  console.log('Found ' + gists.length + ' gist record(s):')
+  gists.forEach((r) => {
+    console.log('  ' + r.id + '  ' + r.fork_of + '  ' + r.owner)
   })
 ```
 
-Run it again and you will see the two repo
+Run it again and you will see the two gist
 records you seeded, under the ids they are filed by.
 
 No URL, no HTTP verb, no JSON parsing. You asked a Seneca entity for
@@ -133,16 +123,16 @@ a list, the provider turned that into an SDK call, and the SDK turned
 it into a request. These are ordinary Seneca entities, so everything
 you already know about the entity API applies to them.
 
-## Step 4: Load one repo
+## Step 4: Load one gist
 
 Add:
 
 ```js
   const one = await seneca
-    .entity('provider/github/repo')
-    .load$({ owner: '0', id: 'repo0' })
+    .entity('provider/github/gist')
+    .load$('gist0')
 
-  console.log('loaded', one.id, one.archive_url)
+  console.log('loaded', one.id, one.fork_of)
 ```
 
 `list$` gives you many, `load$` gives you one. Now ask for
@@ -150,14 +140,14 @@ something that is not there:
 
 ```js
   const missing = await seneca
-    .entity('provider/github/repo')
-    .load$({ owner: '0', id: 'nosuchrepo' })
+    .entity('provider/github/gist')
+    .load$('nosuchgist')
 
   console.log('missing =', missing)   // null
 ```
 
 You get `null`, not an exception. "There is no such
-repo" is an ordinary answer to a lookup, so it does not
+gist" is an ordinary answer to a lookup, so it does not
 interrupt your code.
 
 ## Step 5: Create, change and remove
@@ -167,12 +157,12 @@ so add:
 
 ```js
   // Create: make$ builds an entity, save$ persists it.
-  let repo = await seneca
-    .entity('provider/github/repo')
-    .make$({ owner: '0', archive_url: 'tutorial-archive_url', archived: false, assignees_url: 'tutorial-assignees_url', blobs_url: 'tutorial-blobs_url', branches_url: 'tutorial-branches_url', clone_url: 'tutorial-clone_url', code_of_conduct: 'tutorial-code_of_conduct', collaborators_url: 'tutorial-collaborators_url', comments_url: 'tutorial-comments_url', commits_url: 'tutorial-commits_url', compare_url: 'tutorial-compare_url', contents_url: 'tutorial-contents_url', contributors_url: 'tutorial-contributors_url', created_at: 'tutorial-created_at', default_branch: 'tutorial-default_branch', deployments_url: 'tutorial-deployments_url', description: 'tutorial-description', disabled: false, downloads_url: 'tutorial-downloads_url', events_url: 'tutorial-events_url', fork: false, forks: 1234, forks_count: 1234, forks_url: 'tutorial-forks_url', full_name: 'tutorial-full_name', git_commits_url: 'tutorial-git_commits_url', git_refs_url: 'tutorial-git_refs_url', git_tags_url: 'tutorial-git_tags_url', git_url: 'tutorial-git_url', has_discussions: false, has_issues: false, has_pages: false, has_projects: false, has_wiki: false, homepage: 'tutorial-homepage', hooks_url: 'tutorial-hooks_url', html_url: 'tutorial-html_url', issue_comment_url: 'tutorial-issue_comment_url', issue_events_url: 'tutorial-issue_events_url', issues_url: 'tutorial-issues_url', keys_url: 'tutorial-keys_url', labels_url: 'tutorial-labels_url', language: 'tutorial-language', languages_url: 'tutorial-languages_url', license: 'tutorial-license', merges_url: 'tutorial-merges_url', milestones_url: 'tutorial-milestones_url', mirror_url: 'tutorial-mirror_url', name: 'tutorial-name', network_count: 1234, node_id: 'tutorial-node_id', notifications_url: 'tutorial-notifications_url', open_issues: 1234, open_issues_count: 1234, organization: 'tutorial-organization', parent: 'tutorial-parent', permissions: 'tutorial-permissions', private: false, pulls_url: 'tutorial-pulls_url', pushed_at: 'tutorial-pushed_at', releases_url: 'tutorial-releases_url', size: 1234, source: 'tutorial-source', ssh_url: 'tutorial-ssh_url', stargazers_count: 1234, stargazers_url: 'tutorial-stargazers_url', statuses_url: 'tutorial-statuses_url', subscribers_count: 1234, subscribers_url: 'tutorial-subscribers_url', subscription_url: 'tutorial-subscription_url', svn_url: 'tutorial-svn_url', tags_url: 'tutorial-tags_url', teams_url: 'tutorial-teams_url', template_repository: 'tutorial-template_repository', trees_url: 'tutorial-trees_url', updated_at: 'tutorial-updated_at', url: 'tutorial-url', watchers: 1234, watchers_count: 1234 })
+  let gist = await seneca
+    .entity('provider/github/gist')
+    .make$({ fork_of: 'tutorial-fork_of', owner: 'tutorial-owner' })
     .save$()
 
-  console.log('created with id', repo.id)
+  console.log('created with id', gist.id)
 ```
 
 Run it, and note the id printed. It is **not** one you chose — the
@@ -184,18 +174,18 @@ rather than a create, and `save$` decides between the two on exactly
 that:
 
 ```js
-  repo.archive_url = 'tutorial-archive_url-2'
-  repo = await repo.save$()
+  gist.fork_of = 'tutorial-fork_of-2'
+  gist = await gist.save$()
 
-  console.log('updated:', repo.archive_url)
+  console.log('updated:', gist.fork_of)
 ```
 
 And remove it, leaving the store as you found it:
 
 ```js
   await seneca
-    .entity('provider/github/repo')
-    .remove$({ owner: '0', id: repo.id })
+    .entity('provider/github/gist')
+    .remove$(gist.id)
 ```
 
 Load it once more and, as before, you get `null`:
@@ -204,8 +194,8 @@ Load it once more and, as before, you get `null`:
   console.log(
     'after remove:',
     await seneca
-      .entity('provider/github/repo')
-      .load$({ owner: '0', id: repo.id })
+      .entity('provider/github/gist')
+      .load$(gist.id)
   )   // null
 ```
 
@@ -215,32 +205,32 @@ Those are the only methods there are:
 
 They behave the same way on every entity this plugin exposes.
 
-## Step 6: Reach the issue records
+## Step 6: Reach the base_gist records
 
-Issue records live inside their parent, and the API route
+Base_gist records live inside gist records, and the API route
 says so:
 
-`/repos/{owner}/{repo}/issues/{issue_number}/comments`
+`/users/{username}/gists`
 
-The parent id in that path is not optional, so every issue
-call needs a `owner` in its query:
+The parent id in that path is not optional, so every base_gist
+call needs a `gist_id` in its query:
 
 ```js
-  const issues = await seneca
-    .entity('provider/github/issue')
-    .list$({ owner: '0', repo: 'repo0' })
+  const base_gists = await seneca
+    .entity('provider/github/base_gist')
+    .list$({ gist_id: 'gist0' })
 
-  console.log('found ' + issues.length + ' issue record(s)')
+  console.log('found ' + base_gists.length + ' base_gist record(s)')
 ```
 
-Leave the `owner` out and the call throws at once, naming the key it
+Leave the `gist_id` out and the call throws at once, naming the key it
 needed, rather than letting a half-built URL come back as a puzzling
 404:
 
 ```js
-  // throws: @seneca/github-provider: issue list: owner is required
+  // throws: @seneca/github-provider: base_gist list: gist_id is required
   await seneca
-    .entity('provider/github/issue')
+    .entity('provider/github/base_gist')
     .list$()
 ```
 

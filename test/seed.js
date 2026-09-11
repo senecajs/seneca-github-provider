@@ -5,25 +5,1061 @@
 // exercise real code paths without a server.
 const SEED = {
   entity: {
+    action: {
+      action0: {"access_level":"access_level0","active_caches_count":100,"active_caches_size_in_bytes":100,"actor":{},"allows_public_repositories":false,"approval_policy":"approval_policy0","archive_download_url":"archive_download_url0","archive_url":"archive_url0","artifacts_url":"artifacts_url0","assignees_url":"assignees_url0","badge_url":"badge_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","busy":false,"cancel_url":"cancel_url0","check_run_url":"check_run_url0","check_suite_url":"check_suite_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","completed_at":"completed_at0","conclusion":"conclusion0","contents_url":"contents_url0","contributors_url":"contributors_url0","cpu_cores":100,"created_at":"created_at0","days":100,"default":false,"deployments_url":"deployments_url0","description":"description0","display_name":"display_name0","display_title":"display_title0","downloads_url":"downloads_url0","enabled":false,"enabled_repositories":"enabled_repositories0","event":"event0","events_url":"events_url0","expired":false,"expires_at":"expires_at0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","head_branch":"head_branch0","head_commit":{},"head_repository":{},"head_sha":"head_sha0","hooks_url":"hooks_url0","html_url":"html_url0","id":"action-apiid-0","image_details":{},"inherited":false,"issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","jobs_url":"jobs_url0","keys_url":"keys_url0","labels":[],"labels_url":"labels_url0","languages_url":"languages_url0","logs_url":"logs_url0","machine_size_details":{},"memory_gb":100,"merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","os":"os0","owner":"owner0","path":"path0","platform":"platform0","platforms":[],"private":false,"public_ip_enabled":false,"pull_requests":[],"pulls_url":"pulls_url0","ref":"ref0","releases_url":"releases_url0","repository":{},"rerun_url":"rerun_url0","run_id":100,"run_number":100,"run_url":"run_url0","run_workflows_from_fork_pull_requests":false,"runner_group_id":100,"runner_group_name":"runner_group_name0","runner_id":100,"runner_name":"runner_name0","runners":[],"runners_url":"runners_url0","selected_repository_ids":[],"size_gb":100,"size_in_bytes":100,"source":"source0","stargazers_url":"stargazers_url0","started_at":"started_at0","state":"state0","status":"status0","statuses_url":"statuses_url0","storage_gb":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","total_count":100,"trees_url":"trees_url0","triggering_actor":{},"updated_at":"updated_at0","url":"url0","workflow_id":100,"workflow_name":"workflow_name0","workflow_url":"workflow_url0","artifact_id":"artifact0","hosted_runner_id":"hosted_runner0","org_id":"org0","repo":"repo0","repository_id":"repository0","archive_format":"action0"},
+      action1: {"access_level":"access_level1","active_caches_count":200,"active_caches_size_in_bytes":200,"actor":{},"allows_public_repositories":false,"approval_policy":"approval_policy1","archive_download_url":"archive_download_url1","archive_url":"archive_url1","artifacts_url":"artifacts_url1","assignees_url":"assignees_url1","badge_url":"badge_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","busy":false,"cancel_url":"cancel_url1","check_run_url":"check_run_url1","check_suite_url":"check_suite_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","completed_at":"completed_at1","conclusion":"conclusion1","contents_url":"contents_url1","contributors_url":"contributors_url1","cpu_cores":200,"created_at":"created_at1","days":200,"default":false,"deployments_url":"deployments_url1","description":"description1","display_name":"display_name1","display_title":"display_title1","downloads_url":"downloads_url1","enabled":false,"enabled_repositories":"enabled_repositories1","event":"event1","events_url":"events_url1","expired":false,"expires_at":"expires_at1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","head_branch":"head_branch1","head_commit":{},"head_repository":{},"head_sha":"head_sha1","hooks_url":"hooks_url1","html_url":"html_url1","id":"action-apiid-1","image_details":{},"inherited":false,"issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","jobs_url":"jobs_url1","keys_url":"keys_url1","labels":[],"labels_url":"labels_url1","languages_url":"languages_url1","logs_url":"logs_url1","machine_size_details":{},"memory_gb":200,"merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name0","node_id":"node_id1","notifications_url":"notifications_url1","os":"os1","owner":"owner0","path":"path1","platform":"platform1","platforms":[],"private":false,"public_ip_enabled":false,"pull_requests":[],"pulls_url":"pulls_url1","ref":"ref1","releases_url":"releases_url1","repository":{},"rerun_url":"rerun_url1","run_id":200,"run_number":200,"run_url":"run_url1","run_workflows_from_fork_pull_requests":false,"runner_group_id":200,"runner_group_name":"runner_group_name1","runner_id":200,"runner_name":"runner_name1","runners":[],"runners_url":"runners_url1","selected_repository_ids":[],"size_gb":200,"size_in_bytes":200,"source":"source1","stargazers_url":"stargazers_url1","started_at":"started_at1","state":"state1","status":"status1","statuses_url":"statuses_url1","storage_gb":200,"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","total_count":200,"trees_url":"trees_url1","triggering_actor":{},"updated_at":"updated_at1","url":"url1","workflow_id":200,"workflow_name":"workflow_name1","workflow_url":"workflow_url1","artifact_id":"artifact0","hosted_runner_id":"hosted_runner0","org_id":"org0","repo":"repo0","repository_id":"repository0","archive_format":"action1"},
+    },
+    actions_artifact_and_log_retention: {
+      actions_artifact_and_log_retention0: {"days":100,"maximum_allowed_days":100,"org_id":"actions_artifact_and_log_retention0"},
+      actions_artifact_and_log_retention1: {"days":200,"maximum_allowed_days":200,"org_id":"actions_artifact_and_log_retention1"},
+    },
+    actions_cache_list: {
+      actions_cache_list0: {"key":"key0","owner":"owner0","repo":"actions_cache_list0"},
+      actions_cache_list1: {"key":"key0","owner":"owner0","repo":"actions_cache_list1"},
+    },
+    actions_cache_usage_by_repository: {
+      actions_cache_usage_by_repository0: {"active_caches_count":100,"active_caches_size_in_bytes":100,"full_name":"full_name0","owner":"owner0","repo":"actions_cache_usage_by_repository0"},
+      actions_cache_usage_by_repository1: {"active_caches_count":200,"active_caches_size_in_bytes":200,"full_name":"full_name1","owner":"owner0","repo":"actions_cache_usage_by_repository1"},
+    },
+    actions_cache_usage_org_enterprise: {
+      actions_cache_usage_org_enterprise0: {"total_active_caches_count":100,"total_active_caches_size_in_bytes":100,"org_id":"actions_cache_usage_org_enterprise0"},
+      actions_cache_usage_org_enterprise1: {"total_active_caches_count":200,"total_active_caches_size_in_bytes":200,"org_id":"actions_cache_usage_org_enterprise1"},
+    },
+    actions_fork_pr_contributor_approval: {
+      actions_fork_pr_contributor_approval0: {"approval_policy":"approval_policy0","org_id":"actions_fork_pr_contributor_approval0"},
+      actions_fork_pr_contributor_approval1: {"approval_policy":"approval_policy1","org_id":"actions_fork_pr_contributor_approval1"},
+    },
+    actions_fork_pr_workflows_private_repo: {
+      actions_fork_pr_workflows_private_repo0: {"require_approval_for_fork_pr_workflows":false,"run_workflows_from_fork_pull_requests":false,"send_secrets_and_variables":false,"send_write_tokens_to_workflows":false,"org_id":"actions_fork_pr_workflows_private_repo0"},
+      actions_fork_pr_workflows_private_repo1: {"require_approval_for_fork_pr_workflows":false,"run_workflows_from_fork_pull_requests":false,"send_secrets_and_variables":false,"send_write_tokens_to_workflows":false,"org_id":"actions_fork_pr_workflows_private_repo1"},
+    },
+    actions_get_default_workflow_permission: {
+      actions_get_default_workflow_permission0: {"can_approve_pull_request_reviews":false,"default_workflow_permissions":"default_workflow_permissions0","org_id":"actions_get_default_workflow_permission0"},
+      actions_get_default_workflow_permission1: {"can_approve_pull_request_reviews":false,"default_workflow_permissions":"default_workflow_permissions1","org_id":"actions_get_default_workflow_permission1"},
+    },
+    actions_hosted_runner: {
+      actions_hosted_runner0: {"id":"actions_hosted_runner0","image":{},"image_details":{},"machine_size_details":{},"name":"name0","platform":"platform0","public_ip_enabled":false,"size":"size0","status":"status0","org_id":"org0"},
+      actions_hosted_runner1: {"id":"actions_hosted_runner1","image":{},"image_details":{},"machine_size_details":{},"name":"name1","platform":"platform1","public_ip_enabled":false,"size":"size1","status":"status1","org_id":"org0"},
+    },
+    actions_hosted_runner_limit: {
+      actions_hosted_runner_limit0: {"current_usage":100,"maximum":100,"org_id":"actions_hosted_runner_limit0"},
+      actions_hosted_runner_limit1: {"current_usage":200,"maximum":200,"org_id":"actions_hosted_runner_limit1"},
+    },
+    actions_organization_permission: {
+      actions_organization_permission0: {"enabled_repositories":"enabled_repositories0","org_id":"actions_organization_permission0"},
+      actions_organization_permission1: {"enabled_repositories":"enabled_repositories1","org_id":"actions_organization_permission1"},
+    },
+    actions_public_key: {
+      actions_public_key0: {"key":"key0","key_id":"key_id0","org_id":"actions_public_key0"},
+      actions_public_key1: {"key":"key1","key_id":"key_id1","org_id":"actions_public_key1"},
+    },
+    actions_repository_permission: {
+      actions_repository_permission0: {"enabled":false,"owner":"owner0","repo":"actions_repository_permission0"},
+      actions_repository_permission1: {"enabled":false,"owner":"owner0","repo":"actions_repository_permission1"},
+    },
+    actions_secret: {
+      actions_secret0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","owner":"owner0","repo":"repo0","id":"actions_secret0"},
+      actions_secret1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","owner":"owner0","repo":"repo0","id":"actions_secret1"},
+    },
+    actions_variable: {
+      actions_variable0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","value":"value0","owner":"owner0","repo":"repo0","id":"actions_variable0"},
+      actions_variable1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","value":"value1","owner":"owner0","repo":"repo0","id":"actions_variable1"},
+    },
+    actions_workflow_access_to_repository: {
+      actions_workflow_access_to_repository0: {"access_level":"access_level0","owner":"owner0","repo":"actions_workflow_access_to_repository0"},
+      actions_workflow_access_to_repository1: {"access_level":"access_level1","owner":"owner0","repo":"actions_workflow_access_to_repository1"},
+    },
+    activity: {
+      activity0: {"activity_type":"activity_type0","actor":{},"after":"after0","before":"before0","ref":"ref0","timestamp":"timestamp0","owner":"owner0","thread_id":"thread0","repo":"activity0"},
+      activity1: {"activity_type":"activity_type1","actor":{},"after":"after1","before":"before1","ref":"ref1","timestamp":"timestamp1","owner":"owner0","thread_id":"thread0","repo":"activity1"},
+    },
+    add: {
+      add0: {"usernames":[],"enterprise":"enterprise0","team_id":"team0","id":"add0"},
+      add1: {"usernames":[],"enterprise":"enterprise0","team_id":"team0","id":"add1"},
+    },
+    api_insights_route_stat: {
+      api_insights_route_stat0: {"actor_id":"actor0","actor_type":"actor_type0","min_timestamp":"min_timestamp0","org":"org0","id":"api_insights_route_stat0"},
+      api_insights_route_stat1: {"actor_id":"actor0","actor_type":"actor_type0","min_timestamp":"min_timestamp0","org":"org0","id":"api_insights_route_stat1"},
+    },
+    api_insights_subject_stat: {
+      api_insights_subject_stat0: {"min_timestamp":"min_timestamp0","org_id":"org0","id":"api_insights_subject_stat0"},
+      api_insights_subject_stat1: {"min_timestamp":"min_timestamp0","org_id":"org0","id":"api_insights_subject_stat1"},
+    },
+    api_insights_summary_stat: {
+      api_insights_summary_stat0: {"min_timestamp":"min_timestamp0","actor_type":"api_insights_summary_stat0","actor_id":"api_insights_summary_stat0"},
+      api_insights_summary_stat1: {"min_timestamp":"min_timestamp0","actor_type":"api_insights_summary_stat1","actor_id":"api_insights_summary_stat1"},
+    },
+    api_insights_time_stat: {
+      api_insights_time_stat0: {"min_timestamp":"min_timestamp0","org_id":"org0","timestamp_increment":"timestamp_increment0","user_id":"api_insights_time_stat0"},
+      api_insights_time_stat1: {"min_timestamp":"min_timestamp0","org_id":"org0","timestamp_increment":"timestamp_increment0","user_id":"api_insights_time_stat1"},
+    },
+    api_insights_user_stat: {
+      api_insights_user_stat0: {"min_timestamp":"min_timestamp0","org_id":"org0","id":"api_insights_user_stat0"},
+      api_insights_user_stat1: {"min_timestamp":"min_timestamp0","org_id":"org0","id":"api_insights_user_stat1"},
+    },
+    api_overview: {
+      api_overview0: {"verifiable_password_authentication":false,"id":"api_overview0"},
+      api_overview1: {"verifiable_password_authentication":false,"id":"api_overview1"},
+    },
+    app: {
+      app0: {"access_tokens_url":"access_tokens_url0","account":"account0","app_id":100,"app_slug":"app_slug0","archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","default_branch":"default_branch0","deployments_url":"deployments_url0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","repositories_url":"repositories_url0","repository_selection":"repository_selection0","single_file_name":"single_file_name0","size":100,"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","suspended_at":"suspended_at0","suspended_by":{},"svn_url":"svn_url0","tags_url":"tags_url0","target_id":100,"target_type":"target_type0","teams_url":"teams_url0","trees_url":"trees_url0","url":"url0","watchers":100,"watchers_count":100,"code":"code0","repository_id":"repository0","installation_id":"app0"},
+      app1: {"access_tokens_url":"access_tokens_url1","account":"account1","app_id":200,"app_slug":"app_slug1","archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","default_branch":"default_branch1","deployments_url":"deployments_url1","disabled":false,"downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","repositories_url":"repositories_url1","repository_selection":"repository_selection1","single_file_name":"single_file_name1","size":200,"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","suspended_at":"suspended_at1","suspended_by":{},"svn_url":"svn_url1","tags_url":"tags_url1","target_id":200,"target_type":"target_type1","teams_url":"teams_url1","trees_url":"trees_url1","url":"url1","watchers":200,"watchers_count":200,"code":"code0","repository_id":"repository0","installation_id":"app1"},
+    },
+    artifact: {
+      artifact0: {"owner":"owner0","repo":"repo0","id":"artifact0"},
+      artifact1: {"owner":"owner0","repo":"repo0","id":"artifact1"},
+    },
+    assignee: {
+      assignee0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"assignee0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","owner":"owner0","repo":"repo0"},
+      assignee1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"assignee1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    authentication_token: {
+      authentication_token0: {"org_id":"org0","id":"authentication_token0"},
+      authentication_token1: {"org_id":"org0","id":"authentication_token1"},
+    },
+    authorization: {
+      authorization0: {"access_token":"access_token0","app":{},"created_at":"created_at0","expires_at":"expires_at0","fingerprint":"fingerprint0","hashed_token":"hashed_token0","id":"authorization-apiid-0","installation":{},"note":"note0","note_url":"note_url0","scopes":[],"token":"token0","token_last_eight":"token_last_eight0","updated_at":"updated_at0","url":"url0","user":{},"application_id":"authorization0"},
+      authorization1: {"access_token":"access_token1","app":{},"created_at":"created_at1","expires_at":"expires_at1","fingerprint":"fingerprint1","hashed_token":"hashed_token1","id":"authorization-apiid-1","installation":{},"note":"note1","note_url":"note_url1","scopes":[],"token":"token1","token_last_eight":"token_last_eight1","updated_at":"updated_at1","url":"url1","user":{},"application_id":"authorization1"},
+    },
+    autolink: {
+      autolink0: {"id":"autolink0","is_alphanumeric":false,"key_prefix":"key_prefix0","url_template":"url_template0","owner":"owner0","repo":"repo0"},
+      autolink1: {"id":"autolink1","is_alphanumeric":false,"key_prefix":"key_prefix1","url_template":"url_template1","owner":"owner0","repo":"repo0"},
+    },
+    base_gist: {
+      base_gist0: {"gist_id":"gist0","id":"base_gist0"},
+      base_gist1: {"gist_id":"gist0","id":"base_gist1"},
+    },
+    billing_usage_report: {
+      billing_usage_report0: {"date":"date0","discountAmount":100,"grossAmount":100,"netAmount":100,"organizationName":"organizationName0","pricePerUnit":100,"product":"product0","quantity":100,"sku":"sku0","unitType":"unitType0","org":"org0","id":"billing_usage_report0"},
+      billing_usage_report1: {"date":"date1","discountAmount":200,"grossAmount":200,"netAmount":200,"organizationName":"organizationName1","pricePerUnit":200,"product":"product1","quantity":200,"sku":"sku1","unitType":"unitType1","org":"org0","id":"billing_usage_report1"},
+    },
+    billing_usage_report_user: {
+      billing_usage_report_user0: {"date":"date0","discountAmount":100,"grossAmount":100,"netAmount":100,"pricePerUnit":100,"product":"product0","quantity":100,"sku":"sku0","unitType":"unitType0","username":"username0","id":"billing_usage_report_user0"},
+      billing_usage_report_user1: {"date":"date1","discountAmount":200,"grossAmount":200,"netAmount":200,"pricePerUnit":200,"product":"product1","quantity":200,"sku":"sku1","unitType":"unitType1","username":"username0","id":"billing_usage_report_user1"},
+    },
+    blob: {
+      blob0: {"content":"content0","encoding":"encoding0","node_id":"node_id0","sha":"sha0","size":100,"url":"url0","owner":"owner0","repo":"repo0","id":"blob0"},
+      blob1: {"content":"content1","encoding":"encoding1","node_id":"node_id1","sha":"sha1","size":200,"url":"url1","owner":"owner0","repo":"repo0","id":"blob1"},
+    },
+    block: {
+      block0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"block0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0"},
+      block1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"block1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1"},
+    },
+    branch: {
+      branch0: {"commit":{},"links":{},"name":"name0","protected":false,"protection":{},"protection_url":"protection_url0","owner":"owner0","repo":"repo0","id":"branch0"},
+      branch1: {"commit":{},"links":{},"name":"name1","protected":false,"protection":{},"protection_url":"protection_url1","owner":"owner0","repo":"repo0","id":"branch1"},
+    },
+    branch_protection: {
+      branch_protection0: {"enforce_admins":{},"required_pull_request_reviews":{},"required_signatures":{},"required_status_checks":{},"restrictions":{},"owner":"owner0","repo":"repo0","id":"branch_protection0"},
+      branch_protection1: {"enforce_admins":{},"required_pull_request_reviews":{},"required_signatures":{},"required_status_checks":{},"restrictions":{},"owner":"owner0","repo":"repo0","id":"branch_protection1"},
+    },
+    branch_restriction_policy: {
+      branch_restriction_policy0: {"apps":[],"apps_url":"apps_url0","teams":[],"teams_url":"teams_url0","url":"url0","users":[],"users_url":"users_url0","branch_id":"branch0","owner":"owner0","repo":"repo0","id":"branch_restriction_policy0"},
+      branch_restriction_policy1: {"apps":[],"apps_url":"apps_url1","teams":[],"teams_url":"teams_url1","url":"url1","users":[],"users_url":"users_url1","branch_id":"branch0","owner":"owner0","repo":"repo0","id":"branch_restriction_policy1"},
+    },
+    branch_short: {
+      branch_short0: {"commit":{},"name":"name0","protected":false,"commit_sha":"commit_sha0","owner":"owner0","repo":"repo0","id":"branch_short0"},
+      branch_short1: {"commit":{},"name":"name1","protected":false,"commit_sha":"commit_sha0","owner":"owner0","repo":"repo0","id":"branch_short1"},
+    },
+    branch_with_protection: {
+      branch_with_protection0: {"new_name":"new_name0","owner":"owner0","repo":"repo0","id":"branch_with_protection0"},
+      branch_with_protection1: {"new_name":"new_name1","owner":"owner0","repo":"repo0","id":"branch_with_protection1"},
+    },
+    campaign: {
+      campaign0: {"alert_stats":{},"code_scanning_alerts":[],"contact_link":"contact_link0","created_at":"created_at0","description":"description0","ends_at":"ends_at0","managers":[],"number":100,"state":"state0","updated_at":"updated_at0","org_id":"org0","id":"campaign0"},
+      campaign1: {"alert_stats":{},"code_scanning_alerts":[],"contact_link":"contact_link1","created_at":"created_at1","description":"description1","ends_at":"ends_at1","managers":[],"number":200,"state":"state1","updated_at":"updated_at1","org_id":"org0","id":"campaign1"},
+    },
+    check: {
+      check0: {"after":"after0","app":{},"before":"before0","check_runs_url":"check_runs_url0","check_suite":{},"completed_at":"completed_at0","conclusion":"conclusion0","created_at":"created_at0","deployment":{},"details_url":"details_url0","external_id":"external_id0","head_branch":"head_branch0","head_commit":{},"head_sha":"head_sha0","html_url":"html_url0","id":"check0","latest_check_runs_count":100,"name":"name0","node_id":"node_id0","output":{},"pull_requests":[],"repository":{},"started_at":"started_at0","status":"status0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      check1: {"after":"after1","app":{},"before":"before1","check_runs_url":"check_runs_url1","check_suite":{},"completed_at":"completed_at1","conclusion":"conclusion1","created_at":"created_at1","deployment":{},"details_url":"details_url1","external_id":"external_id1","head_branch":"head_branch1","head_commit":{},"head_sha":"head_sha1","html_url":"html_url1","id":"check1","latest_check_runs_count":200,"name":"name1","node_id":"node_id1","output":{},"pull_requests":[],"repository":{},"started_at":"started_at1","status":"status1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    check_annotation: {
+      check_annotation0: {"annotation_level":"annotation_level0","blob_href":"blob_href0","end_column":100,"end_line":100,"message":"message0","path":"path0","raw_details":"raw_details0","start_column":100,"start_line":100,"title":"title0","check_run_id":"check_run0","owner":"owner0","repo":"repo0","id":"check_annotation0"},
+      check_annotation1: {"annotation_level":"annotation_level1","blob_href":"blob_href1","end_column":200,"end_line":200,"message":"message1","path":"path1","raw_details":"raw_details1","start_column":200,"start_line":200,"title":"title1","check_run_id":"check_run0","owner":"owner0","repo":"repo0","id":"check_annotation1"},
+    },
+    check_automated_security_fix: {
+      check_automated_security_fix0: {"enabled":false,"paused":false,"owner":"owner0","repo":"check_automated_security_fix0"},
+      check_automated_security_fix1: {"enabled":false,"paused":false,"owner":"owner0","repo":"check_automated_security_fix1"},
+    },
+    check_run: {
+      check_run0: {"app":{},"check_suite":{},"completed_at":"completed_at0","conclusion":"conclusion0","deployment":{},"details_url":"details_url0","external_id":"external_id0","head_sha":"head_sha0","html_url":"html_url0","id":"check_run0","name":"name0","node_id":"node_id0","output":{},"pull_requests":[],"started_at":"started_at0","status":"status0","url":"url0","owner":"owner0","repo":"repo0"},
+      check_run1: {"app":{},"check_suite":{},"completed_at":"completed_at1","conclusion":"conclusion1","deployment":{},"details_url":"details_url1","external_id":"external_id1","head_sha":"head_sha1","html_url":"html_url1","id":"check_run1","name":"name1","node_id":"node_id1","output":{},"pull_requests":[],"started_at":"started_at1","status":"status1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    check_suite: {
+      check_suite0: {"after":"after0","app":{},"before":"before0","check_runs_url":"check_runs_url0","conclusion":"conclusion0","created_at":"created_at0","head_branch":"head_branch0","head_commit":{},"head_sha":"head_sha0","id":"check_suite0","latest_check_runs_count":100,"node_id":"node_id0","pull_requests":[],"repository":{},"status":"status0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      check_suite1: {"after":"after1","app":{},"before":"before1","check_runs_url":"check_runs_url1","conclusion":"conclusion1","created_at":"created_at1","head_branch":"head_branch1","head_commit":{},"head_sha":"head_sha1","id":"check_suite1","latest_check_runs_count":200,"node_id":"node_id1","pull_requests":[],"repository":{},"status":"status1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    check_suite_preference: {
+      check_suite_preference0: {"preferences":{},"repository":{},"owner":"owner0","repo":"check_suite_preference0"},
+      check_suite_preference1: {"preferences":{},"repository":{},"owner":"owner0","repo":"check_suite_preference1"},
+    },
+    classroom: {
+      classroom0: {"archived":false,"avatar_url":"avatar_url0","html_url":"html_url0","id":"classroom0","login":"login0","name":"name0","node_id":"node_id0","url":"url0"},
+      classroom1: {"archived":false,"avatar_url":"avatar_url1","html_url":"html_url1","id":"classroom1","login":"login1","name":"name1","node_id":"node_id1","url":"url1"},
+    },
+    classroom_accepted_assignment: {
+      classroom_accepted_assignment0: {"assignment":{},"commit_count":100,"grade":"grade0","id":"classroom_accepted_assignment0","passing":false,"repository":{},"students":[],"submitted":false,"assignment_id":"assignment0"},
+      classroom_accepted_assignment1: {"assignment":{},"commit_count":200,"grade":"grade1","id":"classroom_accepted_assignment1","passing":false,"repository":{},"students":[],"submitted":false,"assignment_id":"assignment0"},
+    },
+    classroom_assignment: {
+      classroom_assignment0: {"accepted":100,"classroom":{},"deadline":"deadline0","editor":"editor0","feedback_pull_requests_enabled":false,"id":"classroom_assignment0","invitations_enabled":false,"invite_link":"invite_link0","language":"language0","max_members":100,"max_teams":100,"passing":100,"public_repo":false,"slug":"slug0","starter_code_repository":{},"students_are_repo_admins":false,"submitted":100,"title":"title0","type":"type0"},
+      classroom_assignment1: {"accepted":200,"classroom":{},"deadline":"deadline1","editor":"editor1","feedback_pull_requests_enabled":false,"id":"classroom_assignment1","invitations_enabled":false,"invite_link":"invite_link1","language":"language1","max_members":200,"max_teams":200,"passing":200,"public_repo":false,"slug":"slug1","starter_code_repository":{},"students_are_repo_admins":false,"submitted":200,"title":"title1","type":"type1"},
+    },
+    classroom_assignment_grade: {
+      classroom_assignment_grade0: {"assignment_name":"assignment_name0","assignment_url":"assignment_url0","github_username":"github_username0","points_available":100,"points_awarded":100,"roster_identifier":"roster_identifier0","starter_code_url":"starter_code_url0","student_repository_name":"student_repository_name0","student_repository_url":"student_repository_url0","submission_timestamp":"submission_timestamp0","assignment_id":"assignment0","id":"classroom_assignment_grade0"},
+      classroom_assignment_grade1: {"assignment_name":"assignment_name1","assignment_url":"assignment_url1","github_username":"github_username1","points_available":200,"points_awarded":200,"roster_identifier":"roster_identifier1","starter_code_url":"starter_code_url1","student_repository_name":"student_repository_name1","student_repository_url":"student_repository_url1","submission_timestamp":"submission_timestamp1","assignment_id":"assignment0","id":"classroom_assignment_grade1"},
+    },
+    clone: {
+      clone0: {"count":100,"timestamp":"timestamp0","uniques":100,"owner":"owner0","repo":"repo0","id":"clone0"},
+      clone1: {"count":200,"timestamp":"timestamp1","uniques":200,"owner":"owner0","repo":"repo0","id":"clone1"},
+    },
+    code_frequency: {
+      code_frequency0: {"owner":"owner0","repo":"repo0","id":"code_frequency0"},
+      code_frequency1: {"owner":"owner0","repo":"repo0","id":"code_frequency1"},
+    },
+    code_frequency_stat: {
+      code_frequency_stat0: {"owner":"owner0","repo":"repo0","id":"code_frequency_stat0"},
+      code_frequency_stat1: {"owner":"owner0","repo":"repo0","id":"code_frequency_stat1"},
+    },
+    code_of_conduct: {
+      code_of_conduct0: {"html_url":"html_url0","key":"code_of_conduct0","name":"name0","url":"url0"},
+      code_of_conduct1: {"html_url":"html_url1","key":"code_of_conduct1","name":"name1","url":"url1"},
+    },
+    code_scanning: {
+      code_scanning0: {"commit_sha":"commit_sha0","ref":"ref0","sarif":"sarif0","owner":"owner0","repo":"repo0","language":"code_scanning0"},
+      code_scanning1: {"commit_sha":"commit_sha1","ref":"ref1","sarif":"sarif1","owner":"owner0","repo":"repo0","language":"code_scanning1"},
+    },
+    code_scanning_alert: {
+      code_scanning_alert0: {"created_at":"created_at0","dismissal_approved_by":{},"dismissed_at":"dismissed_at0","dismissed_by":{},"dismissed_reason":"dismissed_reason0","html_url":"html_url0","instances_url":"instances_url0","most_recent_instance":{},"number":100,"rule":{},"state":"state0","tool":{},"url":"url0","owner":"owner0","repo":"repo0","id":"code_scanning_alert0"},
+      code_scanning_alert1: {"created_at":"created_at1","dismissal_approved_by":{},"dismissed_at":"dismissed_at1","dismissed_by":{},"dismissed_reason":"dismissed_reason1","html_url":"html_url1","instances_url":"instances_url1","most_recent_instance":{},"number":200,"rule":{},"state":"state1","tool":{},"url":"url1","owner":"owner0","repo":"repo0","id":"code_scanning_alert1"},
+    },
+    code_scanning_alert_instance: {
+      code_scanning_alert_instance0: {"alert_number":"alert_number0","owner":"owner0","repo":"repo0","id":"code_scanning_alert_instance0"},
+      code_scanning_alert_instance1: {"alert_number":"alert_number0","owner":"owner0","repo":"repo0","id":"code_scanning_alert_instance1"},
+    },
+    code_scanning_alert_item: {
+      code_scanning_alert_item0: {"created_at":"created_at0","dismissal_approved_by":{},"dismissed_at":"dismissed_at0","dismissed_by":{},"dismissed_reason":"dismissed_reason0","html_url":"html_url0","instances_url":"instances_url0","most_recent_instance":{},"number":100,"rule":{},"state":"state0","tool":{},"url":"url0","owner":"owner0","repo":"repo0","id":"code_scanning_alert_item0"},
+      code_scanning_alert_item1: {"created_at":"created_at1","dismissal_approved_by":{},"dismissed_at":"dismissed_at1","dismissed_by":{},"dismissed_reason":"dismissed_reason1","html_url":"html_url1","instances_url":"instances_url1","most_recent_instance":{},"number":200,"rule":{},"state":"state1","tool":{},"url":"url1","owner":"owner0","repo":"repo0","id":"code_scanning_alert_item1"},
+    },
+    code_scanning_analysi: {
+      code_scanning_analysi0: {"analysis_key":"analysis_key0","commit_sha":"commit_sha0","created_at":"created_at0","deletable":false,"environment":"environment0","error":"error0","id":"code_scanning_analysi-apiid-0","ref":"ref0","results_count":100,"rules_count":100,"sarif_id":"sarif_id0","tool":{},"url":"url0","warning":"warning0","owner":"owner0","repo":"repo0","analysis_id":"code_scanning_analysi0"},
+      code_scanning_analysi1: {"analysis_key":"analysis_key1","commit_sha":"commit_sha1","created_at":"created_at1","deletable":false,"environment":"environment1","error":"error1","id":"code_scanning_analysi-apiid-1","ref":"ref1","results_count":200,"rules_count":200,"sarif_id":"sarif_id1","tool":{},"url":"url1","warning":"warning1","owner":"owner0","repo":"repo0","analysis_id":"code_scanning_analysi1"},
+    },
+    code_scanning_analysis_deletion: {
+      code_scanning_analysis_deletion0: {"owner":"owner0","repo":"repo0","analysis_id":"code_scanning_analysis_deletion0"},
+      code_scanning_analysis_deletion1: {"owner":"owner0","repo":"repo0","analysis_id":"code_scanning_analysis_deletion1"},
+    },
+    code_scanning_autofix: {
+      code_scanning_autofix0: {"description":"description0","started_at":"started_at0","status":"status0","owner":"owner0","repo":"repo0","alert_number":"code_scanning_autofix0"},
+      code_scanning_autofix1: {"description":"description1","started_at":"started_at1","status":"status1","owner":"owner0","repo":"repo0","alert_number":"code_scanning_autofix1"},
+    },
+    code_scanning_autofix_commit: {
+      code_scanning_autofix_commit0: {"alert_id":"alert0","owner":"owner0","repo":"repo0","id":"code_scanning_autofix_commit0"},
+      code_scanning_autofix_commit1: {"alert_id":"alert0","owner":"owner0","repo":"repo0","id":"code_scanning_autofix_commit1"},
+    },
+    code_scanning_codeql_database: {
+      code_scanning_codeql_database0: {"avatar_url":"avatar_url0","content_type":"content_type0","created_at":"created_at0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"code_scanning_codeql_database-apiid-0","language":"code_scanning_codeql_database0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"size":100,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","updated_at":"updated_at0","uploader":{},"url":"url0","owner":"owner0","repo":"repo0"},
+      code_scanning_codeql_database1: {"avatar_url":"avatar_url1","content_type":"content_type1","created_at":"created_at1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"code_scanning_codeql_database-apiid-1","language":"code_scanning_codeql_database1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"size":200,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","updated_at":"updated_at1","uploader":{},"url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    code_scanning_default_setup: {
+      code_scanning_default_setup0: {"owner":"owner0","repo":"repo0","id":"code_scanning_default_setup0"},
+      code_scanning_default_setup1: {"owner":"owner0","repo":"repo0","id":"code_scanning_default_setup1"},
+    },
+    code_scanning_organization_alert_item: {
+      code_scanning_organization_alert_item0: {"created_at":"created_at0","dismissal_approved_by":{},"dismissed_at":"dismissed_at0","dismissed_by":{},"dismissed_reason":"dismissed_reason0","html_url":"html_url0","instances_url":"instances_url0","most_recent_instance":{},"number":100,"repository":{},"rule":{},"state":"state0","tool":{},"url":"url0","org_id":"org0","id":"code_scanning_organization_alert_item0"},
+      code_scanning_organization_alert_item1: {"created_at":"created_at1","dismissal_approved_by":{},"dismissed_at":"dismissed_at1","dismissed_by":{},"dismissed_reason":"dismissed_reason1","html_url":"html_url1","instances_url":"instances_url1","most_recent_instance":{},"number":200,"repository":{},"rule":{},"state":"state1","tool":{},"url":"url1","org_id":"org0","id":"code_scanning_organization_alert_item1"},
+    },
+    code_scanning_sarifs_status: {
+      code_scanning_sarifs_status0: {"owner":"owner0","repo":"repo0","sarif_id":"code_scanning_sarifs_status0"},
+      code_scanning_sarifs_status1: {"owner":"owner0","repo":"repo0","sarif_id":"code_scanning_sarifs_status1"},
+    },
+    code_scanning_variant_analysi: {
+      code_scanning_variant_analysi0: {"actor":{},"controller_repo":{},"id":"code_scanning_variant_analysi-apiid-0","language":"language0","query_language":"query_language0","query_pack":"query_pack0","query_pack_url":"query_pack_url0","skipped_repositories":{},"status":"status0","owner":"owner0","repo":"repo0","codeql_variant_analysis_id":"code_scanning_variant_analysi0"},
+      code_scanning_variant_analysi1: {"actor":{},"controller_repo":{},"id":"code_scanning_variant_analysi-apiid-1","language":"language1","query_language":"query_language1","query_pack":"query_pack1","query_pack_url":"query_pack_url1","skipped_repositories":{},"status":"status1","owner":"owner0","repo":"repo0","codeql_variant_analysis_id":"code_scanning_variant_analysi1"},
+    },
+    code_scanning_variant_analysis_repo_task: {
+      code_scanning_variant_analysis_repo_task0: {"archive_url":"archive_url0","assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","github_id":100,"hooks_url":"hooks_url0","html_url":"html_url0","id":"code_scanning_variant_analysis_repo_task-apiid-0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","owner":"owner0","private":false,"pulls_url":"pulls_url0","releases_url":"releases_url0","stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","url":"url0","codeql_variant_analysis_id":"codeql_variant_analysis0","repo":"repo0","repo_owner":"repo_owner0","repo_name":"code_scanning_variant_analysis_repo_task0"},
+      code_scanning_variant_analysis_repo_task1: {"archive_url":"archive_url1","assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","github_id":200,"hooks_url":"hooks_url1","html_url":"html_url1","id":"code_scanning_variant_analysis_repo_task-apiid-1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","owner":"owner0","private":false,"pulls_url":"pulls_url1","releases_url":"releases_url1","stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","url":"url1","codeql_variant_analysis_id":"codeql_variant_analysis0","repo":"repo0","repo_owner":"repo_owner0","repo_name":"code_scanning_variant_analysis_repo_task1"},
+    },
+    code_security: {
+      code_security0: {"enterprise":"enterprise0","configuration_id":"code_security0"},
+      code_security1: {"enterprise":"enterprise0","configuration_id":"code_security1"},
+    },
+    code_security_configuration: {
+      code_security_configuration0: {"scope":"scope0","enterprise":"enterprise0","org_id":"org0","id":"code_security_configuration0"},
+      code_security_configuration1: {"scope":"scope1","enterprise":"enterprise0","org_id":"org0","id":"code_security_configuration1"},
+    },
+    code_security_configuration_repository: {
+      code_security_configuration_repository0: {"repository":{},"configuration_id":"configuration0","id":"code_security_configuration_repository0"},
+      code_security_configuration_repository1: {"repository":{},"configuration_id":"configuration0","id":"code_security_configuration_repository1"},
+    },
+    code_security_default_configuration: {
+      code_security_default_configuration0: {"enterprise":"enterprise0","id":"code_security_default_configuration0"},
+      code_security_default_configuration1: {"enterprise":"enterprise0","id":"code_security_default_configuration1"},
+    },
+    codeowners_error: {
+      codeowners_error0: {"column":100,"kind":"kind0","line":100,"message":"message0","path":"path0","owner":"owner0","repo":"repo0","id":"codeowners_error0"},
+      codeowners_error1: {"column":200,"kind":"kind1","line":200,"message":"message1","path":"path1","owner":"owner0","repo":"repo0","id":"codeowners_error1"},
+    },
+    codespace: {
+      codespace0: {"accepted":false,"archive_url":"archive_url0","assignees_url":"assignees_url0","billable_owner":{},"blobs_url":"blobs_url0","branches_url":"branches_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","cpus":100,"created_at":"created_at0","defaults":{},"deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","environment_id":"environment_id0","events_url":"events_url0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_status":{},"git_tags_url":"git_tags_url0","hooks_url":"hooks_url0","idle_timeout_minutes":100,"issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","key":"key0","key_id":"key_id0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","last_used_at":"last_used_at0","location":"location0","machine":{},"machines_url":"machines_url0","memory_in_bytes":100,"merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","operating_system":"operating_system0","owner":{},"path":"path0","prebuild":false,"prebuild_availability":"prebuild_availability0","pulls_url":"pulls_url0","recent_folders":[],"releases_url":"releases_url0","repository":{},"selected_usernames":[],"stargazers_url":"stargazers_url0","start_url":"start_url0","statuses_url":"statuses_url0","stop_url":"stop_url0","storage_in_bytes":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","updated_at":"updated_at0","visibility":"visibility0","web_url":"web_url0","secret_name":"secret_name0","id":"codespace0"},
+      codespace1: {"accepted":false,"archive_url":"archive_url1","assignees_url":"assignees_url1","billable_owner":{},"blobs_url":"blobs_url1","branches_url":"branches_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","cpus":200,"created_at":"created_at1","defaults":{},"deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","environment_id":"environment_id1","events_url":"events_url1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_status":{},"git_tags_url":"git_tags_url1","hooks_url":"hooks_url1","idle_timeout_minutes":200,"issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","key":"key1","key_id":"key_id1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","last_used_at":"last_used_at1","location":"location1","machine":{},"machines_url":"machines_url1","memory_in_bytes":200,"merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","operating_system":"operating_system1","owner":{},"path":"path1","prebuild":false,"prebuild_availability":"prebuild_availability1","pulls_url":"pulls_url1","recent_folders":[],"releases_url":"releases_url1","repository":{},"selected_usernames":[],"stargazers_url":"stargazers_url1","start_url":"start_url1","statuses_url":"statuses_url1","stop_url":"stop_url1","storage_in_bytes":200,"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","updated_at":"updated_at1","visibility":"visibility1","web_url":"web_url1","secret_name":"secret_name0","id":"codespace1"},
+    },
+    collaborator: {
+      collaborator0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"collaborator0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","permissions":{},"received_events_url":"received_events_url0","repos_url":"repos_url0","role_name":"role_name0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","project_id":"project0"},
+      collaborator1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"collaborator1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","permissions":{},"received_events_url":"received_events_url1","repos_url":"repos_url1","role_name":"role_name1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","project_id":"project0"},
+    },
+    combined_billing_usage: {
+      combined_billing_usage0: {"days_left_in_billing_cycle":100,"estimated_paid_storage_for_month":100,"estimated_storage_for_month":100,"org_id":"combined_billing_usage0"},
+      combined_billing_usage1: {"days_left_in_billing_cycle":200,"estimated_paid_storage_for_month":200,"estimated_storage_for_month":200,"org_id":"combined_billing_usage1"},
+    },
+    combined_commit_status: {
+      combined_commit_status0: {"avatar_url":"avatar_url0","context":"context0","created_at":"created_at0","description":"description0","id":"combined_commit_status0","node_id":"node_id0","state":"state0","target_url":"target_url0","updated_at":"updated_at0","url":"url0","owner":"owner0","ref":"ref0","repo":"repo0"},
+      combined_commit_status1: {"avatar_url":"avatar_url1","context":"context1","created_at":"created_at1","description":"description1","id":"combined_commit_status1","node_id":"node_id1","state":"state1","target_url":"target_url1","updated_at":"updated_at1","url":"url1","owner":"owner0","ref":"ref0","repo":"repo0"},
+    },
+    commit: {
+      commit0: {"author":"author0","base":"base0","comments_url":"comments_url0","commit":{},"committer":"committer0","head":"head0","html_url":"html_url0","node_id":"node_id0","parents":[],"sha":"sha0","url":"url0","owner":"owner0","repo":"repo0","id":"commit0"},
+      commit1: {"author":"author1","base":"base1","comments_url":"comments_url1","commit":{},"committer":"committer1","head":"head1","html_url":"html_url1","node_id":"node_id1","parents":[],"sha":"sha1","url":"url1","owner":"owner0","repo":"repo0","id":"commit1"},
+    },
+    commit_activity: {
+      commit_activity0: {"days":[],"total":100,"week":100,"owner":"owner0","repo":"repo0","id":"commit_activity0"},
+      commit_activity1: {"days":[],"total":200,"week":200,"owner":"owner0","repo":"repo0","id":"commit_activity1"},
+    },
+    commit_comment: {
+      commit_comment0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","created_at":"created_at0","html_url":"html_url0","id":"commit_comment0","line":100,"node_id":"node_id0","path":"path0","position":100,"reactions":{},"updated_at":"updated_at0","url":"url0","user":{},"commit_sha":"commit_sha0","owner":"owner0","repo":"repo0"},
+      commit_comment1: {"author_association":"author_association1","body":"body1","commit_id":"commit_id1","created_at":"created_at1","html_url":"html_url1","id":"commit_comment1","line":200,"node_id":"node_id1","path":"path1","position":200,"reactions":{},"updated_at":"updated_at1","url":"url1","user":{},"commit_sha":"commit_sha0","owner":"owner0","repo":"repo0"},
+    },
+    commit_comparison: {
+      commit_comparison0: {"ahead_by":100,"base_commit":{},"behind_by":100,"commits":[],"diff_url":"diff_url0","html_url":"html_url0","merge_base_commit":{},"patch_url":"patch_url0","permalink_url":"permalink_url0","status":"status0","total_commits":100,"url":"url0","owner":"owner0","repo":"repo0","basehead":"commit_comparison0"},
+      commit_comparison1: {"ahead_by":200,"base_commit":{},"behind_by":200,"commits":[],"diff_url":"diff_url1","html_url":"html_url1","merge_base_commit":{},"patch_url":"patch_url1","permalink_url":"permalink_url1","status":"status1","total_commits":200,"url":"url1","owner":"owner0","repo":"repo0","basehead":"commit_comparison1"},
+    },
+    community_profile: {
+      community_profile0: {"code_of_conduct":{},"code_of_conduct_file":{},"contributing":{},"issue_template":{},"license":{},"pull_request_template":{},"readme":{},"owner":"owner0","repo":"community_profile0"},
+      community_profile1: {"code_of_conduct":{},"code_of_conduct_file":{},"contributing":{},"issue_template":{},"license":{},"pull_request_template":{},"readme":{},"owner":"owner0","repo":"community_profile1"},
+    },
+    content_file: {
+      content_file0: {"git":"git0","html":"html0","self":"self0","owner":"owner0","repo":"repo0","dir":"content_file0"},
+      content_file1: {"git":"git1","html":"html1","self":"self1","owner":"owner0","repo":"repo0","dir":"content_file1"},
+    },
+    content_traffic: {
+      content_traffic0: {"count":100,"path":"path0","title":"title0","uniques":100,"owner":"owner0","repo":"repo0","id":"content_traffic0"},
+      content_traffic1: {"count":200,"path":"path1","title":"title1","uniques":200,"owner":"owner0","repo":"repo0","id":"content_traffic1"},
+    },
+    contributor: {
+      contributor0: {"author":{},"contributions":100,"total":100,"type":"type0","weeks":[],"owner":"owner0","repo":"repo0","id":"contributor0"},
+      contributor1: {"author":{},"contributions":200,"total":200,"type":"type1","weeks":[],"owner":"owner0","repo":"repo0","id":"contributor1"},
+    },
+    copilot: {
+      copilot0: {"assignee":{},"created_at":"created_at0","organization":{},"selected_teams":[],"selected_usernames":[],"org_id":"org0","username":"copilot0"},
+      copilot1: {"assignee":{},"created_at":"created_at1","organization":{},"selected_teams":[],"selected_usernames":[],"org_id":"org0","username":"copilot1"},
+    },
+    copilot_organization_detail: {
+      copilot_organization_detail0: {"org_id":"copilot_organization_detail0"},
+      copilot_organization_detail1: {"org_id":"copilot_organization_detail1"},
+    },
+    copilot_usage_metrics_day: {
+      copilot_usage_metrics_day0: {"date":"date0","org_id":"org0","id":"copilot_usage_metrics_day0"},
+      copilot_usage_metrics_day1: {"date":"date1","org_id":"org0","id":"copilot_usage_metrics_day1"},
+    },
+    credential: {
+      credential0: {"credentials":[],"id":"credential0"},
+      credential1: {"credentials":[],"id":"credential1"},
+    },
+    custom_property: {
+      custom_property0: {"properties":[],"property_name":"property_name0","value_type":"value_type0","org_id":"org0","custom_property_name":"custom_property0"},
+      custom_property1: {"properties":[],"property_name":"property_name1","value_type":"value_type1","org_id":"org0","custom_property_name":"custom_property1"},
+    },
+    custom_property_value: {
+      custom_property_value0: {"property_name":"property_name0","value":"value0","owner":"owner0","repo":"repo0","id":"custom_property_value0"},
+      custom_property_value1: {"property_name":"property_name1","value":"value1","owner":"owner0","repo":"repo0","id":"custom_property_value1"},
+    },
+    dependabot: {
+      dependabot0: {"archive_url":"archive_url0","assignees_url":"assignees_url0","avatar_url":"avatar_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","default_level":"default_level0","deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","hooks_url":"hooks_url0","html_url":"html_url0","id":"dependabot-apiid-0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","login":"login0","members_url":"members_url0","merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","owner":{},"private":false,"public_members_url":"public_members_url0","pulls_url":"pulls_url0","releases_url":"releases_url0","repos_url":"repos_url0","selected_repository_ids":[],"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","url":"url0","org":"org0","org_id":"org0","repository_id":"repository0","secret_id":"secret0","secret_name":"dependabot0"},
+      dependabot1: {"archive_url":"archive_url1","assignees_url":"assignees_url1","avatar_url":"avatar_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","default_level":"default_level1","deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","hooks_url":"hooks_url1","html_url":"html_url1","id":"dependabot-apiid-1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","login":"login1","members_url":"members_url1","merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","owner":{},"private":false,"public_members_url":"public_members_url1","pulls_url":"pulls_url1","releases_url":"releases_url1","repos_url":"repos_url1","selected_repository_ids":[],"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","url":"url1","org":"org0","org_id":"org0","repository_id":"repository0","secret_id":"secret0","secret_name":"dependabot1"},
+    },
+    dependabot_alert: {
+      dependabot_alert0: {"created_at":"created_at0","dependency":{},"dismissed_at":"dismissed_at0","dismissed_by":{},"dismissed_comment":"dismissed_comment0","dismissed_reason":"dismissed_reason0","fixed_at":"fixed_at0","html_url":"html_url0","number":100,"security_advisory":{},"security_vulnerability":{},"state":"state0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0","id":"dependabot_alert0"},
+      dependabot_alert1: {"created_at":"created_at1","dependency":{},"dismissed_at":"dismissed_at1","dismissed_by":{},"dismissed_comment":"dismissed_comment1","dismissed_reason":"dismissed_reason1","fixed_at":"fixed_at1","html_url":"html_url1","number":200,"security_advisory":{},"security_vulnerability":{},"state":"state1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0","id":"dependabot_alert1"},
+    },
+    dependabot_alert_with_repository: {
+      dependabot_alert_with_repository0: {"created_at":"created_at0","dependency":{},"dismissed_at":"dismissed_at0","dismissed_by":{},"dismissed_comment":"dismissed_comment0","dismissed_reason":"dismissed_reason0","fixed_at":"fixed_at0","html_url":"html_url0","number":100,"repository":{},"security_advisory":{},"security_vulnerability":{},"state":"state0","updated_at":"updated_at0","url":"url0","org_id":"org0","id":"dependabot_alert_with_repository0"},
+      dependabot_alert_with_repository1: {"created_at":"created_at1","dependency":{},"dismissed_at":"dismissed_at1","dismissed_by":{},"dismissed_comment":"dismissed_comment1","dismissed_reason":"dismissed_reason1","fixed_at":"fixed_at1","html_url":"html_url1","number":200,"repository":{},"security_advisory":{},"security_vulnerability":{},"state":"state1","updated_at":"updated_at1","url":"url1","org_id":"org0","id":"dependabot_alert_with_repository1"},
+    },
+    dependabot_public_key: {
+      dependabot_public_key0: {"key":"key0","key_id":"key_id0","org_id":"dependabot_public_key0"},
+      dependabot_public_key1: {"key":"key1","key_id":"key_id1","org_id":"dependabot_public_key1"},
+    },
+    dependabot_repository_access_detail: {
+      dependabot_repository_access_detail0: {"archive_url":"archive_url0","assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","hooks_url":"hooks_url0","html_url":"html_url0","id":"dependabot_repository_access_detail0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","owner":{},"private":false,"pulls_url":"pulls_url0","releases_url":"releases_url0","stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","url":"url0","org":"org0"},
+      dependabot_repository_access_detail1: {"archive_url":"archive_url1","assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","hooks_url":"hooks_url1","html_url":"html_url1","id":"dependabot_repository_access_detail1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","owner":{},"private":false,"pulls_url":"pulls_url1","releases_url":"releases_url1","stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","url":"url1","org":"org0"},
+    },
+    dependabot_secret: {
+      dependabot_secret0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","owner":"owner0","repo":"repo0","id":"dependabot_secret0"},
+      dependabot_secret1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","owner":"owner0","repo":"repo0","id":"dependabot_secret1"},
+    },
+    dependency_graph: {
+      dependency_graph0: {"detector":{},"job":{},"ref":"ref0","scanned":"scanned0","sha":"sha0","version":100,"owner":"owner0","repo":"repo0","id":"dependency_graph0"},
+      dependency_graph1: {"detector":{},"job":{},"ref":"ref1","scanned":"scanned1","sha":"sha1","version":200,"owner":"owner0","repo":"repo0","id":"dependency_graph1"},
+    },
+    dependency_graph_diff: {
+      dependency_graph_diff0: {"change_type":"change_type0","ecosystem":"ecosystem0","license":"license0","manifest":"manifest0","name":"name0","package_url":"package_url0","scope":"scope0","source_repository_url":"source_repository_url0","version":"version0","vulnerabilities":[],"owner":"owner0","repo":"repo0","basehead":"dependency_graph_diff0"},
+      dependency_graph_diff1: {"change_type":"change_type1","ecosystem":"ecosystem1","license":"license1","manifest":"manifest1","name":"name1","package_url":"package_url1","scope":"scope1","source_repository_url":"source_repository_url1","version":"version1","vulnerabilities":[],"owner":"owner0","repo":"repo0","basehead":"dependency_graph_diff1"},
+    },
+    dependency_graph_spdx_sbom: {
+      dependency_graph_spdx_sbom0: {"SPDXID":"SPDXID0","creationInfo":{},"dataLicense":"dataLicense0","documentNamespace":"documentNamespace0","name":"name0","packages":[],"relationships":[],"spdxVersion":"spdxVersion0","owner":"owner0","repo":"dependency_graph_spdx_sbom0"},
+      dependency_graph_spdx_sbom1: {"SPDXID":"SPDXID1","creationInfo":{},"dataLicense":"dataLicense1","documentNamespace":"documentNamespace1","name":"name1","packages":[],"relationships":[],"spdxVersion":"spdxVersion1","owner":"owner0","repo":"dependency_graph_spdx_sbom1"},
+    },
+    deploy_key: {
+      deploy_key0: {"created_at":"created_at0","id":"deploy_key0","key":"key0","read_only":false,"title":"title0","url":"url0","verified":false,"owner":"owner0","repo":"repo0"},
+      deploy_key1: {"created_at":"created_at1","id":"deploy_key1","key":"key1","read_only":false,"title":"title1","url":"url1","verified":false,"owner":"owner0","repo":"repo0"},
+    },
+    deployment: {
+      deployment0: {"comment":"comment0","created_at":"created_at0","creator":{},"description":"description0","environment":"environment0","environment_ids":[],"id":"deployment0","node_id":"node_id0","payload":"payload0","performed_via_github_app":{},"ref":"ref0","repository_url":"repository_url0","sha":"sha0","state":"state0","statuses_url":"statuses_url0","task":"task0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      deployment1: {"comment":"comment1","created_at":"created_at1","creator":{},"description":"description1","environment":"environment1","environment_ids":[],"id":"deployment1","node_id":"node_id1","payload":"payload1","performed_via_github_app":{},"ref":"ref1","repository_url":"repository_url1","sha":"sha1","state":"state1","statuses_url":"statuses_url1","task":"task1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    deployment_branch_policy: {
+      deployment_branch_policy0: {"environment_id":"environment0","environment_name":"environment_name0","owner":"owner0","repo":"repo0","id":"deployment_branch_policy0"},
+      deployment_branch_policy1: {"environment_id":"environment0","environment_name":"environment_name0","owner":"owner0","repo":"repo0","id":"deployment_branch_policy1"},
+    },
+    deployment_protection_rule: {
+      deployment_protection_rule0: {"id":"deployment_protection_rule0","integration_url":"integration_url0","node_id":"node_id0","slug":"slug0","environment_id":"environment0","environment_name":"environment_name0","owner":"owner0","repo":"repo0"},
+      deployment_protection_rule1: {"id":"deployment_protection_rule1","integration_url":"integration_url1","node_id":"node_id1","slug":"slug1","environment_id":"environment0","environment_name":"environment_name0","owner":"owner0","repo":"repo0"},
+    },
+    deployment_status: {
+      deployment_status0: {"created_at":"created_at0","creator":{},"deployment_url":"deployment_url0","description":"description0","id":"deployment_status0","node_id":"node_id0","performed_via_github_app":{},"repository_url":"repository_url0","state":"state0","target_url":"target_url0","updated_at":"updated_at0","url":"url0","deployment_id":"deployment0","owner":"owner0","repo":"repo0"},
+      deployment_status1: {"created_at":"created_at1","creator":{},"deployment_url":"deployment_url1","description":"description1","id":"deployment_status1","node_id":"node_id1","performed_via_github_app":{},"repository_url":"repository_url1","state":"state1","target_url":"target_url1","updated_at":"updated_at1","url":"url1","deployment_id":"deployment0","owner":"owner0","repo":"repo0"},
+    },
+    diff_entry: {
+      diff_entry0: {"additions":100,"blob_url":"blob_url0","changes":100,"contents_url":"contents_url0","deletions":100,"filename":"filename0","raw_url":"raw_url0","sha":"sha0","status":"status0","owner":"owner0","pull_number":"pull_number0","repo":"repo0","id":"diff_entry0"},
+      diff_entry1: {"additions":200,"blob_url":"blob_url1","changes":200,"contents_url":"contents_url1","deletions":200,"filename":"filename1","raw_url":"raw_url1","sha":"sha1","status":"status1","owner":"owner0","pull_number":"pull_number0","repo":"repo0","id":"diff_entry1"},
+    },
+    email: {
+      email0: {"id":"email0"},
+      email1: {"id":"email1"},
+    },
+    emoji: {
+      emoji0: {"id":"emoji0"},
+      emoji1: {"id":"emoji1"},
+    },
+    empty_object: {
+      empty_object0: {"encrypted_value":"encrypted_value0","key_id":"key_id0","name":"name0","use_default":false,"value":"value0","visibility":"visibility0","org_id":"org0","owner":"owner0","repo":"repo0","secret_name":"secret_name0","username":"username0","subject_digest":"empty_object0"},
+      empty_object1: {"encrypted_value":"encrypted_value1","key_id":"key_id1","name":"name1","use_default":false,"value":"value1","visibility":"visibility1","org_id":"org0","owner":"owner0","repo":"repo0","secret_name":"secret_name0","username":"username0","subject_digest":"empty_object1"},
+    },
+    enterprise_team: {
+      enterprise_team0: {"created_at":"created_at0","group_id":"group_id0","html_url":"html_url0","id":"enterprise_team0","members_url":"members_url0","name":"name0","slug":"slug0","updated_at":"updated_at0","url":"url0","enterprise":"enterprise0"},
+      enterprise_team1: {"created_at":"created_at1","group_id":"group_id1","html_url":"html_url1","id":"enterprise_team1","members_url":"members_url1","name":"name1","slug":"slug1","updated_at":"updated_at1","url":"url1","enterprise":"enterprise0"},
+    },
+    enterprise_team_membership: {
+      enterprise_team_membership0: {"enterprise":"enterprise0","team_id":"team0","id":"enterprise_team_membership0"},
+      enterprise_team_membership1: {"enterprise":"enterprise0","team_id":"team0","id":"enterprise_team_membership1"},
+    },
+    environment: {
+      environment0: {"created_at":"created_at0","deployment_branch_policy":{},"html_url":"html_url0","id":"environment0","name":"name0","node_id":"node_id0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      environment1: {"created_at":"created_at1","deployment_branch_policy":{},"html_url":"html_url1","id":"environment1","name":"name1","node_id":"node_id1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    environment_approval: {
+      environment_approval0: {"comment":"comment0","environments":[],"state":"state0","user":{},"owner":"owner0","repo":"repo0","run_id":"run0","id":"environment_approval0"},
+      environment_approval1: {"comment":"comment1","environments":[],"state":"state1","user":{},"owner":"owner0","repo":"repo0","run_id":"run0","id":"environment_approval1"},
+    },
+    event: {
+      event0: {"actor":{},"created_at":"created_at0","id":"event-apiid-0","org":"event0","payload":{},"public":false,"repo":{},"type":"type0","username":"username0"},
+      event1: {"actor":{},"created_at":"created_at1","id":"event-apiid-1","org":"event1","payload":{},"public":false,"repo":{},"type":"type1","username":"username0"},
+    },
+    feed: {
+      feed0: {"links":{},"timeline_url":"timeline_url0","user_url":"user_url0","id":"feed0"},
+      feed1: {"links":{},"timeline_url":"timeline_url1","user_url":"user_url1","id":"feed1"},
+    },
+    file_commit: {
+      file_commit0: {"author":{},"commit":{},"committer":{},"content":{},"message":"message0","owner":"owner0","repo":"repo0","path":"file_commit0"},
+      file_commit1: {"author":{},"commit":{},"committer":{},"content":{},"message":"message1","owner":"owner0","repo":"repo0","path":"file_commit1"},
+    },
+    follower: {
+      follower0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"follower0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0"},
+      follower1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"follower1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1"},
+    },
+    following: {
+      following0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"following0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0"},
+      following1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"following1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1"},
+    },
+    full_repository: {
+      full_repository0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","github_id":100,"has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"full_repository-apiid-0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","network_count":100,"node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"organization":{},"owner":{"login":"owner0"},"parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","size":100,"source":{},"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_count":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","template_repository":{},"trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100,"repo":"full_repository0"},
+      full_repository1: {"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","github_id":200,"has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"full_repository-apiid-1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","network_count":200,"node_id":"node_id1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"organization":{},"owner":{"login":"owner0"},"parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","size":200,"source":{},"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_count":200,"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","template_repository":{},"trees_url":"trees_url1","updated_at":"updated_at1","url":"url1","watchers":200,"watchers_count":200,"repo":"full_repository1"},
+    },
+    gist: {
+      gist0: {"fork_of":{},"owner":{},"id":"gist0"},
+      gist1: {"fork_of":{},"owner":{},"id":"gist1"},
+    },
+    gist_comment: {
+      gist_comment0: {"author_association":"author_association0","avatar_url":"avatar_url0","body":"body0","created_at":"created_at0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"gist_comment0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","updated_at":"updated_at0","url":"url0","user":{},"gist_id":"gist0"},
+      gist_comment1: {"author_association":"author_association1","avatar_url":"avatar_url1","body":"body1","created_at":"created_at1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"gist_comment1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","updated_at":"updated_at1","url":"url1","user":{},"gist_id":"gist0"},
+    },
+    gist_commit: {
+      gist_commit0: {"change_status":{},"committed_at":"committed_at0","url":"url0","user":{},"version":"version0","id":"gist_commit0"},
+      gist_commit1: {"change_status":{},"committed_at":"committed_at1","url":"url1","user":{},"version":"version1","id":"gist_commit1"},
+    },
+    gist_simple: {
+      gist_simple0: {"fork_of":{},"owner":{},"id":"gist_simple0"},
+      gist_simple1: {"fork_of":{},"owner":{},"id":"gist_simple1"},
+    },
+    git: {
+      git0: {"owner":"owner0","repo":"repo0","ref":"git0"},
+      git1: {"owner":"owner0","repo":"repo0","ref":"git1"},
+    },
+    git_commit: {
+      git_commit0: {"author":{},"committer":{},"html_url":"html_url0","message":"message0","node_id":"node_id0","parents":[],"sha":"sha0","tree":{},"url":"url0","verification":{},"owner":"owner0","repo":"repo0","id":"git_commit0"},
+      git_commit1: {"author":{},"committer":{},"html_url":"html_url1","message":"message1","node_id":"node_id1","parents":[],"sha":"sha1","tree":{},"url":"url1","verification":{},"owner":"owner0","repo":"repo0","id":"git_commit1"},
+    },
+    git_ref: {
+      git_ref0: {"node_id":"node_id0","object":{},"ref":"ref0","sha":"sha0","type":"type0","url":"url0","owner":"owner0","repo":"repo0","id":"git_ref0"},
+      git_ref1: {"node_id":"node_id1","object":{},"ref":"ref1","sha":"sha1","type":"type1","url":"url1","owner":"owner0","repo":"repo0","id":"git_ref1"},
+    },
+    git_tag: {
+      git_tag0: {"message":"message0","node_id":"node_id0","object":{},"sha":"sha0","tag":"tag0","tagger":{},"type":"type0","url":"url0","verification":{},"owner":"owner0","repo":"repo0","id":"git_tag0"},
+      git_tag1: {"message":"message1","node_id":"node_id1","object":{},"sha":"sha1","tag":"tag1","tagger":{},"type":"type1","url":"url1","verification":{},"owner":"owner0","repo":"repo0","id":"git_tag1"},
+    },
+    git_tree: {
+      git_tree0: {"sha":"sha0","tree":[],"truncated":false,"owner":"owner0","repo":"repo0","id":"git_tree0"},
+      git_tree1: {"sha":"sha1","tree":[],"truncated":false,"owner":"owner0","repo":"repo0","id":"git_tree1"},
+    },
+    gitignore: {
+      gitignore0: {"id":"gitignore0"},
+      gitignore1: {"id":"gitignore1"},
+    },
+    gitignore_template: {
+      gitignore_template0: {"name":"name0","source":"source0","id":"gitignore_template0"},
+      gitignore_template1: {"name":"name1","source":"source1","id":"gitignore_template1"},
+    },
+    global_advisory: {
+      global_advisory0: {"credits":[],"cve_id":"cve_id0","cvss":{},"cwes":[],"description":"description0","ghsa_id":"ghsa_id0","github_reviewed_at":"github_reviewed_at0","html_url":"html_url0","identifiers":[],"nvd_published_at":"nvd_published_at0","published_at":"published_at0","references":[],"repository_advisory_url":"repository_advisory_url0","severity":"severity0","source_code_location":"source_code_location0","summary":"summary0","type":"type0","updated_at":"updated_at0","url":"url0","vulnerabilities":[],"withdrawn_at":"withdrawn_at0","id":"global_advisory0"},
+      global_advisory1: {"credits":[],"cve_id":"cve_id1","cvss":{},"cwes":[],"description":"description1","ghsa_id":"ghsa_id1","github_reviewed_at":"github_reviewed_at1","html_url":"html_url1","identifiers":[],"nvd_published_at":"nvd_published_at1","published_at":"published_at1","references":[],"repository_advisory_url":"repository_advisory_url1","severity":"severity1","source_code_location":"source_code_location1","summary":"summary1","type":"type1","updated_at":"updated_at1","url":"url1","vulnerabilities":[],"withdrawn_at":"withdrawn_at1","id":"global_advisory1"},
+    },
+    gpg_key: {
+      gpg_key0: {"armored_public_key":"armored_public_key0","can_certify":false,"can_encrypt_comms":false,"can_encrypt_storage":false,"can_sign":false,"created_at":"created_at0","emails":[],"expires_at":"expires_at0","id":"gpg_key0","key_id":"key_id0","primary_key_id":100,"public_key":"public_key0","raw_key":"raw_key0","revoked":false,"subkeys":[]},
+      gpg_key1: {"armored_public_key":"armored_public_key1","can_certify":false,"can_encrypt_comms":false,"can_encrypt_storage":false,"can_sign":false,"created_at":"created_at1","emails":[],"expires_at":"expires_at1","id":"gpg_key1","key_id":"key_id1","primary_key_id":200,"public_key":"public_key1","raw_key":"raw_key1","revoked":false,"subkeys":[]},
+    },
+    hook: {
+      hook0: {"active":false,"config":{},"created_at":"created_at0","events":[],"id":"hook0","last_response":{},"name":"name0","ping_url":"ping_url0","test_url":"test_url0","type":"type0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      hook1: {"active":false,"config":{},"created_at":"created_at1","events":[],"id":"hook1","last_response":{},"name":"name1","ping_url":"ping_url1","test_url":"test_url1","type":"type1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    hook_delivery: {
+      hook_delivery0: {"action":"action0","delivered_at":"delivered_at0","duration":100,"event":"event0","guid":"guid0","id":"hook_delivery0","installation_id":100,"redelivery":false,"repository_id":100,"request":{},"response":{},"status":"status0","status_code":100},
+      hook_delivery1: {"action":"action1","delivered_at":"delivered_at1","duration":200,"event":"event1","guid":"guid1","id":"hook_delivery1","installation_id":200,"redelivery":false,"repository_id":200,"request":{},"response":{},"status":"status1","status_code":200},
+    },
+    hook_delivery_item: {
+      hook_delivery_item0: {"action":"action0","delivered_at":"delivered_at0","duration":100,"event":"event0","guid":"guid0","id":"hook_delivery_item0","installation_id":100,"redelivery":false,"repository_id":100,"status":"status0","status_code":100},
+      hook_delivery_item1: {"action":"action1","delivered_at":"delivered_at1","duration":200,"event":"event1","guid":"guid1","id":"hook_delivery_item1","installation_id":200,"redelivery":false,"repository_id":200,"status":"status1","status_code":200},
+    },
+    hosted_compute: {
+      hosted_compute0: {"created_on":"created_on0","id":"hosted_compute-apiid-0","name":"name0","org_id":"org0","network_configuration_id":"hosted_compute0"},
+      hosted_compute1: {"created_on":"created_on1","id":"hosted_compute-apiid-1","name":"name1","org_id":"org0","network_configuration_id":"hosted_compute1"},
+    },
+    hovercard: {
+      hovercard0: {"message":"message0","octicon":"octicon0","username":"username0","id":"hovercard0"},
+      hovercard1: {"message":"message1","octicon":"octicon1","username":"username0","id":"hovercard1"},
+    },
+    import: {
+      import0: {"authors_url":"authors_url0","html_url":"html_url0","repository_url":"repository_url0","status":"status0","url":"url0","vcs":"vcs0","vcs_url":"vcs_url0","owner":"owner0","repo":"import0"},
+      import1: {"authors_url":"authors_url1","html_url":"html_url1","repository_url":"repository_url1","status":"status1","url":"url1","vcs":"vcs1","vcs_url":"vcs_url1","owner":"owner0","repo":"import1"},
+    },
+    installation: {
+      installation0: {"access_tokens_url":"access_tokens_url0","account":"account0","app_id":100,"app_slug":"app_slug0","created_at":"created_at0","events":[],"html_url":"html_url0","id":"installation0","permissions":{},"repositories_url":"repositories_url0","repository_selection":"repository_selection0","single_file_name":"single_file_name0","suspended_at":"suspended_at0","suspended_by":{},"target_id":100,"target_type":"target_type0","updated_at":"updated_at0"},
+      installation1: {"access_tokens_url":"access_tokens_url1","account":"account1","app_id":200,"app_slug":"app_slug1","created_at":"created_at1","events":[],"html_url":"html_url1","id":"installation1","permissions":{},"repositories_url":"repositories_url1","repository_selection":"repository_selection1","single_file_name":"single_file_name1","suspended_at":"suspended_at1","suspended_by":{},"target_id":200,"target_type":"target_type1","updated_at":"updated_at1"},
+    },
+    installation_token: {
+      installation_token0: {"id":"installation_token0"},
+      installation_token1: {"id":"installation_token1"},
+    },
+    integration: {
+      integration0: {"apps":[],"created_at":"created_at0","description":"description0","events":[],"external_url":"external_url0","html_url":"html_url0","id":"integration-apiid-0","name":"name0","node_id":"node_id0","owner":"owner0","permissions":{},"updated_at":"updated_at0","branch_id":"branch0","repo":"repo0","app_slug":"integration0"},
+      integration1: {"apps":[],"created_at":"created_at1","description":"description1","events":[],"external_url":"external_url1","html_url":"html_url1","id":"integration-apiid-1","name":"name1","node_id":"node_id1","owner":"owner0","permissions":{},"updated_at":"updated_at1","branch_id":"branch0","repo":"repo0","app_slug":"integration1"},
+    },
+    integration_installation: {
+      integration_installation0: {"account":"account0","created_at":"created_at0","id":"integration_installation0","requester":{}},
+      integration_installation1: {"account":"account1","created_at":"created_at1","id":"integration_installation1","requester":{}},
+    },
+    interaction: {
+      interaction0: {"id":"interaction0"},
+      interaction1: {"id":"interaction1"},
+    },
+    interaction_limit: {
+      interaction_limit0: {"expires_at":"expires_at0","limit":"limit0","origin":"origin0","id":"interaction_limit0"},
+      interaction_limit1: {"expires_at":"expires_at1","limit":"limit1","origin":"origin1","id":"interaction_limit1"},
+    },
     issue: {
-      issue0: {"assignee":{},"closed_at":"closed_at0","closed_by":{},"comments":100,"comments_url":"comments_url0","created_at":"created_at0","events_url":"events_url0","html_url":"html_url0","id":"issue0","issue_dependencies_summary":{},"issue_url":"issue_url0","labels":[],"labels_url":"labels_url0","locked":false,"milestone":{},"minimized":{},"node_id":"node_id0","number":100,"performed_via_github_app":{},"pin":{},"pinned_comment":{},"pull_request":{},"reactions":{},"repository":{},"repository_url":"repository_url0","state":"state0","sub_issues_summary":{},"title":"title0","type":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"},
-      issue1: {"assignee":{},"closed_at":"closed_at1","closed_by":{},"comments":200,"comments_url":"comments_url1","created_at":"created_at1","events_url":"events_url1","html_url":"html_url1","id":"issue1","issue_dependencies_summary":{},"issue_url":"issue_url1","labels":[],"labels_url":"labels_url1","locked":false,"milestone":{},"minimized":{},"node_id":"node_id1","number":200,"performed_via_github_app":{},"pin":{},"pinned_comment":{},"pull_request":{},"reactions":{},"repository":{},"repository_url":"repository_url1","state":"state1","sub_issues_summary":{},"title":"title1","type":{},"updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","repo":"repo0"},
+      issue0: {"actor":{},"assignee":{},"assigner":{},"author_association":"author_association0","closed_at":"closed_at0","closed_by":{},"comments":100,"comments_url":"comments_url0","commit_id":"commit_id0","commit_url":"commit_url0","created_at":"created_at0","dismissed_review":{},"event":"event0","events_url":"events_url0","html_url":"html_url0","id":"issue0","issue":{},"issue_dependencies_summary":{},"issue_id":100,"issue_url":"issue_url0","label":{},"labels":[],"labels_url":"labels_url0","locked":false,"milestone":{},"node_id":"node_id0","number":100,"performed_via_github_app":{},"project_card":{},"pull_request":{},"reactions":{},"rename":{},"repository":{},"repository_url":"repository_url0","requested_reviewer":{},"requested_team":{},"review_requester":{},"state":"state0","sub_issue_id":100,"sub_issues_summary":{},"title":"title0","type":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"},
+      issue1: {"actor":{},"assignee":{},"assigner":{},"author_association":"author_association1","closed_at":"closed_at1","closed_by":{},"comments":200,"comments_url":"comments_url1","commit_id":"commit_id1","commit_url":"commit_url1","created_at":"created_at1","dismissed_review":{},"event":"event1","events_url":"events_url1","html_url":"html_url1","id":"issue1","issue":{},"issue_dependencies_summary":{},"issue_id":200,"issue_url":"issue_url1","label":{},"labels":[],"labels_url":"labels_url1","locked":false,"milestone":{},"node_id":"node_id1","number":200,"performed_via_github_app":{},"project_card":{},"pull_request":{},"reactions":{},"rename":{},"repository":{},"repository_url":"repository_url1","requested_reviewer":{},"requested_team":{},"review_requester":{},"state":"state1","sub_issue_id":200,"sub_issues_summary":{},"title":"title1","type":{},"updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","repo":"repo0"},
+    },
+    issue_type: {
+      issue_type0: {"description":"description0","id":"issue_type0","name":"name0","node_id":"node_id0","org_id":"org0"},
+      issue_type1: {"description":"description1","id":"issue_type1","name":"name1","node_id":"node_id1","org_id":"org0"},
+    },
+    job: {
+      job0: {"check_run_url":"check_run_url0","completed_at":"completed_at0","conclusion":"conclusion0","created_at":"created_at0","head_branch":"head_branch0","head_sha":"head_sha0","html_url":"html_url0","id":"job0","labels":[],"name":"name0","node_id":"node_id0","run_id":100,"run_url":"run_url0","runner_group_id":100,"runner_group_name":"runner_group_name0","runner_id":100,"runner_name":"runner_name0","started_at":"started_at0","status":"status0","url":"url0","workflow_name":"workflow_name0","owner":"owner0","repo":"repo0"},
+      job1: {"check_run_url":"check_run_url1","completed_at":"completed_at1","conclusion":"conclusion1","created_at":"created_at1","head_branch":"head_branch1","head_sha":"head_sha1","html_url":"html_url1","id":"job1","labels":[],"name":"name1","node_id":"node_id1","run_id":200,"run_url":"run_url1","runner_group_id":200,"runner_group_name":"runner_group_name1","runner_id":200,"runner_name":"runner_name1","started_at":"started_at1","status":"status1","url":"url1","workflow_name":"workflow_name1","owner":"owner0","repo":"repo0"},
+    },
+    key: {
+      key0: {"created_at":"created_at0","id":"key0","key":"key0","read_only":false,"title":"title0","url":"url0","verified":false},
+      key1: {"created_at":"created_at1","id":"key1","key":"key1","read_only":false,"title":"title1","url":"url1","verified":false},
+    },
+    label: {
+      label0: {"color":"color0","default":false,"description":"description0","id":"label0","name":"name0","node_id":"node_id0","url":"url0","owner":"owner0","repo":"repo0"},
+      label1: {"color":"color1","default":false,"description":"description1","id":"label1","name":"name1","node_id":"node_id1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    language: {
+      language0: {"owner":"owner0","repo":"language0"},
+      language1: {"owner":"owner0","repo":"language1"},
+    },
+    license: {
+      license0: {"body":"body0","conditions":[],"content":"content0","description":"description0","download_url":"download_url0","encoding":"encoding0","featured":false,"git_url":"git_url0","html_url":"html_url0","implementation":"implementation0","key":"key0","license":{},"limitations":[],"links":{},"name":"name0","node_id":"node_id0","path":"path0","permissions":[],"sha":"sha0","size":100,"spdx_id":"spdx_id0","type":"type0","url":"url0","id":"license0"},
+      license1: {"body":"body1","conditions":[],"content":"content1","description":"description1","download_url":"download_url1","encoding":"encoding1","featured":false,"git_url":"git_url1","html_url":"html_url1","implementation":"implementation1","key":"key1","license":{},"limitations":[],"links":{},"name":"name1","node_id":"node_id1","path":"path1","permissions":[],"sha":"sha1","size":200,"spdx_id":"spdx_id1","type":"type1","url":"url1","id":"license1"},
+    },
+    markdown: {
+      markdown0: {"text":"text0","id":"markdown0"},
+      markdown1: {"text":"text1","id":"markdown1"},
+    },
+    marketplace_listing_plan: {
+      marketplace_listing_plan0: {"accounts_url":"accounts_url0","bullets":[],"description":"description0","has_free_trial":false,"id":"marketplace_listing_plan0","monthly_price_in_cents":100,"name":"name0","number":100,"price_model":"price_model0","state":"state0","unit_name":"unit_name0","url":"url0","yearly_price_in_cents":100},
+      marketplace_listing_plan1: {"accounts_url":"accounts_url1","bullets":[],"description":"description1","has_free_trial":false,"id":"marketplace_listing_plan1","monthly_price_in_cents":200,"name":"name1","number":200,"price_model":"price_model1","state":"state1","unit_name":"unit_name1","url":"url1","yearly_price_in_cents":200},
+    },
+    marketplace_purchase: {
+      marketplace_purchase0: {"id":"marketplace_purchase-apiid-0","login":"login0","marketplace_purchase":{},"type":"type0","url":"url0","plan_id":"plan0","account_id":"marketplace_purchase0"},
+      marketplace_purchase1: {"id":"marketplace_purchase-apiid-1","login":"login1","marketplace_purchase":{},"type":"type1","url":"url1","plan_id":"plan0","account_id":"marketplace_purchase1"},
+    },
+    member: {
+      member0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"member0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","org_id":"org0"},
+      member1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"member1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","org_id":"org0"},
+    },
+    membership: {
+      membership0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"membership0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","enterprise":"enterprise0","enterprise_team":"enterprise_team0","team_id":"team0"},
+      membership1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"membership1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","enterprise":"enterprise0","enterprise_team":"enterprise_team0","team_id":"team0"},
+    },
+    merged_upstream: {
+      merged_upstream0: {"branch":"branch0","owner":"owner0","repo":"repo0","id":"merged_upstream0"},
+      merged_upstream1: {"branch":"branch1","owner":"owner0","repo":"repo0","id":"merged_upstream1"},
+    },
+    meta: {
+      meta0: {"id":"meta0"},
+      meta1: {"id":"meta1"},
+    },
+    metaroot: {
+      metaroot0: {"authorizations_url":"authorizations_url0","code_search_url":"code_search_url0","commit_search_url":"commit_search_url0","current_user_authorizations_html_url":"current_user_authorizations_html_url0","current_user_repositories_url":"current_user_repositories_url0","current_user_url":"current_user_url0","emails_url":"emails_url0","emojis_url":"emojis_url0","events_url":"events_url0","feeds_url":"feeds_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","issue_search_url":"issue_search_url0","issues_url":"issues_url0","keys_url":"keys_url0","label_search_url":"label_search_url0","notifications_url":"notifications_url0","organization_repositories_url":"organization_repositories_url0","organization_teams_url":"organization_teams_url0","organization_url":"organization_url0","public_gists_url":"public_gists_url0","rate_limit_url":"rate_limit_url0","repository_search_url":"repository_search_url0","repository_url":"repository_url0","starred_gists_url":"starred_gists_url0","starred_url":"starred_url0","user_organizations_url":"user_organizations_url0","user_repositories_url":"user_repositories_url0","user_search_url":"user_search_url0","user_url":"user_url0","id":"metaroot0"},
+      metaroot1: {"authorizations_url":"authorizations_url1","code_search_url":"code_search_url1","commit_search_url":"commit_search_url1","current_user_authorizations_html_url":"current_user_authorizations_html_url1","current_user_repositories_url":"current_user_repositories_url1","current_user_url":"current_user_url1","emails_url":"emails_url1","emojis_url":"emojis_url1","events_url":"events_url1","feeds_url":"feeds_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","issue_search_url":"issue_search_url1","issues_url":"issues_url1","keys_url":"keys_url1","label_search_url":"label_search_url1","notifications_url":"notifications_url1","organization_repositories_url":"organization_repositories_url1","organization_teams_url":"organization_teams_url1","organization_url":"organization_url1","public_gists_url":"public_gists_url1","rate_limit_url":"rate_limit_url1","repository_search_url":"repository_search_url1","repository_url":"repository_url1","starred_gists_url":"starred_gists_url1","starred_url":"starred_url1","user_organizations_url":"user_organizations_url1","user_repositories_url":"user_repositories_url1","user_search_url":"user_search_url1","user_url":"user_url1","id":"metaroot1"},
+    },
+    migration: {
+      migration0: {"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","events_url":"events_url0","exclude_attachments":false,"exclude_git_data":false,"exclude_metadata":false,"exclude_owner_projects":false,"exclude_releases":false,"fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","guid":"guid0","hooks_url":"hooks_url0","html_url":"html_url0","id":"migration0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","lock_repositories":false,"merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","org_metadata_only":false,"owner":"owner0","private":false,"pulls_url":"pulls_url0","releases_url":"releases_url0","repositories":[],"stargazers_url":"stargazers_url0","state":"state0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","repo":"repo0"},
+      migration1: {"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","events_url":"events_url1","exclude_attachments":false,"exclude_git_data":false,"exclude_metadata":false,"exclude_owner_projects":false,"exclude_releases":false,"fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","guid":"guid1","hooks_url":"hooks_url1","html_url":"html_url1","id":"migration1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","lock_repositories":false,"merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","org_metadata_only":false,"owner":"owner0","private":false,"pulls_url":"pulls_url1","releases_url":"releases_url1","repositories":[],"stargazers_url":"stargazers_url1","state":"state1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","updated_at":"updated_at1","url":"url1","repo":"repo0"},
+    },
+    milestone: {
+      milestone0: {"avatar_url":"avatar_url0","closed_at":"closed_at0","closed_issues":100,"created_at":"created_at0","creator":{},"events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"milestone0","labels_url":"labels_url0","login":"login0","node_id":"node_id0","number":100,"open_issues":100,"organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","title":"title0","type":"type0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      milestone1: {"avatar_url":"avatar_url1","closed_at":"closed_at1","closed_issues":200,"created_at":"created_at1","creator":{},"events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"milestone1","labels_url":"labels_url1","login":"login1","node_id":"node_id1","number":200,"open_issues":200,"organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","title":"title1","type":"type1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    minimal_repository: {
+      minimal_repository0: {"archive_url":"archive_url0","assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","deployments_url":"deployments_url0","description":"description0","downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","hooks_url":"hooks_url0","html_url":"html_url0","id":"minimal_repository0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","languages_url":"languages_url0","merges_url":"merges_url0","milestones_url":"milestones_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","owner":{},"private":false,"pulls_url":"pulls_url0","releases_url":"releases_url0","stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","url":"url0"},
+      minimal_repository1: {"archive_url":"archive_url1","assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","deployments_url":"deployments_url1","description":"description1","downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","hooks_url":"hooks_url1","html_url":"html_url1","id":"minimal_repository1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","languages_url":"languages_url1","merges_url":"merges_url1","milestones_url":"milestones_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","owner":{},"private":false,"pulls_url":"pulls_url1","releases_url":"releases_url1","stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","url":"url1"},
+    },
+    network_configuration: {
+      network_configuration0: {"created_on":"created_on0","id":"network_configuration0","name":"name0","org_id":"org0"},
+      network_configuration1: {"created_on":"created_on1","id":"network_configuration1","name":"name1","org_id":"org0"},
+    },
+    network_setting: {
+      network_setting0: {"id":"network_setting0","name":"name0","region":"region0","subnet_id":"subnet_id0","org_id":"org0"},
+      network_setting1: {"id":"network_setting1","name":"name1","region":"region1","subnet_id":"subnet_id1","org_id":"org0"},
+    },
+    oidc_custom_sub: {
+      oidc_custom_sub0: {"include_claim_keys":[],"org_id":"org0","id":"oidc_custom_sub0"},
+      oidc_custom_sub1: {"include_claim_keys":[],"org_id":"org0","id":"oidc_custom_sub1"},
+    },
+    oidc_custom_sub_repo: {
+      oidc_custom_sub_repo0: {"use_default":false,"owner":"owner0","repo":"repo0","id":"oidc_custom_sub_repo0"},
+      oidc_custom_sub_repo1: {"use_default":false,"owner":"owner0","repo":"repo0","id":"oidc_custom_sub_repo1"},
+    },
+    org: {
+      org0: {"access_tokens_url":"access_tokens_url0","account":"account0","action":"action0","app_id":100,"app_slug":"app_slug0","avatar_url":"avatar_url0","created_at":"created_at0","digest":"digest0","events":[],"events_url":"events_url0","hooks_url":"hooks_url0","html_url":"html_url0","id":"org0","issues_url":"issues_url0","login":"login0","members_url":"members_url0","name":"name0","node_id":"node_id0","organization":{},"organization_url":"organization_url0","pat_ids":[],"permissions":{},"private_repos":100,"properties":[],"public_members_url":"public_members_url0","registry_url":"registry_url0","repos_url":"repos_url0","repositories_url":"repositories_url0","repository_names":[],"repository_selection":"repository_selection0","role":"role0","single_file_name":"single_file_name0","space":100,"state":"state0","subject_digests":[],"suspended_at":"suspended_at0","suspended_by":{},"target_id":100,"target_type":"target_type0","updated_at":"updated_at0","url":"url0","user":{},"enablement":"enablement0","org":"org0","security_product":"security_product0","username":"username0"},
+      org1: {"access_tokens_url":"access_tokens_url1","account":"account1","action":"action1","app_id":200,"app_slug":"app_slug1","avatar_url":"avatar_url1","created_at":"created_at1","digest":"digest1","events":[],"events_url":"events_url1","hooks_url":"hooks_url1","html_url":"html_url1","id":"org1","issues_url":"issues_url1","login":"login1","members_url":"members_url1","name":"name1","node_id":"node_id1","organization":{},"organization_url":"organization_url1","pat_ids":[],"permissions":{},"private_repos":200,"properties":[],"public_members_url":"public_members_url1","registry_url":"registry_url1","repos_url":"repos_url1","repositories_url":"repositories_url1","repository_names":[],"repository_selection":"repository_selection1","role":"role1","single_file_name":"single_file_name1","space":200,"state":"state1","subject_digests":[],"suspended_at":"suspended_at1","suspended_by":{},"target_id":200,"target_type":"target_type1","updated_at":"updated_at1","url":"url1","user":{},"enablement":"enablement0","org":"org0","security_product":"security_product0","username":"username0"},
+    },
+    org_hook: {
+      org_hook0: {"active":false,"config":{},"created_at":"created_at0","events":[],"id":"org_hook0","name":"name0","ping_url":"ping_url0","type":"type0","updated_at":"updated_at0","url":"url0","org_id":"org0"},
+      org_hook1: {"active":false,"config":{},"created_at":"created_at1","events":[],"id":"org_hook1","name":"name1","ping_url":"ping_url1","type":"type1","updated_at":"updated_at1","url":"url1","org_id":"org0"},
+    },
+    org_membership: {
+      org_membership0: {"organization":{},"organization_url":"organization_url0","permissions":{},"role":"role0","state":"state0","url":"url0","user":{},"org_id":"org0","id":"org_membership0"},
+      org_membership1: {"organization":{},"organization_url":"organization_url1","permissions":{},"role":"role1","state":"state1","url":"url1","user":{},"org_id":"org0","id":"org_membership1"},
+    },
+    org_private_registry_configuration: {
+      org_private_registry_configuration0: {"created_at":"created_at0","name":"name0","registry_type":"registry_type0","updated_at":"updated_at0","visibility":"visibility0","org_id":"org0","secret_name":"org_private_registry_configuration0"},
+      org_private_registry_configuration1: {"created_at":"created_at1","name":"name1","registry_type":"registry_type1","updated_at":"updated_at1","visibility":"visibility1","org_id":"org0","secret_name":"org_private_registry_configuration1"},
+    },
+    org_private_registry_configuration_with_selected_repository: {
+      org_private_registry_configuration_with_selected_repository0: {"encrypted_value":"encrypted_value0","key_id":"key_id0","registry_type":"registry_type0","url":"url0","visibility":"visibility0","id":"org_private_registry_configuration_with_selected_repository0"},
+      org_private_registry_configuration_with_selected_repository1: {"encrypted_value":"encrypted_value1","key_id":"key_id1","registry_type":"registry_type1","url":"url1","visibility":"visibility1","id":"org_private_registry_configuration_with_selected_repository1"},
+    },
+    org_repo_custom_property_value: {
+      org_repo_custom_property_value0: {"properties":[],"repository_full_name":"repository_full_name0","repository_id":100,"repository_name":"repository_name0","org_id":"org0","id":"org_repo_custom_property_value0"},
+      org_repo_custom_property_value1: {"properties":[],"repository_full_name":"repository_full_name1","repository_id":200,"repository_name":"repository_name1","org_id":"org0","id":"org_repo_custom_property_value1"},
+    },
+    organization_actions_secret: {
+      organization_actions_secret0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","visibility":"visibility0","org_id":"org0","id":"organization_actions_secret0"},
+      organization_actions_secret1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","visibility":"visibility1","org_id":"org0","id":"organization_actions_secret1"},
+    },
+    organization_actions_variable: {
+      organization_actions_variable0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","value":"value0","visibility":"visibility0","org_id":"org0","id":"organization_actions_variable0"},
+      organization_actions_variable1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","value":"value1","visibility":"visibility1","org_id":"org0","id":"organization_actions_variable1"},
+    },
+    organization_dependabot_secret: {
+      organization_dependabot_secret0: {"created_at":"created_at0","name":"name0","updated_at":"updated_at0","visibility":"visibility0","org_id":"org0","id":"organization_dependabot_secret0"},
+      organization_dependabot_secret1: {"created_at":"created_at1","name":"name1","updated_at":"updated_at1","visibility":"visibility1","org_id":"org0","id":"organization_dependabot_secret1"},
+    },
+    organization_invitation: {
+      organization_invitation0: {"created_at":"created_at0","id":"organization_invitation0","invitation_teams_url":"invitation_teams_url0","inviter":{},"login":"login0","node_id":"node_id0","team_count":100,"org_id":"org0"},
+      organization_invitation1: {"created_at":"created_at1","id":"organization_invitation1","invitation_teams_url":"invitation_teams_url1","inviter":{},"login":"login1","node_id":"node_id1","team_count":200,"org_id":"org0"},
+    },
+    organization_programmatic_access_grant: {
+      organization_programmatic_access_grant0: {"access_granted_at":"access_granted_at0","created_at":"created_at0","id":"organization_programmatic_access_grant0","owner":{},"permissions":{},"reason":"reason0","repositories_url":"repositories_url0","repository_selection":"repository_selection0","token_expired":false,"token_expires_at":"token_expires_at0","token_id":100,"token_last_used_at":"token_last_used_at0","token_name":"token_name0","org_id":"org0"},
+      organization_programmatic_access_grant1: {"access_granted_at":"access_granted_at1","created_at":"created_at1","id":"organization_programmatic_access_grant1","owner":{},"permissions":{},"reason":"reason1","repositories_url":"repositories_url1","repository_selection":"repository_selection1","token_expired":false,"token_expires_at":"token_expires_at1","token_id":200,"token_last_used_at":"token_last_used_at1","token_name":"token_name1","org_id":"org0"},
+    },
+    organization_role: {
+      organization_role0: {"created_at":"created_at0","id":"organization_role0","name":"name0","organization":{},"permissions":[],"updated_at":"updated_at0","org_id":"org0"},
+      organization_role1: {"created_at":"created_at1","id":"organization_role1","name":"name1","organization":{},"permissions":[],"updated_at":"updated_at1","org_id":"org0"},
+    },
+    organization_secret_scanning_alert: {
+      organization_secret_scanning_alert0: {"push_protection_bypass_request_reviewer":{},"push_protection_bypassed_by":{},"repository":{},"resolved_by":{},"org_id":"org0","id":"organization_secret_scanning_alert0"},
+      organization_secret_scanning_alert1: {"push_protection_bypass_request_reviewer":{},"push_protection_bypassed_by":{},"repository":{},"resolved_by":{},"org_id":"org0","id":"organization_secret_scanning_alert1"},
+    },
+    outside_collaborator: {
+      outside_collaborator0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"outside_collaborator0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","org_id":"org0"},
+      outside_collaborator1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"outside_collaborator1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","org_id":"org0"},
+    },
+    package: {
+      package0: {"container":{},"created_at":"created_at0","docker":{},"github_id":100,"html_url":"html_url0","id":"package-apiid-0","included_gigabytes_bandwidth":100,"metadata":{},"name":"name0","owner":{},"package_html_url":"package_html_url0","package_type":"package_type0","repository":{},"total_gigabytes_bandwidth_used":100,"total_paid_gigabytes_bandwidth_used":100,"updated_at":"updated_at0","url":"url0","version_count":100,"visibility":"visibility0","package_id":"package0","package_name":"package0"},
+      package1: {"container":{},"created_at":"created_at1","docker":{},"github_id":200,"html_url":"html_url1","id":"package-apiid-1","included_gigabytes_bandwidth":200,"metadata":{},"name":"name1","owner":{},"package_html_url":"package_html_url1","package_type":"package_type0","repository":{},"total_gigabytes_bandwidth_used":200,"total_paid_gigabytes_bandwidth_used":200,"updated_at":"updated_at1","url":"url1","version_count":200,"visibility":"visibility1","package_id":"package0","package_name":"package1"},
+    },
+    page: {
+      page0: {"cname":"cname0","custom_404":false,"https_certificate":{},"public":false,"source":{},"status":"status0","url":"url0","owner":"owner0","repo":"page0"},
+      page1: {"cname":"cname1","custom_404":false,"https_certificate":{},"public":false,"source":{},"status":"status1","url":"url1","owner":"owner0","repo":"page1"},
+    },
+    page_build: {
+      page_build0: {"commit":"commit0","created_at":"created_at0","duration":100,"error":{},"pusher":{},"status":"status0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0","id":"page_build0"},
+      page_build1: {"commit":"commit1","created_at":"created_at1","duration":200,"error":{},"pusher":{},"status":"status1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0","id":"page_build1"},
+    },
+    page_build_status: {
+      page_build_status0: {"owner":"owner0","repo":"repo0","id":"page_build_status0"},
+      page_build_status1: {"owner":"owner0","repo":"repo0","id":"page_build_status1"},
+    },
+    page_deployment: {
+      page_deployment0: {"oidc_token":"oidc_token0","pages_build_version":"pages_build_version0","owner":"owner0","repo":"repo0","id":"page_deployment0"},
+      page_deployment1: {"oidc_token":"oidc_token1","pages_build_version":"pages_build_version1","owner":"owner0","repo":"repo0","id":"page_deployment1"},
+    },
+    pages_deployment_status: {
+      pages_deployment_status0: {"deployment_id":"deployment0","owner":"owner0","repo":"repo0","pages_deployment_id":"pages_deployment_status0"},
+      pages_deployment_status1: {"deployment_id":"deployment0","owner":"owner0","repo":"repo0","pages_deployment_id":"pages_deployment_status1"},
+    },
+    pages_health_check: {
+      pages_health_check0: {"owner":"owner0","repo":"pages_health_check0"},
+      pages_health_check1: {"owner":"owner0","repo":"pages_health_check1"},
+    },
+    participation: {
+      participation0: {"all":[],"owner":"owner0","repo":"repo0","id":"participation0"},
+      participation1: {"all":[],"owner":"owner0","repo":"repo0","id":"participation1"},
+    },
+    pending_deployment: {
+      pending_deployment0: {"current_user_can_approve":false,"environment":{},"reviewers":[],"wait_timer":100,"wait_timer_started_at":"wait_timer_started_at0","owner":"owner0","repo":"repo0","run_id":"run0","id":"pending_deployment0"},
+      pending_deployment1: {"current_user_can_approve":false,"environment":{},"reviewers":[],"wait_timer":200,"wait_timer_started_at":"wait_timer_started_at1","owner":"owner0","repo":"repo0","run_id":"run0","id":"pending_deployment1"},
+    },
+    porter_author: {
+      porter_author0: {"email":"email0","id":"porter_author0","import_url":"import_url0","name":"name0","remote_id":"remote_id0","remote_name":"remote_name0","url":"url0","owner":"owner0","repo":"repo0"},
+      porter_author1: {"email":"email1","id":"porter_author1","import_url":"import_url1","name":"name1","remote_id":"remote_id1","remote_name":"remote_name1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    porter_large_file: {
+      porter_large_file0: {"oid":"oid0","path":"path0","ref_name":"ref_name0","size":100,"owner":"owner0","repo":"repo0","id":"porter_large_file0"},
+      porter_large_file1: {"oid":"oid1","path":"path1","ref_name":"ref_name1","size":200,"owner":"owner0","repo":"repo0","id":"porter_large_file1"},
+    },
+    private_registry: {
+      private_registry0: {"created_at":"created_at0","key":"key0","key_id":"key_id0","name":"name0","updated_at":"updated_at0","org_id":"private_registry0"},
+      private_registry1: {"created_at":"created_at1","key":"key1","key_id":"key_id1","name":"name1","updated_at":"updated_at1","org_id":"private_registry1"},
+    },
+    project: {
+      project0: {"avatar_url":"avatar_url0","columns_url":"columns_url0","created_at":"created_at0","creator":{},"events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"project0","login":"login0","node_id":"node_id0","number":100,"organizations_url":"organizations_url0","owner_url":"owner_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","updated_at":"updated_at0","url":"url0","org_id":"org0"},
+      project1: {"avatar_url":"avatar_url1","columns_url":"columns_url1","created_at":"created_at1","creator":{},"events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"project1","login":"login1","node_id":"node_id1","number":200,"organizations_url":"organizations_url1","owner_url":"owner_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","updated_at":"updated_at1","url":"url1","org_id":"org0"},
+    },
+    project_collaborator_permission: {
+      project_collaborator_permission0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"project_collaborator_permission-apiid-0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","project_id":"project0","username":"project_collaborator_permission0"},
+      project_collaborator_permission1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"project_collaborator_permission-apiid-1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","project_id":"project0","username":"project_collaborator_permission1"},
+    },
+    project_column: {
+      project_column0: {"cards_url":"cards_url0","created_at":"created_at0","id":"project_column0","name":"name0","node_id":"node_id0","project_url":"project_url0","updated_at":"updated_at0","url":"url0"},
+      project_column1: {"cards_url":"cards_url1","created_at":"created_at1","id":"project_column1","name":"name1","node_id":"node_id1","project_url":"project_url1","updated_at":"updated_at1","url":"url1"},
+    },
+    projects_classic: {
+      projects_classic0: {"position":"position0","project_id":"project0","username":"username0","column_id":"projects_classic0"},
+      projects_classic1: {"position":"position1","project_id":"project0","username":"username0","column_id":"projects_classic1"},
+    },
+    projects_v2: {
+      projects_v20: {"closed_at":"closed_at0","created_at":"created_at0","creator":{},"deleted_at":"deleted_at0","deleted_by":{},"description":"description0","id":"projects_v20","latest_status_update":{},"node_id":"node_id0","number":100,"owner":{},"public":false,"short_description":"short_description0","title":"title0","updated_at":"updated_at0","org_id":"org0"},
+      projects_v21: {"closed_at":"closed_at1","created_at":"created_at1","creator":{},"deleted_at":"deleted_at1","deleted_by":{},"description":"description1","id":"projects_v21","latest_status_update":{},"node_id":"node_id1","number":200,"owner":{},"public":false,"short_description":"short_description1","title":"title1","updated_at":"updated_at1","org_id":"org0"},
+    },
+    projects_v2_field: {
+      projects_v2_field0: {"created_at":"created_at0","data_type":"data_type0","id":"projects_v2_field0","name":"name0","project_url":"project_url0","updated_at":"updated_at0","project_number":"project_number0","projects_v2_id":"projects_v20"},
+      projects_v2_field1: {"created_at":"created_at1","data_type":"data_type1","id":"projects_v2_field1","name":"name1","project_url":"project_url1","updated_at":"updated_at1","project_number":"project_number0","projects_v2_id":"projects_v20"},
+    },
+    projects_v2_item_simple: {
+      projects_v2_item_simple0: {"id":"projects_v2_item_simple0","type":"type0","project_number":"project_number0"},
+      projects_v2_item_simple1: {"id":"projects_v2_item_simple1","type":"type1","project_number":"project_number0"},
+    },
+    projects_v2_item_with_content: {
+      projects_v2_item_with_content0: {"archived_at":"archived_at0","content_type":"content_type0","created_at":"created_at0","creator":{},"id":"projects_v2_item_with_content-apiid-0","updated_at":"updated_at0","project_number":"project_number0","projects_v2_id":"projects_v20","item_id":"projects_v2_item_with_content0"},
+      projects_v2_item_with_content1: {"archived_at":"archived_at1","content_type":"content_type1","created_at":"created_at1","creator":{},"id":"projects_v2_item_with_content-apiid-1","updated_at":"updated_at1","project_number":"project_number0","projects_v2_id":"projects_v20","item_id":"projects_v2_item_with_content1"},
+    },
+    protected_branch: {
+      protected_branch0: {"allow_deletions":{},"allow_force_pushes":{},"block_creations":{},"enforce_admins":{},"required_linear_history":{},"required_pull_request_reviews":{},"required_signatures":{},"required_status_checks":{},"restrictions":{},"url":"url0","owner":"owner0","repo":"repo0","branch_id":"protected_branch0"},
+      protected_branch1: {"allow_deletions":{},"allow_force_pushes":{},"block_creations":{},"enforce_admins":{},"required_linear_history":{},"required_pull_request_reviews":{},"required_signatures":{},"required_status_checks":{},"restrictions":{},"url":"url1","owner":"owner0","repo":"repo0","branch_id":"protected_branch1"},
+    },
+    protected_branch_admin_enforced: {
+      protected_branch_admin_enforced0: {"enabled":false,"url":"url0","owner":"owner0","repo":"repo0","branch_id":"protected_branch_admin_enforced0"},
+      protected_branch_admin_enforced1: {"enabled":false,"url":"url1","owner":"owner0","repo":"repo0","branch_id":"protected_branch_admin_enforced1"},
+    },
+    protected_branch_pull_request_review: {
+      protected_branch_pull_request_review0: {"dismiss_stale_reviews":false,"require_code_owner_reviews":false,"owner":"owner0","repo":"repo0","branch_id":"protected_branch_pull_request_review0"},
+      protected_branch_pull_request_review1: {"dismiss_stale_reviews":false,"require_code_owner_reviews":false,"owner":"owner0","repo":"repo0","branch_id":"protected_branch_pull_request_review1"},
+    },
+    public_member: {
+      public_member0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"public_member0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","org_id":"org0"},
+      public_member1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"public_member1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","org_id":"org0"},
     },
     pull: {
-      pull0: {"additions":100,"assignee":{},"author_association":"author_association0","auto_merge":{},"base":{},"body":"body0","changed_files":100,"closed_at":"closed_at0","comments":100,"comments_url":"comments_url0","commits":100,"commits_url":"commits_url0","created_at":"created_at0","deletions":100,"diff_url":"diff_url0","head":{},"html_url":"html_url0","id":"pull0","issue_url":"issue_url0","labels":[],"links":{},"locked":false,"maintainer_can_modify":false,"merge_commit_sha":"merge_commit_sha0","mergeable":false,"mergeable_state":"mergeable_state0","merged":false,"merged_at":"merged_at0","merged_by":{},"message":"message0","milestone":{},"node_id":"node_id0","number":100,"patch_url":"patch_url0","review_comment_url":"review_comment_url0","review_comments":100,"review_comments_url":"review_comments_url0","sha":"sha0","stack":{},"state":"state0","statuses_url":"statuses_url0","title":"title0","updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"},
-      pull1: {"additions":200,"assignee":{},"author_association":"author_association1","auto_merge":{},"base":{},"body":"body1","changed_files":200,"closed_at":"closed_at1","comments":200,"comments_url":"comments_url1","commits":200,"commits_url":"commits_url1","created_at":"created_at1","deletions":200,"diff_url":"diff_url1","head":{},"html_url":"html_url1","id":"pull1","issue_url":"issue_url1","labels":[],"links":{},"locked":false,"maintainer_can_modify":false,"merge_commit_sha":"merge_commit_sha1","mergeable":false,"mergeable_state":"mergeable_state1","merged":false,"merged_at":"merged_at1","merged_by":{},"message":"message1","milestone":{},"node_id":"node_id1","number":200,"patch_url":"patch_url1","review_comment_url":"review_comment_url1","review_comments":200,"review_comments_url":"review_comments_url1","sha":"sha1","stack":{},"state":"state1","statuses_url":"statuses_url1","title":"title1","updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","repo":"repo0"},
+      pull0: {"additions":100,"assignee":{},"author_association":"author_association0","auto_merge":{},"base":{},"body":"body0","changed_files":100,"closed_at":"closed_at0","comments":100,"comments_url":"comments_url0","commits":100,"commits_url":"commits_url0","created_at":"created_at0","deletions":100,"diff_url":"diff_url0","head":{},"html_url":"html_url0","id":"pull0","issue_url":"issue_url0","labels":[],"links":{},"locked":false,"maintainer_can_modify":false,"merge_commit_sha":"merge_commit_sha0","mergeable":false,"mergeable_state":"mergeable_state0","merged":false,"merged_at":"merged_at0","merged_by":{},"message":"message0","milestone":{},"node_id":"node_id0","number":100,"patch_url":"patch_url0","review_comment_url":"review_comment_url0","review_comments":100,"review_comments_url":"review_comments_url0","sha":"sha0","state":"state0","statuses_url":"statuses_url0","title":"title0","updated_at":"updated_at0","url":"url0","user":{},"comment_id":"comment0","owner":"owner0","repo":"repo0"},
+      pull1: {"additions":200,"assignee":{},"author_association":"author_association1","auto_merge":{},"base":{},"body":"body1","changed_files":200,"closed_at":"closed_at1","comments":200,"comments_url":"comments_url1","commits":200,"commits_url":"commits_url1","created_at":"created_at1","deletions":200,"diff_url":"diff_url1","head":{},"html_url":"html_url1","id":"pull1","issue_url":"issue_url1","labels":[],"links":{},"locked":false,"maintainer_can_modify":false,"merge_commit_sha":"merge_commit_sha1","mergeable":false,"mergeable_state":"mergeable_state1","merged":false,"merged_at":"merged_at1","merged_by":{},"message":"message1","milestone":{},"node_id":"node_id1","number":200,"patch_url":"patch_url1","review_comment_url":"review_comment_url1","review_comments":200,"review_comments_url":"review_comments_url1","sha":"sha1","state":"state1","statuses_url":"statuses_url1","title":"title1","updated_at":"updated_at1","url":"url1","user":{},"comment_id":"comment0","owner":"owner0","repo":"repo0"},
     },
     pull_request_review: {
-      pull_request_review0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","html_url":"html_url0","id":"pull_request_review0","links":{},"node_id":"node_id0","pull_request_url":"pull_request_url0","state":"state0","teams":[],"user":{},"users":[],"owner":"owner0","pull_number":"pull_number0","repo":"repo0"},
-      pull_request_review1: {"author_association":"author_association1","body":"body1","commit_id":"commit_id1","html_url":"html_url1","id":"pull_request_review1","links":{},"node_id":"node_id1","pull_request_url":"pull_request_url1","state":"state1","teams":[],"user":{},"users":[],"owner":"owner0","pull_number":"pull_number0","repo":"repo0"},
+      pull_request_review0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","event":"event0","html_url":"html_url0","id":"pull_request_review0","links":{},"message":"message0","node_id":"node_id0","pull_request_url":"pull_request_url0","state":"state0","teams":[],"user":{},"users":[],"owner":"owner0","pull_id":"pull0","pull_number":"pull_number0","repo":"repo0"},
+      pull_request_review1: {"author_association":"author_association1","body":"body1","commit_id":"commit_id1","event":"event1","html_url":"html_url1","id":"pull_request_review1","links":{},"message":"message1","node_id":"node_id1","pull_request_url":"pull_request_url1","state":"state1","teams":[],"user":{},"users":[],"owner":"owner0","pull_id":"pull0","pull_number":"pull_number0","repo":"repo0"},
+    },
+    pull_request_review_comment: {
+      pull_request_review_comment0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","created_at":"created_at0","diff_hunk":"diff_hunk0","html_url":"html_url0","id":"pull_request_review_comment0","links":{},"node_id":"node_id0","original_commit_id":"original_commit_id0","path":"path0","pull_request_review_id":100,"pull_request_url":"pull_request_url0","reactions":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","repo":"repo0"},
+      pull_request_review_comment1: {"author_association":"author_association1","body":"body1","commit_id":"commit_id1","created_at":"created_at1","diff_hunk":"diff_hunk1","html_url":"html_url1","id":"pull_request_review_comment1","links":{},"node_id":"node_id1","original_commit_id":"original_commit_id1","path":"path1","pull_request_review_id":200,"pull_request_url":"pull_request_url1","reactions":{},"updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","repo":"repo0"},
     },
     pull_request_simple: {
-      pull_request_simple0: {"owner":"owner0","repo":"repo0"},
-      pull_request_simple1: {"owner":"owner0","repo":"repo0"},
+      pull_request_simple0: {"owner":"owner0","repo":"repo0","pull_number":"pull_request_simple0"},
+      pull_request_simple1: {"owner":"owner0","repo":"repo0","pull_number":"pull_request_simple1"},
+    },
+    rate_limit: {
+      rate_limit0: {"rate":{},"resources":{},"id":"rate_limit0"},
+      rate_limit1: {"rate":{},"resources":{},"id":"rate_limit1"},
+    },
+    reaction: {
+      reaction0: {"avatar_url":"avatar_url0","content":"content0","created_at":"created_at0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"reaction0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","user":{},"discussion_number":"discussion_number0","team_id":"team0"},
+      reaction1: {"avatar_url":"avatar_url1","content":"content1","created_at":"created_at1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"reaction1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","user":{},"discussion_number":"discussion_number0","team_id":"team0"},
+    },
+    referrer: {
+      referrer0: {"count":100,"referrer":"referrer0","uniques":100,"owner":"owner0","repo":"repo0","id":"referrer0"},
+      referrer1: {"count":200,"referrer":"referrer1","uniques":200,"owner":"owner0","repo":"repo0","id":"referrer1"},
+    },
+    release: {
+      release0: {"assets":[],"assets_url":"assets_url0","author":{},"browser_download_url":"browser_download_url0","content_type":"content_type0","created_at":"created_at0","digest":"digest0","download_count":100,"draft":false,"html_url":"html_url0","id":"release0","label":"label0","name":"name0","node_id":"node_id0","prerelease":false,"published_at":"published_at0","reactions":{},"size":100,"state":"state0","tag_name":"tag_name0","tarball_url":"tarball_url0","target_commitish":"target_commitish0","upload_url":"upload_url0","uploader":{},"url":"url0","zipball_url":"zipball_url0","owner":"owner0","repo":"repo0"},
+      release1: {"assets":[],"assets_url":"assets_url1","author":{},"browser_download_url":"browser_download_url1","content_type":"content_type1","created_at":"created_at1","digest":"digest1","download_count":200,"draft":false,"html_url":"html_url1","id":"release1","label":"label1","name":"name1","node_id":"node_id1","prerelease":false,"published_at":"published_at1","reactions":{},"size":200,"state":"state1","tag_name":"tag_name1","tarball_url":"tarball_url1","target_commitish":"target_commitish1","upload_url":"upload_url1","uploader":{},"url":"url1","zipball_url":"zipball_url1","owner":"owner0","repo":"repo0"},
+    },
+    release_asset: {
+      release_asset0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"release_asset0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","name":"name0","owner":"owner0","repo":"repo0"},
+      release_asset1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"release_asset1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","name":"name0","owner":"owner0","repo":"repo0"},
+    },
+    release_notes_content: {
+      release_notes_content0: {"body":"body0","name":"name0","tag_name":"tag_name0","owner":"owner0","repo":"repo0","id":"release_notes_content0"},
+      release_notes_content1: {"body":"body1","name":"name1","tag_name":"tag_name1","owner":"owner0","repo":"repo0","id":"release_notes_content1"},
+    },
+    remove: {
+      remove0: {"usernames":[],"enterprise":"enterprise0","team_id":"team0","id":"remove0"},
+      remove1: {"usernames":[],"enterprise":"enterprise0","team_id":"team0","id":"remove1"},
     },
     repo: {
-      repo0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"repo0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","network_count":100,"node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"organization":{},"owner":"owner0","parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","size":100,"source":{},"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_count":100,"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","template_repository":{},"trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100},
-      repo1: {"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","has_discussions":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"repo1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","network_count":200,"node_id":"node_id1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"organization":{},"owner":"owner0","parent":{},"permissions":{},"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","size":200,"source":{},"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_count":200,"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","template_repository":{},"trees_url":"trees_url1","updated_at":"updated_at1","url":"url1","watchers":200,"watchers_count":200},
+      repo0: {"app":{},"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","bundle":{},"clone_url":"clone_url0","collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployment_branch_policy":{},"deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","enabled":false,"event_type":"event_type0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","github_id":100,"has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","id":"repo-apiid-0","integration_url":"integration_url0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","new_owner":"new_owner0","node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"owner":{"login":"owner0"},"permissions":{},"private":false,"properties":[],"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","slug":"slug0","ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","updated_at":"updated_at0","watchers":100,"watchers_count":100,"branch_id":"branch0","invitation_id":"invitation0","repo":"repo0","name":"repo0"},
+      repo1: {"app":{},"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","bundle":{},"clone_url":"clone_url1","collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","default_branch":"default_branch1","deployment_branch_policy":{},"deployments_url":"deployments_url1","description":"description1","disabled":false,"downloads_url":"downloads_url1","enabled":false,"event_type":"event_type1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","github_id":200,"has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","id":"repo-apiid-1","integration_url":"integration_url1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","new_owner":"new_owner1","node_id":"node_id1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"owner":{"login":"owner0"},"permissions":{},"private":false,"properties":[],"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","slug":"slug1","ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","updated_at":"updated_at1","watchers":200,"watchers_count":200,"branch_id":"branch0","invitation_id":"invitation0","repo":"repo0","name":"repo0"},
+    },
+    repository: {
+      repository0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","collaborators_url":"collaborators_url0","comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"downloads_url":"downloads_url0","events_url":"events_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"repository0","issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","license":{},"merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","open_issues":100,"open_issues_count":100,"owner":{},"permissions":{},"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","releases_url":"releases_url0","size":100,"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","trees_url":"trees_url0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100},
+      repository1: {"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","collaborators_url":"collaborators_url1","comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"downloads_url":"downloads_url1","events_url":"events_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"repository1","issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","license":{},"merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","open_issues":200,"open_issues_count":200,"owner":{},"permissions":{},"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","releases_url":"releases_url1","size":200,"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","trees_url":"trees_url1","updated_at":"updated_at1","url":"url1","watchers":200,"watchers_count":200},
+    },
+    repository_advisory: {
+      repository_advisory0: {"author":"author0","closed_at":"closed_at0","collaborating_teams":[],"collaborating_users":[],"created_at":"created_at0","credits":[],"credits_detailed":[],"cve_id":"cve_id0","cvss":{},"cwe_ids":[],"cwes":[],"description":"description0","ghsa_id":"repository_advisory0","html_url":"html_url0","identifiers":[],"private_fork":"private_fork0","published_at":"published_at0","publisher":"publisher0","severity":"severity0","state":"state0","submission":{},"summary":"summary0","updated_at":"updated_at0","url":"url0","vulnerabilities":[],"withdrawn_at":"withdrawn_at0","org_id":"org0","owner":"owner0","repo":"repo0"},
+      repository_advisory1: {"author":"author1","closed_at":"closed_at1","collaborating_teams":[],"collaborating_users":[],"created_at":"created_at1","credits":[],"credits_detailed":[],"cve_id":"cve_id1","cvss":{},"cwe_ids":[],"cwes":[],"description":"description1","ghsa_id":"repository_advisory1","html_url":"html_url1","identifiers":[],"private_fork":"private_fork1","published_at":"published_at1","publisher":"publisher1","severity":"severity1","state":"state1","submission":{},"summary":"summary1","updated_at":"updated_at1","url":"url1","vulnerabilities":[],"withdrawn_at":"withdrawn_at1","org_id":"org0","owner":"owner0","repo":"repo0"},
+    },
+    repository_collaborator_permission: {
+      repository_collaborator_permission0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"repository_collaborator_permission-apiid-0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","permissions":{},"received_events_url":"received_events_url0","repos_url":"repos_url0","role_name":"role_name0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","owner":"owner0","repo":"repo0","username":"repository_collaborator_permission0"},
+      repository_collaborator_permission1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"repository_collaborator_permission-apiid-1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","permissions":{},"received_events_url":"received_events_url1","repos_url":"repos_url1","role_name":"role_name1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","owner":"owner0","repo":"repo0","username":"repository_collaborator_permission1"},
+    },
+    repository_invitation: {
+      repository_invitation0: {"created_at":"created_at0","html_url":"html_url0","id":"repository_invitation-apiid-0","invitee":{},"inviter":{},"node_id":"node_id0","permissions":"permissions0","repository":{},"url":"url0","owner":"owner0","repo":"repo0","username":"repository_invitation0"},
+      repository_invitation1: {"created_at":"created_at1","html_url":"html_url1","id":"repository_invitation-apiid-1","invitee":{},"inviter":{},"node_id":"node_id1","permissions":"permissions1","repository":{},"url":"url1","owner":"owner0","repo":"repo0","username":"repository_invitation1"},
+    },
+    repository_rule_detailed: {
+      repository_rule_detailed0: {"owner":"owner0","repo":"repo0","branch":"repository_rule_detailed0"},
+      repository_rule_detailed1: {"owner":"owner0","repo":"repo0","branch":"repository_rule_detailed1"},
+    },
+    repository_ruleset: {
+      repository_ruleset0: {"enforcement":"enforcement0","id":"repository_ruleset0","name":"name0","source":"source0","org_id":"org0"},
+      repository_ruleset1: {"enforcement":"enforcement1","id":"repository_ruleset1","name":"name1","source":"source1","org_id":"org0"},
+    },
+    repository_subscription: {
+      repository_subscription0: {"created_at":"created_at0","ignored":false,"reason":"reason0","repository_url":"repository_url0","subscribed":false,"url":"url0","owner":"owner0","repo":"repository_subscription0"},
+      repository_subscription1: {"created_at":"created_at1","ignored":false,"reason":"reason1","repository_url":"repository_url1","subscribed":false,"url":"url1","owner":"owner0","repo":"repository_subscription1"},
+    },
+    review_comment: {
+      review_comment0: {"author_association":"author_association0","body":"body0","commit_id":"commit_id0","created_at":"created_at0","diff_hunk":"diff_hunk0","html_url":"html_url0","id":"review_comment0","links":{},"node_id":"node_id0","original_commit_id":"original_commit_id0","original_position":100,"path":"path0","position":100,"pull_request_review_id":100,"pull_request_url":"pull_request_url0","reactions":{},"updated_at":"updated_at0","url":"url0","user":{},"owner":"owner0","pull_id":"pull0","repo":"repo0"},
+      review_comment1: {"author_association":"author_association1","body":"body1","commit_id":"commit_id1","created_at":"created_at1","diff_hunk":"diff_hunk1","html_url":"html_url1","id":"review_comment1","links":{},"node_id":"node_id1","original_commit_id":"original_commit_id1","original_position":200,"path":"path1","position":200,"pull_request_review_id":200,"pull_request_url":"pull_request_url1","reactions":{},"updated_at":"updated_at1","url":"url1","user":{},"owner":"owner0","pull_id":"pull0","repo":"repo0"},
+    },
+    rule_suite: {
+      rule_suite0: {"org_id":"org0","id":"rule_suite0"},
+      rule_suite1: {"org_id":"org0","id":"rule_suite1"},
+    },
+    ruleset_version: {
+      ruleset_version0: {"actor":{},"updated_at":"updated_at0","version_id":100,"id":"ruleset_version0"},
+      ruleset_version1: {"actor":{},"updated_at":"updated_at1","version_id":200,"id":"ruleset_version1"},
+    },
+    ruleset_version_with_state: {
+      ruleset_version_with_state0: {"actor":{},"state":{},"updated_at":"updated_at0","version_id":"ruleset_version_with_state0","ruleset_id":"ruleset0"},
+      ruleset_version_with_state1: {"actor":{},"state":{},"updated_at":"updated_at1","version_id":"ruleset_version_with_state1","ruleset_id":"ruleset0"},
+    },
+    runner: {
+      runner0: {"busy":false,"id":"runner0","labels":[],"name":"name0","os":"os0","status":"status0"},
+      runner1: {"busy":false,"id":"runner1","labels":[],"name":"name1","os":"os1","status":"status1"},
+    },
+    runner_application: {
+      runner_application0: {"architecture":"architecture0","download_url":"download_url0","filename":"filename0","os":"os0","org_id":"org0","id":"runner_application0"},
+      runner_application1: {"architecture":"architecture1","download_url":"download_url1","filename":"filename1","os":"os1","org_id":"org0","id":"runner_application1"},
+    },
+    runner_group: {
+      runner_group0: {"allows_public_repositories":false,"default":false,"id":"runner_group0","inherited":false,"name":"name0","runners_url":"runners_url0","visibility":"visibility0","org_id":"org0"},
+      runner_group1: {"allows_public_repositories":false,"default":false,"id":"runner_group1","inherited":false,"name":"name1","runners_url":"runners_url1","visibility":"visibility1","org_id":"org0"},
+    },
+    search: {
+      search0: {"archive_url":"archive_url0","archived":false,"assignee":{},"assignees_url":"assignees_url0","author":{},"author_association":"author_association0","avatar_url":"avatar_url0","blobs_url":"blobs_url0","branches_url":"branches_url0","clone_url":"clone_url0","closed_at":"closed_at0","collaborators_url":"collaborators_url0","color":"color0","comments":100,"comments_url":"comments_url0","commit":{},"commits_url":"commits_url0","committer":{},"compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","created_by":"created_by0","curated":false,"default":false,"default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"display_name":"display_name0","downloads_url":"downloads_url0","events_url":"events_url0","featured":false,"followers_url":"followers_url0","following_url":"following_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","gists_url":"gists_url0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","gravatar_id":"gravatar_id0","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"search0","issue_comment_url":"issue_comment_url0","issue_dependencies_summary":{},"issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels":[],"labels_url":"labels_url0","languages_url":"languages_url0","license":{},"locked":false,"login":"login0","merges_url":"merges_url0","milestone":{},"milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","number":100,"open_issues":100,"open_issues_count":100,"organizations_url":"organizations_url0","owner":{},"parents":[],"path":"path0","performed_via_github_app":{},"permissions":{},"private":false,"pull_request":{},"pulls_url":"pulls_url0","pushed_at":"pushed_at0","reactions":{},"received_events_url":"received_events_url0","released":"released0","releases_url":"releases_url0","repos_url":"repos_url0","repository":{},"repository_url":"repository_url0","score":100,"sha":"sha0","short_description":"short_description0","site_admin":false,"size":100,"ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","starred_url":"starred_url0","state":"state0","statuses_url":"statuses_url0","sub_issues_summary":{},"subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","subscriptions_url":"subscriptions_url0","svn_url":"svn_url0","tags_url":"tags_url0","teams_url":"teams_url0","title":"title0","trees_url":"trees_url0","type":{},"updated_at":"updated_at0","url":"url0","user":{},"watchers":100,"watchers_count":100,"q":"q0"},
+      search1: {"archive_url":"archive_url1","archived":false,"assignee":{},"assignees_url":"assignees_url1","author":{},"author_association":"author_association1","avatar_url":"avatar_url1","blobs_url":"blobs_url1","branches_url":"branches_url1","clone_url":"clone_url1","closed_at":"closed_at1","collaborators_url":"collaborators_url1","color":"color1","comments":200,"comments_url":"comments_url1","commit":{},"commits_url":"commits_url1","committer":{},"compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","created_by":"created_by1","curated":false,"default":false,"default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"display_name":"display_name1","downloads_url":"downloads_url1","events_url":"events_url1","featured":false,"followers_url":"followers_url1","following_url":"following_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","gists_url":"gists_url1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","gravatar_id":"gravatar_id1","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"search1","issue_comment_url":"issue_comment_url1","issue_dependencies_summary":{},"issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels":[],"labels_url":"labels_url1","languages_url":"languages_url1","license":{},"locked":false,"login":"login1","merges_url":"merges_url1","milestone":{},"milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","number":200,"open_issues":200,"open_issues_count":200,"organizations_url":"organizations_url1","owner":{},"parents":[],"path":"path1","performed_via_github_app":{},"permissions":{},"private":false,"pull_request":{},"pulls_url":"pulls_url1","pushed_at":"pushed_at1","reactions":{},"received_events_url":"received_events_url1","released":"released1","releases_url":"releases_url1","repos_url":"repos_url1","repository":{},"repository_url":"repository_url1","score":200,"sha":"sha1","short_description":"short_description1","site_admin":false,"size":200,"ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","starred_url":"starred_url1","state":"state1","statuses_url":"statuses_url1","sub_issues_summary":{},"subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","subscriptions_url":"subscriptions_url1","svn_url":"svn_url1","tags_url":"tags_url1","teams_url":"teams_url1","title":"title1","trees_url":"trees_url1","type":{},"updated_at":"updated_at1","url":"url1","user":{},"watchers":200,"watchers_count":200,"q":"q0"},
+    },
+    secret_scanning: {
+      secret_scanning0: {"org_id":"secret_scanning0"},
+      secret_scanning1: {"org_id":"secret_scanning1"},
+    },
+    secret_scanning_alert: {
+      secret_scanning_alert0: {"push_protection_bypass_request_reviewer":{},"push_protection_bypassed_by":{},"resolved_by":{},"owner":"owner0","repo":"repo0","id":"secret_scanning_alert0"},
+      secret_scanning_alert1: {"push_protection_bypass_request_reviewer":{},"push_protection_bypassed_by":{},"resolved_by":{},"owner":"owner0","repo":"repo0","id":"secret_scanning_alert1"},
+    },
+    secret_scanning_location: {
+      secret_scanning_location0: {"alert_number":"alert_number0","owner":"owner0","repo":"repo0","id":"secret_scanning_location0"},
+      secret_scanning_location1: {"alert_number":"alert_number0","owner":"owner0","repo":"repo0","id":"secret_scanning_location1"},
+    },
+    secret_scanning_pattern_configuration: {
+      secret_scanning_pattern_configuration0: {"org_id":"org0","id":"secret_scanning_pattern_configuration0"},
+      secret_scanning_pattern_configuration1: {"org_id":"org0","id":"secret_scanning_pattern_configuration1"},
+    },
+    secret_scanning_push_protection_bypass: {
+      secret_scanning_push_protection_bypass0: {"placeholder_id":"placeholder_id0","owner":"owner0","repo":"repo0","id":"secret_scanning_push_protection_bypass0"},
+      secret_scanning_push_protection_bypass1: {"placeholder_id":"placeholder_id1","owner":"owner0","repo":"repo0","id":"secret_scanning_push_protection_bypass1"},
+    },
+    secret_scanning_scan_history: {
+      secret_scanning_scan_history0: {"owner":"owner0","repo":"repo0","id":"secret_scanning_scan_history0"},
+      secret_scanning_scan_history1: {"owner":"owner0","repo":"repo0","id":"secret_scanning_scan_history1"},
+    },
+    security_advisory: {
+      security_advisory0: {"owner":"owner0","repo":"repo0","id":"security_advisory0"},
+      security_advisory1: {"owner":"owner0","repo":"repo0","id":"security_advisory1"},
+    },
+    selected_action: {
+      selected_action0: {"org_id":"org0","id":"selected_action0"},
+      selected_action1: {"org_id":"org0","id":"selected_action1"},
+    },
+    self_hosted_runner: {
+      self_hosted_runner0: {"enabled_repositories":"enabled_repositories0","org_id":"self_hosted_runner0"},
+      self_hosted_runner1: {"enabled_repositories":"enabled_repositories1","org_id":"self_hosted_runner1"},
+    },
+    short_blob: {
+      short_blob0: {"content":"content0","owner":"owner0","repo":"repo0","id":"short_blob0"},
+      short_blob1: {"content":"content1","owner":"owner0","repo":"repo0","id":"short_blob1"},
+    },
+    short_branch: {
+      short_branch0: {"commit":{},"name":"name0","protected":false,"owner":"owner0","repo":"repo0","id":"short_branch0"},
+      short_branch1: {"commit":{},"name":"name1","protected":false,"owner":"owner0","repo":"repo0","id":"short_branch1"},
+    },
+    simple_classroom_assignment: {
+      simple_classroom_assignment0: {"accepted":100,"classroom":{},"deadline":"deadline0","editor":"editor0","feedback_pull_requests_enabled":false,"id":"simple_classroom_assignment0","invitations_enabled":false,"invite_link":"invite_link0","language":"language0","passing":100,"public_repo":false,"slug":"slug0","students_are_repo_admins":false,"submitted":100,"title":"title0","type":"type0","classroom_id":"classroom0"},
+      simple_classroom_assignment1: {"accepted":200,"classroom":{},"deadline":"deadline1","editor":"editor1","feedback_pull_requests_enabled":false,"id":"simple_classroom_assignment1","invitations_enabled":false,"invite_link":"invite_link1","language":"language1","passing":200,"public_repo":false,"slug":"slug1","students_are_repo_admins":false,"submitted":200,"title":"title1","type":"type1","classroom_id":"classroom0"},
+    },
+    social_account: {
+      social_account0: {"account_urls":[],"provider":"provider0","url":"url0","id":"social_account0"},
+      social_account1: {"account_urls":[],"provider":"provider1","url":"url1","id":"social_account1"},
+    },
+    ssh_signing_key: {
+      ssh_signing_key0: {"created_at":"created_at0","id":"ssh_signing_key0","key":"key0","title":"title0"},
+      ssh_signing_key1: {"created_at":"created_at1","id":"ssh_signing_key1","key":"key1","title":"title1"},
+    },
+    status: {
+      status0: {"avatar_url":"avatar_url0","created_at":"created_at0","creator":{},"id":"status0","node_id":"node_id0","state":"state0","updated_at":"updated_at0","url":"url0","owner":"owner0","ref":"ref0","repo":"repo0"},
+      status1: {"avatar_url":"avatar_url1","created_at":"created_at1","creator":{},"id":"status1","node_id":"node_id1","state":"state1","updated_at":"updated_at1","url":"url1","owner":"owner0","ref":"ref0","repo":"repo0"},
+    },
+    status_check_policy: {
+      status_check_policy0: {"app_id":100,"checks":[],"context":"context0","contexts":[],"contexts_url":"contexts_url0","strict":false,"url":"url0","owner":"owner0","repo":"repo0","branch_id":"status_check_policy0"},
+      status_check_policy1: {"app_id":200,"checks":[],"context":"context1","contexts":[],"contexts_url":"contexts_url1","strict":false,"url":"url1","owner":"owner0","repo":"repo0","branch_id":"status_check_policy1"},
+    },
+    subscriber: {
+      subscriber0: {"avatar_url":"avatar_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","gists_url":"gists_url0","gravatar_id":"gravatar_id0","html_url":"html_url0","id":"subscriber0","login":"login0","node_id":"node_id0","organizations_url":"organizations_url0","received_events_url":"received_events_url0","repos_url":"repos_url0","site_admin":false,"starred_url":"starred_url0","subscriptions_url":"subscriptions_url0","type":"type0","url":"url0","owner":"owner0","repo":"repo0"},
+      subscriber1: {"avatar_url":"avatar_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","gists_url":"gists_url1","gravatar_id":"gravatar_id1","html_url":"html_url1","id":"subscriber1","login":"login1","node_id":"node_id1","organizations_url":"organizations_url1","received_events_url":"received_events_url1","repos_url":"repos_url1","site_admin":false,"starred_url":"starred_url1","subscriptions_url":"subscriptions_url1","type":"type1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    tag: {
+      tag0: {"commit":{},"name":"name0","node_id":"node_id0","tarball_url":"tarball_url0","zipball_url":"zipball_url0","owner":"owner0","repo":"repo0","id":"tag0"},
+      tag1: {"commit":{},"name":"name1","node_id":"node_id1","tarball_url":"tarball_url1","zipball_url":"zipball_url1","owner":"owner0","repo":"repo0","id":"tag1"},
+    },
+    tag_protection: {
+      tag_protection0: {"pattern":"pattern0","owner":"owner0","repo":"repo0","id":"tag_protection0"},
+      tag_protection1: {"pattern":"pattern1","owner":"owner0","repo":"repo0","id":"tag_protection1"},
+    },
+    team: {
+      team0: {"archive_url":"archive_url0","archived":false,"assignees_url":"assignees_url0","author":{},"avatar_url":"avatar_url0","blobs_url":"blobs_url0","body":"body0","body_html":"body_html0","body_version":"body_version0","branches_url":"branches_url0","clone_url":"clone_url0","code_of_conduct":{},"collaborators_url":"collaborators_url0","columns_url":"columns_url0","comments_count":100,"comments_url":"comments_url0","commits_url":"commits_url0","compare_url":"compare_url0","contents_url":"contents_url0","contributors_url":"contributors_url0","created_at":"created_at0","creator":{},"default_branch":"default_branch0","deployments_url":"deployments_url0","description":"description0","disabled":false,"discussion_url":"discussion_url0","downloads_url":"downloads_url0","events_url":"events_url0","followers_url":"followers_url0","following_url":"following_url0","fork":false,"forks":100,"forks_count":100,"forks_url":"forks_url0","full_name":"full_name0","gists_url":"gists_url0","git_commits_url":"git_commits_url0","git_refs_url":"git_refs_url0","git_tags_url":"git_tags_url0","git_url":"git_url0","gravatar_id":"gravatar_id0","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage0","hooks_url":"hooks_url0","html_url":"html_url0","id":"team0","invitation_teams_url":"invitation_teams_url0","inviter":{},"issue_comment_url":"issue_comment_url0","issue_events_url":"issue_events_url0","issues_url":"issues_url0","keys_url":"keys_url0","labels_url":"labels_url0","language":"language0","languages_url":"languages_url0","last_edited_at":"last_edited_at0","license":{},"login":"login0","members_count":100,"members_url":"members_url0","merges_url":"merges_url0","milestones_url":"milestones_url0","mirror_url":"mirror_url0","name":"name0","node_id":"node_id0","notifications_url":"notifications_url0","number":100,"open_issues":100,"open_issues_count":100,"organization":{},"organizations_url":"organizations_url0","owner":{},"owner_url":"owner_url0","parent":{},"permission":"permission0","permissions":{},"pinned":false,"private":false,"pulls_url":"pulls_url0","pushed_at":"pushed_at0","reactions":{},"received_events_url":"received_events_url0","releases_url":"releases_url0","repos_count":100,"repos_url":"repos_url0","repositories_url":"repositories_url0","role":"role0","site_admin":false,"size":100,"slug":"slug0","ssh_url":"ssh_url0","stargazers_count":100,"stargazers_url":"stargazers_url0","starred_url":"starred_url0","state":"state0","statuses_url":"statuses_url0","subscribers_url":"subscribers_url0","subscription_url":"subscription_url0","subscriptions_url":"subscriptions_url0","svn_url":"svn_url0","tags_url":"tags_url0","team_count":100,"team_url":"team_url0","teams_url":"teams_url0","title":"title0","trees_url":"trees_url0","type":"type0","updated_at":"updated_at0","url":"url0","watchers":100,"watchers_count":100,"org_id":"org0","project_id":"project0"},
+      team1: {"archive_url":"archive_url1","archived":false,"assignees_url":"assignees_url1","author":{},"avatar_url":"avatar_url1","blobs_url":"blobs_url1","body":"body1","body_html":"body_html1","body_version":"body_version1","branches_url":"branches_url1","clone_url":"clone_url1","code_of_conduct":{},"collaborators_url":"collaborators_url1","columns_url":"columns_url1","comments_count":200,"comments_url":"comments_url1","commits_url":"commits_url1","compare_url":"compare_url1","contents_url":"contents_url1","contributors_url":"contributors_url1","created_at":"created_at1","creator":{},"default_branch":"default_branch1","deployments_url":"deployments_url1","description":"description1","disabled":false,"discussion_url":"discussion_url1","downloads_url":"downloads_url1","events_url":"events_url1","followers_url":"followers_url1","following_url":"following_url1","fork":false,"forks":200,"forks_count":200,"forks_url":"forks_url1","full_name":"full_name1","gists_url":"gists_url1","git_commits_url":"git_commits_url1","git_refs_url":"git_refs_url1","git_tags_url":"git_tags_url1","git_url":"git_url1","gravatar_id":"gravatar_id1","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"homepage":"homepage1","hooks_url":"hooks_url1","html_url":"html_url1","id":"team1","invitation_teams_url":"invitation_teams_url1","inviter":{},"issue_comment_url":"issue_comment_url1","issue_events_url":"issue_events_url1","issues_url":"issues_url1","keys_url":"keys_url1","labels_url":"labels_url1","language":"language1","languages_url":"languages_url1","last_edited_at":"last_edited_at1","license":{},"login":"login1","members_count":200,"members_url":"members_url1","merges_url":"merges_url1","milestones_url":"milestones_url1","mirror_url":"mirror_url1","name":"name1","node_id":"node_id1","notifications_url":"notifications_url1","number":200,"open_issues":200,"open_issues_count":200,"organization":{},"organizations_url":"organizations_url1","owner":{},"owner_url":"owner_url1","parent":{},"permission":"permission1","permissions":{},"pinned":false,"private":false,"pulls_url":"pulls_url1","pushed_at":"pushed_at1","reactions":{},"received_events_url":"received_events_url1","releases_url":"releases_url1","repos_count":200,"repos_url":"repos_url1","repositories_url":"repositories_url1","role":"role1","site_admin":false,"size":200,"slug":"slug1","ssh_url":"ssh_url1","stargazers_count":200,"stargazers_url":"stargazers_url1","starred_url":"starred_url1","state":"state1","statuses_url":"statuses_url1","subscribers_url":"subscribers_url1","subscription_url":"subscription_url1","subscriptions_url":"subscriptions_url1","svn_url":"svn_url1","tags_url":"tags_url1","team_count":200,"team_url":"team_url1","teams_url":"teams_url1","title":"title1","trees_url":"trees_url1","type":"type1","updated_at":"updated_at1","url":"url1","watchers":200,"watchers_count":200,"org_id":"org0","project_id":"project0"},
+    },
+    team_simple: {
+      team_simple0: {"description":"description0","html_url":"html_url0","id":"team_simple0","members_url":"members_url0","name":"name0","node_id":"node_id0","permission":"permission0","repositories_url":"repositories_url0","slug":"slug0","url":"url0","org_id":"org0"},
+      team_simple1: {"description":"description1","html_url":"html_url1","id":"team_simple1","members_url":"members_url1","name":"name1","node_id":"node_id1","permission":"permission1","repositories_url":"repositories_url1","slug":"slug1","url":"url1","org_id":"org0"},
+    },
+    thread: {
+      thread0: {"id":"thread0","last_read_at":"last_read_at0","reason":"reason0","repository":{},"subject":{},"subscription_url":"subscription_url0","unread":false,"updated_at":"updated_at0","url":"url0"},
+      thread1: {"id":"thread1","last_read_at":"last_read_at1","reason":"reason1","repository":{},"subject":{},"subscription_url":"subscription_url1","unread":false,"updated_at":"updated_at1","url":"url1"},
+    },
+    thread_subscription: {
+      thread_subscription0: {"created_at":"created_at0","ignored":false,"reason":"reason0","subscribed":false,"url":"url0","id":"thread_subscription0"},
+      thread_subscription1: {"created_at":"created_at1","ignored":false,"reason":"reason1","subscribed":false,"url":"url1","id":"thread_subscription1"},
+    },
+    topic: {
+      topic0: {"names":[],"owner":"owner0","repo":"topic0"},
+      topic1: {"names":[],"owner":"owner0","repo":"topic1"},
+    },
+    user: {
+      user0: {"private_repos":100,"space":100,"subject_digests":[],"users":[],"branch_id":"branch0","gpg_key_id":"gpg_key0","owner":"owner0","repo":"repo0","username":"username0","id":"user0"},
+      user1: {"private_repos":200,"space":200,"subject_digests":[],"users":[],"branch_id":"branch0","gpg_key_id":"gpg_key0","owner":"owner0","repo":"repo0","username":"username0","id":"user1"},
+    },
+    user_marketplace_purchase: {
+      user_marketplace_purchase0: {"account":{},"billing_cycle":"billing_cycle0","free_trial_ends_on":"free_trial_ends_on0","next_billing_date":"next_billing_date0","on_free_trial":false,"plan":{},"unit_count":100,"updated_at":"updated_at0","id":"user_marketplace_purchase0"},
+      user_marketplace_purchase1: {"account":{},"billing_cycle":"billing_cycle1","free_trial_ends_on":"free_trial_ends_on1","next_billing_date":"next_billing_date1","on_free_trial":false,"plan":{},"unit_count":200,"updated_at":"updated_at1","id":"user_marketplace_purchase1"},
+    },
+    view: {
+      view0: {"count":100,"timestamp":"timestamp0","uniques":100,"owner":"owner0","repo":"repo0","id":"view0"},
+      view1: {"count":200,"timestamp":"timestamp1","uniques":200,"owner":"owner0","repo":"repo0","id":"view1"},
+    },
+    webhook_config: {
+      webhook_config0: {"id":"webhook_config0"},
+      webhook_config1: {"id":"webhook_config1"},
+    },
+    workflow: {
+      workflow0: {"badge_url":"badge_url0","created_at":"created_at0","html_url":"html_url0","id":"workflow0","name":"name0","node_id":"node_id0","path":"path0","state":"state0","updated_at":"updated_at0","url":"url0","owner":"owner0","repo":"repo0"},
+      workflow1: {"badge_url":"badge_url1","created_at":"created_at1","html_url":"html_url1","id":"workflow1","name":"name1","node_id":"node_id1","path":"path1","state":"state1","updated_at":"updated_at1","url":"url1","owner":"owner0","repo":"repo0"},
+    },
+    workflow_run: {
+      workflow_run0: {"actor":{},"artifacts_url":"artifacts_url0","cancel_url":"cancel_url0","check_suite_url":"check_suite_url0","conclusion":"conclusion0","created_at":"created_at0","display_title":"display_title0","event":"event0","head_branch":"head_branch0","head_commit":{},"head_repository":{},"head_sha":"head_sha0","html_url":"html_url0","id":"workflow_run0","jobs_url":"jobs_url0","logs_url":"logs_url0","node_id":"node_id0","path":"path0","pull_requests":[],"repository":{},"rerun_url":"rerun_url0","run_number":100,"status":"status0","triggering_actor":{},"updated_at":"updated_at0","url":"url0","workflow_id":100,"workflow_url":"workflow_url0","owner":"owner0","repo":"repo0","run_id":"run0"},
+      workflow_run1: {"actor":{},"artifacts_url":"artifacts_url1","cancel_url":"cancel_url1","check_suite_url":"check_suite_url1","conclusion":"conclusion1","created_at":"created_at1","display_title":"display_title1","event":"event1","head_branch":"head_branch1","head_commit":{},"head_repository":{},"head_sha":"head_sha1","html_url":"html_url1","id":"workflow_run1","jobs_url":"jobs_url1","logs_url":"logs_url1","node_id":"node_id1","path":"path1","pull_requests":[],"repository":{},"rerun_url":"rerun_url1","run_number":200,"status":"status1","triggering_actor":{},"updated_at":"updated_at1","url":"url1","workflow_id":200,"workflow_url":"workflow_url1","owner":"owner0","repo":"repo0","run_id":"run0"},
+    },
+    workflow_run_usage: {
+      workflow_run_usage0: {"MACOS":{},"UBUNTU":{},"WINDOWS":{},"owner":"owner0","repo":"repo0","run_id":"workflow_run_usage0"},
+      workflow_run_usage1: {"MACOS":{},"UBUNTU":{},"WINDOWS":{},"owner":"owner0","repo":"repo0","run_id":"workflow_run_usage1"},
+    },
+    workflow_usage: {
+      workflow_usage0: {"owner":"owner0","repo":"repo0","id":"workflow_usage0"},
+      workflow_usage1: {"owner":"owner0","repo":"repo0","id":"workflow_usage1"},
     },
   },
 }
