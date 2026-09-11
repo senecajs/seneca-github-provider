@@ -131,35 +131,41 @@ A `load$` of the same id afterwards answers `null`.
 ## Work with nested entities
 
 Some resources live inside a parent, and the API path says so — the
-route for `pull` is:
+route for `issue` is:
 
 ```
-/repos/{owner}/{repo}/pulls
+/repos/{owner}/{repo}/issues/{issue_number}/comments
 ```
 
-So a `pull` cannot be addressed at all without its parent's id, and
+So a `issue` cannot be addressed at all without its parent's id, and
 the provider requires those keys on every command.
 
+- `issue` requires `owner`, `repo`
 - `pull` requires `owner`, `repo`
+- `pull_request_review` requires `owner`, `pull_number`, `repo`
+- `pull_request_simple` requires `owner`, `repo`
 - `repo` requires `owner`
 
 For reads the keys go in the query; for writes they go in the data:
 
 ```js
-await seneca.entity('provider/github/pull').list$({ owner: '0', repo: 'repo0' })
+await seneca.entity('provider/github/issue').list$({ owner: '0', repo: 'repo0' })
 
-await seneca.entity('provider/github/pull')
-  .load$({ owner: '0', repo: 'repo0', id: 'pull0' })
+await seneca.entity('provider/github/issue')
+  .load$({ owner: '0', repo: 'repo0', id: 'issue0' })
 
-await seneca.entity('provider/github/pull')
-  .make$({ additions: 100, assignee: [object Object], author_association: 'author_association0', auto_merge: [object Object], base: [object Object], body: 'body0', changed_files: 100, closed_at: 'closed_at0', comments: 100, comments_url: 'comments_url0', commits: 100, commits_url: 'commits_url0', created_at: 'created_at0', deletions: 100, diff_url: 'diff_url0', head: [object Object], html_url: 'html_url0', issue_url: 'issue_url0', labels: , links: [object Object], locked: false, maintainer_can_modify: false, merge_commit_sha: 'merge_commit_sha0', mergeable: false, mergeable_state: 'mergeable_state0', merged: false, merged_at: 'merged_at0', merged_by: [object Object], message: 'message0', milestone: [object Object], node_id: 'node_id0', number: 100, patch_url: 'patch_url0', review_comment_url: 'review_comment_url0', review_comments: 100, review_comments_url: 'review_comments_url0', sha: 'sha0', stack: [object Object], state: 'state0', statuses_url: 'statuses_url0', title: 'title0', updated_at: 'updated_at0', url: 'url0', user: [object Object], owner: 'owner0', repo: 'repo0' })
+await seneca.entity('provider/github/issue')
+  .make$({ assignee: [object Object], closed_at: 'closed_at0', closed_by: [object Object], comments: 100, comments_url: 'comments_url0', created_at: 'created_at0', events_url: 'events_url0', html_url: 'html_url0', issue_dependencies_summary: [object Object], issue_url: 'issue_url0', labels: , labels_url: 'labels_url0', locked: false, milestone: [object Object], minimized: [object Object], node_id: 'node_id0', number: 100, performed_via_github_app: [object Object], pin: [object Object], pinned_comment: [object Object], pull_request: [object Object], reactions: [object Object], repository: [object Object], repository_url: 'repository_url0', state: 'state0', sub_issues_summary: [object Object], title: 'title0', type: [object Object], updated_at: 'updated_at0', url: 'url0', user: [object Object], owner: 'owner0', repo: 'repo0' })
   .save$()
+
+await seneca.entity('provider/github/issue')
+  .remove$({ owner: '0', repo: 'repo0', id: 'issue0' })
 ```
 
 Leave a key out and the call throws at once, naming what is missing:
 
 ```
-@seneca/github-provider: pull list: owner is required
+@seneca/github-provider: issue list: owner is required
 ```
 
 That is deliberate: without it the SDK would build half a URL and the
@@ -177,9 +183,9 @@ seed it with `testopts`:
   test: true,
   testopts: {
     entity: {
-      pull: {
-        pull0: { additions: 100, assignee: [object Object], author_association: 'author_association0', auto_merge: [object Object], base: [object Object], body: 'body0', changed_files: 100, closed_at: 'closed_at0', comments: 100, comments_url: 'comments_url0', commits: 100, commits_url: 'commits_url0', created_at: 'created_at0', deletions: 100, diff_url: 'diff_url0', head: [object Object], html_url: 'html_url0', id: 'pull0', issue_url: 'issue_url0', labels: , links: [object Object], locked: false, maintainer_can_modify: false, merge_commit_sha: 'merge_commit_sha0', mergeable: false, mergeable_state: 'mergeable_state0', merged: false, merged_at: 'merged_at0', merged_by: [object Object], message: 'message0', milestone: [object Object], node_id: 'node_id0', number: 100, patch_url: 'patch_url0', review_comment_url: 'review_comment_url0', review_comments: 100, review_comments_url: 'review_comments_url0', sha: 'sha0', stack: [object Object], state: 'state0', statuses_url: 'statuses_url0', title: 'title0', updated_at: 'updated_at0', url: 'url0', user: [object Object], owner: 'owner0', repo: 'repo0' },
-        pull1: { additions: 200, assignee: [object Object], author_association: 'author_association1', auto_merge: [object Object], base: [object Object], body: 'body1', changed_files: 200, closed_at: 'closed_at1', comments: 200, comments_url: 'comments_url1', commits: 200, commits_url: 'commits_url1', created_at: 'created_at1', deletions: 200, diff_url: 'diff_url1', head: [object Object], html_url: 'html_url1', id: 'pull1', issue_url: 'issue_url1', labels: , links: [object Object], locked: false, maintainer_can_modify: false, merge_commit_sha: 'merge_commit_sha1', mergeable: false, mergeable_state: 'mergeable_state1', merged: false, merged_at: 'merged_at1', merged_by: [object Object], message: 'message1', milestone: [object Object], node_id: 'node_id1', number: 200, patch_url: 'patch_url1', review_comment_url: 'review_comment_url1', review_comments: 200, review_comments_url: 'review_comments_url1', sha: 'sha1', stack: [object Object], state: 'state1', statuses_url: 'statuses_url1', title: 'title1', updated_at: 'updated_at1', url: 'url1', user: [object Object], owner: 'owner0', repo: 'repo0' },
+      issue: {
+        issue0: { assignee: [object Object], closed_at: 'closed_at0', closed_by: [object Object], comments: 100, comments_url: 'comments_url0', created_at: 'created_at0', events_url: 'events_url0', html_url: 'html_url0', id: 'issue0', issue_dependencies_summary: [object Object], issue_url: 'issue_url0', labels: , labels_url: 'labels_url0', locked: false, milestone: [object Object], minimized: [object Object], node_id: 'node_id0', number: 100, performed_via_github_app: [object Object], pin: [object Object], pinned_comment: [object Object], pull_request: [object Object], reactions: [object Object], repository: [object Object], repository_url: 'repository_url0', state: 'state0', sub_issues_summary: [object Object], title: 'title0', type: [object Object], updated_at: 'updated_at0', url: 'url0', user: [object Object], owner: 'owner0', repo: 'repo0' },
+        issue1: { assignee: [object Object], closed_at: 'closed_at1', closed_by: [object Object], comments: 200, comments_url: 'comments_url1', created_at: 'created_at1', events_url: 'events_url1', html_url: 'html_url1', id: 'issue1', issue_dependencies_summary: [object Object], issue_url: 'issue_url1', labels: , labels_url: 'labels_url1', locked: false, milestone: [object Object], minimized: [object Object], node_id: 'node_id1', number: 200, performed_via_github_app: [object Object], pin: [object Object], pinned_comment: [object Object], pull_request: [object Object], reactions: [object Object], repository: [object Object], repository_url: 'repository_url1', state: 'state1', sub_issues_summary: [object Object], title: 'title1', type: [object Object], updated_at: 'updated_at1', url: 'url1', user: [object Object], owner: 'owner0', repo: 'repo0' },
       },
       repo: {
         repo0: { archive_url: 'archive_url0', archived: false, assignees_url: 'assignees_url0', blobs_url: 'blobs_url0', branches_url: 'branches_url0', clone_url: 'clone_url0', code_of_conduct: [object Object], collaborators_url: 'collaborators_url0', comments_url: 'comments_url0', commits_url: 'commits_url0', compare_url: 'compare_url0', contents_url: 'contents_url0', contributors_url: 'contributors_url0', created_at: 'created_at0', default_branch: 'default_branch0', deployments_url: 'deployments_url0', description: 'description0', disabled: false, downloads_url: 'downloads_url0', events_url: 'events_url0', fork: false, forks: 100, forks_count: 100, forks_url: 'forks_url0', full_name: 'full_name0', git_commits_url: 'git_commits_url0', git_refs_url: 'git_refs_url0', git_tags_url: 'git_tags_url0', git_url: 'git_url0', has_discussions: false, has_issues: false, has_pages: false, has_projects: false, has_wiki: false, homepage: 'homepage0', hooks_url: 'hooks_url0', html_url: 'html_url0', id: 'repo0', issue_comment_url: 'issue_comment_url0', issue_events_url: 'issue_events_url0', issues_url: 'issues_url0', keys_url: 'keys_url0', labels_url: 'labels_url0', language: 'language0', languages_url: 'languages_url0', license: [object Object], merges_url: 'merges_url0', milestones_url: 'milestones_url0', mirror_url: 'mirror_url0', name: 'name0', network_count: 100, node_id: 'node_id0', notifications_url: 'notifications_url0', open_issues: 100, open_issues_count: 100, organization: [object Object], owner: 'owner0', parent: [object Object], permissions: [object Object], private: false, pulls_url: 'pulls_url0', pushed_at: 'pushed_at0', releases_url: 'releases_url0', size: 100, source: [object Object], ssh_url: 'ssh_url0', stargazers_count: 100, stargazers_url: 'stargazers_url0', statuses_url: 'statuses_url0', subscribers_count: 100, subscribers_url: 'subscribers_url0', subscription_url: 'subscription_url0', svn_url: 'svn_url0', tags_url: 'tags_url0', teams_url: 'teams_url0', template_repository: [object Object], trees_url: 'trees_url0', updated_at: 'updated_at0', url: 'url0', watchers: 100, watchers_count: 100 },

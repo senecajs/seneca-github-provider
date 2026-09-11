@@ -15,7 +15,7 @@ type GithubProviderOptions = {
   // Run the SDK in offline test mode (in-memory mock transport).
   test?: boolean
 
-  // Test feature options, e.g. {entity: {pull: {...}}} to
+  // Test feature options, e.g. {entity: {issue: {...}}} to
   // seed the mock with data. Only used when `test` is true.
   testopts?: Record<string, any>
 }
@@ -135,6 +135,26 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   // Nested entities cannot build their path without the parent id, so
   // say which key is missing rather than letting the SDK report an opaque
   // 404 on a half-built URL.
+  function need_issue_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: issue ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_issue_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: issue ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
   function need_pull_owner(value: any, cmd: string) {
     if (null == value || '' === value) {
       throw new Error(
@@ -155,6 +175,56 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   }
 
 
+  function need_pull_request_review_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_review_pull_number(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review ' + cmd + ': pull_number is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_review_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_review ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_simple_owner(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_simple ' + cmd + ': owner is required'
+      )
+    }
+    return value
+  }
+
+
+  function need_pull_request_simple_repo(value: any, cmd: string) {
+    if (null == value || '' === value) {
+      throw new Error(
+        '@seneca/github-provider: pull_request_simple ' + cmd + ': repo is required'
+      )
+    }
+    return value
+  }
+
+
   function need_repo_owner(value: any, cmd: string) {
     if (null == value || '' === value) {
       throw new Error(
@@ -162,6 +232,16 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       )
     }
     return value
+  }
+
+
+  // This API keys a pull_request_simple by `pull_number`, Seneca by `id`. Carry the
+  // API's key across so the Seneca entity has one.
+  function id_pull_request_simple(data: any) {
+    if (null != data && null == data.id) {
+      data.id = data.pull_number
+    }
+    return data
   }
 
 
@@ -180,10 +260,24 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
   // model), so `save$` routes by this map rather than assuming update: an
   // action folded into `create` is reached through `save$` too.
   const ACTIONS: Record<string, Record<string, Record<string, string>>> = {
+    ["issue"]: {
+      list: { ["comment"]: 'list', ["label"]: 'list' },
+      load: {},
+      save: { ["assignee"]: 'create', ["comment"]: 'create', ["label"]: 'create' },
+      remove: { ["assignee"]: 'remove', ["label"]: 'remove' },
+    },
     ["pull"]: {
       list: {},
       load: {},
       save: { ["merge"]: 'update' },
+    },
+    ["pull_request_review"]: {
+      list: {},
+      save: {},
+    },
+    ["pull_request_simple"]: {
+      save: {},
+      remove: {},
     },
     ["repo"]: {
       list: {},
@@ -226,11 +320,34 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
 
 
   const entity: any = {
+    issue: {
+      cmd: {
+        list: { action: (undefined as any) },
+        load: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
+      },
+    },
+
     pull: {
       cmd: {
         list: { action: (undefined as any) },
         load: { action: (undefined as any) },
         save: { action: (undefined as any) },
+      },
+    },
+
+    pull_request_review: {
+      cmd: {
+        list: { action: (undefined as any) },
+        save: { action: (undefined as any) },
+      },
+    },
+
+    pull_request_simple: {
+      cmd: {
+        save: { action: (undefined as any) },
+        remove: { action: (undefined as any) },
       },
     },
 
@@ -244,6 +361,83 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
     },
 
   }
+
+
+  entity.issue.cmd.list.action =
+    async function list_issue(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue', 'list')
+        const found = await this.shared.sdk.Issue()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_issue_owner(q.owner, 'list')
+      need_issue_repo(q.repo, 'list')
+      const list = await this.shared.sdk.Issue().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.issue.cmd.load.action =
+    async function load_issue(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue', 'load')
+        const hit = await ornull(() => this.shared.sdk.Issue()[op$](actionq(msg.q, 'id', action$)))
+        return null == hit ? null : entize(plain(hit))
+      }
+
+      need_issue_owner(q.owner, 'load')
+      need_issue_repo(q.repo, 'load')
+      const res = await ornull(() => this.shared.sdk.Issue().load({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null == res ? null : entize(plain(res))
+    }
+
+
+  entity.issue.cmd.save.action =
+    async function save_issue(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.Issue()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_issue_owner(data.owner, 'save')
+      need_issue_repo(data.repo, 'save')
+      const res = null == data.id
+        ? await sdk.Issue().create(data)
+        : await sdk.Issue().update(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.issue.cmd.remove.action =
+    async function remove_issue(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'issue', 'remove')
+        const gone = await ornull(() => this.shared.sdk.Issue()[op$](actionq(msg.q, 'id', action$)))
+        return null == gone ? null : entize(plain(gone))
+      }
+
+      need_issue_owner(q.owner, 'remove')
+      need_issue_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.Issue().remove({ id: q.id, owner: q.owner, repo: q.repo }))
+      return null
+    }
 
 
   entity.pull.cmd.list.action =
@@ -303,6 +497,95 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
         : await sdk.Pull().update(data)
 
       return entize(plain(res))
+    }
+
+
+  entity.pull_request_review.cmd.list.action =
+    async function list_pull_request_review(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review', 'list')
+        const found = await this.shared.sdk.PullRequestReview()[op$](actionq(msg.q, 'id', action$))
+        return found.map((data: any) => entize(plain(data)))
+      }
+
+      need_pull_request_review_owner(q.owner, 'list')
+      need_pull_request_review_pull_number(q.pull_number, 'list')
+      need_pull_request_review_repo(q.repo, 'list')
+      const list = await this.shared.sdk.PullRequestReview().list(q)
+      return list.map((data: any) => entize(plain(data)))
+    }
+
+
+  entity.pull_request_review.cmd.save.action =
+    async function save_pull_request_review(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_review', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PullRequestReview()[op$](data)
+        return entize(plain(done))
+      }
+
+      need_pull_request_review_owner(data.owner, 'save')
+      need_pull_request_review_pull_number(data.pull_number, 'save')
+      need_pull_request_review_repo(data.repo, 'save')
+      const res = await sdk.PullRequestReview().create(data)
+
+      return entize(plain(res))
+    }
+
+
+  entity.pull_request_simple.cmd.save.action =
+    async function save_pull_request_simple(this: any, entize: any, msg: any) {
+      const data = msg.ent.data$(false)
+
+      // This API keys a pull_request_simple by `pull_number`; Seneca carries it as `id`.
+      if (null == data.pull_number && null != data.id) {
+        data.pull_number = data.id
+      }
+      const sdk = this.shared.sdk
+
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_simple', 'save')
+        // The action's OWN payload is the entity's own fields — data$(false)
+        // has already dropped every trailing-`$` key, `action$` included,
+        // so `$action` is the only thing added here.
+        data.$action = action$
+        const done = await sdk.PullRequestSimple()[op$](data)
+        return entize(id_pull_request_simple(plain(done)))
+      }
+
+      need_pull_request_simple_owner(data.owner, 'save')
+      need_pull_request_simple_repo(data.repo, 'save')
+      const res = await sdk.PullRequestSimple().create(data)
+
+      return entize(id_pull_request_simple(plain(res)))
+    }
+
+
+  entity.pull_request_simple.cmd.remove.action =
+    async function remove_pull_request_simple(this: any, entize: any, msg: any) {
+      const q = cleanq(msg.q)
+      const action$ = actionOf(msg)
+      if (null != action$) {
+        const op$ = actionop(action$, 'pull_request_simple', 'remove')
+        const gone = await ornull(() => this.shared.sdk.PullRequestSimple()[op$](actionq(msg.q, 'pull_number', action$)))
+        return null == gone ? null : entize(id_pull_request_simple(plain(gone)))
+      }
+
+      need_pull_request_simple_owner(q.owner, 'remove')
+      need_pull_request_simple_repo(q.repo, 'remove')
+      await ornull(() => this.shared.sdk.PullRequestSimple().remove({ owner: q.owner, pull_number: q.id, repo: q.repo }))
+      return null
     }
 
 
