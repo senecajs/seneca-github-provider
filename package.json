@@ -45,7 +45,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@voxgig-sdk/github": "github:voxgig-sdk/github-sdk#v0.0.1::path:ts"
+    "@voxgig-sdk/github": "https://github.com/voxgig-sdk/github-sdk/releases/download/v0.0.1/voxgig-sdk-github-0.0.1.tgz"
   },
   "peerDependencies": {
     "@seneca/env": ">=0.4",
