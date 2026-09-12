@@ -62,7 +62,7 @@ jobs:
           node-version: 24.x
 
       # install, not ci: this package does not commit a lockfile.
-      - run: npm install
+      - run: npm install --allow-remote=all
 
       # The Seneca host framework is a PEER dependency, so the test suite
       # needs it installed explicitly.
