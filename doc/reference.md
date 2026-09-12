@@ -1,7 +1,7 @@
 # Reference
 
 Complete description of the interface exposed by
-`@seneca/github-provider` version 0.3.2.
+`@seneca/github-provider` version 0.3.3.
 
 This document describes the machinery and assumes you know what you are
 looking for. To learn the plugin, start with the [tutorial](tutorial.md);
@@ -10934,7 +10934,7 @@ await seneca.post('sys:provider,provider:github,get:info')
 {
   ok: true,
   name: 'github',
-  version: '0.3.2',
+  version: '0.3.3',
   sdk: {
     name: '@voxgig-sdk/github-sdk',
     version: '0.0.2',
