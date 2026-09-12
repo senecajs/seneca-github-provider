@@ -284,8 +284,8 @@ would force every user to invent a fake one.
 
 ## Depending on a published SDK
 
-The SDK is an ordinary published dependency: `@voxgig-sdk/github` at
-`^0.0.1`, resolved by npm like anything else.
+The SDK is an ordinary published dependency: `@voxgig-sdk/github-sdk` at
+`^0.0.2`, resolved by npm like anything else.
 
 The alternative is vendoring — copying the generated client into this
 repository. That is tempting, since both artefacts come from the same model and

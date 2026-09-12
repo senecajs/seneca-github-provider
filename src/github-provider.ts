@@ -2,9 +2,9 @@
 
 const Pkg = require('../package.json')
 
-const { GithubSDK } = require('@voxgig-sdk/github')
+const { GithubSDK } = require('@voxgig-sdk/github-sdk')
 
-const SdkPkg = require('@voxgig-sdk/github/package.json')
+const SdkPkg = require('@voxgig-sdk/github-sdk/package.json')
 
 
 type GithubProviderOptions = {
@@ -34,7 +34,7 @@ function GithubProvider(this: any, options: GithubProviderOptions) {
       name: 'github',
       version: Pkg.version,
       sdk: {
-        name: '@voxgig-sdk/github',
+        name: '@voxgig-sdk/github-sdk',
         version: SdkPkg.version,
       },
     }

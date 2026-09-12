@@ -1,7 +1,7 @@
 # Reference
 
 Complete description of the interface exposed by
-`@seneca/github-provider` version 0.3.1.
+`@seneca/github-provider` version 0.3.2.
 
 This document describes the machinery and assumes you know what you are
 looking for. To learn the plugin, start with the [tutorial](tutorial.md);
@@ -27,7 +27,7 @@ the [README](../README.md), and the document index is [here](README.md).
 | ---- | ----- |
 | Node.js | `>=24` |
 | Module format | CommonJS |
-| SDK | [`@voxgig-sdk/github`](https://www.npmjs.com/package/@voxgig-sdk/github) `^0.0.1` |
+| SDK | [`@voxgig-sdk/github-sdk`](https://www.npmjs.com/package/@voxgig-sdk/github-sdk) `^0.0.2` |
 
 The SDK is an ordinary published dependency, installed by `npm install`
 like any other.
@@ -10934,10 +10934,10 @@ await seneca.post('sys:provider,provider:github,get:info')
 {
   ok: true,
   name: 'github',
-  version: '0.3.1',
+  version: '0.3.2',
   sdk: {
-    name: '@voxgig-sdk/github',
-    version: '0.0.1',
+    name: '@voxgig-sdk/github-sdk',
+    version: '0.0.2',
   },
 }
 ```

@@ -1,10 +1,10 @@
 {
   "name": "@seneca/github-provider",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "dist/github-provider.js",
   "type": "commonjs",
   "types": "dist/github-provider.d.ts",
-  "description": "Seneca entity provider for the GitHub v3 REST API, using the @voxgig-sdk/github SDK.",
+  "description": "Seneca entity provider for the GitHub v3 REST API, using the @voxgig-sdk/github-sdk SDK.",
   "homepage": "https://github.com/senecajs/seneca-github-provider",
   "keywords": [
     "seneca",
@@ -45,7 +45,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@voxgig-sdk/github": "https://github.com/voxgig-sdk/github-sdk/releases/download/v0.0.1/voxgig-sdk-github-0.0.1.tgz"
+    "@voxgig-sdk/github-sdk": "https://github.com/voxgig-sdk/github-sdk/releases/download/v0.0.2/voxgig-sdk-github-sdk-0.0.2.tgz"
   },
   "peerDependencies": {
     "@seneca/env": ">=0.4",
