@@ -1,6 +1,6 @@
 {
   "name": "@seneca/github-provider",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "dist/github-provider.js",
   "type": "commonjs",
   "types": "dist/github-provider.d.ts",
@@ -45,7 +45,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@voxgig-sdk/github-sdk": "^0.0.3"
+    "@voxgig-sdk/github-sdk": "^0.0.4"
   },
   "peerDependencies": {
     "@seneca/env": ">=0.4",

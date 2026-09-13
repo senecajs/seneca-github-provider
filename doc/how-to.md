@@ -477,8 +477,8 @@ const info = await seneca.post(
 {
   ok: true,
   name: 'github',
-  version: '0.3.4',
-  sdk: { name: '@voxgig-sdk/github-sdk', version: '0.0.3' },
+  version: '0.3.5',
+  sdk: { name: '@voxgig-sdk/github-sdk', version: '0.0.4' },
 }
 ```
 
