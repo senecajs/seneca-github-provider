@@ -547,20 +547,27 @@ $ npm install
 ```
 
 If you are changing the SDK and this plugin together, point npm at a
-local checkout instead. Clone the SDK beside this repository, at the path
-this project expects, and build it — it does not commit its build output:
+local checkout instead. `make sdk-src` fetches the SDK this repository is
+generated from — the repository and tag in `sdk-pin.json` — into
+`.sdksrc/github-sdk`, then build it, because it does not commit its build
+output:
 
 ```sh
-$ git clone https://github.com/voxgig-sdk/github-sdk.git \
-    ../../voxgig-sdk/github-sdk
-$ cd ../../voxgig-sdk/github-sdk/ts
+$ make sdk-src
+$ cd .sdksrc/github-sdk/ts
 $ npm install && npm run build
+```
+
+Already have that checkout elsewhere? Point the same target at it:
+
+```sh
+$ make sdk-src SDK_SRC_FROM=../path/to/your/checkout
 ```
 
 Then link it in, without committing the change to `package.json`:
 
 ```sh
-$ npm install --no-save ../../voxgig-sdk/github-sdk/ts
+$ npm install --no-save .sdksrc/github-sdk/ts
 ```
 
 npm creates a symlink, so a rebuild of the SDK is picked up here with no

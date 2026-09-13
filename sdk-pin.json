@@ -1,0 +1,8 @@
+{
+  "note": "GENERATED. The SDK this provider is generated from. `make sdk-src` fetches it; `make regen` regenerates this repo from it. Edit the SDK project model, not this file.",
+  "repo": "https://github.com/voxgig-sdk/github-sdk",
+  "tag": "v0.0.3",
+  "dir": ".sdksrc/github-sdk",
+  "package": "@voxgig-sdk/github-sdk",
+  "version": "0.0.3"
+}

@@ -325,9 +325,10 @@ edit: the edit will not survive. The next generation run overwrites this
 repository, without a merge and without a warning. A fix applied here is a fix
 that has to be applied again, silently, forever.
 
-The source of truth is the SDK project's model — `../../voxgig-sdk/github-sdk` from
-here, if both are checked out — together with the sdkgen component that emits
-this target. A change to *what* the API offers belongs in the model; a change to
+The source of truth is the SDK project's model — the repository and tag named
+in `sdk-pin.json`, which `make sdk-src` fetches to `.sdksrc/github-sdk` —
+together with the sdkgen component that emits this target. A change to *what*
+the API offers belongs in the model; a change to
 *how* the provider expresses it belongs in the component. Both are versioned,
 both regenerate every provider built this way rather than just this one, and
 both are where a fix is worth making. See
