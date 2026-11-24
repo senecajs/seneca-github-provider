@@ -12,7 +12,7 @@ generated from the same specification by
 [@voxgig/sdkgen](https://github.com/voxgig/sdkgen) — do not edit it by hand,
 change the model and regenerate.
 
-See [seneca-entity](https://github.com/senecajs/seneca-entity) and the [Seneca Data
+See [@seneca/entity](https://github.com/senecajs/seneca-entity) and the [Seneca Data
 Entities
 Tutorial](https://senecajs.org/docs/tutorials/understanding-data-entities.html)
 for more details on the Seneca entity API.
@@ -46,10 +46,9 @@ Full documentation lives in [`doc/`](doc/README.md) and follows the
 const Seneca = require('seneca')
 
 const seneca = Seneca()
-  .use('promisify')
-  .use('entity')
-  .use('env', { var: { $GITHUB_APIKEY: '' } })
-  .use('provider', {
+  .use('@seneca/entity')
+  .use('@seneca/env', { var: { $GITHUB_APIKEY: '' } })
+  .use('@seneca/provider', {
     provider: {
       github: {
         keys: { apikey: { value: '$GITHUB_APIKEY' } },
@@ -76,7 +75,7 @@ npm install @seneca/github-provider
 This plugin expects the Seneca host framework to be present:
 
 ```sh
-npm install seneca seneca-entity seneca-promisify @seneca/provider @seneca/env
+npm install seneca@^4 @seneca/entity @seneca/provider @seneca/env
 ```
 
 
@@ -743,7 +742,7 @@ await action
 ```
 
 > **`make$({ action$: 'permission' })` does not work**, and cannot.
-> `seneca-entity`'s `make$` copies only keys without a `$`, plus the four
+> `@seneca/entity`'s `make$` copies only keys without a `$`, plus the four
 > directives it knows by name (`id$`, `merge$`, `custom$`, `directive$`),
 > so any other trailing-`$` key is dropped before this plugin sees it —
 > there is nothing left for it to refuse. Use `directive$` as above, or
@@ -767,7 +766,7 @@ await seneca.entity('provider/github/action')
 ## Action Patterns
 
 Every message pattern this plugin registers. The entity actions are the ones
-`seneca-entity` dispatches to when you call `list$` / `load$` / `save$` /
+`@seneca/entity` dispatches to when you call `list$` / `load$` / `save$` /
 `remove$` on a canon below — you rarely post them by hand, but they are what
 appears in a Seneca log, and a plugin that documents one of nine is a plugin
 whose logs cannot be read.

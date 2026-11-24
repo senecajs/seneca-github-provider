@@ -18,12 +18,12 @@ server, a network connection, or credentials.
 $ mkdir github-demo
 $ cd github-demo
 $ npm init -y
-$ npm install seneca seneca-entity seneca-promisify @seneca/provider @seneca/github-provider
+$ npm install seneca@^4 @seneca/entity @seneca/provider @seneca/github-provider
 ```
 
-The first four are the Seneca host: the framework itself, the entity
-API, the promise wrapper that makes calls awaitable, and the shared
-machinery every Seneca provider is built on. The last is this plugin,
+The first three are the Seneca host: the framework itself (Seneca 4 or
+later, whose messages are already awaitable), the entity API, and the
+shared machinery every Seneca provider is built on. The last is this plugin,
 which brings the GitHub v3 REST SDK with it.
 
 ## Step 2: Connect
@@ -50,9 +50,8 @@ const SEED = {
 
 async function main() {
   const seneca = await Seneca({ legacy: false })
-    .use('promisify')
-    .use('entity')
-    .use('provider', {
+    .use('@seneca/entity')
+    .use('@seneca/provider', {
       provider: {
         github: {
           keys: {

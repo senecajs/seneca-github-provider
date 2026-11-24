@@ -40,21 +40,19 @@ declared in this package's `package.json`.
 | Package | Purpose |
 | ------- | ------- |
 | `seneca` | The host framework. The plugin runs inside the host's instance, never its own. |
-| `seneca-entity` | The entity API the canons below are served through. |
-| `seneca-promisify` | The promise-returning message API. |
+| `@seneca/entity` | The entity API the canons below are served through. |
 | `@seneca/provider` | The provider convention, including `provider/entityBuilder`. |
 | `@seneca/env` | Resolves `$`-prefixed key values from the environment. |
 
 ## Registration
 
 The plugin name is `GithubProvider`. It must be registered after
-`entity`, `promisify` and `provider`:
+`@seneca/entity` and `@seneca/provider`:
 
 ```js
 Seneca({ legacy: false })
-  .use('promisify')
-  .use('entity')
-  .use('provider', { ... })
+  .use('@seneca/entity')
+  .use('@seneca/provider', { ... })
   .use('@seneca/github-provider', { sdk: { base: BASE } })
 ```
 
@@ -10908,7 +10906,7 @@ action's own payload.
 On a read command (`list$`, `load$`, `remove$`) `action$` is a key of
 the query. On `save$` it is a directive on the entity, set with
 `directive$({ action$: '...' })` or assigned as a property —
-`make$({ action$ })` does NOT work, because `seneca-entity`'s `make$`
+`make$({ action$ })` does NOT work, because `@seneca/entity`'s `make$`
 drops any trailing-`$` key it does not know by name.
 
 Routing is by the operation the action belongs to, not by the command:
@@ -11860,7 +11858,7 @@ empty, no header is added and startup proceeds normally — an API that needs
 no credential exercises the same path.
 
 ```js
-  .use('provider', {
+  .use('@seneca/provider', {
     provider: {
       github: {
         keys: {
